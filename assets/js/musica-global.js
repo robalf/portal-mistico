@@ -532,7 +532,7 @@
 
 
   /* Ventana de opinión para visitantes nuevos (se carga aparte) */
-  try { if (window.top === window && !document.querySelector('script[src*="opinion.js"]')) { var op = document.createElement('script'); op.src = '/assets/js/opinion.js?v=1'; op.async = true; document.head.appendChild(op); } } catch (e) {}
+  try { if (window.top === window && !document.querySelector('script[src*="opinion.js"]')) { var op = document.createElement('script'); op.src = '/assets/js/opinion.js?v=2'; op.async = true; document.head.appendChild(op); } } catch (e) {}
   function init() { mountUI(); watchIframes(); }
   if (document.readyState === 'loading') origDocAdd('DOMContentLoaded', init); else init();
 })();

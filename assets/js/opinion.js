@@ -1,6 +1,6 @@
 /* Ventana de opinión para visitantes nuevos: 1-5 estrellas + comentario, enviado por correo (FormSubmit).
    Solo se muestra una vez, en la primera visita, cuando la persona está a punto de irse (PC) o tras un rato de lectura (móvil).
-   Para probar: añade ?opinion=1 a cualquier dirección del sitio y saca el ratón por arriba de la ventana (o espera 5 s en móvil). */
+   Para probar: añade ?opinion=1 a cualquier dirección del sitio y saca el ratón por arriba de la ventana (en móvil: baja hasta el final de la página y quédate quieto 4 s). */
 (function () {
   if (window.__pmOpinion || window.top !== window) return;
   window.__pmOpinion = true;
@@ -28,12 +28,21 @@
     if (isTouch || shown || !okPage()) return;
     if (e.clientY <= 0 && (force || active >= 20)) show();
   });
-  /* Móvil: tras un rato de lectura, un aviso discreto abajo */
+  /* Móvil: nunca mientras está usando la página. Solo cuando llegó al final de la página,
+     lleva 4 segundos quieto y ya pasó al menos 20 s; o cuando vuelve a la pestaña tras haberse ido. */
   if (isTouch) {
+    var lastAct = Date.now(), wasHidden = false;
+    ['touchstart', 'touchmove', 'scroll', 'click', 'keydown'].forEach(function (ev) { window.addEventListener(ev, function () { lastAct = Date.now(); }, { passive: true }); });
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') wasHidden = true;
+      else if (wasHidden && !shown && okPage() && (force || active >= 20)) setTimeout(show, 1200);
+    });
     var t = setInterval(function () {
       if (shown) return clearInterval(t);
-      if (okPage() && active >= (force ? 5 : 50) && document.visibilityState === 'visible') { clearInterval(t); show(); }
-    }, 1500);
+      if (!okPage() || document.visibilityState !== 'visible') return;
+      var de = document.documentElement, atEnd = (window.innerHeight + window.pageYOffset) >= de.scrollHeight - 160;
+      if (atEnd && Date.now() - lastAct > 4000 && (force || active >= 20)) { clearInterval(t); show(); }
+    }, 1000);
   }
 
   function css() {
@@ -53,7 +62,7 @@
       '#pm-op .go{border:0;border-radius:999px;padding:11px 22px;background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;font-weight:600;font-size:.95rem;cursor:pointer}' +
       '#pm-op .sk{border:1px solid rgba(199,162,75,.4);border-radius:999px;padding:11px 18px;background:transparent;color:#C9CCE6;font-size:.9rem;cursor:pointer}' +
       '#pm-op .fine{margin:12px 0 0;font-size:.74rem;color:#7D84B0}' +
-      '@media(max-width:600px){#pm-op{align-items:flex-end;background:rgba(5,6,15,.35)}#pm-op .c{width:100%;border-radius:18px 18px 0 0;border-bottom:0;padding-bottom:max(20px,env(safe-area-inset-bottom))}}';
+      '@media(max-width:600px){#pm-op{align-items:flex-end;background:transparent}#pm-op .c{width:100%;border-radius:18px 18px 0 0;border-bottom:0;padding-bottom:max(20px,env(safe-area-inset-bottom))}}';
     document.head.appendChild(s);
   }
 

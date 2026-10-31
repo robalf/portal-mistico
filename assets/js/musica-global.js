@@ -409,6 +409,30 @@
     }).then(function (html) {
       if (my !== navToken) return;
       var doc = new DOMParser().parseFromString(html, 'text/html');
+      // Precargar (sin aplicar) las hojas de estilo propias de la página nueva, para que al cambiar
+      // el contenido ya estén listas y no se vea la página sin estilo ni un destello blanco.
+      var have = {};
+      Array.prototype.forEach.call(document.head.querySelectorAll('link[rel~="stylesheet"]'), function (l) { have[l.href] = true; });
+      var pre = [];
+      Array.prototype.forEach.call(doc.head.querySelectorAll('link[rel~="stylesheet"]'), function (l) {
+        var u; try { u = new URL(l.getAttribute('href'), href).href; } catch (e) { return; }
+        if (have[u] || new URL(u).origin !== location.origin) return;
+        have[u] = true;
+        pre.push(new Promise(function (res) {
+          var n = document.createElement('link'); n.rel = 'stylesheet'; n.href = u; n.media = 'print'; n.setAttribute('data-pm-pre', '1');
+          var done = false; function fin() { if (!done) { done = true; res(); } }
+          n.onload = fin; n.onerror = fin; setTimeout(fin, 3500);
+          document.head.appendChild(n);
+        }));
+      });
+      return Promise.all(pre).then(function () { if (my !== navToken) return; return swapIn(doc); });
+    }).catch(function () {
+      location.href = href;
+    }).then(function () {
+      document.documentElement.style.cursor = '';
+    });
+
+    function swapIn(doc) {
       teardownPage();
       swapped = true;
       if (push) history.pushState({ pm: 1 }, '', href);
@@ -418,9 +442,14 @@
       document.documentElement.lang = doc.documentElement.lang || 'es';
 
       // <head>: reemplazamos todo menos los scripts externos ya cargados y nuestro CSS
+      var newSheets = {};
+      Array.prototype.forEach.call(doc.head.querySelectorAll('link[rel~="stylesheet"]'), function (l) {
+        try { newSheets[new URL(l.getAttribute('href'), location.href).href] = true; } catch (e) {}
+      });
       var keep = function (el) {
         if (el.id === 'pm-music-css') return true;
         if (el.tagName === 'SCRIPT' && el.getAttribute('src')) return true;
+        if (el.tagName === 'LINK' && /(^|\s)stylesheet(\s|$)/i.test(el.getAttribute('rel') || '') && newSheets[el.href]) return true;
         return false;
       };
       Array.prototype.slice.call(document.head.children).forEach(function (el) { if (!keep(el)) el.remove(); });
@@ -429,9 +458,15 @@
         if (el.tagName === 'SCRIPT' && el.getAttribute('src')) {
           if (document.querySelector('head script[src="' + el.getAttribute('src') + '"]')) return;
         }
+        if (el.tagName === 'LINK' && /(^|\s)stylesheet(\s|$)/i.test(el.getAttribute('rel') || '')) {
+          var kept = false;
+          Array.prototype.forEach.call(document.head.querySelectorAll('link[rel~="stylesheet"]'), function (k) { if (k.href === el.href) kept = true; });
+          if (kept) return;
+        }
         headFrag.appendChild(document.importNode(el, true));
       });
       document.head.appendChild(headFrag);
+      Array.prototype.forEach.call(document.head.querySelectorAll('link[data-pm-pre]'), function (l) { l.removeAttribute('media'); l.removeAttribute('data-pm-pre'); });
       document.title = doc.title;
 
       // <body>
@@ -450,11 +485,7 @@
         kick();
         try { if (typeof window.gtag === 'function') window.gtag('event', 'page_view', { page_location: location.href, page_title: document.title }); } catch (e) {}
       });
-    }).catch(function () {
-      location.href = href;
-    }).then(function () {
-      document.documentElement.style.cursor = '';
-    });
+    }
   }
 
   try { history.scrollRestoration = 'manual'; } catch (e) {}

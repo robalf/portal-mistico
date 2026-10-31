@@ -47,3 +47,8 @@ Roberto NO revisa los artículos antes de publicar: la calidad depende de estas 
 
 ## Cómo sube Roberto la imagen (para recordárselo)
 En github.com/robalf/portal-mistico → carpeta `imagenes-pendientes` → Add file → Upload files → soltar la imagen con el nombre `<slug>.png` → Commit changes. La siguiente tarea la convierte y la pone como portada.
+
+## Horóscopo con cielo real (datos)
+- `juegos/horoscopo-game/cielo-data.js` contiene las posiciones diarias reales (Luna, Sol, Mercurio, Venus, Marte, Júpiter, Saturno) y las fases lunares exactas, generadas con `automation/cielo_gen.py` (requiere `pip install astronomy-engine`, ejecutar desde la raíz del repo).
+- Cubre hasta el 2 de enero de 2031. Si la fecha actual está a menos de 6 meses del final, regenerar con un rango más amplio (editar `end=` en el script). Fuera del rango el horóscopo vuelve a su texto simbólico antiguo.
+- Los textos están en `juegos/horoscopo-game/cielo-textos.js`; la lógica en `cielo.js`.

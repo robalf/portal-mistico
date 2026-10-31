@@ -1,5 +1,6 @@
 function PMS(r){try{var t=window.top;if(t!==window&&t.PortalMusic&&t.PortalMusic.sfx)return t.PortalMusic.sfx(new URL(r,location.href).href);}catch(e){}return new Audio(r);}
 import { additionalCards } from './generated-cards.js';
+import { enrich } from './tarot-extra.js?v=3';
 
 const DESIGN_WIDTH = 1920;
 const DESIGN_HEIGHT = 1080;
@@ -130,6 +131,7 @@ const arcana = [
 ];
 
 arcana.push(...additionalCards);
+arcana.forEach(enrich);
 
 const music = (function(){try{var t=window.top;if(t!==window&&t.PortalMusic)return t.PortalMusic.proxy;}catch(e){}return null;})() || new Audio('/assets/audio/musica-portal.mp3');
 music.loop = true;
@@ -476,7 +478,7 @@ async function chooseCard(index) {
   play(selectSound);
   const slotIndex = chosen.length;
   const available = arcana.filter(a => !chosen.some(c => c.name === a.name));
-  const readingCard = available[Math.floor(Math.random() * available.length)];
+  const readingCard = { ...available[Math.floor(Math.random() * available.length)], reversed: Math.random() < 0.3 };
   chosen.push(readingCard);
   cards[index].classList.add('used');
   cards[index].classList.remove('active');
@@ -538,7 +540,9 @@ function promptForPosition(index) {
 function createCard(data, className) {
   const el = document.createElement('div');
   el.className = className;
-  el.innerHTML = `<div class="card-inner"><div class="card-side card-back"></div><div class="card-side card-face" style="background-image:url('${data.image}')"><div class="card-name">${data.name}</div></div></div>`;
+  el.innerHTML = data.reversed
+    ? `<div class="card-inner"><div class="card-side card-back"></div><div class="card-side card-face"><div class="face-art" style="background-image:url('${data.image}')"></div><div class="card-name">${data.name}</div></div></div>`
+    : `<div class="card-inner"><div class="card-side card-back"></div><div class="card-side card-face" style="background-image:url('${data.image}')"><div class="card-name">${data.name}</div></div></div>`;
   return el;
 }
 
@@ -562,10 +566,10 @@ function openReading() {
   const grid = document.querySelector('#reading-grid');
   grid.className = `reading-grid ${chosen.length === 1 ? 'single-reading' : 'three-reading'}`;
   grid.innerHTML = chosen.map((c, i) => `<article class="reading-item">
-    <div class="reading-art" style="background-image:url('${c.image}')" aria-label="${c.name}"></div>
+    <div class="reading-art${c.reversed ? ' rev' : ''}" style="background-image:url('${c.image}')" aria-label="${c.name}${c.reversed ? ' (invertida)' : ''}"></div>
     <div class="reading-copy">
       <div class="time">${positions[i].label}${positions[i].sub ? ` · ${positions[i].sub}` : ''}</div>
-      <h3>${c.name}</h3>
+      <h3>${c.name}${c.reversed ? ' <small class="rev-tag">· invertida</small>' : ''}</h3>
       <div class="reading-section"><span>Interpretación de tu tirada</span><p>${contextualMeaning(c)}</p></div>
       <div class="reading-section insight"><span>Clave práctica</span><p>${cardGuidance(c)}</p></div>
       <div class="reading-section reflection"><span>Pregunta para contemplar</span><p>${readingQuestion(c, i)}</p></div>
@@ -591,10 +595,12 @@ function openReading() {
 }
 
 function contextualMeaning(card) {
+  if (card.reversed && card.rev) return card.rev.meanings[currentType.id] || `${card.name}, invertida, habla de ${card.rev.theme}. ${card.rev.advice}`;
   return card.meanings[currentType.id] || card.meaning;
 }
 
 function cardGuidance(card) {
+  if (card.reversed && card.rev) return card.rev.guidance[currentType.id] || card.rev.advice;
   if (card.guidance?.[currentType.id]) return card.guidance[currentType.id];
   const focus = {
     daily: 'el día de hoy',
@@ -651,6 +657,8 @@ function renderSpecialReading(mode) {
 
 function synthesis() {
   const names = chosen.map(c => c.name);
+  const nInv = chosen.filter(c => c.reversed).length;
+  if (nInv === chosen.length && chosen.length > 1) return 'Todas las cartas salieron invertidas: no es un mal presagio, sino una invitación a mirar hacia adentro, revisar lo que se bloquea y ajustar despacio antes de actuar.';
   if (names.includes('El Sol') && names.includes('La Estrella')) return 'La claridad y la esperanza se responden: aquello que comenzó como intuición puede convertirse en una dirección luminosa si eliges actuar con sencillez.';
   if (names.includes('La Luna') && names.includes('La Sacerdotisa')) return 'Esta tirada subraya tu sensibilidad. No necesitas forzar una certeza inmediata; tu mejor brújula será observar lo que se repite en sueños, emociones y silencios.';
   if (names.includes('La Rueda')) return 'Hay movimiento entre las tres lunas. Honra lo aprendido, permanece atento al giro actual y deja espacio para una posibilidad que todavía no tiene nombre.';

@@ -145,6 +145,7 @@ function enviarComentario(texto){
   var key = 'comments_' + location.pathname.split('/').pop();
   var list = document.getElementById('commentList');
   function render(){
+    if(!list) return;
     var data = JSON.parse(localStorage.getItem(key) || '[]');
     list.innerHTML = '';
     data.slice().reverse().forEach(function(c){

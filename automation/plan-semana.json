@@ -1,1 +1,21 @@
-{"semana":null,"herramienta":null,"viral":null}
+{
+ "semana": "2026-11-02",
+ "herramienta": {
+  "url": "juegos/tarot-del-dia.html",
+  "nombre": "Tarot del día",
+  "slug": "tarot-del-dia-carta-diaria",
+  "titulo": "Tarot del día: cómo sacar tu carta diaria y leer su mensaje",
+  "angulo": "Ritual breve de una carta al día: cómo formular la intención, interpretar arcano mayor/menor, cartas invertidas y llevar un diario. Sin repetir tirada de tres cartas ni tarot del amor."
+ },
+ "viral": {
+  "tema": "Lluvia de estrellas Leónidas 2026 (noche del 17 al 18 de noviembre): significado simbólico y cómo usar la noche",
+  "slug": "leonidas-2026-lluvia-de-estrellas",
+  "titulo": "Leónidas 2026: lluvia de estrellas y su significado simbólico",
+  "notas": "Datos verificados: pico noche 17-18 nov 2026; 10-15 meteoros/hora; Luna cerca del cuarto creciente (EarthSky: cuarto creciente 17 nov 11:48 UTC; RMG y Almanac: creciente gibosa), se pone hacia medianoche; radiante en Leo; cometa 55P/Tempel-Tuttle; sin tormenta esperada. Presentar como adelanto del evento. Usar fase lunar de datos-astro.js para la parte simbólica; decir 'cerca del cuarto creciente'.",
+  "fuentes": [
+   "https://earthsky.org/astronomy-essentials/everything-you-need-to-know-leonid-meteor-shower/",
+   "https://www.rmg.co.uk/stories/space-astronomy/leonid-meteor-shower-when-and-where-see-it-uk",
+   "https://www.almanac.com/content/meteor-shower-calendar"
+  ]
+ }
+}

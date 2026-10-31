@@ -1,0 +1,96 @@
+# Portal Místico
+
+> Portal esotérico gratuito en español: tarot, horóscopo, numerología, quiromancia, aura y signos del zodiaco. Herramientas interactivas sin registro y guías escritas por Roberto Rodriguez.
+
+## Herramientas
+- [Tarot online gratis: lecturas con las 78 cartas](https://elportalmistico.com/juegos/tarot.html): Arcana Nocturna es nuestra herramienta de tarot online. Usa la baraja completa de 78 cartas —los 22 Arcanos Mayores y los 56 Arcanos Menores— para…
+- [Horóscopo de hoy, mañana, semanal y mensual](https://elportalmistico.com/juegos/horoscopo.html): Cielo Zodiacal es nuestro horóscopo interactivo para los 12 signos. Elige tu signo y consulta la predicción de hoy, de mañana, de la semana o del mes,…
+- [Calculadora de numerología gratis](https://elportalmistico.com/juegos/numerologia.html): Luna Numerológica reúne cinco calculadoras de numerología en un solo lugar. Escribe tu fecha de nacimiento o tu nombre y obtén al instante tu número…
+- [Quiromancia online: lee las líneas de tu mano](https://elportalmistico.com/juegos/quiromancia.html): Mano del Destino es nuestra herramienta de quiromancia. Te guía para fotografiar tus palmas, observa las líneas principales y te ofrece una interpretación…
+- [Test de aura: descubre el color de tu energía](https://elportalmistico.com/juegos/aura.html): Aura Celestial es nuestro test de aura online. A través de cuatro encuestas sobre tu personalidad, tus emociones y tu forma de relacionarte, calcula el…
+- [Oráculo de los signos: amor y zodiaco](https://elportalmistico.com/juegos/signos.html): El Oráculo de los Signos responde las preguntas que todos nos hacemos sobre el amor y el zodiaco. Elige una pregunta, busca el signo de la persona que te…
+- [Interpretar sueños y mensajes angelicales](https://elportalmistico.com/juegos/novedades.html): El Oráculo Místico reúne seis herramientas para explorar símbolos, vínculos y percepción. Puedes interpretar tus sueños, poner a prueba tu intuición,…
+- [Fase lunar de hoy y calendario lunar](https://elportalmistico.com/juegos/brujula.html): Consulta gratis la fase de la Luna de hoy, en qué signo está, el ritual lunar del día, los planetas retrógrados y el calendario lunar del mes.
+- [Carta astral gratis con interpretación](https://elportalmistico.com/juegos/carta-astral.html): Calcula tu carta natal con tu fecha, hora y lugar de nacimiento: signo solar, Luna, ascendente, las 12 casas (Placidus) y los aspectos, con su significado en español.
+- [Calcular ascendente gratis](https://elportalmistico.com/juegos/calcular-ascendente.html): Calcula tu signo ascendente con tu fecha, hora y ciudad de nacimiento: cómo te ven los demás y tu planeta regente.
+- [Calcular signo lunar gratis](https://elportalmistico.com/juegos/signo-lunar.html): Tu signo lunar, tu forma de amar y la fase de la Luna cuando naciste.
+- [Oráculo de Respuestas](https://elportalmistico.com/juegos/oraculo-de-respuestas.html): Seis oráculos gratis: tarot sí o no, runas, I Ching, sinastría, revolución solar y tránsitos de hoy.
+- [Tarot sí o no](https://elportalmistico.com/juegos/tarot-si-o-no.html): Una carta de las 78 responde sí, no o quizás, con su explicación.
+- [Tirada de runas](https://elportalmistico.com/juegos/runas.html): Una runa o tres (pasado, presente y futuro) con las 24 runas del Futhark antiguo.
+- [I Ching](https://elportalmistico.com/juegos/i-ching.html): Lanzamiento de tres monedas seis veces, hexagrama, líneas que cambian y consejo de los 64 hexagramas.
+- [Sinastría de pareja](https://elportalmistico.com/juegos/sinastria.html): Compara dos cartas astrales: afinidad en amor, pasión, emoción, diálogo y futuro, con los aspectos entre ambas.
+- [Revolución solar](https://elportalmistico.com/juegos/revolucion-solar.html): La carta del regreso del Sol a su posición natal: lo que trae tu año en 5 claves.
+- [Tránsitos de hoy](https://elportalmistico.com/juegos/transitos.html): Los aspectos de los planetas de hoy a tu carta natal, con índices de energía y amor del día.
+- [¿Cuál es mi ángel de la guarda?](https://elportalmistico.com/juegos/angel-de-la-guarda.html): Tu ángel protector entre los 72 ángeles de la cábala según tu fecha de nacimiento.
+
+- [Cómo conquistar a cada signo del zodiaco](https://elportalmistico.com/juegos/como-conquistar-a-cada-signo.html): Descubre cómo conquistar a cada signo del zodiaco: qué le atrae a Aries, Tauro, Géminis y los demás signos, y la clave para llegar a su corazón.
+- [Compatibilidad amorosa de cada signo](https://elportalmistico.com/juegos/compatibilidad-amorosa-de-cada-signo.html): Elige tu signo y descubre con qué signos tienes una conexión natural, una energía estimulante y una sorpresa feliz en el amor.
+- [Cómo besa cada signo del zodiaco](https://elportalmistico.com/juegos/como-besa-cada-signo.html): ¿Cómo besa Aries, Escorpio o Piscis? Elige un signo y descubre su lenguaje secreto al acercarse, según la astrología.
+- [Qué regalarle a cada signo del zodiaco](https://elportalmistico.com/juegos/que-regalarle-a-cada-signo.html): Ideas de regalos para cada signo del zodiaco: elige el signo de esa persona y descubre qué detalle con intención le hará más ilusión.
+- [Por qué enamorarte de cada signo](https://elportalmistico.com/juegos/por-que-enamorarte-de-cada-signo.html): Lo mejor de cada signo en el amor: elige un signo y descubre la luz especial que trae a tu vida y por qué vale la pena enamorarse de él.
+- [Celos e infidelidad según cada signo](https://elportalmistico.com/juegos/celos-e-infidelidad-segun-tu-signo.html): ¿Qué signos son más celosos? Elige un signo y descubre cómo vive los celos, la confianza y los límites en una relación, según la astrología.
+- [Cómo afronta una ruptura cada signo](https://elportalmistico.com/juegos/como-afronta-una-ruptura-cada-signo.html): ¿Cómo supera una ruptura cada signo? Elige un signo y descubre su manera de sanar, cerrar la etapa y volver a empezar.
+- [Horóscopo chino: ¿cuál es mi animal?](https://elportalmistico.com/juegos/horoscopo-chino.html): Escribe tu año de nacimiento y descubre tu animal del horóscopo chino entre los 12 del zodiaco chino, con su significado y su energía.
+- [Significado de los sueños: interpreta tu sueño](https://elportalmistico.com/juegos/significado-de-los-suenos.html): Escribe tu sueño con tus palabras y descubre su significado: un diccionario de más de 500 símbolos que interpreta el conjunto de tu sueño.
+- [Test de intuición: ¿cuánto confías en tu sexto sentido?](https://elportalmistico.com/juegos/test-de-intuicion.html): Pon a prueba tu intuición con un juego de cinco rondas de percepción extrasensorial: adivina el símbolo oculto y mira tu puntuación y tu mejor racha.
+- [Rituales y hechizos sencillos](https://elportalmistico.com/juegos/rituales-y-hechizos.html): Rituales y hechizos sencillos para enfocar tu intención: protección, abundancia y amor, con los materiales y los pasos explicados.
+- [Compatibilidad entre dos signos](https://elportalmistico.com/juegos/compatibilidad-entre-signos.html): Elige dos signos y descubre qué tienen en común, dónde pueden chocar y cómo complementarse en el amor, la amistad o el trabajo.
+- [Padres e hijos según el horóscopo chino](https://elportalmistico.com/juegos/compatibilidad-padres-e-hijos-horoscopo-chino.html): Descubre la afinidad entre padres e hijos según los animales del horóscopo chino: cómo se entienden, en qué chocan y cómo acompañarse.
+- [Mensajes angelicales: tu mensaje de hoy](https://elportalmistico.com/juegos/mensajes-angelicales.html): Gira la rueda de los nueve coros angelicales una vez al día y recibe un mensaje, un símbolo y una intención para tu jornada.
+- [Tus números de la suerte de hoy](https://elportalmistico.com/juegos/numeros-de-la-suerte-hoy.html): Elige tu signo y recibe tus cinco números de la suerte de hoy, del 1 al 49, junto con la clave numerológica del día. Cambian cada día.
+- [Calcula tu número de vida](https://elportalmistico.com/juegos/calcular-numero-de-vida.html): Calcula tu número de vida con tu fecha de nacimiento y descubre los dones de tu esencia, incluidos los números maestros 11, 22 y 33.
+- [Tu año personal 2027 en numerología](https://elportalmistico.com/juegos/ano-personal-2027.html): Calcula tu año personal 2027 con tu día y mes de nacimiento y descubre la energía que acompañará tu camino durante el año.
+- [Compatibilidad de nombres](https://elportalmistico.com/juegos/compatibilidad-de-nombres.html): Escribe dos nombres y descubre su compatibilidad numerológica: el porcentaje de afinidad entre sus vibraciones y cómo se complementan.
+- [Personalidad según tu nombre](https://elportalmistico.com/juegos/personalidad-segun-tu-nombre.html): Escribe tu nombre completo y descubre la vibración que expresa según la numerología: cómo te presentas, cómo te relacionas y cómo creas.
+- [Tarot del día: tu carta de hoy](https://elportalmistico.com/juegos/tarot-del-dia.html): Saca tu carta del tarot del día gratis con la baraja completa de 78 cartas y recibe su mensaje y un consejo para tu jornada.
+- [Tarot pasado, presente y futuro](https://elportalmistico.com/juegos/tarot-pasado-presente-futuro.html): Haz gratis la tirada de tarot de pasado, presente y futuro: tres cartas que muestran de dónde vienes, dónde estás y hacia dónde vas.
+- [Tarot del amor gratis](https://elportalmistico.com/juegos/tarot-del-amor-gratis.html): Haz gratis la tirada de tarot del amor: las cartas te hablan de tu relación, de lo que sientes, de lo que siente la otra persona y del consejo para el vínculo.
+- [Horóscopo de hoy](https://elportalmistico.com/juegos/horoscopo-de-hoy.html): Lee gratis tu horóscopo de hoy para Aries, Tauro, Géminis, Cáncer, Leo, Virgo, Libra, Escorpio, Sagitario, Capricornio, Acuario y Piscis.
+- [Horóscopo de mañana](https://elportalmistico.com/juegos/horoscopo-de-manana.html): Lee gratis tu horóscopo de mañana para Aries, Tauro, Géminis, Cáncer, Leo, Virgo, Libra, Escorpio, Sagitario, Capricornio, Acuario y Piscis.
+- [Horóscopo semanal](https://elportalmistico.com/juegos/horoscopo-semanal.html): Lee gratis tu horóscopo semanal para Aries, Tauro, Géminis, Cáncer, Leo, Virgo, Libra, Escorpio, Sagitario, Capricornio, Acuario y Piscis.
+- [Horóscopo mensual](https://elportalmistico.com/juegos/horoscopo-mensual.html): Lee gratis tu horóscopo mensual para Aries, Tauro, Géminis, Cáncer, Leo, Virgo, Libra, Escorpio, Sagitario, Capricornio, Acuario y Piscis.
+- [Fase lunar de hoy](https://elportalmistico.com/juegos/fase-lunar-hoy.html): ¿Cómo está la Luna hoy? Mira la fase lunar de hoy, su porcentaje de iluminación, en qué signo está y cuánto falta para la luna llena y la luna nueva.
+- [Ritual del día según la Luna](https://elportalmistico.com/juegos/ritual-del-dia.html): Recibe cada día un ritual sencillo y simbólico pensado para la fase lunar de hoy: sembrar intenciones, agradecer, ordenar o soltar.
+- [¿Está Mercurio retrógrado hoy?](https://elportalmistico.com/juegos/planetas-retrogrados-hoy.html): Comprueba si Mercurio o Venus están retrógrados hoy, hasta cuándo dura el periodo y qué conviene revisar mientras tanto.
+- [Calendario lunar del mes](https://elportalmistico.com/juegos/calendario-lunar.html): Consulta el calendario lunar del mes con la fase de cada día, las fechas de luna nueva, cuarto creciente, luna llena y cuarto menguante.
+## Guías del blog
+- [Números angelicales: significado de 111 a 999](https://elportalmistico.com/blog/numeros-angelicales-significado.html): Qué significa ver 111, 222, 333, 444, 555 y otros números repetidos según la numerología y la tradición de los ángeles, y cómo interpretarlos en tu día a día.
+- [Portal 11/11 2026: significado y ritual](https://elportalmistico.com/blog/portal-11-11-ritual.html): El 11 de noviembre de 2026 cae en miércoles. Qué es el portal 11/11 según la numerología, por qué el 11 es un número maestro y un ritual sencillo para ese día.
+- [Horóscopo 2027 para los 12 signos](https://elportalmistico.com/blog/horoscopo-2027-signos.html): Júpiter en Leo y Virgo, Saturno en Aries, el gran eclipse total del 2 de agosto y los Mercurio retrógrado de 2027: predicciones para cada signo y fechas clave.
+- [La letra M en la mano: qué significa](https://elportalmistico.com/blog/letra-m-en-la-mano.html): Cómo saber si tienes la letra M en la palma, qué líneas la forman, qué significa según la quiromancia y qué hay de mito en la leyenda que circula en redes.
+- [Horóscopo de noviembre 2026 para los 12 signos](https://elportalmistico.com/blog/horoscopo-noviembre-2026-signos.html): Fechas clave de noviembre 2026 (luna nueva en Escorpio, Mercurio y Venus directos, Sol en Sagitario, Superluna) y lectura de amor, trabajo y consejo para cada signo.
+- [Día de Muertos y Samhain 2026: ofrenda y ritual](https://elportalmistico.com/blog/dia-de-muertos-samhain-ritual-2026.html): Fechas, diferencias entre ambas tradiciones, cómo montar una ofrenda paso a paso y un ritual sencillo para recordar a tus seres queridos.
+- [Calendario lunar noviembre 2026 y rituales](https://elportalmistico.com/blog/calendario-lunar-noviembre-2026.html): Fechas y horas de las fases lunares de noviembre 2026: luna nueva en Escorpio, la Superluna del Castor en Géminis, las Leónidas y un ritual para cada fase.
+- [Almas gemelas y vidas pasadas](https://elportalmistico.com/blog/almas-gemelas-vidas-pasadas.html): La relación entre el concepto de almas gemelas y la creencia en vínculos forjados en encarnaciones anteriores.
+- [Los 22 Arcanos Mayores y su significado](https://elportalmistico.com/blog/arcanos-mayores-tarot.html): Guía completa de las 22 cartas de los Arcanos Mayores, desde El Loco hasta El Mundo.
+- [Calendario lunar octubre 2026 y rituales](https://elportalmistico.com/blog/calendario-lunar-octubre-2026.html): Fechas y horas de las fases lunares de octubre 2026, la Luna llena del Cazador, la luna nueva del 10/10 y un ritual sencillo para cada fase de la Luna.
+- [Colores del aura y su significado](https://elportalmistico.com/blog/colores-del-aura-significado.html): Guía de los colores más comunes del aura y qué revelan sobre el estado energético de una persona.
+- [Cómo saber el color de tu aura](https://elportalmistico.com/blog/como-saber-color-de-tu-aura.html): Técnicas sencillas para percibir o intuir el color dominante de tu aura sin equipos costosos.
+- [Compatibilidad de signos zodiacales](https://elportalmistico.com/blog/compatibilidad-signos-zodiacales.html): Cómo se llevan entre sí los distintos signos del zodiaco según el elemento al que pertenecen.
+- [Cómo elegir tu primera baraja de tarot](https://elportalmistico.com/blog/elegir-primera-baraja-tarot.html): Consejos prácticos para escoger tu primer mazo de tarot y mantenerlo como una herramienta sagrada.
+- [Los 4 elementos del zodiaco](https://elportalmistico.com/blog/elementos-zodiaco.html): Qué caracteriza a cada uno de los cuatro elementos astrológicos y qué signos pertenecen a cada uno.
+- [Las 4 formas de mano en quiromancia](https://elportalmistico.com/blog/formas-de-mano-quiromancia.html): La quiromancia clasifica las manos en cuatro tipos elementales: fuego, tierra, aire y agua.
+- [Horóscopo 2026 para los 12 signos](https://elportalmistico.com/blog/horoscopo-2026-signos.html): Un vistazo general a las energías astrológicas que marcarán a cada signo durante 2026.
+- [Cómo limpiar y proteger tu aura](https://elportalmistico.com/blog/limpiar-proteger-energia-aura.html): Prácticas sencillas para limpiar tu campo energético y protegerlo de influencias externas.
+- [Línea del corazón: qué revela del amor](https://elportalmistico.com/blog/linea-del-corazon-quiromancia.html): Cómo interpretar la forma, el largo y el punto de inicio de la línea del corazón en la palma de la mano.
+- [Líneas de la mano y su significado](https://elportalmistico.com/blog/lineas-de-la-mano-quiromancia.html): Introducción a las tres líneas principales de la palma y lo que representan en la lectura de manos.
+- [Mercurio retrógrado octubre 2026: fechas](https://elportalmistico.com/blog/mercurio-retrogrado-octubre-2026.html): Del 24 de octubre al 13 de noviembre de 2026 Mercurio retrograda en Escorpio, junto a Venus. Fechas, sombra, curiosidades y qué significa para tu signo.
+- [Número de camino de vida y su significado](https://elportalmistico.com/blog/numero-camino-de-vida.html): El número más importante de la numerología: cómo obtenerlo a partir de tu fecha de nacimiento.
+- [Numerología del nombre: qué revela](https://elportalmistico.com/blog/numerologia-del-nombre.html): Cómo se calcula el número de tu nombre en numerología y qué información aporta sobre tu personalidad.
+- [Numerología de tu fecha de nacimiento](https://elportalmistico.com/blog/numerologia-fecha-nacimiento.html): Cada componente de tu fecha de nacimiento —día, mes y año— aporta una capa distinta a tu perfil numerológico.
+- [Números maestros 11, 22 y 33](https://elportalmistico.com/blog/numeros-maestros-11-22-33.html): Por qué el 11, el 22 y el 33 se consideran números maestros y qué significan cuando aparecen en tu carta.
+- [Qué es el ascendente y cómo calcularlo](https://elportalmistico.com/blog/que-es-el-ascendente.html): El ascendente es la máscara con la que te presentas al mundo. Aprende qué significa y cómo saber el tuyo.
+- [Regresión a vidas pasadas: cómo hacerla](https://elportalmistico.com/blog/regresion-vidas-pasadas.html): Qué es una regresión a vidas pasadas, cómo se practica y qué precauciones conviene tomar.
+- [Señales de una vida pasada](https://elportalmistico.com/blog/senales-vida-pasada.html): Indicios comunes —según el esoterismo— de que ciertos patrones actuales provienen de vidas anteriores.
+- [Tarot del amor: qué revelan las cartas](https://elportalmistico.com/blog/tarot-del-amor.html): Las cartas del tarot más asociadas al amor y cómo interpretarlas en una lectura sentimental.
+- [Tirada de tarot de 3 cartas: guía](https://elportalmistico.com/blog/tirada-tarot-tres-cartas.html): Aprende paso a paso a realizar la tirada de tarot más popular para empezar: pasado, presente y futuro.
+
+## Otras páginas
+- [Blog esotérico](https://elportalmistico.com/blog/index.html)
+- [Tienda esotérica](https://elportalmistico.com/tienda/index.html)
+- [Sobre nosotros y autor](https://elportalmistico.com/sobre-nosotros.html)
+- [Cómo funcionan las herramientas y fuentes](https://elportalmistico.com/metodologia.html)
+- [Glosario esotérico](https://elportalmistico.com/glosario/index.html)
+- [Recursos descargables (PDF)](https://elportalmistico.com/recursos/index.html)
+- [Signos del zodiaco](https://elportalmistico.com/zodiaco/index.html)
+- [Contacto](https://elportalmistico.com/contacto.html)

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarot — Portal Místico</title>
+    <!--
+      Rosebud defaults disable accidental selection, context menus, tap highlights,
+      and native dragging during gameplay while preserving text editing. Most games
+      need no customization.
+    -->
+    <link rel="stylesheet" href="./rosebud-game-defaults.css" />
+    <script src="./rosebud-game-defaults.js" defer></script>
+    <script type="importmap">
+      {
+        "imports": {}
+      }
+    </script>
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      html, body, #game-container { width: 100%; height: 100%; min-width: 0; min-height: 0; margin: 0; padding: 0; overflow: hidden; }
+      .compact-landscape #selection-screen::-webkit-scrollbar { width:12px; }
+      .compact-landscape #selection-screen::-webkit-scrollbar-thumb { border:3px solid transparent; border-radius:10px; background:#8c5a9d; background-clip:padding-box; }
+      html, body { background: #080513; }
+      body { touch-action: auto; font-family: Montserrat, sans-serif; color: #f7e7bd; }
+      button { font: inherit; touch-action: manipulation; }
+      #game-container { position: relative; display:block; background: #080513; overscroll-behavior:none; }
+      #stage { position:relative; display:block; width:100%; height:100%; min-width:0; min-height:0; overflow:hidden; background:#080513; isolation:isolate; }
+      #stage-world { position:absolute; width:100%; height:100%; min-width:0; min-height:0; left:50%; top:50%; transform-origin:center; overflow:hidden; background:#0b0718; will-change:transform; }
+      #stage-world::before { content:""; position:absolute; inset:0; background:#0b0718 url('assets/tarot-sanctum-background.webp') center top/130% 130% no-repeat; }
+      #stage-world::after { content:""; position:absolute; inset:0; box-shadow:inset 0 0 90px 24px rgba(4,1,15,.42); pointer-events:none; z-index:20; }
+      .mist { position:absolute; width:900px; height:240px; border-radius:50%; filter:blur(55px); background:rgba(126,65,159,.12); animation:drift 12s ease-in-out infinite alternate; pointer-events:none; }
+      .mist.m1{left:-120px;top:430px}.mist.m2{right:-130px;top:300px;animation-delay:-5s}
+      @keyframes drift { to { transform:translateX(170px) scale(1.15); opacity:.55; } }
+      #stars { position:absolute; inset:0; pointer-events:none; z-index:1; }
+      .star { position:absolute; width:4px; height:4px; border-radius:50%; background:#f9d787; box-shadow:0 0 12px #ffe8a1; animation:twinkle var(--t) ease-in-out infinite alternate; }
+      @keyframes twinkle { from{opacity:.18;transform:scale(.6)} to{opacity:.9;transform:scale(1.35)} }
+      header { position:absolute; z-index:4; top:38px; left:0; right:0; text-align:center; text-shadow:0 2px 22px #160718; }
+      .eyebrow { margin:0 0 6px; font-size:14px; letter-spacing:7px; text-transform:uppercase; color:#cdae72; }
+      h1 { margin:0; font:600 48px/1.05 "Cormorant Garamond",serif; letter-spacing:2px; color:#fff0c5; transition:opacity .25s; }
+      .rule { width:380px; height:1px; margin:14px auto 0; background:linear-gradient(90deg,transparent,#c99448,transparent); position:relative; }
+      .rule::after { content:"✦"; position:absolute; left:50%; top:50%; transform:translate(-50%,-51%); padding:0 14px; color:#e1bd6e; background:#25102f; }
+      #presentation-screen { position:absolute; z-index:25; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .45s; }
+      .presentation-active #presentation-screen { opacity:1; pointer-events:auto; }
+      .presentation-active header, .presentation-active #table-ui, .selection-active header, .selection-active #table-ui { opacity:0; pointer-events:none; }
+      .presentation-frame { position:relative; width:100%; height:100%; overflow:hidden; border:0; border-radius:0; background:#0d091b url('assets/tarot-presentation-cover.webp') center/auto 84% no-repeat; background-position:center calc(50% - 36px); box-shadow:none; }
+      .presentation-frame::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,3,20,.38),rgba(8,3,20,.04) 42%,rgba(8,3,20,.42)); pointer-events:none; }
+      .presentation-frame::after { content:""; position:absolute; inset:0; border:0; border-radius:0; box-shadow:inset 0 0 60px rgba(255,211,126,.08); pointer-events:none; }
+      .presentation-badge { position:absolute; z-index:1; top:38px; left:42px; margin:0; padding:13px 22px 11px; border-radius:7px; background:rgba(29,24,28,.88); color:#f9ed8a; font:600 18px Montserrat,sans-serif; letter-spacing:4px; text-transform:uppercase; box-shadow:0 8px 18px rgba(0,0,0,.28); }
+      .presentation-title { position:absolute; z-index:1; top:74px; left:0; right:0; margin:0; text-align:center; color:#f8dfa1; font:600 170px/.9 "Cormorant Garamond",serif; letter-spacing:10px; text-shadow:0 3px 0 #3b1e27,0 0 18px rgba(255,215,137,.5),0 9px 20px rgba(0,0,0,.7); }
+      .presentation-subtitle { position:absolute; z-index:1; top:248px; left:0; right:0; margin:0; text-align:center; color:#ead7b0; font:500 24px Montserrat,sans-serif; letter-spacing:8px; text-transform:uppercase; text-shadow:0 2px 10px #07030d; }
+      .presentation-actions { position:absolute; z-index:2; left:0; right:0; bottom:42px; display:flex; flex-direction:column; align-items:center; gap:14px; }
+      .presentation-actions p { margin:0; color:#f3e4c5; font:27px "Cormorant Garamond",serif; text-shadow:0 2px 8px #08030e; }
+      #begin-reading { min-width:360px; padding:21px 42px; border:1px solid #efd18a; border-radius:34px; background:linear-gradient(135deg,rgba(100,51,76,.96),rgba(42,26,61,.96)); color:#fff1c4; box-shadow:0 0 28px rgba(239,196,105,.3),0 12px 25px rgba(0,0,0,.35); cursor:pointer; letter-spacing:3px; text-transform:uppercase; font-size:21px; transition:transform .2s,box-shadow .2s,background .2s; }
+      #begin-reading:hover, #begin-reading:focus-visible { transform:translateY(-3px); background:linear-gradient(135deg,rgba(133,70,94,.98),rgba(57,31,77,.98)); box-shadow:0 0 38px rgba(239,196,105,.48),0 15px 30px rgba(0,0,0,.4); outline:none; }
+      #selection-screen { position:absolute; z-index:25; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; touch-action:pan-y; transition:opacity .35s; }
+      .selection-active #selection-screen { z-index:50; opacity:1; visibility:visible; pointer-events:auto; }
+      .selection-active #reading { opacity:0; visibility:hidden; pointer-events:none; transition:none; }
+      .presentation-active #selection-screen { opacity:0; pointer-events:none; }
+      .selection-panel { width:100%; min-height:100%; padding:150px 78px 70px; border:0; border-radius:0; background:transparent; box-shadow:none; text-align:center; transform:translateY(0); }
+      .selection-panel h2 { margin:0; font:600 72px "Cormorant Garamond",serif; color:#ffedbd; text-shadow:0 3px 16px rgba(0,0,0,.7); }
+      .selection-active #table-ui { opacity:0; pointer-events:none; }
+      .selection-intro { margin:10px auto 36px; color:#d8c9dd; font:29px "Cormorant Garamond",serif; text-shadow:0 2px 12px rgba(0,0,0,.75); }
+      .type-options { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+      .type-option { position:relative; min-height:410px; padding:24px 18px 25px; border:1px solid rgba(217,177,97,.46); border-radius:16px; background:linear-gradient(155deg,rgba(35,17,52,.74),rgba(8,4,20,.78)); color:#f7e7bd; cursor:pointer; text-align:center; transition:transform .25s,border-color .25s,box-shadow .25s,background .25s; }
+      .type-option:hover, .type-option:focus-visible { transform:translateY(-9px); border-color:#e6c16c; background:linear-gradient(155deg,rgba(103,56,112,.86),rgba(27,11,42,.94)); box-shadow:0 18px 36px rgba(0,0,0,.4),0 0 26px rgba(226,189,108,.22); outline:none; }
+      .type-art { display:block; width:166px; height:264px; margin:0 auto 18px; border-radius:8px; background-position:center; background-size:100% 100%; box-shadow:0 8px 18px rgba(0,0,0,.48),0 0 0 1px rgba(247,212,137,.55); }
+      .type-option-copy { display:flex; flex-direction:column; align-items:center; gap:7px; }
+      .type-option strong { font:600 39px/1.05 "Cormorant Garamond",serif; color:#f4dca1; }
+      .type-option small { color:#c39ed1; font:500 14px Montserrat,sans-serif; letter-spacing:2px; text-transform:uppercase; }
+      .type-option em { min-height:62px; color:#e0d2e3; font:23px/1.25 "Cormorant Garamond",serif; font-style:normal; }
+      .type-arrow { display:block; margin-top:10px; color:#d8b76c; font-size:14px; }
+      @media (max-aspect-ratio: 1/1) {
+        #selection-screen { inset:0; display:block; overflow-y:auto; overflow-x:hidden; padding:0 0 28px; touch-action:auto; }
+        .selection-panel { width:100%; margin:0; padding:48px 38px 72px; }
+        .selection-panel h2 { font-size:60px; line-height:1.08; }
+        .selection-intro { font-size:27px; line-height:1.25; margin:12px auto 32px; }
+        .presentation-frame { background-size:contain; background-position:center calc(50% - 36px); background-color:#0d091b; }
+        .presentation-badge { top:28px; left:28px; padding:10px 16px 9px; font-size:15px; letter-spacing:3px; }
+        .presentation-title { top:300px; font-size:220px; letter-spacing:14px; }
+        .presentation-subtitle { top:518px; font-size:30px; letter-spacing:9px; }
+        .presentation-actions { bottom:420px; gap:22px; }
+        .presentation-actions p { font-size:34px; }
+        #begin-reading { min-width:470px; font-size:25px; padding:25px 52px; }
+        .type-options { grid-template-columns:1fr; gap:20px; }
+        .type-option { display:grid; grid-template-columns:220px minmax(0,1fr) 36px; align-items:center; min-height:360px; padding:22px 24px; text-align:left; }
+        .type-art { width:190px; height:300px; margin:0 auto; }
+        .type-option-copy { align-items:flex-start; gap:8px; padding-left:14px; }
+        .type-option strong { font-size:52px; line-height:1.02; }
+        .type-option small { font-size:16px; letter-spacing:3px; }
+        .type-option em { min-height:0; font-size:29px; line-height:1.2; }
+        .type-arrow { margin:0; font-size:26px; }
+      }
+      .portrait-layout #selection-screen { display:block; overflow-y:auto; overflow-x:hidden; padding:0 0 28px; touch-action:pan-y; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
+      .portrait-layout .selection-panel { width:100%; margin:0; padding:520px 38px 72px; }
+      .portrait-layout .selection-panel h2 { font-size:60px; line-height:1.08; }
+      .portrait-layout .selection-intro { font-size:27px; line-height:1.25; margin:12px auto 32px; }
+      .portrait-layout .type-options { grid-template-columns:1fr; gap:20px; }
+      .portrait-layout .type-option { display:flex; align-items:center; gap:20px; height:270px; padding:0 20px; text-align:left; }
+      .portrait-layout .type-art { flex:0 0 auto; width:158px; height:238px; margin:0; }
+      .portrait-layout .type-option-copy { flex:1 1 auto; min-width:0; align-items:flex-start; gap:8px; padding-left:6px; }
+      .portrait-layout .type-option strong { font-size:58px; line-height:1.05; }
+      .portrait-layout .type-option small { font-size:19px; letter-spacing:3px; }
+      .portrait-layout .type-option em { min-height:0; font-size:32px; line-height:1.24; }
+      .portrait-layout .type-arrow { margin:0; font-size:26px; }
+      .portrait-layout #stage-world::before { transform:none; background:#0b0718 url('assets/tarot-sanctum-background.webp') center/cover no-repeat; }
+      .portrait-layout #details-button { top:1800px; min-width:520px; padding:30px 42px; font-size:34px; border-radius:48px; }
+      .portrait-layout header { top:198px; }
+      .portrait-layout #current-type { top:288px; }
+      .portrait-layout #prompt { top:328px; }
+      .portrait-layout #deck { left:50%; top:515px; width:1050px; height:400px; transform:translateX(-50%); }
+      .portrait-layout .deck-card { width:112px; height:182px; border-radius:11px; }
+      .portrait-layout #counter { top:838px; }
+      .portrait-layout #spread { top:965px; }
+      @media (orientation: landscape) and (max-height: 800px) {
+        #presentation-screen { display:block; overflow-y:auto; overflow-x:hidden; padding:0; touch-action:pan-y; }
+        .presentation-frame { height:100%; min-height:100%; background-position:center calc(50% - 36px); }
+        .presentation-badge { top:16px; left:24px; padding:8px 14px 7px; font-size:12px; letter-spacing:2px; }
+        .presentation-title { top:82px; font-size:80px; line-height:.9; letter-spacing:4px; }
+        .presentation-subtitle { top:170px; font-size:14px; letter-spacing:3px; }
+        .presentation-actions { bottom:-48px; gap:5px; }
+        .presentation-actions p { position:relative; top:-156px; font-size:16px; transform:none; }
+        #begin-reading { min-width:280px; padding:12px 26px; font-size:15px; }
+
+        #selection-screen { display:block; height:100%; max-height:100%; overflow-y:auto; overflow-x:hidden; padding:0 0 18px; touch-action:pan-y; }
+        .selection-panel { height:auto; min-height:100%; margin:0; padding:14px 48px 34px; transform:none; }
+        .selection-panel h2 { font-size:38px; line-height:1; }
+        .selection-intro { max-width:1100px; margin:4px auto 12px; font-size:16px; line-height:1.05; }
+        .type-options { gap:10px 14px; }
+        .type-option { display:grid; grid-template-columns:88px minmax(0,1fr) 18px; align-items:center; min-height:0; height:166px; padding:10px; text-align:left; }
+        .type-art { width:76px; height:122px; margin:0 auto; }
+        .type-option-copy { align-items:flex-start; gap:2px; padding-left:8px; }
+        .type-option strong { font-size:22px; line-height:1; }
+        .type-option small { font-size:9px; letter-spacing:1px; }
+        .type-option em { min-height:0; font-size:14px; line-height:1.08; }
+        .type-arrow { margin:0; font-size:10px; }
+      }
+      .compact-landscape #presentation-screen { display:block; overflow-y:auto; overflow-x:hidden; height:100%; max-height:100%; padding:0; touch-action:pan-y; overscroll-behavior:contain; }
+      .compact-landscape .presentation-frame { min-height:100%; height:100%; background-position:center calc(50% - 36px); }
+      .compact-landscape .presentation-badge { top:16px; left:24px; padding:8px 14px 7px; font-size:12px; letter-spacing:2px; }
+      .compact-landscape .presentation-title { top:82px; font-size:80px; line-height:.9; letter-spacing:4px; }
+      .compact-landscape .presentation-subtitle { top:170px; font-size:14px; letter-spacing:3px; }
+      .compact-landscape .presentation-actions { bottom:-48px; gap:5px; }
+      .compact-landscape .presentation-actions p { position:relative; top:-156px; font-size:16px; transform:none; }
+      .compact-landscape #begin-reading { min-width:280px; padding:12px 26px; font-size:15px; }
+      .compact-landscape #selection-screen { display:block; height:100%; max-height:100%; overflow-y:scroll; overflow-x:hidden; padding:0 0 24px; touch-action:none; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; scrollbar-gutter:stable; }
+      .compact-landscape .selection-panel { height:auto; min-height:100%; margin:0; padding:14px 48px 34px; transform:none; }
+      .compact-landscape .selection-panel h2 { font-size:38px; line-height:1; }
+      .compact-landscape .selection-intro { max-width:1100px; margin:4px auto 12px; font-size:16px; line-height:1.05; }
+      .compact-landscape .type-options { gap:10px 14px; padding-bottom:18px; }
+      .compact-landscape .type-option { display:grid; grid-template-columns:88px minmax(0,1fr) 18px; align-items:center; min-height:0; height:166px; padding:10px 10px; text-align:left; }
+      .compact-landscape .type-art { width:76px; height:122px; margin:0 auto; }
+      .compact-landscape .type-option-copy { align-items:flex-start; gap:2px; padding-left:8px; }
+      .compact-landscape .type-option strong { font-size:22px; line-height:1; }
+      .compact-landscape .type-option small { font-size:9px; letter-spacing:1px; }
+      .compact-landscape .type-option em { min-height:0; font-size:14px; line-height:1.08; }
+      .compact-landscape .type-arrow { margin:0; font-size:10px; }
+      #table-ui { position:absolute; z-index:6; inset:0; opacity:1; transition:opacity .35s; }
+      #table-ui::before { content:""; position:absolute; z-index:0; left:50%; top:104px; width:1180px; height:780px; transform:translateX(-50%); border-radius:48% 48% 24% 24%; background:radial-gradient(ellipse at 50% 18%,rgba(255,211,126,.16),rgba(125,73,157,.09) 38%,rgba(12,6,28,0) 74%); box-shadow:inset 0 0 90px rgba(255,211,126,.04); pointer-events:none; }
+      #table-ui::after { content:""; position:absolute; z-index:1; left:50%; top:382px; width:1px; height:82px; transform:translateX(-50%); background:linear-gradient(180deg,rgba(226,189,108,0),rgba(226,189,108,.6),rgba(226,189,108,0)); opacity:.7; pointer-events:none; }
+      .selection-active #table-ui { opacity:0; pointer-events:none; }
+      #current-type { display:none; }
+      #prompt { position:absolute; z-index:8; top:122px; left:0; right:0; text-align:center; font:500 32px/1.15 "Cormorant Garamond",serif; color:#eadbbd; letter-spacing:.5px; transition:opacity .25s; }
+      #deck { position:absolute; z-index:5; left:50%; top:194px; width:900px; height:250px; transform:translateX(-50%); cursor:pointer; }
+      .deck-card { position:absolute; width:96px; height:156px; border-radius:10px; pointer-events:none; background:url('assets/celestial-tarot-back.webp') center/100% 100% no-repeat; box-shadow:0 7px 16px rgba(0,0,0,.56),0 0 0 1px rgba(242,203,120,.45); transform-origin:50% 100%; transition:filter .18s, opacity .25s; will-change:transform,left,top; }
+      .deck-card.active { filter:brightness(1.32) drop-shadow(0 0 12px rgba(251,211,121,.85)); z-index:200!important; }
+      .deck-card.used { opacity:0; }
+      #counter { display:none; }
+      #spread { position:absolute; z-index:7; top:478px; left:50%; transform:translateX(-50%); display:flex; gap:76px; }
+      #spread.single-spread { gap:0; }
+      .position { width:165px; text-align:center; }
+      .position-label { margin-top:14px; color:#f1d99f; font:600 26px/1.05 "Cormorant Garamond",serif; text-shadow:0 2px 10px rgba(8,2,18,.85); }
+      .position-subtitle { margin-top:5px; color:#c9add1; font:500 14px/1.1 Montserrat,sans-serif; letter-spacing:1.2px; text-transform:uppercase; text-shadow:0 2px 8px rgba(8,2,18,.85); }
+      .slot { position:relative; width:165px; height:264px; border:2px dashed rgba(218,179,101,.52); border-radius:12px; background:linear-gradient(155deg,rgba(53,24,68,.3),rgba(10,6,24,.45)); box-shadow:inset 0 0 22px rgba(189,119,210,.12),0 0 20px rgba(220,179,99,.08); }
+      .slot::before { content:"✦"; position:absolute; inset:0; display:grid; place-items:center; color:rgba(232,201,132,.38); font-size:26px; }
+      .slot.current { border-color:#e7c16b; box-shadow:inset 0 0 26px rgba(203,151,224,.2),0 0 24px rgba(235,190,94,.28); animation:slotPulse 1.2s ease-in-out infinite alternate; }
+      @keyframes slotPulse { to { box-shadow:inset 0 0 30px rgba(203,151,224,.3),0 0 32px rgba(235,190,94,.42); } }
+      .slot.filled { border-color:transparent; background:none; }
+      .slot.filled::before { display:none; }
+      .placed-card,.flying-card { width:165px; height:264px; perspective:1200px; }
+      .placed-card { position:absolute; inset:0; }
+      .flying-card { position:absolute; z-index:50; pointer-events:none; transition:left .78s cubic-bezier(.22,.78,.2,1),top .78s cubic-bezier(.22,.78,.2,1),width .78s,height .78s,transform .78s; }
+      .card-inner { width:100%; height:100%; position:relative; transform-style:preserve-3d; transition:transform .82s cubic-bezier(.2,.8,.2,1); }
+      .card-inner.flipped { transform:rotateY(180deg); }
+      .card-side { position:absolute; inset:0; border-radius:13px; backface-visibility:hidden; background-position:center; background-size:100% 100%; background-repeat:no-repeat; box-shadow:0 12px 30px rgba(0,0,0,.58),0 0 0 1px rgba(247,212,137,.6); overflow:hidden; }
+      .card-back { background-image:url('assets/celestial-tarot-back.webp'); }
+      .card-face { transform:rotateY(180deg); background-color:#1a0d29; }
+      .card-name { position:absolute; left:8px; right:8px; bottom:8px; min-height:31px; display:grid; place-items:center; border-radius:6px; background:rgba(10,5,22,.85); color:#f4dfa8; font:600 18px "Cormorant Garamond",serif; letter-spacing:.6px; text-shadow:0 1px 4px #000; }
+      #details-button { position:absolute; z-index:9; top:1000px; left:50%; transform:translateX(-50%) translateY(18px); min-width:260px; padding:17px 30px; border:1px solid #e1bd6d; border-radius:30px; background:linear-gradient(135deg,#6e3c78,#3c1c51); color:#fff2c9; box-shadow:0 0 26px rgba(222,177,91,.24); letter-spacing:2px; text-transform:uppercase; font-size:17px; cursor:pointer; opacity:0; pointer-events:none; transition:.35s; }
+      #details-button.show { opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+      #details-button:hover { background:linear-gradient(135deg,#895092,#512763); box-shadow:0 0 34px rgba(239,195,106,.42); }
+      #sound-button, #expand-button { position:absolute; z-index:30; top:38px; width:48px; height:48px; border-radius:50%; border:1px solid rgba(226,190,111,.6); background:rgba(15,7,29,.7); color:#e6c77e; cursor:pointer; font-size:20px; transition:background .2s,transform .2s,box-shadow .2s; }
+      #sound-button { right:44px; }
+      #expand-button { right:104px; font-size:22px; }
+      #sound-button:hover, #expand-button:hover, #sound-button:focus-visible, #expand-button:focus-visible { background:rgba(91,47,104,.9); transform:translateY(-2px); box-shadow:0 0 18px rgba(226,190,111,.25); outline:none; }
+      :fullscreen #game-container { width:100%; height:100%; }
+      #reading { position:absolute; z-index:40; inset:0; display:flex; align-items:center; justify-content:center; overflow:hidden; touch-action:pan-y; background:rgba(5,2,14,.82); backdrop-filter:blur(12px); opacity:0; visibility:hidden; pointer-events:none; transition:opacity .35s,visibility 0s linear .35s; }
+      #reading.open { opacity:1; visibility:visible; pointer-events:auto; transition:opacity .35s,visibility 0s linear 0s; }
+      .reading-panel { width:calc(100% - 96px); height:calc(100% - 96px); min-height:0; overflow-y:auto; overflow-x:hidden; overscroll-behavior:contain; touch-action:pan-y; -webkit-overflow-scrolling:touch; scroll-padding-bottom:90px; padding:38px 54px 90px; border:1px solid rgba(226,187,105,.65); border-radius:24px; background:linear-gradient(155deg,rgba(44,20,57,.98),rgba(13,7,28,.99)); box-shadow:0 30px 100px #000, inset 0 0 80px rgba(132,74,150,.13); text-align:center; }
+      .reading-panel h2 { margin:0; font:600 62px "Cormorant Garamond",serif; color:#ffedbd; }
+      .reading-intro { margin:8px auto 22px; color:#bbaabf; font:24px "Cormorant Garamond",serif; }
+      .special-heading { margin:0 0 12px; color:#c9a9d6; font-size:11px; letter-spacing:4px; text-transform:uppercase; }
+      .reading-modes { display:flex; justify-content:center; gap:10px; margin:0 auto 18px; }
+      .mode-button { min-width:160px; padding:10px 16px; border:1px solid rgba(190,147,205,.4); border-radius:22px; background:rgba(28,12,42,.8); color:#cbbbd3; cursor:pointer; letter-spacing:1px; transition:.2s; }
+      .mode-button:hover, .mode-button.selected { border-color:#e2bd6c; background:linear-gradient(135deg,rgba(108,59,119,.95),rgba(58,27,77,.95)); color:#fff0bd; box-shadow:0 0 18px rgba(226,189,108,.2); }
+      .special-reading { margin:0 auto 20px; padding:16px 26px 17px; max-width:1000px; border:1px solid rgba(217,177,97,.4); border-radius:16px; background:linear-gradient(120deg,rgba(62,31,75,.58),rgba(17,8,32,.7)); text-align:left; }
+      .special-reading .special-kicker { color:#d2ad6b; font-size:11px; letter-spacing:3px; text-transform:uppercase; }
+      .special-reading h3 { margin:4px 0 5px; font:600 29px "Cormorant Garamond",serif; color:#f4dca1; }
+      .special-reading p { margin:0; color:#e3d6e5; font:17px/1.35 "Cormorant Garamond",serif; }
+      .special-advice { margin-top:10px; padding-top:9px; border-top:1px solid rgba(217,177,97,.2); color:#f6e9c5; font:600 15px/1.35 "Cormorant Garamond",serif; }
+      .special-advice span { margin-right:8px; color:#c29ad2; font:600 10px Montserrat,sans-serif; letter-spacing:2px; text-transform:uppercase; }
+      .reading-grid { display:grid; gap:34px; width:100%; padding-bottom:34px; text-align:left; align-items:start; }
+      .reading-grid.three-reading { grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; }
+      .reading-grid.single-reading { grid-template-columns:minmax(0,1180px); justify-content:center; }
+      .reading-item { min-width:0; overflow:hidden; padding:24px; border:1px solid rgba(217,177,97,.32); border-radius:17px; background:linear-gradient(155deg,rgba(30,14,45,.7),rgba(11,6,25,.72)); box-shadow:inset 0 0 30px rgba(189,119,210,.06); }
+      .three-reading .reading-item { display:flex; flex-direction:column; align-items:center; }
+      .reading-art { width:250px; height:400px; max-width:100%; flex:0 0 auto; border-radius:12px; background-position:center; background-size:100% 100%; background-repeat:no-repeat; box-shadow:0 12px 28px rgba(0,0,0,.56),0 0 0 1px rgba(247,212,137,.65); }
+      .reading-copy { width:100%; min-width:0; }
+      .three-reading .reading-copy { padding-top:20px; }
+      .single-reading .reading-item { display:grid; grid-template-columns:340px minmax(0,1fr); gap:34px; align-items:start; padding:30px 36px; }
+      .single-reading .reading-art { width:340px; height:544px; }
+      .reading-item h3, .reading-section p, .reading-item .time { overflow-wrap:anywhere; }
+      .reading-item .time { color:#b999d1; font-size:11px; letter-spacing:3px; text-transform:uppercase; }
+      .reading-item h3 { margin:5px 0 10px; font:600 42px "Cormorant Garamond",serif; color:#efd493; }
+      .reading-section { margin-top:10px; }
+      .reading-section span { color:#c5a3d2; font:600 10px Montserrat,sans-serif; letter-spacing:3px; text-transform:uppercase; }
+      .reading-section p { margin:4px 0 0; color:#ded3df; font:24px/1.5 "Cormorant Garamond",serif; }
+      .reading-section.history { padding-top:11px; border-top:1px solid rgba(217,177,97,.2); }
+      .reading-section.insight p { color:#f0dfb4; }
+      .reading-section.reflection { padding:11px 14px 0; border-left:2px solid rgba(194,154,210,.5); }
+      .reading-section.reflection p { color:#d7c4dc; font-style:italic; }
+      .synthesis { margin:17px auto 20px; max-width:1050px; color:#f3e5cd; font:19px/1.4 "Cormorant Garamond",serif; }
+      .panel-actions { display:flex; justify-content:center; gap:16px; }
+      .panel-actions button { padding:13px 25px; border-radius:24px; cursor:pointer; color:#f7e5b5; border:1px solid #ad8645; background:#4e285d; }
+      .panel-actions .secondary { background:transparent; border-color:#745d7c; color:#cbbdce; }
+      .portrait-layout .reading-panel { width:calc(100% - 48px); height:calc(100% - 48px); padding:34px 24px 110px; }
+      .portrait-layout .reading-panel h2 { font-size:68px; line-height:1.08; }
+      .portrait-layout .reading-intro { margin:14px auto 32px; max-width:760px; font-size:27px; line-height:1.3; }
+      .portrait-layout .special-heading { font-size:13px; letter-spacing:3px; }
+      .portrait-layout .mode-button { min-width:180px; padding:13px 18px; font-size:17px; }
+      .portrait-layout .special-reading { margin-bottom:34px; padding:20px 24px; }
+      .portrait-layout .special-reading .special-kicker { font-size:13px; }
+      .portrait-layout .special-reading h3 { font-size:36px; }
+      .portrait-layout .special-reading p { font-size:23px; line-height:1.45; }
+      .portrait-layout .special-advice { font-size:21px; }
+      .portrait-layout .special-advice span { font-size:11px; }
+      .portrait-layout .reading-grid { max-width:900px; margin:0 auto; padding-bottom:90px; }
+      .portrait-layout .reading-grid.three-reading { grid-template-columns:minmax(0,1fr); gap:46px; }
+      .portrait-layout .three-reading .reading-item { display:flex; flex-direction:column; align-items:center; }
+      .portrait-layout .reading-item { width:100%; padding:30px 24px 42px; }
+      .portrait-layout .reading-art { width:310px; height:496px; }
+      .portrait-layout .single-reading .reading-item { display:flex; flex-direction:column; align-items:center; gap:30px; padding:30px 30px 44px; }
+      .portrait-layout .single-reading .reading-art { width:360px; height:576px; }
+      .portrait-layout .single-reading .reading-copy { width:100%; max-width:780px; }
+      .portrait-layout .three-reading .reading-copy { max-width:780px; padding-top:24px; }
+      .portrait-layout .reading-item .time { font-size:13px; letter-spacing:3px; }
+      .portrait-layout .reading-item h3 { margin:10px 0 16px; font-size:48px; line-height:1.08; }
+      .portrait-layout .reading-section { margin-top:20px; }
+      .portrait-layout .reading-section span { font-size:11px; letter-spacing:3px; }
+      .portrait-layout .reading-section.reflection { padding:16px 18px 0; }
+      .portrait-layout .reading-section p { margin-top:8px; font-size:25px; line-height:1.5; }
+      .portrait-layout .synthesis { margin:28px auto 38px; font-size:25px; line-height:1.5; }
+      .portrait-layout .panel-actions { gap:18px; flex-wrap:wrap; margin-bottom:18px; }
+      .portrait-layout .panel-actions button { padding:15px 24px; font-size:19px; }
+      .spark { position:absolute; z-index:60; pointer-events:none; color:#ffe39a; animation:sparkOut .9s ease-out forwards; text-shadow:0 0 10px #fff0a8; }
+      @keyframes sparkOut { from{opacity:1;transform:translate(0,0) scale(.5)} to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.4)} }
+    </style>
+  </head>
+  <body>
+    <div id="game-container"></div>
+    <script type="module" src="./main.js?v=pm6"></script>
+  </body>
+</html>

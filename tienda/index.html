@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda esotérica: tarot, cristales y libros | Portal Místico</title>
+<meta name="description" content="Productos recomendados para tu camino espiritual: tarot, cristales, numerología, quiromancia y más.">
+<link rel="canonical" href="https://elportalmistico.com/tienda/index.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #EEF0FA;
+    --ink-dim: #9098C4;
+    --void: #030308;
+    --void-2: #0A0B18;
+    --gold: #C7A24B;
+    --line: rgba(244,239,227,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background: var(--void);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    min-height:100vh;
+  }
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand{ font-family:'Fraunces', serif; font-size:1.1rem; text-decoration:none; color:var(--ink); }
+  .brand em{ font-style: italic; color: var(--gold); }
+  .back{ color:var(--ink-dim); text-decoration:none; font-size:0.85rem; }
+  .back:hover{ color:var(--gold); }
+  .page-head{ text-align:center; padding: 40px 24px 8px; }
+  .page-head h1{ font-family:'Fraunces', serif; font-size:2rem; color:var(--gold); font-weight:500; }
+  .page-head p{ color:var(--ink-dim); margin-top:8px; font-size:0.95rem; }
+  .product-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: 32px auto 60px;
+    padding: 0 24px;
+  }
+  .product-card{
+    display:flex; flex-direction:column;
+    background: var(--void-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .product-card:hover{ border-color: var(--gold); transform: translateY(-2px); }
+  .product-card img{
+    width:100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    padding: 18px;
+    box-sizing: border-box;
+    background: var(--void);
+  }
+  .product-title{
+    padding: 10px 14px 16px;
+    font-size: 0.88rem;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .filter-row{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:8px;
+    max-width: 760px; margin: 28px auto 8px; padding: 0 24px;
+  }
+  .filter-row a{
+    text-decoration:none; font-size:0.78rem; color: var(--ink-dim);
+    border:1px solid var(--line); padding:6px 14px; border-radius:20px;
+  }
+  .filter-row a:hover, .filter-row a.active{ color: var(--gold); border-color: rgba(199,162,75,0.5); background: rgba(199,162,75,0.06); }
+  .product-cat{ font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color: var(--gold); padding: 12px 14px 0; }
+  .product-card .product-title{ padding-top: 4px; }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2757838411866761"
+     crossorigin="anonymous"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R2N03YDQY7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R2N03YDQY7');
+</script>
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../assets/brand/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="../assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/brand/apple-touch-icon.png">
+<meta name="theme-color" content="#0A0B18">
+<link rel="manifest" href="../site.webmanifest">
+<style id="pm-nav-css">
+.pm-nav{position:sticky;top:0;z-index:60;background:rgba(5,6,15,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(244,239,227,0.12);font-family:'Work Sans',Arial,sans-serif;}
+.pm-nav.pm-static{position:relative;}
+.pm-nav-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:12px;}
+.pm-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#EEF0FA;font-family:'Fraunces',Georgia,serif;font-size:1.15rem;white-space:nowrap;}
+.pm-brand img{width:44px;height:44px;border-radius:11px;display:block;}
+.pm-brand em{color:#C7A24B;font-style:italic;}
+.pm-links{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end;}
+.pm-links a{color:#C9CCE6;text-decoration:none;font-size:0.86rem;padding:7px 10px;border-radius:18px;white-space:nowrap;}
+.pm-links a:hover,.pm-links a.pm-on{color:#C7A24B;background:rgba(199,162,75,0.12);}
+.pm-burger{display:none;background:none;border:1px solid rgba(244,239,227,0.18);color:#EEF0FA;border-radius:10px;width:42px;height:38px;font-size:1.25rem;cursor:pointer;}
+@media all{
+ .pm-burger{display:block;}
+ .pm-links{display:none;position:absolute;left:0;right:0;top:100%;background:#0A0B18;border-bottom:1px solid rgba(199,162,75,0.3);flex-direction:column;padding:8px 14px 14px;gap:2px;max-height:75vh;overflow-y:auto;}
+ .pm-nav.pm-open .pm-links{display:flex;}
+ .pm-links a{font-size:1rem;padding:12px 12px;border-radius:10px;}
+}
+.pm-nav{display:block!important;overflow:visible!important;margin:0!important;padding:0!important;width:100%!important;max-width:none!important;flex:none!important;align-self:stretch!important;box-sizing:border-box;}
+.pm-nav-in{width:100%;box-sizing:border-box;}
+.pm-nav-in{position:relative;}
+@media (min-width:700px){.pm-links{left:auto!important;right:18px!important;width:290px;border:1px solid rgba(199,162,75,0.3)!important;border-top:0!important;border-radius:0 0 14px 14px;box-shadow:0 18px 40px rgba(0,0,0,0.5);} .pm-brand{font-size:1.3rem;} .pm-brand img{width:52px;height:52px;}}
+.pm-nav .pm-links a{margin:0!important;border:0!important;}
+</style>
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta property="og:site_name" content="Portal Místico">
+<meta property="og:locale" content="es_ES">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tienda">
+<meta property="og:description" content="Productos recomendados para tu camino espiritual: tarot, cristales, numerología, quiromancia y más.">
+<meta property="og:url" content="https://elportalmistico.com/tienda/index.html">
+<meta property="og:image" content="https://elportalmistico.com/assets/og/home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tienda">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tienda">
+<meta name="twitter:description" content="Productos recomendados para tu camino espiritual: tarot, cristales, numerología, quiromancia y más.">
+<meta name="twitter:image" content="https://elportalmistico.com/assets/og/home.jpg">
+<script src="/assets/js/musica-global.js?v=11"></script>
+<style id="pm-faq-css">
+.pm-faq-page{max-width:760px;margin:40px auto 30px;padding:0 20px;font-family:'Work Sans',Arial,sans-serif;position:relative;z-index:1}
+.pm-faq-page h2{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-size:1.5rem;color:#C7A24B;text-align:center;margin:0 0 18px}
+.pm-faq-page details{border:1px solid rgba(199,162,75,0.25);border-radius:12px;margin:0 0 10px;background:rgba(10,11,24,0.55)}
+.pm-faq-page summary{cursor:pointer;padding:14px 44px 14px 16px;font-weight:600;color:#EEF0FA;list-style:none;position:relative;line-height:1.45}
+.pm-faq-page summary::-webkit-details-marker{display:none}
+.pm-faq-page summary::after{content:'+';position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#C7A24B;font-size:1.25rem}
+.pm-faq-page details[open] summary::after{content:'−'}
+.pm-faq-page details p{margin:0;padding:0 16px 16px;color:#B9BCD6;line-height:1.7;font-size:0.97rem}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué mazo de tarot conviene elegir si estoy empezando?", "acceptedAnswer": {"@type": "Answer", "text": "Para empezar suele ayudar un mazo clásico de 78 cartas con guía o significados impresos, como los basados en la tradición Rider-Waite. Sus simbolismos son los más usados en libros y tutoriales, así que resulta fácil aprender. Cuando ganes soltura, podrás pasar a mazos más artísticos o con estilos distintos."}}, {"@type": "Question", "name": "¿Cuál es la diferencia entre un mazo de tarot y un mazo oráculo?", "acceptedAnswer": {"@type": "Answer", "text": "El tarot sigue una estructura fija de 78 cartas, con arcanos mayores y menores, y una simbología heredada de siglos de tradición. Un oráculo no tiene estructura estándar: cada autor decide el número de cartas, los temas y los mensajes. Por eso el tarot se estudia más y el oráculo suele ser más intuitivo."}}, {"@type": "Question", "name": "¿Para qué sirven las bolsas y las cajas de madera para tarot?", "acceptedAnswer": {"@type": "Answer", "text": "Sirven sobre todo para proteger las cartas del polvo, la humedad y el desgaste. Además, mucha gente las usa como parte de su ritual personal: guardar el mazo envuelto o en una caja concreta le da un carácter especial. No son imprescindibles para leer, pero ayudan a conservar mejor el mazo."}}, {"@type": "Question", "name": "¿Qué libro de numerología es mejor para aprender desde cero?", "acceptedAnswer": {"@type": "Answer", "text": "Lo más práctico es buscar un manual general que explique cómo calcular el número del camino de vida, el de expresión y el de destino, y qué significa cada dígito. Los libros clásicos de autores como David A. Phillips o Hans Decoz suelen recomendarse como introducción. Conviene revisar si están en tu idioma."}}, {"@type": "Question", "name": "¿Hace falta tener dones especiales para usar tarot, quiromancia o cristales?", "acceptedAnswer": {"@type": "Answer", "text": "No. Estas prácticas se aprenden con estudio y constancia: memorizar símbolos, practicar tiradas o observar las líneas de la mano. Mucha gente las usa como herramienta de reflexión personal, más que como predicción exacta. Lo importante es abordarlas con curiosidad y espíritu crítico, sin tomar sus lecturas como verdades absolutas."}}]}</script>
+<style id="pm-menu-css">
+.pm-nav .pm-links{flex-wrap:nowrap!important}
+.pm-nav .pm-links>a,.pm-nav .pm-links>details{flex:none;width:100%;box-sizing:border-box}
+.pm-links .pm-grp{border-radius:10px}
+.pm-links .pm-grp>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;border-radius:10px}
+.pm-links .pm-grp>summary::-webkit-details-marker{display:none}
+.pm-links .pm-grp>summary>a{flex:1}
+.pm-count{flex:none;display:inline-flex;align-items:center;gap:4px;font-size:0.78rem;font-weight:600;color:#1a1406;background:linear-gradient(135deg,#E9D9A6,#C7A24B);border-radius:999px;padding:3px 9px 3px 10px;margin-right:4px}
+.pm-count i{font-style:normal;display:inline-block;transition:transform .2s}
+.pm-grp[open] .pm-count i{transform:rotate(180deg)}
+.pm-sub{display:flex;flex-direction:column;margin:0 0 6px 14px;padding-left:10px;border-left:1px solid rgba(199,162,75,0.35)}
+.pm-links .pm-sub a{font-size:0.92rem!important;padding:9px 10px!important;color:#C9CCE6}
+.pm-links .pm-sub a.pm-here{color:#C7A24B;background:rgba(199,162,75,0.12)}
+</style>
+<script type="application/ld+json" id="pm-bc">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://elportalmistico.com/"}, {"@type": "ListItem", "position": 2, "name": "Tienda", "item": "https://elportalmistico.com/tienda/index.html"}]}</script>
+</head>
+<body>
+
+<nav class="pm-nav" aria-label="Menú principal"><div class="pm-nav-in">
+  <a class="pm-brand" href="../index.html"><img src="../assets/brand/logo-96.png" alt="" width="34" height="34">Portal <em>Místico</em></a>
+  <button class="pm-burger" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  <div class="pm-links"><details class="pm-grp"><summary><a href="../juegos/tarot.html">🔮 Tarot</a><span class="pm-count" aria-label="3 herramientas">3 <i>▾</i></span></summary><div class="pm-sub"><a href="../juegos/tarot-del-dia.html">Tarot del día</a><a href="../juegos/tarot-pasado-presente-futuro.html">Pasado, presente y futuro</a><a href="../juegos/tarot-del-amor-gratis.html">Tarot del amor</a></div></details><details class="pm-grp"><summary><a href="../juegos/horoscopo.html">♈ Horóscopo</a><span class="pm-count" aria-label="4 herramientas">4 <i>▾</i></span></summary><div class="pm-sub"><a href="../juegos/horoscopo-de-hoy.html">Horóscopo de hoy</a><a href="../juegos/horoscopo-de-manana.html">Horóscopo de mañana</a><a href="../juegos/horoscopo-semanal.html">Horóscopo semanal</a><a href="../juegos/horoscopo-mensual.html">Horóscopo mensual</a></div></details><details class="pm-grp"><summary><a href="../juegos/carta-astral.html">🌌 Carta Astral</a><span class="pm-count" aria-label="3 herramientas">3 <i>▾</i></span></summary><div class="pm-sub"><a href="../juegos/carta-astral.html">Carta astral completa</a><a href="../juegos/calcular-ascendente.html">Calcular ascendente</a><a href="../juegos/signo-lunar.html">Signo lunar</a></div></details><details class="pm-grp"><summary><a href="../juegos/oraculo-de-respuestas.html">🃏 Oráculo de Respuestas</a><span class="pm-count" aria-label="6 herramientas">6 <i>▾</i></span></summary><div class="pm-sub"><a href="../juegos/tarot-si-o-no.html">Tarot sí o no</a><a href="../juegos/runas.html">Tirada de runas</a><a href="../juegos/i-ching.html">I Ching</a><a href="../juegos/sinastria.html">Sinastría de pareja</a><a href="../juegos/revolucion-solar.html">Revolución solar</a><a href="../juegos/transitos.html">Tránsitos de hoy</a></div></details><details class="pm-grp"><summary><a href="../juegos/numerologia.html">🔢 Numerología</a><span class="pm-count" aria-label="5 herramientas">5 <i>▾</i></span></summary><div class="pm-sub"><a href="../juegos/numeros-de-la-suerte-hoy.html">Números de la suerte de hoy</a><a href="../juegos/calcular-numero-de-vida.html">Número de vida</a><a href="../juegos/ano-personal-2027.html">Año personal 2027</a><a href="../juegos/compatibilidad-de-nombres.html">Compatibilidad de nombres</a><a href="../juegos/personalidad-segun-tu-nombre.html">Personalidad según tu nombre</a></div></details><details class="pm-grp"><summary><a href="../juegos/signos.html">♊ Signos</a><span class="pm-count" aria-label="8 herramientas">8 <i>▾</i></span></summary><div class="pm-sub"><a href="../juegos/como-conquistar-a-cada-signo.html">Cómo conquistar a cada signo</a><a href="../juegos/compatibilidad-amorosa-de-cada-signo.html">Compatibilidad amorosa</a><a href="../juegos/como-besa-cada-signo.html">Cómo besa cada signo</a><a href="../juegos/que-regalarle-a-cada-signo.html">Qué regalarle a cada signo</a><a href="../juegos/por-que-enamorarte-de-cada-signo.html">Por qué enamorarte</a><a href="../juegos/celos-e-infidelidad-segun-tu-signo.html">Celos e infidelidad</a><a href="../juegos/como-afronta-una-ruptura-cada-signo.html">Cómo afronta una ruptura</a><a href="../juegos/horoscopo-chino.html">Horóscopo chino</a></div></details><details class="pm-grp"><summary><a href="../juegos/novedades.html">✨ El Oráculo</a><span class="pm-count" aria-label="7 herramientas">7 <i>▾</i></span></summary><div class="pm-sub"><a href="../juegos/significado-de-los-suenos.html">Significado de los sueños</a><a href="../juegos/test-de-intuicion.html">Test de intuición</a><a href="../juegos/rituales-y-hechizos.html">Rituales y hechizos</a><a href="../juegos/compatibilidad-entre-signos.html">Compatibilidad entre dos signos</a><a href="../juegos/compatibilidad-padres-e-hijos-horoscopo-chino.html">Padres e hijos</a><a href="../juegos/mensajes-angelicales.html">Mensajes angelicales</a><a href="../juegos/angel-de-la-guarda.html">Tu ángel de la guarda</a></div></details><details class="pm-grp"><summary><a href="../juegos/brujula.html">🧭 Brújula Lunar</a><span class="pm-count" aria-label="4 herramientas">4 <i>▾</i></span></summary><div class="pm-sub"><a href="../juegos/fase-lunar-hoy.html">Fase lunar de hoy</a><a href="../juegos/ritual-del-dia.html">Ritual del día</a><a href="../juegos/planetas-retrogrados-hoy.html">Planetas retrógrados hoy</a><a href="../juegos/calendario-lunar.html">Calendario lunar</a></div></details><a href="../juegos/quiromancia.html">🖐️ Quiromancia</a><a href="../juegos/aura.html">🌈 Aura</a><a href="../zodiaco/index.html">🌠 Signos del zodiaco</a><a href="../blog/index.html">📝 Blog</a><a href="index.html" class="pm-on">🛍️ Tienda</a></div>
+</div></nav>
+
+<div class="page-head">
+  <h1>Tienda esotérica</h1>
+  <p>Productos recomendados para tu camino espiritual.</p>
+</div>
+
+
+<div style="max-width:900px;width:calc(100% - 32px);margin:14px auto 0;padding:10px 16px;border:1px solid rgba(199,162,75,0.35);background:rgba(199,162,75,0.07);border-radius:10px;color:#C9CCE6;font-size:0.85rem;line-height:1.5;text-align:center;font-family:'Work Sans',sans-serif;">🛒 Como Afiliado de Amazon, Portal Místico obtiene ingresos por las compras adscritas que cumplen los requisitos aplicables. Esto no cambia el precio que pagas.</div>
+<div class="filter-row" id="filterRow">
+  <a href="#" class="active" data-filter="all">Todos</a><a href="#" data-filter="tarot">🔮 Tarot</a><a href="#" data-filter="numerologia">🔢 Numerología</a><a href="#" data-filter="quiromancia">🖐️ Quiromancia</a><a href="#" data-filter="horoscopo">♈ Horóscopo y Signos</a><a href="#" data-filter="aura">✨ Aura y Cristales</a>
+</div>
+
+<div class="product-grid" id="productGrid">
+<a href="https://amzn.to/3TES7oz" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-01.jpg?v=2" alt="Mazo de cartas de tarot con guía de significados">
+  <div class="product-title">Mazo de Tarot con Significados Impresos — Ideal para Principiantes</div>
+</a>
+<a href="https://amzn.to/4jg3EoX" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-02.jpg?v=2" alt="The Rider Tarot Deck — Mazo Clásico Rider-Waite">
+  <div class="product-title">The Rider Tarot Deck — Mazo Clásico Rider-Waite</div>
+</a>
+<a href="https://amzn.to/3Vh48RG" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-03.jpg?v=2" alt="La Vía del Tarot — Alejandro Jodorowsky">
+  <div class="product-title">La Vía del Tarot — Alejandro Jodorowsky</div>
+</a>
+<a href="https://amzn.to/4hyAcHX" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-04.jpg?v=2" alt="The Light Seer's Tarot — Chris-Anne (78 cartas + guía)">
+  <div class="product-title">The Light Seer's Tarot — Chris-Anne (78 cartas + guía)</div>
+</a>
+<a href="https://amzn.to/3TVeZAi" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-05.jpg?v=2" alt="The Wild Unknown Tarot — Kim Krans">
+  <div class="product-title">The Wild Unknown Tarot — Kim Krans</div>
+</a>
+<a href="https://amzn.to/4hEo20s" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-06.jpg?v=2" alt="Moonology Oracle Cards — Yasmin Boland">
+  <div class="product-title">Moonology Oracle Cards — Yasmin Boland</div>
+</a>
+<a href="https://amzn.to/4z78rh1" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-07.jpg?v=2" alt="El Gran Libro del Tarot — Emilio Salas">
+  <div class="product-title">El Gran Libro del Tarot — Emilio Salas</div>
+</a>
+<a href="https://amzn.to/4hyfl7T" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-08.jpg?v=2" alt="El Gran Libro del Tarot, Manual Práctico — Valentín Martínez Carbajo">
+  <div class="product-title">El Gran Libro del Tarot, Manual Práctico — Valentín Martínez Carbajo</div>
+</a>
+<a href="https://amzn.to/4hUqFMK" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-09.jpg?v=2" alt="Set de Bolsas de Tarot de Cuero con Moneda Decisora">
+  <div class="product-title">Set de Bolsas de Tarot de Cuero con Moneda Decisora</div>
+</a>
+<a href="https://amzn.to/4rHzGMv" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-10.jpg?v=2" alt="Set de 6 Bolsas de Terciopelo para Tarot, Diseño Mandala">
+  <div class="product-title">Set de 6 Bolsas de Terciopelo para Tarot, Diseño Mandala</div>
+</a>
+<a href="https://amzn.to/3W0t14b" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-11.jpg?v=2" alt="Mazo de Tarot Clásico 78 Cartas con Guía Ilustrada">
+  <div class="product-title">Mazo de Tarot Clásico 78 Cartas con Guía Ilustrada</div>
+</a>
+<a href="https://amzn.to/4AGsCUB" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-12.jpg?v=2" alt="Kit de Tarot Completo — Mazo, Bolsa, Cristales y Guía">
+  <div class="product-title">Kit de Tarot Completo — Mazo, Bolsa, Cristales y Guía</div>
+</a>
+<a href="https://amzn.to/4xUy97u" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-13.jpg?v=2" alt="Caja de Madera para Tarot con Compartimento de Cristales">
+  <div class="product-title">Caja de Madera para Tarot con Compartimento de Cristales</div>
+</a>
+<a href="https://amzn.to/4AFqIDB" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-14.jpg?v=2" alt="Mazo de Tarot Dorado con Bolsa de Terciopelo">
+  <div class="product-title">Mazo de Tarot Dorado con Bolsa de Terciopelo</div>
+</a>
+<a href="https://amzn.to/4ALtQ0Y" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-15.jpg?v=2" alt="Ethereal Visions Illuminated Tarot Deck — Matt Hughes">
+  <div class="product-title">Ethereal Visions Illuminated Tarot Deck — Matt Hughes</div>
+</a>
+<a href="https://amzn.to/47oCC7s" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-16.jpg?v=2" alt="Mazo de Tarot en Español — Interpretaciones Sí/No">
+  <div class="product-title">Mazo de Tarot en Español — Interpretaciones Sí/No</div>
+</a>
+<a href="https://amzn.to/4e15kPl" target="_blank" rel="noopener sponsored" class="product-card" data-theme="tarot">
+  <div class="product-cat">🔮 Tarot</div>
+  <img src="img/producto-17.jpg?v=2" alt="Classic Tarot Cards — Mazo con Guía y Bolsa Morada">
+  <div class="product-title">Classic Tarot Cards — Mazo con Guía y Bolsa Morada</div>
+</a>
+<a href="https://amzn.to/4iD3842" target="_blank" rel="noopener sponsored" class="product-card" data-theme="numerologia">
+  <div class="product-cat">🔢 Numerología</div>
+  <img src="img/producto-18.jpg?v=2" alt="El Libro Completo de Numerología - Dr. David A. Phillips">
+  <div class="product-title">El Libro Completo de Numerología — Dr. David A. Phillips</div>
+</a>
+<a href="https://amzn.to/4jyMlzf" target="_blank" rel="noopener sponsored" class="product-card" data-theme="numerologia">
+  <div class="product-cat">🔢 Numerología</div>
+  <img src="img/producto-19.jpg?v=2" alt="The Secret Language of Birthdays — Gary Goldschneider">
+  <div class="product-title">The Secret Language of Birthdays — Gary Goldschneider</div>
+</a>
+<a href="https://amzn.to/3VpeOh1" target="_blank" rel="noopener sponsored" class="product-card" data-theme="numerologia">
+  <div class="product-cat">🔢 Numerología</div>
+  <img src="img/producto-20.jpg?v=2" alt="The Angel Numbers Book — Mystic Michaela">
+  <div class="product-title">The Angel Numbers Book — Mystic Michaela</div>
+</a>
+<a href="https://amzn.to/4hnskug" target="_blank" rel="noopener sponsored" class="product-card" data-theme="numerologia">
+  <div class="product-cat">🔢 Numerología</div>
+  <img src="img/producto-21.jpg?v=2" alt="The Complete Book of Numerology — David A. Phillips, Ph.D.">
+  <div class="product-title">The Complete Book of Numerology — David A. Phillips, Ph.D.</div>
+</a>
+<a href="https://amzn.to/4xSb9pC" target="_blank" rel="noopener sponsored" class="product-card" data-theme="numerologia">
+  <div class="product-cat">🔢 Numerología</div>
+  <img src="img/producto-22.jpg?v=2" alt="Numerology and The Divine Triangle — Faith Javane & Dusty Bunker">
+  <div class="product-title">Numerology and The Divine Triangle — Faith Javane & Dusty Bunker</div>
+</a>
+<a href="https://amzn.to/4hWK4N2" target="_blank" rel="noopener sponsored" class="product-card" data-theme="numerologia">
+  <div class="product-cat">🔢 Numerología</div>
+  <img src="img/producto-23.jpg?v=2" alt="Numerology: The Key to Your Inner Self — Hans Decoz">
+  <div class="product-title">Numerology: The Key to Your Inner Self — Hans Decoz</div>
+</a>
+<a href="https://amzn.to/4yk7f9T" target="_blank" rel="noopener sponsored" class="product-card" data-theme="numerologia">
+  <div class="product-cat">🔢 Numerología</div>
+  <img src="img/producto-24.jpg?v=2" alt="Astrology and Numerology Workbook 6-in-1 — Mari Silva">
+  <div class="product-title">Astrology and Numerology Workbook 6-in-1 — Mari Silva</div>
+</a>
+<a href="https://amzn.to/4AIJs5b" target="_blank" rel="noopener sponsored" class="product-card" data-theme="numerologia">
+  <div class="product-cat">🔢 Numerología</div>
+  <img src="img/producto-25.jpg?v=2" alt="Glynis Has Your Number — Glynis McCants">
+  <div class="product-title">Glynis Has Your Number — Glynis McCants</div>
+</a>
+<a href="https://amzn.to/4cW8HXr" target="_blank" rel="noopener sponsored" class="product-card" data-theme="quiromancia">
+  <div class="product-cat">🖐️ Quiromancia</div>
+  <img src="img/producto-26.jpg?v=2" alt="Lectura del Rostro y la Palma de la Mano - Mari Silva">
+  <div class="product-title">Lectura del Rostro y la Palma de la Mano — Mari Silva</div>
+</a>
+<a href="https://amzn.to/4AE4z8I" target="_blank" rel="noopener sponsored" class="product-card" data-theme="quiromancia">
+  <div class="product-cat">🖐️ Quiromancia</div>
+  <img src="img/producto-27.jpg?v=2" alt="The Art and Science of Hand Reading — Ellen Goldberg & Dorian Bergen">
+  <div class="product-title">The Art and Science of Hand Reading — Ellen Goldberg & Dorian Bergen</div>
+</a>
+<a href="https://amzn.to/4ACbgbz" target="_blank" rel="noopener sponsored" class="product-card" data-theme="quiromancia">
+  <div class="product-cat">🖐️ Quiromancia</div>
+  <img src="img/producto-28.jpg?v=2" alt="A Little Bit of Palmistry — Cassandra Eason">
+  <div class="product-title">A Little Bit of Palmistry — Cassandra Eason</div>
+</a>
+<a href="https://amzn.to/4rGrBYB" target="_blank" rel="noopener sponsored" class="product-card" data-theme="quiromancia">
+  <div class="product-cat">🖐️ Quiromancia</div>
+  <img src="img/producto-29.jpg?v=2" alt="Palm Reading for Beginners — Richard Webster">
+  <div class="product-title">Palm Reading for Beginners — Richard Webster</div>
+</a>
+<a href="https://amzn.to/4dfAqTj" target="_blank" rel="noopener sponsored" class="product-card" data-theme="quiromancia">
+  <div class="product-cat">🖐️ Quiromancia</div>
+  <img src="img/producto-30.jpg?v=2" alt="Palm Reading Cards — Set de 100 Cartas">
+  <div class="product-title">Palm Reading Cards — Set de 100 Cartas</div>
+</a>
+<a href="https://amzn.to/3VaOcQZ" target="_blank" rel="noopener sponsored" class="product-card" data-theme="quiromancia">
+  <div class="product-cat">🖐️ Quiromancia</div>
+  <img src="img/producto-31.jpg?v=2" alt="Mano Decorativa de Quiromancia con Guía">
+  <div class="product-title">Mano Decorativa de Quiromancia con Guía</div>
+</a>
+<a href="https://amzn.to/4AIio5Z" target="_blank" rel="noopener sponsored" class="product-card" data-theme="quiromancia">
+  <div class="product-cat">🖐️ Quiromancia</div>
+  <img src="img/producto-32.jpg?v=2" alt="Kit de Mano de Quiromancia con Caja y Folleto">
+  <div class="product-title">Kit de Mano de Quiromancia con Caja y Folleto</div>
+</a>
+<a href="https://amzn.to/3V0BhAW" target="_blank" rel="noopener sponsored" class="product-card" data-theme="horoscopo">
+  <div class="product-cat">♈ Horóscopo y Signos</div>
+  <img src="img/producto-33.jpg?v=2" alt="Pulsera de cuero con símbolo del zodiaco">
+  <div class="product-title">Pulsera de Cuero con Símbolo Zodiacal</div>
+</a>
+<a href="https://amzn.to/4AnFmz6" target="_blank" rel="noopener sponsored" class="product-card" data-theme="horoscopo">
+  <div class="product-cat">♈ Horóscopo y Signos</div>
+  <img src="img/producto-34.jpg?v=2" alt="Caja musical decorativa con signos del zodiaco">
+  <div class="product-title">Caja Musical Decorativa con Signos del Zodiaco</div>
+</a>
+<a href="https://amzn.to/3UREZgf" target="_blank" rel="noopener sponsored" class="product-card" data-theme="aura">
+  <div class="product-cat">✨ Aura y Cristales</div>
+  <img src="img/producto-35.jpg?v=2" alt="Árbol de cristales de los 7 chakras - JD Fresh">
+  <div class="product-title">Árbol de Cristales de los 7 Chakras — Decoración espiritual y Feng Shui</div>
+</a>
+<a href="https://amzn.to/4AiMpJu" target="_blank" rel="noopener sponsored" class="product-card" data-theme="aura">
+  <div class="product-cat">✨ Aura y Cristales</div>
+  <img src="img/producto-36.jpg?v=2" alt="Auras: La Guía Definitiva para la Lectura del Aura - Mari Silva">
+  <div class="product-title">Auras: La Guía Definitiva para la Lectura del Aura, la Clarividencia y Otras Habilidades Psíquicas</div>
+</a>
+<a href="https://amzn.to/3V46q6r" target="_blank" rel="noopener sponsored" class="product-card" data-theme="aura">
+  <div class="product-cat">✨ Aura y Cristales</div>
+  <img src="img/producto-37.jpg?v=2" alt="Lámpara decorativa de Buda con luz LED y bonsái">
+  <div class="product-title">Lámpara de Buda con Luz LED — Decoración Zen para tu espacio</div>
+</a>
+</div>
+
+<script>
+document.querySelectorAll('#filterRow a').forEach(function(link){
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelectorAll('#filterRow a').forEach(function(l){ l.classList.remove('active'); });
+    link.classList.add('active');
+    var f = link.dataset.filter;
+    document.querySelectorAll('#productGrid .product-card').forEach(function(card){
+      card.style.display = (f === 'all' || card.dataset.theme === f) ? '' : 'none';
+    });
+  });
+});
+</script>
+<section class="pm-faq-page" id="preguntas-frecuentes"><h2>Preguntas frecuentes</h2><details><summary>¿Qué mazo de tarot conviene elegir si estoy empezando?</summary><p>Para empezar suele ayudar un mazo clásico de 78 cartas con guía o significados impresos, como los basados en la tradición Rider-Waite. Sus simbolismos son los más usados en libros y tutoriales, así que resulta fácil aprender. Cuando ganes soltura, podrás pasar a mazos más artísticos o con estilos distintos.</p></details><details><summary>¿Cuál es la diferencia entre un mazo de tarot y un mazo oráculo?</summary><p>El tarot sigue una estructura fija de 78 cartas, con arcanos mayores y menores, y una simbología heredada de siglos de tradición. Un oráculo no tiene estructura estándar: cada autor decide el número de cartas, los temas y los mensajes. Por eso el tarot se estudia más y el oráculo suele ser más intuitivo.</p></details><details><summary>¿Para qué sirven las bolsas y las cajas de madera para tarot?</summary><p>Sirven sobre todo para proteger las cartas del polvo, la humedad y el desgaste. Además, mucha gente las usa como parte de su ritual personal: guardar el mazo envuelto o en una caja concreta le da un carácter especial. No son imprescindibles para leer, pero ayudan a conservar mejor el mazo.</p></details><details><summary>¿Qué libro de numerología es mejor para aprender desde cero?</summary><p>Lo más práctico es buscar un manual general que explique cómo calcular el número del camino de vida, el de expresión y el de destino, y qué significa cada dígito. Los libros clásicos de autores como David A. Phillips o Hans Decoz suelen recomendarse como introducción. Conviene revisar si están en tu idioma.</p></details><details><summary>¿Hace falta tener dones especiales para usar tarot, quiromancia o cristales?</summary><p>No. Estas prácticas se aprenden con estudio y constancia: memorizar símbolos, practicar tiradas o observar las líneas de la mano. Mucha gente las usa como herramienta de reflexión personal, más que como predicción exacta. Lo importante es abordarlas con curiosidad y espíritu crítico, sin tomar sus lecturas como verdades absolutas.</p></details></section>
+<footer class="legal-bar" style="display:block;background:#0A0B18;border-top:1px solid rgba(244,239,227,0.12);padding:28px 24px 22px;text-align:center;font-family:'Work Sans',sans-serif;">
+  <div style="margin:0 auto 16px;"><a href="../index.html" style="color:#C7A24B;text-decoration:none;margin:0;font-size:0.95rem;">← Volver al Portal Místico</a></div>
+  <p style="max-width:620px;margin:0 auto 18px;color:#9098C4;font-size:0.78rem;line-height:1.6;opacity:0.9;">Como Afiliado de Amazon, obtenemos ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
+  <div style="font-size:0.95rem;margin:0 auto 16px;"><a href="../aviso-legal.html" style="color:#C7A24B;text-decoration:none;margin:0;">Aviso legal</a><span style="display:inline-block;margin:0 10px;color:#9098C4;opacity:0.7;">·</span><a href="../cookies.html" style="color:#C7A24B;text-decoration:none;margin:0;">Política de Cookies</a><span style="display:inline-block;margin:0 10px;color:#9098C4;opacity:0.7;">·</span><a href="../sobre-nosotros.html" style="color:#C7A24B;text-decoration:none;margin:0;">Sobre nosotros</a></div>
+  <div style="color:#9098C4;font-size:0.78rem;opacity:0.85;">© 2026 Portal Místico · Todos los derechos reservados<span style="margin:0 6px;">·</span><a href="../privacidad.html" style="color:#9098C4;text-decoration:underline;margin:0;">Privacidad</a><span style="margin:0 6px;">·</span><a href="../terminos.html" style="color:#9098C4;text-decoration:underline;margin:0;">Términos</a><span style="margin:0 6px;">·</span><a href="../contacto.html" style="color:#9098C4;text-decoration:underline;margin:0;">Contacto</a><span style="margin:0 6px;">·</span><a href="../sitemap.xml" style="color:#9098C4;text-decoration:underline;margin:0;">Mapa del sitio</a></div>
+</footer>
+<script>document.addEventListener('click',function(e){var b=e.target.closest('.pm-burger');if(b){var n=b.closest('.pm-nav');var o=n.classList.toggle('pm-open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰';}});</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#100d2a" />
+    <title>Aura espiritual — Lectura celestial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!--
+      Rosebud defaults disable accidental selection, context menus, tap highlights,
+      and native dragging during gameplay while preserving text editing. Most games
+      need no customization.
+    -->
+    <link rel="stylesheet" href="./rosebud-game-defaults.css" />
+    <script src="./rosebud-game-defaults.js" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {}
+      }
+    </script>
+  </head>
+  <body>
+</div>
+    <div id="game-container"></div>
+    <script type="module" src="./main.js?v=pm6"></script>
+  <script>
+/* Escritorio: el aro del fondo queda FIJO alrededor del mandala y aparece ya colocado (sin saltos) */
+(function(){
+  var W0=576, CX=288, CY=284, R0=149;
+  var lastEl=null, lastW=0, lastH=0, stableT=null, token=0;
+  function C(){ return document.getElementById('game-container'); }
+  function hide(){ var c=C(); if(c) c.style.setProperty('--ring-o','0'); }
+  function show(){ var c=C(); if(c) c.style.setProperty('--ring-o','1'); }
+  function place(){
+    var c=C(), m=document.querySelector('.hero-mandala'); if(!c||!m) return false;
+    var r=m.getBoundingClientRect(); if(!r.width) return false;
+    var tf=getComputedStyle(m).transform, sc=1;
+    if(tf && tf!=='none'){ var v=tf.match(/matrix\(([^)]+)\)/); if(v){ var p=v[1].split(','); sc=Math.sqrt(p[0]*p[0]+p[1]*p[1])||1; } }
+    var MARGIN=innerWidth<1000?1.1:1.08, baseR=(r.width/sc)/2, s=(baseR*MARGIN)/R0, cr=c.getBoundingClientRect();
+    var mx=r.left-cr.left+r.width/2, my=r.top-cr.top+r.height/2;
+    c.style.setProperty('--bw',(W0*s).toFixed(1)+'px');
+    c.style.setProperty('--bx',(mx-CX*s).toFixed(1)+'px');
+    c.style.setProperty('--by',(my-CY*s).toFixed(1)+'px');
+    return true;
+  }
+  function settle(){
+    var my=++token, m=document.querySelector('.hero-mandala'); if(!m) return;
+    var imgReady = m.complete ? Promise.resolve() : new Promise(function(res){ m.addEventListener('load',res,{once:true}); m.addEventListener('error',res,{once:true}); });
+    imgReady.then(function(){
+      var anims=(document.getAnimations?document.getAnimations():[]).filter(function(a){ try{ return a.effect.getTiming().iterations!==Infinity; }catch(e){ return false; } });
+      return Promise.all(anims.map(function(a){ return a.finished.catch(function(){}); }));
+    }).then(function(){
+      if(my!==token) return;
+      requestAnimationFrame(function(){ if(my!==token) return; if(place()) show(); });
+    });
+  }
+  function check(){
+    var m=document.querySelector('.hero-mandala');
+    if(m!==lastEl || innerWidth!==lastW || innerHeight!==lastH){
+      lastEl=m; lastW=innerWidth; lastH=innerHeight; hide();
+      clearTimeout(stableT); if(m) stableT=setTimeout(settle,350);  // espera a que el tamaño deje de cambiar
+    }
+  }
+  setInterval(check,120); check();
+})();
+</script>
+</body>
+</html>

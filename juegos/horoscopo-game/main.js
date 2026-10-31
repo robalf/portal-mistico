@@ -1,4 +1,5 @@
 import { lectura as cieloLectura } from './cielo.js?v=3';
+import { anual as cieloAnual } from './anual.js?v=2';
 function PMS(r){try{var t=window.top;if(t!==window&&t.PortalMusic&&t.PortalMusic.sfx)return t.PortalMusic.sfx(new URL(r,location.href).href);}catch(e){}return new Audio(r);}
 const signs = [
   { name:'Aries', glyph:'♈', dates:'21 MAR — 19 ABR', element:'Fuego' },
@@ -187,7 +188,7 @@ function renderReading(animate=false){
   const oracle=container.querySelector('.oracle');
   oracle.classList.remove('reveal');
   const isYearly=['2027','2028','2029','2030'].includes(state.category.id);
-  const realReading=['hoy','manana','semana','mes'].includes(state.category.id)?cieloLectura(state.category.id, signs.findIndex(x=>x.name===state.sign.name), state.variant):null;
+  const realReading=['hoy','manana','semana','mes'].includes(state.category.id)?cieloLectura(state.category.id, signs.findIndex(x=>x.name===state.sign.name), state.variant):(isYearly?cieloAnual(+state.category.id, signs.findIndex(x=>x.name===state.sign.name)):null);
   oracle.innerHTML=`
     <div class="oracle-head"><h3>${state.category.title}</h3><span class="date">${currentDateLabel()}</span></div>
     ${(real=>real?real.parrafos.map(t=>`<p class="prediction">${t}</p>`).join(''):`<p class="prediction">${generateReading()}</p>`)(realReading)}

@@ -36,7 +36,7 @@ Roberto NO revisa los artículos antes de publicar: la calidad depende de estas 
 2. Crear el JSON del artículo y ejecutar `python3 automation/publicar.py spec.json` (campos en la cabecera del script). `body_html` usa solo `<h2>`, `<h3>`, `<p>`, `<ul>`, `<ol>`, `<a>`, `<strong>`, `<details>`.
 3. `python3 automation/validar.py blog/<slug>.html blog/index.html` debe dar 0 enlaces rotos.
 4. Abrir la página con Playwright en móvil (390x844) y comprobar que carga, sin desbordes y con el título correcto. Si algo falla: no publicar, `git checkout .` y anotar el error en `publicados`.
-5. `git add -A && git commit && git push origin main` (con las líneas de atribución que indique el sistema). Netlify publica solo.
+5. `git add -A && git commit && git push origin main` (con las líneas de atribución que indique el sistema). IMPORTANTE: haz el commit con la identidad de Roberto en GitHub para que Netlify lo reconozca: `git config user.name robalf && git config user.email 42778378+robalf@users.noreply.github.com` antes de commitear. Netlify publica solo.
 
 ## Domingo: planificación y prompts de imagen
 0. REGLA ANTI-PISADA: calcula el lunes siguiente al domingo actual. Si `plan-semana.json` ya tiene `semana` igual a ese lunes (YYYY-MM-DD) Y existe `prompts-imagen.md` de esa semana, NO cambies nada: el plan ya está hecho y Roberto puede haber subido imágenes con esos nombres. Solo envía una notificación breve diciendo que el plan de esa semana ya estaba listo y termina. Si el plan es de una semana anterior, planifica la semana del lunes siguiente.

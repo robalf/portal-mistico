@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-<meta name="color-scheme" content="dark"><style id="pm-flash">html,body{background:#080716}</style>
+<meta name="color-scheme" content="dark"><style id="pm-flash">html,body{background:#0A0B18}</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#080716" />
     <title>Oráculo Celeste — Horóscopos originales</title>
@@ -84,7 +84,14 @@
       @media (max-width:900px) { body{overflow:auto} #game-container{height:auto;min-height:100vh;overflow:visible}.app{grid-template-columns:1fr;height:auto;padding:58px 25px 25px}.sign-grid{grid-template-columns:repeat(6,1fr);overflow:visible}.main{padding:0}.topbar{position:absolute;right:24px;top:23px}.reading{padding-bottom:30px}.hero-line{margin-top:10px}.oracle{min-height:0}.choose-copy{max-width:600px} }
       @media (max-width:620px) { .sign-grid{grid-template-columns:repeat(4,1fr)}.insights{grid-template-columns:1fr}.hero-glyph{width:66px;height:66px;font-size:38px}.title-wrap h2{font-size:44px}.tabs{padding-bottom:8px}.oracle-head{align-items:flex-start;flex-direction:column;gap:5px}.original{display:none} }
     </style>
-  </head>
+  <style id="pm-fondo-unico">
+/* Fondo único oscuro, igual que Brújula Lunar */
+html,body{background:#0A0B18!important}
+#game-container,#game-container.app,.app{background:radial-gradient(ellipse at 50% -18%,#24204d 0%,#111126 37%,#0A0B18 76%)!important}
+#game-container::before,#game-container::after,.app::before,.app::after{background-image:none!important}
+#game-container>img.bg,#game-container .bg-image,.bg-image{display:none!important}
+</style>
+</head>
   <body>
 </div>
     <div id="game-container" aria-label="Aplicación de horóscopos"></div>

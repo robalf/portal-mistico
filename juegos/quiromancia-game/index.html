@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-<meta name="color-scheme" content="dark"><style id="pm-flash">html,body{background:#17102d}</style>
+<meta name="color-scheme" content="dark"><style id="pm-flash">html,body{background:#0A0B18}</style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#17102d" />
     <title>Quiromancia · Lectura de manos</title>
@@ -192,7 +192,14 @@
 .shape-card p { margin:8px 0; }
 .overlay-lines path.estimated, .annotated-palm svg path.estimated { stroke-dasharray:4 5 !important; animation:none !important; opacity:.8; }
 </style>
-  </head>
+  <style id="pm-fondo-unico">
+/* Fondo único oscuro, igual que Brújula Lunar */
+html,body{background:#0A0B18!important}
+#game-container,#game-container.app,.app{background:radial-gradient(ellipse at 50% -18%,#24204d 0%,#111126 37%,#0A0B18 76%)!important}
+#game-container::before,#game-container::after,.app::before,.app::after{background-image:none!important}
+#game-container>img.bg,#game-container .bg-image,.bg-image{display:none!important}
+</style>
+</head>
   <body>
 </div>
     <div id="game-container"></div>

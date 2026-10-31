@@ -222,7 +222,9 @@
     '#pm-music-btn.pm-on::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(241,213,138,.45);animation:pmPulse 2.4s ease-out infinite}' +
     '@keyframes pmPulse{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.35);opacity:0}}' +
     '#pm-music-btn.pm-in-nav{position:relative;top:auto;right:auto;margin-left:auto;width:38px;height:38px;font-size:18px;flex:none;box-shadow:none;z-index:auto}' +
-    '@media print{#pm-music-btn{display:none}}';
+    '#pm-back-btn{display:inline-flex;align-items:center;justify-content:center;flex:none;width:38px;height:38px;margin-right:10px;border-radius:50%;border:1px solid rgba(232,200,120,.55);background:rgba(18,15,40,.82);color:#F1D58A;font:20px/1 Arial,sans-serif;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
+    '#pm-back-btn:hover{background:rgba(199,162,75,.2)}' +
+    '@media print{#pm-music-btn,#pm-back-btn{display:none}}';
   var btn = document.createElement('button');
   btn.id = 'pm-music-btn';
   btn.type = 'button';
@@ -260,7 +262,35 @@
     if (document.visibilityState === 'visible' && audio.paused && prefOn() && audio.currentTime > 0) play();
   });
 
+  /* Flecha para volver atrás en todas las páginas con menú (menos la portada) */
+  var backBtn;
+  function backFallback() {
+    var seg = location.pathname.split('/').filter(Boolean);
+    if (seg.length > 1 && ['blog', 'glosario', 'zodiaco', 'recursos', 'tienda'].indexOf(seg[0]) !== -1 && !/^index(\.html)?$/.test(seg[seg.length - 1])) return '/' + seg[0] + '/index.html';
+    return '/index.html';
+  }
+  function goBack() {
+    var sameRef = false;
+    try { sameRef = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) {}
+    if (history.length > 1 && (swapped || sameRef)) history.back();
+    else if (window.PortalMusic) window.PortalMusic.go(backFallback());
+    else location.href = backFallback();
+  }
+  function mountBack() {
+    var navIn = document.querySelector('.pm-nav-in');
+    var isHome = /^\/(index\.html)?$/.test(location.pathname);
+    if (!navIn || isHome) { if (backBtn && backBtn.parentNode) backBtn.parentNode.removeChild(backBtn); return; }
+    if (!backBtn) {
+      backBtn = document.createElement('a');
+      backBtn.id = 'pm-back-btn'; backBtn.href = '#'; backBtn.textContent = '\u2190';
+      backBtn.setAttribute('aria-label', 'Volver atrás'); backBtn.title = 'Volver atrás';
+      backBtn.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); goBack(); });
+    }
+    if (backBtn.parentNode !== navIn) navIn.insertBefore(backBtn, navIn.firstChild);
+  }
+
   function mountUI() {
+    mountBack();
     if (!document.getElementById('pm-music-css')) document.head.appendChild(css);
     var navIn = document.querySelector('.pm-nav-in');
     var burger = navIn && navIn.querySelector('.pm-burger');

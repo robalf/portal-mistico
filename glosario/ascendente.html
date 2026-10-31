@@ -59,7 +59,7 @@
 .pm-share a:hover,.pm-share button:hover{background:rgba(199,162,75,0.18);}
 .pm-share .pm-native{display:none;}
 </style>
-<script src="/assets/js/musica-global.js?v=12"></script>
+<script src="/assets/js/musica-global.js?v=13"></script>
 <style id="pm-menu-css">
 .pm-nav .pm-links{flex-wrap:nowrap!important}
 .pm-nav .pm-links>a,.pm-nav .pm-links>details{flex:none;width:100%;box-sizing:border-box}
@@ -155,7 +155,7 @@ function enviarComentario(texto){
       list.appendChild(div);
     });
   }
-  document.getElementById('commentBtn').addEventListener('click', function(){
+  (document.getElementById('commentBtn')||{addEventListener:function(){}}).addEventListener('click', function(){
     var texto = document.getElementById('commentText').value.trim();
     if(!texto) return;
     var data = JSON.parse(localStorage.getItem(key) || '[]');

@@ -4,7 +4,7 @@ import { RULES_VERSION, applyPalmistryRules, buildReport, compareHands, shapeRea
 import { detectHandsInImage, detectHandsInVideo, loadHandLandmarker } from './hand-model.js?v=2';
 
 const root = document.querySelector('#game-container');
-const assets = { palm:'assets/aura-palm-five-fingers.webp', hands:{left:'assets/aura-right-palm-guide.webp',right:'assets/aura-left-palm-guide.webp'} };
+const assets = { palm:'assets/aura-palm-five-fingers.webp', reveal:'assets/audio/reading-reveal.mp3', scan:'assets/audio/scan-capture.mp3', hands:{left:'assets/aura-right-palm-guide.webp',right:'assets/aura-left-palm-guide.webp'} };
 const handNames = { left:'izquierda', right:'derecha' };
 function readLocal(key, fallback = null) { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } }
 function writeLocal(key, value) { try { localStorage.setItem(key, value); return true; } catch { return false; } }

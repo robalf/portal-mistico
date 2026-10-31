@@ -1,6 +1,6 @@
 /* Ventana de opinión para visitantes nuevos: 1-5 estrellas + comentario, enviado por correo (FormSubmit).
    Solo se muestra una vez, en la primera visita, cuando la persona está a punto de irse (PC) o tras un rato de lectura (móvil).
-   Para probar: añade ?opinion=1 a cualquier dirección del sitio y saca el ratón por arriba de la ventana (en móvil: baja hasta el final de la página y quédate quieto 4 s). */
+   Para probar: añade ?opinion=1 a cualquier dirección del sitio y saca el ratón por arriba de la ventana (en móvil: quédate 4 s sin tocar la pantalla). */
 (function () {
   if (window.__pmOpinion || window.top !== window) return;
   window.__pmOpinion = true;
@@ -28,20 +28,20 @@
     if (isTouch || shown || !okPage()) return;
     if (e.clientY <= 0 && (force || active >= 20)) show();
   });
-  /* Móvil: nunca mientras está usando la página. Solo cuando llegó al final de la página,
-     lleva 4 segundos quieto y ya pasó al menos 20 s; o cuando vuelve a la pestaña tras haberse ido. */
+  /* Móvil: espera 5 minutos desde que entró y, aun así, solo sale cuando la persona lleva 4 s sin tocar la pantalla
+     (nunca en medio de un desplazamiento). También si vuelve a la pestaña tras irse, pasados los 5 minutos. */
+  var MOBILE_WAIT = 300;
   if (isTouch) {
     var lastAct = Date.now(), wasHidden = false;
     ['touchstart', 'touchmove', 'scroll', 'click', 'keydown'].forEach(function (ev) { window.addEventListener(ev, function () { lastAct = Date.now(); }, { passive: true }); });
     document.addEventListener('visibilitychange', function () {
       if (document.visibilityState === 'hidden') wasHidden = true;
-      else if (wasHidden && !shown && okPage() && (force || active >= 20)) setTimeout(show, 1200);
+      else if (wasHidden && !shown && okPage() && (force || active >= MOBILE_WAIT)) setTimeout(show, 1200);
     });
     var t = setInterval(function () {
       if (shown) return clearInterval(t);
       if (!okPage() || document.visibilityState !== 'visible') return;
-      var de = document.documentElement, atEnd = (window.innerHeight + window.pageYOffset) >= de.scrollHeight - 160;
-      if (atEnd && Date.now() - lastAct > 4000 && (force || active >= 20)) { clearInterval(t); show(); }
+      if (Date.now() - lastAct > 4000 && (force || active >= MOBILE_WAIT)) { clearInterval(t); show(); }
     }, 1000);
   }
 

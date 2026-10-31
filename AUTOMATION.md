@@ -39,6 +39,7 @@ Roberto NO revisa los artículos antes de publicar: la calidad depende de estas 
 5. `git add -A && git commit && git push origin main` (con las líneas de atribución que indique el sistema). Netlify publica solo.
 
 ## Domingo: planificación y prompts de imagen
+0. REGLA ANTI-PISADA: calcula el lunes siguiente al domingo actual. Si `plan-semana.json` ya tiene `semana` igual a ese lunes (YYYY-MM-DD) Y existe `prompts-imagen.md` de esa semana, NO cambies nada: el plan ya está hecho y Roberto puede haber subido imágenes con esos nombres. Solo envía una notificación breve diciendo que el plan de esa semana ya estaba listo y termina. Si el plan es de una semana anterior, planifica la semana del lunes siguiente.
 1. Decidir la herramienta y el ángulo del artículo del lunes (sin publicarlo aún; la rotación se actualiza el lunes) y el tema viral candidato del miércoles (buscar en la web; comprobar 2 fuentes). Guardar en `plan-semana.json`: {semana, herramienta:{url,nombre,slug,titulo}, viral:{tema,slug,titulo,fuentes:[...]} o null}.
 2. Escribir en `prompts-imagen.md` un prompt de imagen por artículo (formato 16:9, estilo soñador y etéreo, ilustración mística con luz suave, SIN texto ni letras dentro de la imagen, protagonista distinto cada vez, relacionado con el tema). Indicar el nombre exacto con que Roberto debe subir cada imagen: `imagenes-pendientes/<slug>.png`.
 3. Los slugs del plan son los que usarán después los artículos de lunes y miércoles (reutilizar el slug del plan).

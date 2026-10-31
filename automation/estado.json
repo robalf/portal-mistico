@@ -1,0 +1,244 @@
+{
+ "siguiente_seccion": 0,
+ "secciones": [
+  {
+   "seccion": "🔮 Tarot",
+   "url": "juegos/tarot.html",
+   "herramientas": [
+    {
+     "url": "juegos/tarot-del-dia.html",
+     "nombre": "Tarot del día"
+    },
+    {
+     "url": "juegos/tarot-pasado-presente-futuro.html",
+     "nombre": "Pasado, presente y futuro"
+    },
+    {
+     "url": "juegos/tarot-del-amor-gratis.html",
+     "nombre": "Tarot del amor"
+    }
+   ],
+   "usadas": []
+  },
+  {
+   "seccion": "♈ Horóscopo",
+   "url": "juegos/horoscopo.html",
+   "herramientas": [
+    {
+     "url": "juegos/horoscopo-de-hoy.html",
+     "nombre": "Horóscopo de hoy"
+    },
+    {
+     "url": "juegos/horoscopo-de-manana.html",
+     "nombre": "Horóscopo de mañana"
+    },
+    {
+     "url": "juegos/horoscopo-semanal.html",
+     "nombre": "Horóscopo semanal"
+    },
+    {
+     "url": "juegos/horoscopo-mensual.html",
+     "nombre": "Horóscopo mensual"
+    }
+   ],
+   "usadas": []
+  },
+  {
+   "seccion": "🌌 Carta Astral",
+   "url": "juegos/carta-astral.html",
+   "herramientas": [
+    {
+     "url": "juegos/carta-astral.html",
+     "nombre": "Carta astral completa"
+    },
+    {
+     "url": "juegos/calcular-ascendente.html",
+     "nombre": "Calcular ascendente"
+    },
+    {
+     "url": "juegos/signo-lunar.html",
+     "nombre": "Signo lunar"
+    }
+   ],
+   "usadas": []
+  },
+  {
+   "seccion": "🃏 Oráculo de Respuestas",
+   "url": "juegos/oraculo-de-respuestas.html",
+   "herramientas": [
+    {
+     "url": "juegos/tarot-si-o-no.html",
+     "nombre": "Tarot sí o no"
+    },
+    {
+     "url": "juegos/runas.html",
+     "nombre": "Tirada de runas"
+    },
+    {
+     "url": "juegos/i-ching.html",
+     "nombre": "I Ching"
+    },
+    {
+     "url": "juegos/sinastria.html",
+     "nombre": "Sinastría de pareja"
+    },
+    {
+     "url": "juegos/revolucion-solar.html",
+     "nombre": "Revolución solar"
+    },
+    {
+     "url": "juegos/transitos.html",
+     "nombre": "Tránsitos de hoy"
+    }
+   ],
+   "usadas": []
+  },
+  {
+   "seccion": "🔢 Numerología",
+   "url": "juegos/numerologia.html",
+   "herramientas": [
+    {
+     "url": "juegos/numeros-de-la-suerte-hoy.html",
+     "nombre": "Números de la suerte de hoy"
+    },
+    {
+     "url": "juegos/calcular-numero-de-vida.html",
+     "nombre": "Número de vida"
+    },
+    {
+     "url": "juegos/ano-personal-2027.html",
+     "nombre": "Año personal 2027"
+    },
+    {
+     "url": "juegos/compatibilidad-de-nombres.html",
+     "nombre": "Compatibilidad de nombres"
+    },
+    {
+     "url": "juegos/personalidad-segun-tu-nombre.html",
+     "nombre": "Personalidad según tu nombre"
+    }
+   ],
+   "usadas": []
+  },
+  {
+   "seccion": "♊ Signos",
+   "url": "juegos/signos.html",
+   "herramientas": [
+    {
+     "url": "juegos/como-conquistar-a-cada-signo.html",
+     "nombre": "Cómo conquistar a cada signo"
+    },
+    {
+     "url": "juegos/compatibilidad-amorosa-de-cada-signo.html",
+     "nombre": "Compatibilidad amorosa"
+    },
+    {
+     "url": "juegos/como-besa-cada-signo.html",
+     "nombre": "Cómo besa cada signo"
+    },
+    {
+     "url": "juegos/que-regalarle-a-cada-signo.html",
+     "nombre": "Qué regalarle a cada signo"
+    },
+    {
+     "url": "juegos/por-que-enamorarte-de-cada-signo.html",
+     "nombre": "Por qué enamorarte"
+    },
+    {
+     "url": "juegos/celos-e-infidelidad-segun-tu-signo.html",
+     "nombre": "Celos e infidelidad"
+    },
+    {
+     "url": "juegos/como-afronta-una-ruptura-cada-signo.html",
+     "nombre": "Cómo afronta una ruptura"
+    },
+    {
+     "url": "juegos/horoscopo-chino.html",
+     "nombre": "Horóscopo chino"
+    }
+   ],
+   "usadas": []
+  },
+  {
+   "seccion": "✨ El Oráculo",
+   "url": "juegos/novedades.html",
+   "herramientas": [
+    {
+     "url": "juegos/significado-de-los-suenos.html",
+     "nombre": "Significado de los sueños"
+    },
+    {
+     "url": "juegos/test-de-intuicion.html",
+     "nombre": "Test de intuición"
+    },
+    {
+     "url": "juegos/rituales-y-hechizos.html",
+     "nombre": "Rituales y hechizos"
+    },
+    {
+     "url": "juegos/compatibilidad-entre-signos.html",
+     "nombre": "Compatibilidad entre dos signos"
+    },
+    {
+     "url": "juegos/compatibilidad-padres-e-hijos-horoscopo-chino.html",
+     "nombre": "Padres e hijos"
+    },
+    {
+     "url": "juegos/mensajes-angelicales.html",
+     "nombre": "Mensajes angelicales"
+    },
+    {
+     "url": "juegos/angel-de-la-guarda.html",
+     "nombre": "Tu ángel de la guarda"
+    }
+   ],
+   "usadas": []
+  },
+  {
+   "seccion": "🧭 Brújula Lunar",
+   "url": "juegos/brujula.html",
+   "herramientas": [
+    {
+     "url": "juegos/fase-lunar-hoy.html",
+     "nombre": "Fase lunar de hoy"
+    },
+    {
+     "url": "juegos/ritual-del-dia.html",
+     "nombre": "Ritual del día"
+    },
+    {
+     "url": "juegos/planetas-retrogrados-hoy.html",
+     "nombre": "Planetas retrógrados hoy"
+    },
+    {
+     "url": "juegos/calendario-lunar.html",
+     "nombre": "Calendario lunar"
+    }
+   ],
+   "usadas": []
+  },
+  {
+   "seccion": "🖐️ Quiromancia",
+   "url": "juegos/quiromancia.html",
+   "herramientas": [
+    {
+     "url": "juegos/quiromancia.html",
+     "nombre": "🖐️ Quiromancia"
+    }
+   ],
+   "usadas": []
+  },
+  {
+   "seccion": "🌈 Aura",
+   "url": "juegos/aura.html",
+   "herramientas": [
+    {
+     "url": "juegos/aura.html",
+     "nombre": "🌈 Aura"
+    }
+   ],
+   "usadas": []
+  }
+ ],
+ "publicados": []
+}

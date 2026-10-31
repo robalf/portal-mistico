@@ -144,7 +144,7 @@ container.innerHTML=`
   <div class="app">
     <aside class="sidebar">
       <h2 class="choose-title">Elige tu signo</h2>
-      <p class="choose-copy">Selecciona tu constelación para abrir una lectura creada especialmente para este momento.</p>
+      <p class="choose-copy">Selecciona tu constelación para abrir su lectura simbólica del momento.</p>
       <div class="sign-grid" role="list" aria-label="Signos del zodiaco"></div>
     </aside>
     <main class="main">

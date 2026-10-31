@@ -2,7 +2,7 @@ function PMS(r){try{var t=window.top;if(t!==window&&t.PortalMusic&&t.PortalMusic
 const mount = document.querySelector('#game-container');
 
 const tools = [
-  { id: 'year', glyph: '✦', title: 'Numerología del año', sub: 'Descubre la energía que acompañará tu camino en 2027.' },
+  { id: 'year', glyph: '✦', title: 'Numerología del año', sub: 'Descubre la energía de tu año personal: 2026, 2027 o 2028.' },
   { id: 'life', glyph: '∞', title: 'Número personal', sub: 'Conoce tu número de vida y los dones de tu esencia.' },
   { id: 'lucky', glyph: '☽', title: 'Números de la suerte', sub: 'Recibe las cifras luminosas de hoy para tu signo.' },
   { id: 'match', glyph: '♡', title: 'Compatibilidad de nombres', sub: 'Explora la armonía numerológica entre dos nombres.' },
@@ -25,7 +25,7 @@ const meanings = {
 };
 
 const yearMeanings = {
-  1: ['Año de comienzos', '2027 abre una puerta para elegir rumbo, iniciar proyectos y renovar tu identidad. Da el primer paso aunque el mapa aún no esté completo.'],
+  1: ['Año de comienzos', '__Y__ abre una puerta para elegir rumbo, iniciar proyectos y renovar tu identidad. Da el primer paso aunque el mapa aún no esté completo.'],
   2: ['Año de vínculos', 'La paciencia y la cooperación serán tus aliadas. Nutre alianzas, escucha tu intuición y permite que los procesos maduren a su propio ritmo.'],
   3: ['Año de expresión', 'Tu creatividad pide espacio. Comunica, aprende, celebra y deja que una idea alegre encuentre su público sin buscar una perfección imposible.'],
   4: ['Año de cimientos', 'Es tiempo de ordenar prioridades y construir con constancia. Cada hábito pequeño puede convertirse en una estructura que te sostenga por mucho tiempo.'],
@@ -87,7 +87,7 @@ function formScreen(tool, body) {
 function render() {
   const tool = tools.find(t => t.id === view);
   if (view === 'home') mount.innerHTML = home();
-  if (view === 'year') mount.innerHTML = formScreen(tool, panel('Suma tu día y mes de nacimiento a la vibración universal de 2027.', `<div class="field"><label for="birth">Fecha de nacimiento</label><input id="birth" type="date" autocomplete="bday"></div>`, 'Revelar mi año', 'yearForm'));
+  if (view === 'year') mount.innerHTML = formScreen(tool, panel('Suma tu día y mes de nacimiento a la vibración universal del año que elijas.', `<div class="field"><label for="birth">Fecha de nacimiento</label><input id="birth" type="date" autocomplete="bday"></div><div class="field"><label for="yr">Año a consultar</label><select id="yr"><option value="2026">2026</option><option value="2027" selected>2027</option><option value="2028">2028</option></select></div>`, 'Revelar mi año', 'yearForm'));
   if (view === 'life') mount.innerHTML = formScreen(tool, panel('Tu fecha completa contiene una vibración base: una manera simbólica de reconocer tus talentos y aprendizajes.', `<div class="field"><label for="birth">Fecha de nacimiento</label><input id="birth" type="date" autocomplete="bday"></div>`, 'Descubrir mi número', 'lifeForm'));
   if (view === 'lucky') mount.innerHTML = formScreen(tool, panel('Cada día enlazamos la fecha con la energía de tu signo para ofrecerte cinco cifras inspiradoras.', `<div class="field"><label for="sign">Signo zodiacal</label><select id="sign"><option value="">Elige tu signo</option>${zodiac.map(s => `<option>${s}</option>`).join('')}</select></div>`, 'Consultar números de hoy', 'luckyForm'));
   if (view === 'match') mount.innerHTML = formScreen(tool, panel('Comparamos la vibración expresiva de ambos nombres para observar afinidades y oportunidades de crecimiento.', `<div class="field"><label for="name1">Primer nombre</label><input id="name1" maxlength="60" autocomplete="off" placeholder="Ej. Alma"></div><div class="field"><label for="name2">Segundo nombre</label><input id="name2" maxlength="60" autocomplete="off" placeholder="Ej. Gabriel"></div>`, 'Calcular compatibilidad', 'matchForm'));
@@ -111,8 +111,8 @@ function orbit(number, kicker, cls = '') { return `<div class="result-orbit"><di
 function onYear(e) {
   e.preventDefault(); unlockAudio(); const value = e.currentTarget.birth.value;
   if (!validDate(value)) return fail(e.currentTarget, 'Elige una fecha de nacimiento válida.');
-  const [, m, d] = value.split('-').map(Number); const number = reduce(d + m + 2 + 0 + 2 + 7, false); const [title, text] = yearMeanings[number];
-  show(e.currentTarget, `${orbit(number, 'Tu año 2027')}<h3>${title}</h3><p>${text}</p><p><strong>Clave del año:</strong> avanza con intención y revisa tu rumbo al cambiar de estación.</p>`, 'year');
+  const [, m, d] = value.split('-').map(Number); const yr = Number(e.currentTarget.yr ? e.currentTarget.yr.value : 2027) || 2027; const number = reduce(d + m + String(yr).split('').reduce((a, c) => a + Number(c), 0), false); const [title, rawText] = yearMeanings[number]; const text = rawText.replace('__Y__', yr);
+  show(e.currentTarget, `${orbit(number, 'Tu año ' + yr)}<h3>${title}</h3><p>${text}</p><p><strong>Clave del año:</strong> avanza con intención y revisa tu rumbo al cambiar de estación.</p>`, 'year');
 }
 function onLife(e) {
   e.preventDefault(); unlockAudio(); const value = e.currentTarget.birth.value;

@@ -530,6 +530,9 @@
 
   window.PortalMusic = { audio: audio, proxy: makeProxy(), play: play, pause: pause, sfx: sfx, go: function (href) { var u = internalURL(href); if (u) navigate(u.href, true); else location.href = href; } };
 
+
+  /* Ventana de opinión para visitantes nuevos (se carga aparte) */
+  try { if (window.top === window && !document.querySelector('script[src*="opinion.js"]')) { var op = document.createElement('script'); op.src = '/assets/js/opinion.js?v=1'; op.async = true; document.head.appendChild(op); } } catch (e) {}
   function init() { mountUI(); watchIframes(); }
   if (document.readyState === 'loading') origDocAdd('DOMContentLoaded', init); else init();
 })();

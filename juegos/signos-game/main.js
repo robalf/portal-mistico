@@ -39,7 +39,7 @@ const animals=[
  ['Cerdo','Generosidad luminosa','Disfrutas con sinceridad y compartes sin calcular. Tu corazón crea abundancia emocional; elegir con calma a quién entregas tanto protege tu dulzura sin endurecerla.']
 ];
 
-import {pareja,NOM,PERFIL} from './signos-extra.js?v=1';
+import {pareja,NOM,PERFIL} from './signos-extra.js?v=2';
 const $=s=>document.querySelector(s); const container=$('#game-container');
 container.innerHTML=`<div class="app"><header><button class="icon-btn back" aria-label="Volver">‹</button><div class="brand"><img src="assets/medallon-celeste.webp" alt=""><strong>Oráculo de los Signos</strong></div><button class="icon-btn sound" aria-label="Activar o silenciar música">♪</button></header><main><section id="home" class="screen active"><div class="hero"><div class="eyebrow">Astros · amor · intuición</div><h1>Una señal para<br><em>tu corazón</em></h1><p>Elige una pregunta, busca tu signo y deja que el cielo te susurre una respuesta.</p></div><div class="topics"></div></section><section id="select" class="screen"></section><section id="chinese" class="screen"></section><section id="result" class="screen"></section></main></div><div class="toast">Copiado al portapapeles ✦</div>`;
 

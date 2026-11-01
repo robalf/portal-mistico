@@ -529,12 +529,12 @@ window.CartaTextos = (function () {
     'la comunicación, los estudios, los hermanos y el entorno cercano',
     'el hogar, la familia, tu padre y tus raíces',
     'la creatividad, el romance, el juego y los hijos',
-    'el trabajo diario, la salud y las rutinas',
+    'el trabajo diario, la salud, las rutinas y las personas a tu servicio',
     'la pareja, los socios y las relaciones de tú a tú',
     'las crisis, la intimidad, las herencias y la transformación',
-    'los viajes, la filosofía, la fe y los estudios superiores',
+    'los viajes largos, la filosofía, la fe, los sueños y los estudios superiores',
     'la carrera, la vocación, el honor, la imagen pública y la madre',
-    'los amigos, los grupos y los proyectos de futuro',
+    'los amigos, el apoyo de otros, la esperanza y los proyectos de futuro',
     'el mundo interior, lo oculto, los enemigos secretos, el retiro y lo que cuesta mostrar (la tradición lo asocia con pruebas y autosabotaje)'
   ];
   var ASPECTS = {

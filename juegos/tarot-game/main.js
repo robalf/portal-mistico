@@ -1,5 +1,5 @@
 function PMS(r){try{var t=window.top;if(t!==window&&t.PortalMusic&&t.PortalMusic.sfx)return t.PortalMusic.sfx(new URL(r,location.href).href);}catch(e){}return new Audio(r);}
-import { additionalCards } from './generated-cards.js';
+import { additionalCards } from './generated-cards.js?v=2';
 import { enrich } from './tarot-extra.js?v=3';
 
 const DESIGN_WIDTH = 1920;

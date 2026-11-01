@@ -1046,6 +1046,49 @@ window.CartaExtra.DIG = {
   Jupiter: { dom: [8, 11], ex: [3], det: [2, 5], fall: [9], well: 'magnánimo, leal, justo, prudente, generoso y deseoso de beneficiar a todos', ill: 'derrochador del patrimonio, fácil de engañar y de piedad más aparente que real' },
   Saturn: { dom: [9, 10], ex: [6], det: [3, 4], fall: [0], well: 'profundo en la imaginación, severo en sus actos, reservado al hablar, paciente en el trabajo y cuidadoso con los bienes', ill: 'desconfiado, envidioso, avaro, temeroso y descontento' }
 };
+
+/* Temperamento y carácter según William Lilly, Christian Astrology, Libro III (caps. "Complexion" y "Manners of the Native"). */
+window.CartaExtra.temperamento = function (C, ch, pt) {
+  if (!ch.houses) return null;
+  var SIGQ = [['h', 'd'], ['c', 'd'], ['h', 'm'], ['c', 'm'], ['h', 'd'], ['c', 'd'], ['h', 'm'], ['c', 'm'], ['h', 'd'], ['c', 'd'], ['h', 'm'], ['c', 'm']]; // fuego cálido-seco, tierra frío-seca, aire cálido-húmedo, agua frío-húmeda
+  var TRAD = ['Mars', 'Venus', 'Mercury', 'Moon', 'Sun', 'Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'Saturn', 'Jupiter'];
+  var PQ = { Saturn: [['c', 'm'], ['d']], Jupiter: [['h', 'm'], ['m']], Mars: [['h', 'd'], ['d']], Venus: [['h', 'm'], ['m']], Mercury: [['h'], ['d']] };
+  var t = { h: 0, c: 0, m: 0, d: 0 };
+  function add(a) { a.forEach(function (q) { t[q]++; }); }
+  var asc = C.signOf(ch.houses.asc);
+  add(SIGQ[asc]);
+  var sun = pt(ch, 'Sun'), moon = pt(ch, 'Moon');
+  var lordKey = TRAD[asc], lord = pt(ch, lordKey);
+  if (lord) {
+    if (lordKey === 'Sun') { /* se cuenta por la estación */ }
+    else if (lordKey === 'Moon') { /* se cuenta por la fase */ }
+    else { var east = ((sun.lon - lord.lon) % 360 + 360) % 360 < 180; add(PQ[lordKey][east ? 0 : 1]); }
+    add(SIGQ[C.signOf(lord.lon)]);
+  }
+  var a = ((moon.lon - sun.lon) % 360 + 360) % 360;
+  add(a < 90 ? ['h', 'm'] : a < 180 ? ['h', 'd'] : a < 270 ? ['c', 'd'] : ['c', 'm']);
+  add(SIGQ[C.signOf(moon.lon)]);
+  var ss = C.signOf(sun.lon);
+  add(ss < 3 ? ['h', 'm'] : ss < 6 ? ['h', 'd'] : ss < 9 ? ['c', 'd'] : ['c', 'm']);
+  var hot = t.h - t.c, wet = t.m - t.d; // las cualidades opuestas se anulan
+  if (hot === 0 || wet === 0) return { tie: true };
+  var k = hot > 0 ? (wet > 0 ? 'sang' : 'col') : (wet > 0 ? 'fleg' : 'mel');
+  return { k: k, t: t };
+};
+window.CartaExtra.TEMP = {
+  sang: ['Sanguíneo (cálido y húmedo)', 'alegre, generoso, leal, afable, conciliador, de corazón abierto, modesto y religioso'],
+  col: ['Colérico (cálido y seco)', 'enérgico, de carácter fuerte, competitivo, ambicioso, valiente y rápido para cambiar de opinión; la tradición advierte tendencia a la ira, a la discusión y a meterse en conflictos innecesarios'],
+  fleg: ['Flemático (frío y húmedo)', 'tranquilo, apacible, familiar y cambiante; la tradición advierte tendencia a la lentitud para actuar y a que le cueste guardar secretos'],
+  mel: ['Melancólico (frío y seco)', 'lento para decidir, prudente, reservado, serio, exigente y de memoria larga; la tradición advierte tendencia a la desconfianza, la preocupación y el temor']
+};
+window.CartaExtra.caracterLilly = function (C, ch, pt) {
+  if (!ch.houses) return null;
+  var asc = C.signOf(ch.houses.asc), TRAD = ['Mars', 'Venus', 'Mercury', 'Moon', 'Sun', 'Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'Saturn', 'Jupiter'];
+  var keys = [], via = '';
+  ch.points.forEach(function (p) { if (p.house === 1 && window.CartaExtra.DIG[p.key]) keys.push(p.key); });
+  if (keys.length) via = 'en tu casa 1'; else { keys = [TRAD[asc]]; via = 'regente de tu ascendente'; }
+  return { keys: keys, via: via };
+};
 window.CartaExtra.dignidad = function (key, si) {
   var D = window.CartaExtra.DIG[key]; if (!D) return null;
   var st = D.dom.indexOf(si) > -1 ? 'dom' : D.ex.indexOf(si) > -1 ? 'ex' : D.det.indexOf(si) > -1 ? 'det' : D.fall.indexOf(si) > -1 ? 'fall' : null;
@@ -1119,6 +1162,15 @@ window.CartaExtra.dignidad = function (key, si) {
         h.push('<div class="ca-item"><div class="ca-item-t"><span class="ca-g">' + pg(p.key) + '</span> ' + P.n + ' en ' + si.n + '</div><p>' + txt + '</p></div>');
       });
       h.push('</div>');
+      var tp = ch.houses ? CartaExtra.temperamento(C, ch, point) : null;
+      if (tp) {
+        h.push('<h3 class="ca-h">Tu temperamento y carácter, según Lilly</h3><div class="ca-list">');
+        if (tp.tie) h.push('<div class="ca-item"><div class="ca-item-t">Tu temperamento</div><p>En tu carta el calor y el frío (o la humedad y la sequedad) se compensan casi por completo, así que el método de Lilly no marca un temperamento dominante: eres una mezcla equilibrada.</p></div>');
+        else { var TT = CartaExtra.TEMP[tp.k]; h.push('<div class="ca-item"><div class="ca-item-t">Tu temperamento: ' + TT[0] + '</div><p>Lilly cuenta las cualidades (calor, frío, humedad y sequedad) de tu ascendente, el regente de tu ascendente, la Luna y la estación del Sol. En tu carta predomina el temperamento ' + TT[0].split(' ')[0].toLowerCase() + ': ' + TT[1] + '.</p></div>'); }
+        var cl = CartaExtra.caracterLilly(C, ch, point);
+        if (cl) cl.keys.forEach(function (k) { var D = CartaExtra.DIG[k], d = CartaExtra.dignidad(k, C.signOf(point(ch, k).lon)), P = T.PLANETS[k]; var strong = d && (d.st === 'dom' || d.st === 'ex'), weak = d && (d.st === 'det' || d.st === 'fall'); h.push('<div class="ca-item"><div class="ca-item-t"><span class="ca-g">' + pg(k) + '</span> Planeta que marca tu carácter: ' + P.n + '</div><p>' + (k === cl.keys[0] ? 'Para Lilly, el planeta que está en el ascendente (o, si no hay ninguno, el regente del ascendente) es el principal indicador de las costumbres. ' : '') + 'En tu carta, ' + P.n + ' (' + cl.via + '). ' + (strong ? 'Está fuerte, así que se muestra en su mejor versión: ' + D.well + '.' : weak ? 'Está débil, así que puede mostrar su lado difícil: ' + D.ill + '.' : 'Según lo bien o mal situado que esté, se muestra como alguien ' + D.well + ', o en su versión difícil, ' + D.ill + '.') + '</p></div>'); });
+        h.push('</div>');
+      }
       var dgs = []; ch.points.forEach(function (p) { var d = CartaExtra.dignidad(p.key, C.signOf(p.lon)); if (d) dgs.push([p, d]); });
       if (dgs.length) {
         h.push('<h3 class="ca-h">Dignidades tradicionales de tus planetas</h3><p class="ca-note">En la astrología clásica (William Lilly, <em>Christian Astrology</em>, 1647) un planeta es más fuerte en su domicilio y su exaltación, y más débil en su exilio y su caída. Los planetas que no están en ninguno de esos cuatro casos no aparecen aquí.</p><div class="ca-list">');

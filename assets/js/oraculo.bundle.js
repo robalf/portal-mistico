@@ -280,6 +280,7 @@ window.PM_ICHING = {
 ;
 /* 72 ángeles de la cábala: [nombre, [mes, día inicio], [mes, día fin], qué te aporta].
    Fechas según la lista difundida en medios hispanos (angeóloga Viviana Villalobos). */
+window.PM_ANGEL_REFS = ["Salmo 3:3", "Salmo 22:19", "Salmo 91:2", "Salmo 6:4", "Salmo 34:4", "Salmo 9:11", "Salmo 103:8", "Salmo 95:6", "Salmo 25:6", "Salmo 33:22", "Salmo 18:46", "Salmo 10:1", "Salmo 98:4", "Salmo 9:9", "Salmo 94:22", "Salmo 88:1", "Salmo 8:9", "Salmo 35:24", "Salmo 40:1", "Salmo 120:1-2", "Salmo 31:14", "Salmo 121:5", "Salmo 121:8", "Salmo 33:18", "Salmo 9:1", "Salmo 119:145", "Salmo 140:1", "Salmo 71:12", "Salmo 54:4", "Salmo 71:5", "Salmo 71:16", "Salmo 33:4", "Salmo 94:11", "Salmo 131:3", "Salmo 116:1", "Salmo 26:8", "Salmo 80:3", "Salmo 91:9", "Salmo 30:10", "Salmo 88:14", "Salmo 120:2", "Salmo 121:7", "Salmo 88:13", "Salmo 119:108", "Salmo 94:18", "Salmo 145:9", "Salmo 92:5", "Salmo 98:2", "Salmo 145:3", "Salmo 145:8", "Salmo 104:31", "Salmo 7:17", "Salmo 119:75", "Salmo 103:19", "Salmo 102:12", "Salmo 145:14", "Salmo 115:11", "Salmo 6:3", "Salmo 113:3", "Salmo 145:17", "Salmo 113:2", "Salmo 119:159", "Salmo 100:2", "Salmo 33:18", "Salmo 90:13", "Salmo 38:21", "Salmo 37:4", "Salmo 106:1", "Salmo 16:5", "Génesis 1:1", "Salmo 109:30", "Salmo 116:7"]; /* Versículo asociado a cada ángel en la tradición del Shem HaMephorash (numeración hebrea de los Salmos; según Rudd). */
 window.PM_ANGELES = [
   ['Nemamiah', [12, 28], [1, 1], 'te ayuda a descubrir el origen profundo de los problemas para resolverlos de raíz'],
   ['Yeialel', [1, 2], [1, 6], 'despierta tus capacidades psíquicas, como la clarividencia'],
@@ -536,7 +537,7 @@ window.PM_ANGELES = [
       var p = v.split('-').map(Number), i = find(p[1], p[2]), A = AN[i], num = ((i - 16 + 72) % 72) + 1, choir = CHOIRS[Math.floor((num - 1) / 8)];
       var range = A[1][1] + ' de ' + MES[A[1][0] - 1] + ' al ' + A[2][1] + ' de ' + MES[A[2][0] - 1];
       var h = '<div class="ag-res"><div class="ag-halo">👼</div><div class="ca-kick">Tu ángel de la guarda es</div><h2>' + A[0] + '</h2>' +
-        '<div class="ca-pills"><span>Ángel nº ' + num + ' de 72</span><span>Coro de los ' + choir + '</span><span>' + range + '</span></div>' +
+        '<div class="ca-pills"><span>Ángel nº ' + num + ' de 72</span><span>Coro de los ' + choir + '</span>' + (window.PM_ANGEL_REFS ? '<span>' + window.PM_ANGEL_REFS[num - 1] + '</span>' : '') + '<span>' + range + '</span></div>' +
         '<p class="ag-txt">' + A[0] + ' ' + A[3] + '.</p></div>' +
         '<div class="ca-list"><div class="ca-item"><div class="ca-item-t">Cómo conectar con ' + A[0] + '</div><p>Busca un momento tranquilo, enciende una vela blanca si lo deseas y repite su nombre en voz baja tres veces. Después, cuéntale con tus palabras qué necesitas. Muchas personas lo hacen en los días de su periodo (del ' + range + ') y el día de su cumpleaños.</p></div>' +
         '<div class="ca-item"><div class="ca-item-t">Una oración sencilla</div><p class="ag-pray">“' + A[0] + ', ángel de mi guarda, gracias por acompañarme. Ayúdame hoy a ver con claridad, a actuar con amor y a reconocer tus señales en mi camino. Así sea.”</p></div></div>' +

@@ -1,4 +1,4 @@
-import { lectura as cieloLectura } from './cielo.js?v=3';
+import { lectura as cieloLectura } from './cielo.js?v=4';
 import { anual as cieloAnual } from './anual.js?v=2';
 function PMS(r){try{var t=window.top;if(t!==window&&t.PortalMusic&&t.PortalMusic.sfx)return t.PortalMusic.sfx(new URL(r,location.href).href);}catch(e){}return new Audio(r);}
 const signs = [

@@ -1,5 +1,6 @@
 // Compone las lecturas a partir del cielo real (posiciones calculadas con astronomy-engine, ver cielo-data.js).
 import { CIELO } from './cielo-data.js?v=2';
+import { PCASA } from './cielo-planetas.js';
 import { SIGNOS, CASA, LUNA_CASA, CONSEJO_CASA, LUNA_SIGNO, FASES, FASE_EXACTA, PLANETA, ASPECTO, RETRO, SOL_CASA } from './cielo-textos.js';
 
 const IDX = { L:0, S:1, Me:2, V:3, Ma:4, J:5, Sa:6 };
@@ -107,9 +108,10 @@ function semana(i0, s, variant){
   for (const k of ['Me','V','Ma']){
     const sk = sign(mid,k), hk = house(sk, s), P = PLANETA[k], r = retro(mid,k);
     let t = `${P.n}${r ? (k==='V' ? ' retrógrada' : ' retrógrado') : ''} en ${SIGNOS[sk]}, en tu casa ${hk}: ${P.rol(CASA[hk].t)}.`;
+    const pc = PCASA[k][hk];
     const ch = idxs.find(i => sign(i,k) !== sign(i0,k));
     if (ch){ const s2 = sign(ch,k); t += ` (Cambia a ${SIGNOS[s2]} el ${diaLargo(dateOf(ch))}.)`; }
-    planetas.push(t);
+    planetas.push(t + ' ' + pc);
   }
   const p2 = planetas.join(' ');
 
@@ -169,7 +171,7 @@ function mes(y, mo, s, variant){
     else if (r0 && rc) ex.push(`sigue ${f} hasta el ${fmt(dateOf(rc), {day:'numeric'})}`);
     else if (rc) ex.push(`se vuelve ${f} el ${fmt(dateOf(rc), {day:'numeric'})}`);
     let t = `${P.n} comienza el mes en ${SIGNOS[sk]} (tu casa ${hk})` + (ex.length ? ' y ' + ex.join(' y ') : '');
-    pl.push(t + '.');
+    pl.push(t + '. ' + PCASA[k][hk]);
   }
   const jS = sign(i1,'J'), jH = house(jS, s), saS = sign(i1,'Sa'), saH = house(saS, s);
   const fondo = `De fondo, Júpiter transita ${SIGNOS[jS]} (tu casa ${jH}): ${PLANETA.J.rol(CASA[jH].t)}; y Saturno está en ${SIGNOS[saS]} (tu casa ${saH}): ${PLANETA.Sa.rol(CASA[saH].t)}.`;

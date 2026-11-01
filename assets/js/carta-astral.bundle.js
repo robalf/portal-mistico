@@ -1202,6 +1202,13 @@ window.CartaExtra.dignidad = function (key, si) {
         else { var TT = CartaExtra.TEMP[tp.k]; h.push('<div class="ca-item"><div class="ca-item-t">Tu temperamento: ' + TT[0] + '</div><p>Lilly cuenta las cualidades (calor, frío, humedad y sequedad) de tu ascendente, el regente de tu ascendente, la Luna y la estación del Sol. En tu carta predomina el temperamento ' + TT[0].split(' ')[0].toLowerCase() + ': ' + TT[1] + '.</p></div>'); }
         var cl = CartaExtra.caracterLilly(C, ch, point);
         if (cl) cl.keys.forEach(function (k) { var D = CartaExtra.DIG[k], d = CartaExtra.dignidad(k, C.signOf(point(ch, k).lon)), P = T.PLANETS[k]; var strong = d && (d.st === 'dom' || d.st === 'ex'), weak = d && (d.st === 'det' || d.st === 'fall'); h.push('<div class="ca-item"><div class="ca-item-t"><span class="ca-g">' + pg(k) + '</span> Planeta que marca tu carácter: ' + P.n + '</div><p>' + (k === cl.keys[0] ? 'Para Lilly, el planeta que está en el ascendente (o, si no hay ninguno, el regente del ascendente) es el principal indicador de las costumbres. ' : '') + 'En tu carta, ' + P.n + ' (' + cl.via + '). ' + (strong ? 'Está fuerte, así que se muestra en su mejor versión: ' + D.well + '.' : weak ? 'Está débil, así que puede mostrar su lado difícil: ' + D.ill + '.' : 'Según lo bien o mal situado que esté, se muestra como alguien ' + D.well + ', o en su versión difícil, ' + D.ill + '.') + '</p></div>'); });
+        (function () {
+          var asc = C.signOf(ch.houses.asc), lk = CartaExtra.TRAD[asc], lp = point(ch, lk); if (!lp) return;
+          var m1 = asc % 3, m2 = C.signOf(lp.lon) % 3; // 0 cardinal (móvil), 1 fijo, 2 mutable (común)
+          var N = ['cardinal', 'fijo', 'mutable'], P2 = T.PLANETS[lk];
+          var tx = (m1 === 0 && m2 === 0) ? 'ambos son cardinales (móviles): según Lilly, una persona que cambia con facilidad, de decisiones poco firmes y que se adapta a cada momento.' : (m1 === 1 && m2 === 1) ? 'ambos son fijos: según Lilly, una persona de resolución firme, que mantiene lo que dijo o hizo, para bien o para mal.' : (m1 === 2 && m2 === 2) ? 'ambos son mutables (comunes): según Lilly, una persona ni muy terca ni muy cambiante, a medio camino entre ambos extremos.' : 'uno es ' + N[m1] + ' y el otro ' + N[m2] + ': tu firmeza es una mezcla, más constante en unos temas y más flexible en otros.';
+          h.push('<div class="ca-item"><div class="ca-item-t">Firmeza de carácter</div><p>Lilly mira el modo de tu signo ascendente (' + T.SIGNS[asc].n + ', ' + N[m1] + ') y el del signo donde está su regente, ' + P2.n + ' (' + T.SIGNS[C.signOf(lp.lon)].n + ', ' + N[m2] + '): ' + tx + '</p></div>');
+        })();
         h.push('</div>');
       }
       if (ch.houses) {
@@ -1229,7 +1236,7 @@ window.CartaExtra.dignidad = function (key, si) {
       }
       var top = CartaExtra.visibleAspects(ch, 12);
       if (top.length) {
-        h.push('<h3 class="ca-h">Tus aspectos más fuertes</h3><p class="ca-note">Los aspectos son los ángulos entre planetas. En la rueda, las líneas azules son aspectos fluidos y las rojas, tensos.</p><div class="ca-list">');
+        h.push('<h3 class="ca-h">Tus aspectos más fuertes</h3><p class="ca-note">Los aspectos son los ángulos entre planetas. En la rueda, las líneas azules son aspectos fluidos y las rojas, tensos. Para Lilly, el sextil y el trígono favorecen la unión, la cuadratura es una tensión que todavía se puede resolver y la oposición es el choque más fuerte; una conjunción es buena o mala según se lleven bien los planetas que se juntan.</p><div class="ca-list">');
         top.forEach(function (as) { var A1 = T.ASPECTS[as.type]; h.push('<div class="ca-item"><div class="ca-item-t"><span class="ca-g">' + pg(as.a) + '</span> ' + A1.n + ' <span class="ca-g">' + pg(as.b) + '</span> <small>(' + T.PLANETS[as.a].n + ' – ' + T.PLANETS[as.b].n + ', orbe ' + as.orb.toFixed(1) + '°)</small></div><p>' + CartaExtra.aspectText(as) + '</p></div>'); });
         h.push('</div>');
       }

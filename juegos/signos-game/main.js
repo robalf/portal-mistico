@@ -39,6 +39,7 @@ const animals=[
  ['Cerdo','Generosidad luminosa','Disfrutas con sinceridad y compartes sin calcular. Tu corazón crea abundancia emocional; elegir con calma a quién entregas tanto protege tu dulzura sin endurecerla.']
 ];
 
+import {pareja,NOM,PERFIL} from './signos-extra.js?v=1';
 const $=s=>document.querySelector(s); const container=$('#game-container');
 container.innerHTML=`<div class="app"><header><button class="icon-btn back" aria-label="Volver">‹</button><div class="brand"><img src="assets/medallon-celeste.webp" alt=""><strong>Oráculo de los Signos</strong></div><button class="icon-btn sound" aria-label="Activar o silenciar música">♪</button></header><main><section id="home" class="screen active"><div class="hero"><div class="eyebrow">Astros · amor · intuición</div><h1>Una señal para<br><em>tu corazón</em></h1><p>Elige una pregunta, busca tu signo y deja que el cielo te susurre una respuesta.</p></div><div class="topics"></div></section><section id="select" class="screen"></section><section id="chinese" class="screen"></section><section id="result" class="screen"></section></main></div><div class="toast">Copiado al portapapeles ✦</div>`;
 
@@ -65,6 +66,15 @@ function readingFor(z){if(current.id==='comp')return `Tu corazón suele encontra
 function renderResult(z,china=null){
  const title=china?china[0]:z.n, symbol=china?'☯':z.s, label=china?`${z} · ${china[1]}`:current.title, text=china?china[2]:readingFor(z);
  $('#result').innerHTML=`<div class="section-head"><div class="eyebrow">Tu lectura celeste</div><h1 class="screen-title">El cielo responde</h1></div><article class="result-card"><div class="big-symbol">${symbol}</div><h2>${title}</h2><div class="theme-label">${label}</div><div class="reading">${text}</div><div class="mantra">✦ Toma lo que resuene contigo; tu historia siempre tiene la última palabra.</div></article><div class="actions"><button class="secondary again">Otra lectura</button><button class="primary share">Compartir ✦</button></div>`;
+ if(!china){const i=signs.indexOf(z),P=PERFIL[i];const card=$('.result-card');
+  const prof=document.createElement('div');prof.className='profile-line';prof.innerHTML=`<small>${z.n} · regido por ${P.reg} · ${['fuego','tierra','aire','agua'][i%4]} ${['cardinal','fijo','mutable'][i%3]}. Aporta ${P.aporta}. Su punto sensible: ${P.sombra}.</small>`;
+  card.querySelector('.reading').after(prof);
+  if(current.id==='comp'){const box=document.createElement('div');box.className='pair-box';box.innerHTML=`<h3 style="margin:18px 0 8px">¿Y con una persona en concreto?</h3><p style="margin:0 0 10px;font-size:14px;opacity:.85">Elige el signo de tu pareja o de quien te interesa y verás la compatibilidad completa de ${z.n} con ese signo.</p><div class="zodiacs pair-grid">${signs.map((x,k)=>`<button class="zodiac" data-k="${k}"><span class="symbol">${x.s}</span><b>${x.n}</b></button>`).join('')}</div><div class="pair-out" aria-live="polite"></div>`;
+   card.after(box);
+   box.addEventListener('click',e=>{const b=e.target.closest('.zodiac');if(!b)return;sound(tap);const r=pareja(i,+b.dataset.k);const out=box.querySelector('.pair-out');
+    out.innerHTML=`<article class="result-card" style="margin-top:14px"><div class="big-symbol">${signs[i].s} ${signs[+b.dataset.k].s}</div><h2>${r.a} y ${r.b}</h2><div class="theme-label">${r.nivel} · ${r.pct}% · ${r.aspecto}</div><div class="reading">${r.parrafos.map(t=>`<p style="margin:0 0 12px">${t}</p>`).join('')}</div><div class="mantra">✦ La compatibilidad abre la puerta; la escucha y los acuerdos deciden quedarse.</div><div class="actions"><button class="primary share-pair">Compartir ✦</button></div></article>`;
+    out.querySelector('.share-pair').onclick=()=>shareText(`${r.a} y ${r.b} — ${r.pct}% (${r.nivel})\n${r.parrafos.join('\n')}`);
+    out.scrollIntoView({behavior:'smooth',block:'start'});log('pareja_vista',{a:r.a,b:r.b});});}}
  $('.again').onclick=()=>{sound(tap);while(navStack.length>1)navStack.pop();show('home',false)};
  $('.share').onclick=()=>shareText(`${title} — ${label}\n${text.replace(/<[^>]+>/g,'')}`);
  show('result');sound(reveal);log('lectura_revelada',{lectura:title,tema:current.id});

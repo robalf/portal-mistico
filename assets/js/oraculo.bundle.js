@@ -1,5 +1,131 @@
+(function(){try{var st=document.createElement('style');st.textContent='.rn-extra{margin:.35rem 0 0;color:#b9bcd6;font-size:.93em;line-height:1.5}.rn-extra em{color:#e9d9a6;font-style:normal;font-weight:600}';document.head.appendChild(st);}catch(e){}})();
 window.PM_TAROT_SN=[["El Loco","tarot-the-fool","si","comienzos libres, curiosidad y confianza en el primer paso"],["El Mago","tarot-the-magician-card","si","voluntad, recursos y capacidad para convertir una idea en acción"],["La Emperatriz","tarot-the-empress","si","fertilidad, cuidado, belleza y crecimiento sostenido"],["El Emperador","tarot-the-emperor","si","estructura, límites sanos y autoridad responsable"],["El Hierofante","tarot-the-hierophant","si","tradición, enseñanza y valores compartidos"],["Los Enamorados","tarot-the-lovers","si","elección consciente, encuentro y coherencia con el corazón"],["El Carro","tarot-the-chariot","si","dirección, impulso y dominio de fuerzas opuestas"],["La Justicia","tarot-justice","quizas","equilibrio, consecuencias y decisiones claras"],["La Fuerza","tarot-strength-card","si","valentía serena, compasión y dominio de los impulsos"],["El Colgado","tarot-the-hanged-man","quizas","pausa, entrega y una perspectiva que cambia la respuesta"],["La Muerte","tarot-death","no","cierre, transformación y espacio para una nueva etapa"],["La Templanza","tarot-temperance","si","armonía, medida y mezcla paciente de opuestos"],["El Diablo","tarot-the-devil-card","no","deseo, apego y la posibilidad de recuperar la propia libertad"],["La Torre","tarot-the-tower","no","revelación repentina, ruptura de estructuras y verdad liberadora"],["El Juicio","tarot-judgement","si","despertar, perdón y una llamada a responder a lo esencial"],["El Mundo","tarot-the-world","si","culminación, integración y celebración del recorrido"],["As de Bastos","tarot-ace-wands","si","chispa creativa, iniciativa y deseo de comenzar"],["Dos de Bastos","tarot-two-wands","quizas","visión, planificación y elección de un horizonte"],["Tres de Bastos","tarot-three-wands","si","expansión, expectativa y resultados que comienzan a llegar"],["Cuatro de Bastos","tarot-four-wands","si","celebración, estabilidad y alegría compartida"],["Cinco de Bastos","tarot-five-wands","no","competencia, fricción y energía que busca una dirección"],["Seis de Bastos","tarot-six-wands-card","si","reconocimiento, confianza y una victoria que se comparte"],["Siete de Bastos","tarot-seven-wands","quizas","defensa de una posición, perseverancia y límites"],["Ocho de Bastos","tarot-eight-wands","si","velocidad, noticias y movimiento alineado"],["Nueve de Bastos","tarot-nine-wands","quizas","resistencia, experiencia y cautela después de una prueba"],["Diez de Bastos","tarot-ten-wands","no","carga, responsabilidad y necesidad de redistribuir el peso"],["Sota de Bastos","tarot-page-wands-card","si","descubrimiento, entusiasmo y una noticia inspiradora"],["Caballero de Bastos","tarot-knight-wands","si","audacia, aventura y acción impulsiva"],["Reina de Bastos","tarot-queen-wands","si","carisma, independencia y creatividad cálida"],["Rey de Bastos","tarot-king-wands","si","liderazgo visionario, decisión y fuego creador"],["As de Copas","tarot-ace-cups","si","apertura emocional, ternura y renovación del corazón"],["Dos de Copas","tarot-two-cups","si","reciprocidad, encuentro y diálogo afectivo"],["Tres de Copas","tarot-three-cups","si","amistad, celebración y apoyo emocional"],["Cuatro de Copas","tarot-four-cups","quizas","apatía, introspección y una oportunidad que pide atención"],["Cinco de Copas","tarot-five-cups","no","duelo, decepción y aquello que todavía permanece"],["Seis de Copas","tarot-six-cups","si","memoria, ternura y un regreso a lo esencial"],["Siete de Copas","tarot-seven-cups","quizas","imaginación, opciones y riesgo de perderse en fantasías"],["Ocho de Copas","tarot-eight-cups","no","retirada consciente, búsqueda interior y cambio de rumbo"],["Nueve de Copas","tarot-nine-cups","si","satisfacción, deseo cumplido y disfrute personal"],["Diez de Copas","tarot-ten-cups","si","armonía, hogar y felicidad compartida"],["Sota de Copas","tarot-page-cups","si","sensibilidad, sorpresa y mensaje del mundo emocional"],["Caballero de Copas","tarot-knight-cups","si","romanticismo, propuesta y movimiento guiado por el sentimiento"],["Reina de Copas","tarot-queen-cups","si","intuición, cuidado y profundidad emocional"],["Rey de Copas","tarot-king-cups","si","madurez emocional, calma y compasión con límites"],["As de Espadas","tarot-ace-swords","si","claridad, verdad y decisión mental"],["Dos de Espadas","tarot-two-swords","quizas","indecisión, protección y equilibrio provisional"],["Tres de Espadas","tarot-three-swords","no","dolor, verdad difícil y liberación de una ilusión"],["Cuatro de Espadas","tarot-four-swords","quizas","descanso, recuperación y silencio reparador"],["Cinco de Espadas","tarot-five-swords","no","conflicto, orgullo y el coste de ganar sin cuidar el vínculo"],["Seis de Espadas","tarot-six-swords-card","quizas","transición, viaje mental y salida de aguas difíciles"],["Siete de Espadas","tarot-seven-swords","no","estrategia, discreción y decisiones fuera de la mirada pública"],["Ocho de Espadas","tarot-eight-swords","no","bloqueo mental, miedo y límites que parecen más fuertes de lo que son"],["Nueve de Espadas","tarot-nine-swords","no","ansiedad, pensamientos nocturnos y necesidad de apoyo"],["Diez de Espadas","tarot-ten-swords","no","final doloroso, rendición y amanecer después de una etapa"],["Sota de Espadas","tarot-page-swords","quizas","observación, preguntas y aprendizaje veloz"],["Caballero de Espadas","tarot-knight-swords","quizas","determinación, velocidad y palabra directa"],["Reina de Espadas","tarot-queen-swords","quizas","discernimiento, independencia y verdad compasiva"],["Rey de Espadas","tarot-king-swords","quizas","criterio, estrategia y autoridad intelectual"],["As de Oros","tarot-ace-pentacles","si","oportunidad concreta, prosperidad y semilla material"],["Dos de Oros","tarot-two-pentacles","quizas","adaptación, equilibrio práctico y manejo de cambios"],["Tres de Oros","tarot-three-pentacles","si","colaboración, oficio y calidad construida en equipo"],["Cuatro de Oros","tarot-four-pentacles","quizas","seguridad, control y miedo a soltar"],["Cinco de Oros","tarot-five-pentacles","no","carencia, vulnerabilidad y ayuda que todavía está cerca"],["Seis de Oros","tarot-six-pentacles","si","generosidad, intercambio y equilibrio de recursos"],["Siete de Oros","tarot-seven-pentacles","quizas","paciencia, evaluación y frutos que aún necesitan tiempo"],["Ocho de Oros","tarot-eight-pentacles","si","práctica, perfeccionamiento y orgullo por el oficio"],["Nueve de Oros","tarot-nine-pentacles","si","autonomía, abundancia y disfrute de lo construido"],["Diez de Oros","tarot-ten-pentacles","si","legado, estabilidad y riqueza compartida entre generaciones"],["Sota de Oros","tarot-page-pentacles","si","estudio, oportunidad práctica y compromiso inicial"],["Caballero de Oros","tarot-knight-pentacles","si","constancia, responsabilidad y progreso lento pero seguro"],["Reina de Oros","tarot-queen-pentacles","si","cuidado material, generosidad y bienestar con raíces"],["Rey de Oros","tarot-king-pentacles","si","seguridad, liderazgo material y éxito sostenible"],["La Sacerdotisa","tarot-high-priestess","quizas","intuición, misterio y sabiduría que todavía no se revela"],["El Ermitaño","tarot-the-hermit","quizas","introspección, pausa y búsqueda de tu propia verdad"],["La Rueda de la Fortuna","tarot-wheel-fortune","si","ciclos, cambios de suerte y giros inesperados"],["La Estrella","tarot-the-star","si","esperanza, inspiración y confianza renovada"],["La Luna","tarot-the-moon","quizas","dudas, ilusiones y cosas que aún no se ven con claridad"],["El Sol","tarot-the-sun","si","éxito, claridad, alegría y vitalidad"]];
 ;
+/* Portal Místico — textos ampliados de runas, I Ching y tarot sí o no (se antepone a oraculo.bundle.js con automation/build_oraculo.py) */
+window.PM_RUNAS_X = {
+  'Fehu': { k:'abundancia', a:'En el amor, el cariño se demuestra con generosidad y cuidando lo que ya tienes; evita medir la relación en términos de ganancia.', t:'En el trabajo y el dinero llegan recursos o ingresos; adminístralos con orden para que se multipliquen.', i:'Pérdida, gasto sin control o miedo a la escasez. Revisa en qué estás desperdiciando energía o dinero.' },
+  'Uruz': { k:'fuerza vital', a:'En el amor, hay deseo, vitalidad y valentía para dar un paso; cuida no imponerte.', t:'En el trabajo tienes energía para un reto exigente; úsala con constancia.', i:'Debilidad, cansancio o fuerza mal dirigida. Descansa, cuida tu salud y evita arrancar a lo bruto.' },
+  'Thurisaz': { k:'umbral y defensa', a:'En el amor puede haber un choque o una barrera; pon límites sin herir y piensa antes de reaccionar.', t:'En el trabajo aparece un obstáculo o una confrontación; analiza antes de actuar y protege tus intereses.', i:'Impulsividad, conflicto innecesario o vulnerabilidad. Cuidado con la ira y con las decisiones apresuradas.' },
+  'Ansuz': { k:'un mensaje', a:'En el amor, una conversación sincera o un mensaje importante aclara el vínculo.', t:'En el trabajo, la comunicación, una reunión o el consejo de alguien con experiencia abre una oportunidad.', i:'Malentendidos, mensajes confusos o un consejo que no conviene seguir. Verifica antes de creer o responder.' },
+  'Raidho': { k:'el camino', a:'En el amor, el vínculo avanza o se pone en movimiento: un viaje juntos o un nuevo paso en la relación.', t:'En el trabajo, un viaje, un traslado o un proyecto avanza; organiza tu ruta y tus tiempos.', i:'Retrasos, desvíos o falta de rumbo. Replantea el camino antes de seguir.' },
+  'Kenaz': { k:'luz y creatividad', a:'En el amor, se enciende la pasión o la claridad sobre lo que sientes.', t:'En el trabajo, una idea brillante o una habilidad que se reconoce; buen momento para crear y aprender.', i:'Falta de ideas, una puerta que se cierra o una llama que se apaga. Busca una nueva fuente de inspiración.' },
+  'Gebo': { k:'el intercambio justo', a:'En el amor hay reciprocidad: dar y recibir en equilibrio fortalece la unión.', t:'En el trabajo, una alianza o un trato justo beneficia a ambas partes.', i:null },
+  'Wunjo': { k:'la alegría', a:'En el amor, armonía, ternura y una etapa de bienestar compartido.', t:'En el trabajo, buen ambiente, logros y reconocimiento; celebra con tu equipo.', i:'Insatisfacción o una alegría que se retrasa. No fuerces la felicidad: cuida lo básico.' },
+  'Hagalaz': { k:'una ruptura necesaria', a:'En el amor, una crisis sacude lo que estaba estancado; la verdad ordena lo que viene.', t:'En el trabajo, un cambio inesperado o un contratiempo; reconstruye con calma.', i:null },
+  'Nauthiz': { k:'la necesidad y la paciencia', a:'En el amor se siente carencia; pide lo que necesitas sin exigir.', t:'En el trabajo, recursos limitados: prioriza y trabaja con paciencia.', i:null },
+  'Isa': { k:'una pausa', a:'En el amor hay frialdad o espera; no presiones, deja que las emociones se descongelen.', t:'En el trabajo, un proyecto se detiene; aprovecha la pausa para planear.', i:null },
+  'Jera': { k:'la cosecha', a:'En el amor, el esfuerzo sostenido da frutos: una relación que madura o un compromiso.', t:'En el trabajo llegan los resultados de lo que sembraste.', i:null },
+  'Eihwaz': { k:'la resistencia', a:'En el amor, el vínculo se prueba y se fortalece con la constancia.', t:'En el trabajo, perseverancia ante los cambios; tu estabilidad te protege.', i:null },
+  'Perthro': { k:'el misterio', a:'En el amor hay secretos o una sorpresa; deja que las cosas se muestren con el tiempo.', t:'En el trabajo, el azar o una información oculta puede cambiar el plan; mantente flexible.', i:'Secretos que pesan, azar adverso o información que falta. Evita apostar sin saber.' },
+  'Algiz': { k:'la protección', a:'En el amor hay protección y apoyo; confía en tu intuición ante alguien nuevo.', t:'En el trabajo estás amparado y puedes defender tu posición con calma.', i:'Vulnerabilidad o descuido. Refuerza tus límites y no te expongas sin necesidad.' },
+  'Sowilo': { k:'el éxito', a:'En el amor, brillo, calidez y una etapa luminosa.', t:'En el trabajo, éxito y visibilidad; momento de mostrar tus logros.', i:null },
+  'Tiwaz': { k:'la justicia y la valentía', a:'En el amor, honestidad y compromiso; defiende lo que es justo en la relación.', t:'En el trabajo, liderazgo justo y disciplina; actúa con honor.', i:'Injusticia, falta de valor o energía mal usada. Revisa si luchas por lo correcto.' },
+  'Berkano': { k:'un nuevo comienzo', a:'En el amor, algo nace o se cuida con ternura: una relación nueva o una etapa familiar.', t:'En el trabajo, un proyecto en gestación pide cuidado paciente.', i:'Estancamiento, descuido de lo que crece o problemas familiares. Nutre lo que importa.' },
+  'Ehwaz': { k:'la cooperación', a:'En el amor, confianza y trabajo en equipo: avanzan juntos.', t:'En el trabajo, un compañero o un equipo confiable acelera el avance.', i:'Desconfianza, ritmo desigual o falta de acuerdo. Alinea expectativas.' },
+  'Mannaz': { k:'tú y los demás', a:'En el amor, autoconocimiento y apoyo mutuo.', t:'En el trabajo, colaboración y reconocimiento de tus talentos.', i:'Aislamiento, egoísmo o conflictos con otros. Reconoce tu parte.' },
+  'Laguz': { k:'la intuición', a:'En el amor, las emociones fluyen; confía en lo que sientes.', t:'En el trabajo, la intuición y la sensibilidad guían una decisión.', i:'Confusión emocional, miedo o bloqueo. No decidas desde la ansiedad.' },
+  'Ingwaz': { k:'la gestación', a:'En el amor, un ciclo se completa y se prepara otro; paciencia.', t:'En el trabajo, un proyecto madura por dentro.', i:null },
+  'Dagaz': { k:'el amanecer', a:'En el amor, despertar y un cambio positivo.', t:'En el trabajo, un avance decisivo o una oportunidad nueva.', i:null },
+  'Othala': { k:'las raíces', a:'En el amor, hogar, familia y valores compartidos.', t:'En el trabajo, patrimonio, un negocio familiar o estabilidad.', i:'Conflictos familiares, apego a lo heredado o falta de hogar. Revisa lo que quieres conservar.' }
+};
+
+window.PM_ICHING_X = [null,
+  ['Fuerza pura y tenaz: éxito si te mantienes firme y actúas con rectitud.','En el amor, iniciativa y entrega; busca la unión desde la lealtad y no desde el dominio.','En el trabajo, momento de liderar y emprender con constancia.'],
+  ['Fecundidad y apoyo: se avanza siguiendo, no dirigiendo.','En el amor, receptividad y ternura; deja que el vínculo se nutra sin forzarlo.','En el trabajo, colaborar y apoyar da mejores frutos que liderar.'],
+  ['Un comienzo desordenado pero con gran potencial; no te apresures y busca ayuda.','En el amor, una relación naciente con confusión; ordenen los pasos de a poco.','En el trabajo, un proyecto nuevo con obstáculos; organiza y pide apoyo.'],
+  ['Falta de experiencia: pregunta con humildad y el aprendizaje llega.','En el amor, inexperiencia o ingenuidad; aprende de lo vivido sin cerrarte.','En el trabajo, conviene formarte y aceptar guía antes de decidir.'],
+  ['Esperar con confianza, nutriéndote, es la mejor estrategia.','En el amor, paciencia: el momento justo llega si no lo fuerzas.','En el trabajo, prepara recursos y espera la oportunidad.'],
+  ['Un desacuerdo: avanza con cautela, busca un árbitro y no lleves la disputa al extremo.','En el amor, tensión o discusión; escuchar vale más que ganar.','En el trabajo, litigio o rivalidad; negocia y evita escalar.'],
+  ['Disciplina y un líder justo organizan la fuerza.','En el amor, esfuerzo conjunto con orden; no conviertas la relación en una batalla.','En el trabajo, equipo organizado con un objetivo claro.'],
+  ['Unirse con sinceridad a quienes comparten tu rumbo trae fuerza.','En el amor, apertura y sinceridad para formar unión.','En el trabajo, alianza, equipo o comunidad; únete a tiempo.'],
+  ['Una fuerza pequeña frena por un tiempo: mejora con suavidad y constancia.','En el amor, pequeñas fricciones; los detalles amables ayudan.','En el trabajo, avances lentos; la perseverancia en lo pequeño rinde.'],
+  ['Caminar con respeto sobre terreno peligroso: la cortesía te protege.','En el amor, trato respetuoso ante alguien difícil; cuida modales y límites.','En el trabajo, prudencia ante un superior o una situación delicada.'],
+  ['Cielo y tierra se unen: armonía, prosperidad y buenos comienzos.','En el amor, armonía y entendimiento.','En el trabajo, buen momento para construir y expandir.'],
+  ['Las fuerzas no se comunican: periodo de bloqueo; conserva tus principios.','En el amor, incomunicación; evita imponer y cuida tu dignidad.','En el trabajo, parálisis o un entorno poco favorable; replantea sin forzar.'],
+  ['Éxito al unirse con ideales compartidos y a la luz del día.','En el amor, compañerismo y transparencia.','En el trabajo, trabajo en equipo y misión compartida.'],
+  ['Gran éxito: úsalo con generosidad y humildad.','En el amor, plenitud y generosidad.','En el trabajo, éxito o abundancia que pide sabiduría para administrarse.'],
+  ['La humildad auténtica trae éxito y equilibrio.','En el amor, humildad y gestos sin alarde.','En el trabajo, reconocimiento por la discreción; no te sobrevalores ni te minimices.'],
+  ['Entusiasmo que mueve a otros: organiza y actúa en el momento adecuado.','En el amor, ilusión y alegría compartidas; cuida que no sea solo euforia.','En el trabajo, motivar al equipo y poner en marcha un plan.'],
+  ['Adaptarte y seguir lo correcto atrae seguidores y éxito.','En el amor, adaptarse con voluntad, sin perderte.','En el trabajo, flexibilidad y servicio a un buen liderazgo.'],
+  ['Algo se deterioró y hay que repararlo con reflexión y acción.','En el amor, patrones heredados o descuidados que piden sanar.','En el trabajo, reparar errores del pasado y reorganizar.'],
+  ['Se acerca una época favorable: aprovecha, pero con la mirada puesta en el futuro.','En el amor, acercamiento y calidez.','En el trabajo, avance y apoyo de superiores; actúa con atención.'],
+  ['Observar con atención y dar ejemplo antes de actuar.','En el amor, observar y comprender al otro antes de decidir.','En el trabajo, analiza el panorama y da ejemplo.'],
+  ['Hay un obstáculo que debe removerse con decisión y justicia.','En el amor, lo que impide la unión debe aclararse sin rodeos.','En el trabajo, corta lo que obstruye con firmeza y equidad.'],
+  ['La belleza y la forma adornan, pero lo esencial es el fondo.','En el amor, encanto y apariencias; busca el fondo.','En el trabajo, la buena presentación ayuda en lo pequeño; no sustituye el contenido.'],
+  ['Algo se desmorona: no es momento de actuar, sino de conservar y esperar.','En el amor, desgaste; no fuerces, protege lo esencial.','En el trabajo, retroceso; evita iniciativas grandes.'],
+  ['Vuelve la luz después de la oscuridad: un nuevo comienzo suave.','En el amor, reconciliación o regreso, con calma.','En el trabajo, recuperación; empieza con pasos pequeños.'],
+  ['Actuar con sinceridad y sin cálculo; la espontaneidad protege.','En el amor, autenticidad sin segundas intenciones.','En el trabajo, hazlo sin especular ni buscar ventaja oculta.'],
+  ['Acumular fuerza y sabiduría: es momento de nutrir tus talentos.','En el amor, contención con profundidad; preparación para algo grande.','En el trabajo, formación y preparación; reservas para un gran paso.'],
+  ['Cuida lo que dices y lo que alimentas: palabras y alimentos moldean tu vida.','En el amor, cuida las palabras y lo que nutre el vínculo.','En el trabajo, cuida lo que consumes y lo que comunicas.'],
+  ['La viga cede por exceso de peso: una situación límite que pide decisión y firmeza.','En el amor, intensidad excesiva; evita los extremos.','En el trabajo, carga excesiva; refuerza la base o redistribuye.'],
+  ['Peligro repetido: mantente sincero y constante, y atraviesa.','En el amor, momentos difíciles; la sinceridad es tu guía.','En el trabajo, riesgos reiterados; no pierdas la calma.'],
+  ['Claridad y apoyo en lo que te da luz; cuida lo que te ilumina.','En el amor, calidez y vínculo; lo que nutre al amor es la claridad.','En el trabajo, claridad de ideas y lealtad a una causa.'],
+  ['Atracción mutua y receptividad: éxito en las relaciones.','En el amor, atracción y conexión; cortejo sincero.','En el trabajo, buena sintonía con otros; receptividad.'],
+  ['Constancia en un propósito: mantente fiel a tu camino y renuévate.','En el amor, relación duradera si se cuida.','En el trabajo, perseverancia y estabilidad.'],
+  ['Retirarse a tiempo es sabio, no cobarde.','En el amor, tomar distancia para cuidar la dignidad.','En el trabajo, retirada estratégica; guarda fuerzas.'],
+  ['Gran fuerza: úsala con rectitud, no con arrogancia.','En el amor, pasión intensa; cuida no atropellar.','En el trabajo, poder y capacidad; actúa con justicia.'],
+  ['Avance y reconocimiento, como el sol que sale.','En el amor, avance y buen trato.','En el trabajo, ascenso o reconocimiento; sigue con integridad.'],
+  ['Tiempos oscuros: protege tu luz con discreción y paciencia.','En el amor, adversidad; prudencia.','En el trabajo, entorno hostil; discreción y resistencia.'],
+  ['La familia y los roles claros crean armonía.','En el amor, hogar y roles claros.','En el trabajo, orden interno y clima de confianza.'],
+  ['Oposición y diferencias: en lo pequeño hay avance.','En el amor, diferencias; busca puntos en común en lo pequeño.','En el trabajo, opiniones enfrentadas; logros pequeños.'],
+  ['Obstáculo en el camino: detente, reflexiona y busca ayuda.','En el amor, una barrera; paciencia.','En el trabajo, bloqueo; busca aliados.'],
+  ['Termina la tensión: resuelve pronto y perdona.','En el amor, alivio y perdón.','En el trabajo, resuelve pendientes y sigue adelante.'],
+  ['Disminuir lo superfluo para dar a lo esencial; sinceridad con sencillez.','En el amor, sencillez y generosidad; evita sacrificios sin recompensa.','En el trabajo, recorta lo superfluo; ahorro.'],
+  ['Crecimiento y beneficio: aprovecha para ayudar y mejorar.','En el amor, crecimiento mutuo.','En el trabajo, buen momento para emprender y ampliar.'],
+  ['Decisión firme tras avisar con claridad, sin violencia.','En el amor, una verdad que se dice con firmeza y respeto.','En el trabajo, decisión importante comunicada con claridad.'],
+  ['Encuentro inesperado: cuidado con lo que parece tentador.','En el amor, encuentro casual; no te comprometas con prisa.','En el trabajo, una oferta súbita; analiza antes de aceptar.'],
+  ['Reunión y comunidad con un propósito común.','En el amor, encuentro y celebración.','En el trabajo, equipo, reunión o evento; sé organizado.'],
+  ['Ascenso paulatino y seguro, con esfuerzo constante.','En el amor, avance gradual.','En el trabajo, progreso lento pero firme.'],
+  ['Agotamiento: mantente íntegro; tus palabras no se escuchan ahora.','En el amor, cansancio; guarda silencio y cuida tu fortaleza interior.','En el trabajo, recursos agotados; resiste.'],
+  ['Una fuente inagotable que hay que cuidar: tus recursos profundos.','En el amor, una fuente de afecto que hay que cuidar.','En el trabajo, recursos duraderos; mantenimiento.'],
+  ['Cambio profundo en el momento oportuno, con apoyo y sinceridad.','En el amor, cambio de etapa; sé honesto.','En el trabajo, reestructuración; aprovecha el momento.'],
+  ['Nutrición y refinamiento: cultura, orden y buena fortuna.','En el amor, nutrir el vínculo.','En el trabajo, talento reconocido; buen equipo.'],
+  ['Una sacudida que despierta: el susto pasa y deja aprendizaje.','En el amor, un sobresalto; mantén la calma.','En el trabajo, una sorpresa que moviliza; responde con serenidad.'],
+  ['Detenerse y calmar la mente para actuar en el momento justo.','En el amor, quietud; no precipites.','En el trabajo, concentración y pausa.'],
+  ['Avance gradual y firme, como un árbol que crece en la montaña.','En el amor, una relación que avanza paso a paso.','En el trabajo, evolución lenta; cada etapa cuenta.'],
+  ['Un vínculo con desequilibrio: cuida las condiciones.','En el amor, un compromiso sin base clara; piénsalo bien.','En el trabajo, un acuerdo con desventaja; revísalo.'],
+  ['Apogeo: aprovecha tu momento sin aferrarte, pues pasa.','En el amor, plenitud y brillo.','En el trabajo, cima de éxito; actúa con claridad.'],
+  ['Estar de paso: sé prudente y mantente discreto.','En el amor, una situación pasajera; prudencia.','En el trabajo, cambio, viaje o inestabilidad; adaptabilidad.'],
+  ['La influencia gentil y persistente vence; consulta a alguien sabio.','En el amor, delicadeza y persistencia.','En el trabajo, persuade con suavidad.'],
+  ['Alegría compartida y comunicación abierta.','En el amor, alegría y conversación abierta.','En el trabajo, buen ambiente y diálogo.'],
+  ['Disolver la rigidez y los bloqueos: abre el corazón y une.','En el amor, resolver malentendidos.','En el trabajo, disolver bloqueos y unir.'],
+  ['Límites sanos aportan estabilidad; sin extremos.','En el amor, límites claros y sanos.','En el trabajo, presupuesto y orden.'],
+  ['La sinceridad profunda influye incluso en lo difícil.','En el amor, confianza y sinceridad.','En el trabajo, credibilidad; honestidad ante un tema delicado.'],
+  ['Atiende lo pequeño y humilde; no aspires a lo grande por ahora.','En el amor, gestos pequeños y sin grandes promesas.','En el trabajo, tareas modestas; precisión.'],
+  ['Todo en orden, pero el equilibrio puede romperse: mantén la atención.','En el amor, estabilidad lograda; no te confíes.','En el trabajo, meta cumplida; vigilancia.'],
+  ['Casi en la meta: cuidado y atención al último tramo.','En el amor, a punto de lograrlo; paciencia.','En el trabajo, a un paso de terminar; evita descuidos.']
+];
+window.PM_ICHING_LINES = [null,
+  'Línea 1 (el comienzo): habla de las raíces y de lo que todavía no es visible.',
+  'Línea 2 (tu entorno cercano): refleja lo que ocurre en tu casa o en tu círculo íntimo, y tu papel allí.',
+  'Línea 3 (el umbral): punto de tensión entre lo interior y lo exterior; pide cuidado.',
+  'Línea 4 (acercarse al poder): tu relación con las figuras de autoridad o con una decisión importante.',
+  'Línea 5 (el centro de mando): el punto de máxima influencia; actúa con liderazgo y equilibrio.',
+  'Línea 6 (el final): el exceso o la culminación; lo que debe soltarse para que el ciclo cierre.'
+];
+window.PM_TRIG_ATTR = { 'Cielo':'fuerza y creatividad', 'Tierra':'receptividad y apoyo', 'Trueno':'movimiento e impulso', 'Agua':'profundidad y peligro', 'Montaña':'quietud y límite', 'Viento':'suavidad e influencia', 'Fuego':'claridad y adhesión', 'Lago':'alegría y apertura' };
+
+/* Tarot sí o no: matices según el tema de la pregunta */
+window.PM_SN_DOMINIOS = [
+  { id:'amor', re:/amor|pareja|novi[oa]|\bex\b|casar|boda|relaci[oó]n|me quiere|quiere volver|infiel|crush|enamor|ruptura|cita/i,
+    si:'En lo afectivo, la respuesta apunta a un vínculo que puede crecer si lo cuidas con hechos y honestidad.',
+    no:'En lo afectivo, no es el momento de forzar: mira primero lo que tú necesitas y no entregues más de lo que recibes.',
+    quizas:'En lo afectivo, aún hay cosas sin definir; una conversación clara dará la respuesta que el tarot no puede darte.' },
+  { id:'trabajo', re:/trabajo|empleo|jefe|ascenso|entrevista|negocio|emprend|contrato|sueldo|dinero|pagar|comprar|inversi|vender|proyecto|examen|estudi/i,
+    si:'En lo práctico, hay buenas condiciones: avanza con un plan, revisa los detalles y actúa con constancia.',
+    no:'En lo práctico, conviene esperar o cambiar de enfoque: revisa riesgos, números y plazos antes de decidir.',
+    quizas:'En lo práctico, depende de los detalles: reúne más información y compara antes de decidir.' },
+  { id:'salud', re:/salud|enferm|m[eé]dic|dolor|cirug[ií]a|embarazo|tratamiento/i,
+    si:'Sobre tu bienestar, la carta aporta calma, pero no sustituye la opinión de un profesional de la salud.',
+    no:'Sobre tu bienestar, la carta pide prudencia; consulta con un profesional de la salud y no dependas de una tirada.',
+    quizas:'Sobre tu bienestar, la carta no es concluyente; para decisiones de salud confía en tu médico, no en una tirada.' },
+  { id:'viaje', re:/viaj|mudar|mudanza|irme|emigr|cambiar de ciudad|cambio de casa/i,
+    si:'Sobre un cambio de lugar, el camino parece abierto: organiza lo práctico y da el paso.',
+    no:'Sobre un cambio de lugar, aún faltan piezas; conviene esperar un poco más.',
+    quizas:'Sobre un cambio de lugar, depende de cómo se acomoden los detalles; no tomes la decisión con prisa.' }
+];
+window.PM_SN_REV = { si:'quizas', no:'quizas', quizas:'quizas' };
+
 /* Portal Místico — datos de runas e I Ching */
 window.PM_RUNAS = [
   ['Fehu', 'Ganado, riqueza', [[12, 4, 12, 60], [12, 24, 30, 8], [12, 38, 30, 22]], 'Abundancia ganada con esfuerzo, dinero que llega y la responsabilidad de cuidarlo.', 'Valora lo que ya tienes y compártelo con generosidad.'],
@@ -222,17 +348,20 @@ window.PM_ANGELES = [
         b.addEventListener('click', function () {
           if (spread.classList.contains('sn-done')) return;
           spread.classList.add('sn-done'); b.classList.add('sn-picked');
-          var c = deck[+b.getAttribute('data-i')], A = ANS[c[2]];
+          var c = deck[+b.getAttribute('data-i')], rev = rnd(10) < 3, key = rev ? (window.PM_SN_REV || {})[c[2]] || c[2] : c[2], A = ANS[key];
+          var qtxt = q.value.trim(), dom = null; (window.PM_SN_DOMINIOS || []).forEach(function (d) { if (!dom && d.re.test(qtxt)) dom = d; });
           var img = new Image(); img.src = 'tarot-game/assets/' + c[1] + '.webp';
           setTimeout(function () {
             out.innerHTML = '<div class="sn-res">' + (q.value.trim() ? '<p class="sn-q">“' + esc(q.value.trim()) + '”</p>' : '') +
-              '<img class="sn-face" src="' + img.src + '" alt="' + esc(c[0]) + '" width="220" height="351">' +
-              '<div class="sn-ans ' + A[1] + '">' + A[0] + '</div><h2>' + esc(c[0]) + '</h2><p>' + esc(c[0]) + A[2] + c[3] + A[3] + '</p>' +
+              '<img class="sn-face" src="' + img.src + '" alt="' + esc(c[0]) + (rev ? ' (invertida)' : '') + '" width="220" height="351"' + (rev ? ' style="transform:rotate(180deg)"' : '') + '>' +
+              '<div class="sn-ans ' + A[1] + '">' + A[0] + '</div><h2>' + esc(c[0]) + (rev ? ' <small>(invertida)</small>' : '') + '</h2>' +
+              (rev ? '<p>' + esc(c[0]) + ' salió invertida y matiza la respuesta: habla de ' + c[3] + ', pero con retrasos, dudas o algo que aún no está listo. Puede que la respuesta sea “sí” o “no” solo a medias.</p>' : '<p>' + esc(c[0]) + A[2] + c[3] + A[3] + '</p>') +
+              (dom ? '<p>' + dom[key] + '</p>' : '') +
               '<div class="ca-actions"><button type="button" class="ca-btn2" id="snAgain">🔄 Hacer otra pregunta</button><button type="button" class="ca-btn2" id="caShare">📤 Compartir</button></div>' +
               '<p class="ca-more">¿Quieres una lectura más profunda? <a href="tarot.html">Haz una tirada completa de tarot →</a></p></div>';
             out.hidden = false; scrollTo(out);
             $('snAgain').addEventListener('click', function () { q.value = ''; deal(); scrollTo(main); });
-            $('caShare').addEventListener('click', function () { share('El tarot me respondió ' + A[0] + ' con ' + c[0] + '. Pregunta tú también gratis:', SITE + 'tarot-si-o-no.html', this); });
+            $('caShare').addEventListener('click', function () { share('El tarot me respondió ' + A[0] + ' con ' + c[0] + (rev ? ' (invertida)' : '') + '. Pregunta tú también gratis:', SITE + 'tarot-si-o-no.html', this); });
             track('tarot_si_no');
           }, 450);
         });
@@ -244,19 +373,30 @@ window.PM_ANGELES = [
   /* ====================== RUNAS ====================== */
   if (tool === 'runas') {
     var R = window.PM_RUNAS, out2 = $('caResult');
-    function stone(r, big) {
+    var RX = window.PM_RUNAS_X || {};
+    function stone(r, big, rev) {
       var s = '<svg viewBox="-6 -6 52 76" class="rn-svg' + (big ? ' rn-big' : '') + '" aria-hidden="true">';
       r[2].forEach(function (l) { s += '<line x1="' + l[0] + '" y1="' + l[1] + '" x2="' + l[2] + '" y2="' + l[3] + '"/>'; });
-      return '<div class="rn-stone">' + s + '</svg></div>';
+      return '<div class="rn-stone"' + (rev ? ' style="transform:rotate(180deg)"' : '') + '>' + s + '</svg></div>';
     }
     function cast(n) {
-      var pick = shuffle(R).slice(0, n), pos = n === 1 ? ['Tu runa'] : ['Pasado', 'Presente', 'Futuro'];
-      var h = '<div class="rn-row">' + pick.map(function (r, i) { return '<div class="rn-cell" style="animation-delay:' + (i * 0.25) + 's">' + stone(r, n === 1) + '<div class="rn-pos">' + pos[i] + '</div><div class="rn-name">' + r[0] + '</div></div>'; }).join('') + '</div>';
-      h += '<div class="ca-list">' + pick.map(function (r, i) { return '<div class="ca-item"><div class="ca-item-t">' + (n > 1 ? pos[i] + ': ' : '') + r[0] + ' <small>(' + r[1] + ')</small></div><p>' + r[3] + ' <strong>' + r[4] + '</strong></p></div>'; }).join('') + '</div>';
+      var pick = shuffle(R).slice(0, n).map(function (r) { var x = RX[r[0]] || {}; return { r: r, x: x, rev: !!x.i && rnd(10) < 3 }; });
+      var pos = n === 1 ? ['Tu runa'] : ['Pasado', 'Presente', 'Futuro'];
+      var h = '<div class="rn-row">' + pick.map(function (p, i) { return '<div class="rn-cell" style="animation-delay:' + (i * 0.25) + 's">' + stone(p.r, n === 1, p.rev) + '<div class="rn-pos">' + pos[i] + '</div><div class="rn-name">' + p.r[0] + (p.rev ? ' <small>(invertida)</small>' : '') + '</div></div>'; }).join('') + '</div>';
+      h += '<div class="ca-list">' + pick.map(function (p, i) {
+        var r = p.r, x = p.x, t = '<div class="ca-item"><div class="ca-item-t">' + (n > 1 ? pos[i] + ': ' : '') + r[0] + (p.rev ? ' invertida' : '') + ' <small>(' + r[1] + ')</small></div>';
+        if (p.rev) t += '<p>' + x.i + ' <strong>' + r[4] + '</strong></p>';
+        else { t += '<p>' + r[3] + ' <strong>' + r[4] + '</strong></p>'; if (x.a) t += '<p class="rn-extra"><em>En el amor:</em> ' + x.a.replace(/^En el amor,?\s*/, '') + '</p><p class="rn-extra"><em>En el trabajo:</em> ' + x.t.replace(/^En el trabajo( y el dinero)?,?\s*/, '') + '</p>'; }
+        return t + '</div>';
+      }).join('') + '</div>';
+      if (n === 3 && pick[0].x.k) {
+        var inv = pick.filter(function (p) { return p.rev; }).length;
+        h += '<p class="ca-note" style="text-align:center">Tu tirada va de ' + pick[0].x.k + ' (pasado) a ' + pick[1].x.k + ' (presente), y apunta hacia ' + pick[2].x.k + ' (futuro).' + (inv ? ' Las runas invertidas señalan donde conviene ir más despacio o revisar.' : '') + '</p>';
+      }
       h += '<div class="ca-actions"><button type="button" class="ca-btn2" id="rnAgain">🔄 Volver a tirar</button><button type="button" class="ca-btn2" id="caShare">📤 Compartir</button></div>';
       out2.innerHTML = h; out2.hidden = false; scrollTo(out2);
       $('rnAgain').addEventListener('click', function () { cast(n); });
-      $('caShare').addEventListener('click', function () { share('Mis runas: ' + pick.map(function (r) { return r[0]; }).join(', ') + '. Haz tu tirada de runas gratis:', SITE + 'runas.html', this); });
+      $('caShare').addEventListener('click', function () { share('Mis runas: ' + pick.map(function (p) { return p.r[0] + (p.rev ? ' (invertida)' : ''); }).join(', ') + '. Haz tu tirada de runas gratis:', SITE + 'runas.html', this); });
       track('runas_tirada');
     }
     $('rn1').addEventListener('click', function () { cast(1); });
@@ -305,10 +445,16 @@ window.PM_ANGELES = [
       mv.forEach(function (m, i) { if (m) movIdx.push(i + 1); });
       var h = '<div class="ic-res">' + (($('icQ').value || '').trim() ? '<p class="sn-q">“' + esc($('icQ').value.trim()) + '”</p>' : '') + drawHex(bits, mv) +
         '<div class="ca-kick">Hexagrama ' + H.n + '</div><h2>' + N[0] + '</h2><p class="ic-tri">' + H.up[1] + ' sobre ' + H.lo[1] + '</p><p>' + N[1] + '</p></div>';
+      var X = (window.PM_ICHING_X || [])[H.n], TA = window.PM_TRIG_ATTR || {};
+      if (X) {
+        h += '<div class="ca-item"><div class="ca-item-t">Qué dice el hexagrama</div><p>' + X[0] + '</p><p class="rn-extra">Arriba, ' + H.up[1] + ' (' + (TA[H.up[1]] || '') + '); abajo, ' + H.lo[1] + ' (' + (TA[H.lo[1]] || '') + '). Su combinación define el carácter de la situación.</p></div>';
+        h += '<div class="ca-item"><div class="ca-item-t">En el amor</div><p>' + X[1].replace(/^En el amor,?\s*/, '').replace(/^./, function (c) { return c.toUpperCase(); }) + '</p></div>';
+        h += '<div class="ca-item"><div class="ca-item-t">En el trabajo</div><p>' + X[2].replace(/^En el trabajo,?\s*/, '').replace(/^./, function (c) { return c.toUpperCase(); }) + '</p></div>';
+      }
       if (movIdx.length) {
         var bits2 = bits.map(function (b, i) { return mv[i] ? 1 - b : b; }), H2 = hexOf(bits2), N2 = I.names[H2.n];
-        h += '<div class="ca-item"><div class="ca-item-t">Líneas que cambian: ' + movIdx.join(', ') + '</div><p>Las líneas en rojo están en movimiento: la situación se transforma. Hacia dónde va:</p></div>';
-        h += '<div class="ic-res ic-res2">' + drawHex(bits2) + '<div class="ca-kick">Se transforma en el hexagrama ' + H2.n + '</div><h2>' + N2[0] + '</h2><p>' + N2[1] + '</p></div>';
+        h += '<div class="ca-item"><div class="ca-item-t">Líneas que cambian: ' + movIdx.join(', ') + '</div><p>Las líneas en rojo están en movimiento: la situación se transforma.</p>' + movIdx.map(function (i) { return '<p class="rn-extra">' + ((window.PM_ICHING_LINES || [])[i] || '') + '</p>'; }).join('') + '<p>Hacia dónde va:</p></div>';
+        h += '<div class="ic-res ic-res2">' + drawHex(bits2) + '<div class="ca-kick">Se transforma en el hexagrama ' + H2.n + '</div><h2>' + N2[0] + '</h2><p>' + N2[1] + '</p>' + (((window.PM_ICHING_X || [])[H2.n]) ? '<p class="rn-extra">' + window.PM_ICHING_X[H2.n][0] + '</p>' : '') + '</div>';
       } else h += '<p class="ca-note" style="text-align:center">Ninguna línea cambia: la situación es estable y el consejo se aplica tal cual.</p>';
       h += '<div class="ca-actions"><button type="button" class="ca-btn2" id="icAgain">🔄 Nueva consulta</button><button type="button" class="ca-btn2" id="caShare">📤 Compartir</button></div>';
       out3.innerHTML = h; out3.hidden = false; scrollTo(out3);

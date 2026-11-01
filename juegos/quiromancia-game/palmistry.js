@@ -109,6 +109,38 @@ function matchingRules(analysis) {
 }
 function round(value) { return Number(value.toFixed(2)); }
 
+
+// Variantes según lo que se midió en la foto de cada línea (longitud, marca y continuidad).
+const VARIANTS = {
+  heart_line: {
+    length: { larga: 'Tu línea del corazón se ve larga: la tradición la asocia con afecto expresivo, deseo de vínculos profundos y generosidad emocional.', media: 'Tu línea del corazón es de longitud media: se lee como un equilibrio entre abrirte a los demás y cuidar tu espacio.', corta: 'Tu línea del corazón se ve corta: se asocia con un afecto más contenido o práctico, que se muestra más con hechos que con palabras.' },
+    depth: { marcada: 'Aparece marcada, algo que simbólicamente se vincula con emociones vividas con intensidad.', suave: 'Aparece suave, lo que se interpreta como una sensibilidad discreta y matizada.' },
+    cont: { continua: 'Al verse continua, la tradición habla de una forma estable y coherente de querer.', tenue: 'Con tramos tenues, se lee como una vida afectiva que cambia de ritmo según la etapa.' }
+  },
+  head_line: {
+    length: { larga: 'Tu línea de la cabeza se ve larga: la tradición la vincula con atención sostenida, gusto por el detalle y pensamiento reflexivo.', media: 'Tu línea de la cabeza es de longitud media: se interpreta como equilibrio entre pensar y pasar a la acción.', corta: 'Tu línea de la cabeza se ve corta: se asocia con un pensamiento directo, práctico y decidido, que prefiere ir al grano.' },
+    depth: { marcada: 'Está marcada: simbólicamente indica ideas con fuerza y convicción.', suave: 'Está suave: se lee como una mente flexible, abierta a cambiar de enfoque.' },
+    cont: { continua: 'Al ser continua, se habla de coherencia al seguir un razonamiento hasta el final.', tenue: 'Con tramos tenues, se interpreta como un pensamiento que alterna momentos de claridad con pausas de duda o descanso.' }
+  },
+  life_line: {
+    length: { larga: 'Tu línea de la vida se ve larga: se asocia con un ritmo constante y una vitalidad sostenida. No tiene relación con cuánto vas a vivir.', media: 'Tu línea de la vida es de longitud media: se lee como un ritmo moderado, con épocas de actividad y de calma.', corta: 'Tu línea de la vida se ve corta en la foto: se asocia con un ritmo más intenso y concentrado. Nunca indica la duración de la vida ni la salud.' },
+    depth: { marcada: 'Aparece marcada: simbólicamente indica energía vivida con intensidad.', suave: 'Aparece suave: se interpreta como una vitalidad tranquila y adaptable.' },
+    cont: { continua: 'Al verse continua, la tradición habla de constancia a lo largo de las etapas.', tenue: 'Con tramos tenues, se lee como una vida con cambios de ritmo que invitan a cuidar tus reservas de energía.' }
+  },
+  fate_line: {
+    length: { larga: 'Tu línea del destino se ve larga: la tradición la vincula con un sentido claro de dirección y metas sostenidas.', media: 'Tu línea del destino es de longitud media: se interpreta como una dirección que se aclara por etapas.', corta: 'Tu línea del destino se ve corta: se asocia con metas por proyectos o etapas, más que con un solo camino fijo.' },
+    depth: { marcada: 'Está marcada: simbólicamente indica propósito definido.', suave: 'Está suave: se lee como una vocación flexible.' },
+    cont: { continua: 'Al ser continua, se asocia con constancia hacia lo que te propones.', tenue: 'Con tramos tenues, se interpreta como cambios de rumbo que forman parte de tu camino.' }
+  }
+};
+function variantText(item) {
+  const V = VARIANTS[item.feature]; if (!V) return '';
+  const len = typeof item.length_normalized === 'number' ? (item.length_normalized >= .9 ? 'larga' : item.length_normalized >= .75 ? 'media' : 'corta') : null;
+  const dep = item.depth === 'deep_apparent' ? 'marcada' : item.depth === 'light_apparent' ? 'suave' : null;
+  const con = /tenu/.test(String(item.continuity)) ? 'tenue' : item.continuity === 'continua' ? 'continua' : null;
+  return [len && V.length[len], dep && V.depth[dep], con && V.cont[con]].filter(Boolean).join(' ');
+}
+
 function buildFeatureReadings(hands) {
   return Object.entries(hands).flatMap(([hand, analysis]) => analysis.lines.map(item => {
     const candidates = matchingRules(analysis)
@@ -132,7 +164,7 @@ function buildFeatureReadings(hands) {
       detected: Boolean(item.detected),
       meaning,
       explanation: visible || fateAbsence ? guide?.explanation || rule?.traditional_meaning || '' : 'La imagen no permite describir esta línea con suficiente claridad. Por eso no conviene asignarle un significado.',
-      details: visible || fateAbsence ? guide?.details || '' : 'Una captura más nítida, frontal y con luz uniforme podría permitir una observación más prudente.',
+      details: visible || fateAbsence ? ((visible && variantText(item)) || guide?.details || '') : 'Una captura más nítida, frontal y con luz uniforme podría permitir una observación más prudente.',
       reflection: visible || fateAbsence ? guide?.reflection || '' : '',
       alternative,
       tradition: rule?.tradition || 'Lectura prudente',

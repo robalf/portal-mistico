@@ -1,6 +1,6 @@
 function PMS(r){try{var t=window.top;if(t!==window&&t.PortalMusic&&t.PortalMusic.sfx)return t.PortalMusic.sfx(new URL(r,location.href).href);}catch(e){}return new Audio(r);}
 import { analyzeCanvas, featureConfidenceLabel, toCanvas, VISION_VERSION } from './vision.js?v=6';
-import { RULES_VERSION, applyPalmistryRules, buildReport, compareHands, shapeReading, dominanceRole } from './palmistry.js';
+import { RULES_VERSION, applyPalmistryRules, buildReport, compareHands, shapeReading, dominanceRole } from './palmistry.js?v=2';
 import { detectHandsInImage, detectHandsInVideo, loadHandLandmarker } from './hand-model.js?v=2';
 
 const root = document.querySelector('#game-container');

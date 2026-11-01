@@ -1,4 +1,5 @@
 function PMS(r){try{var t=window.top;if(t!==window&&t.PortalMusic&&t.PortalMusic.sfx)return t.PortalMusic.sfx(new URL(r,location.href).href);}catch(e){}return new Audio(r);}
+import { RICH, PIN, CHAL, MES, SOUL, PERS, KEY, FOCO_DIA, FOCO_TXT, afinidad } from './numerologia-extra.js?v=1';
 const mount = document.querySelector('#game-container');
 
 const tools = [
@@ -108,40 +109,73 @@ function fail(form, message) { form.querySelector('.error').textContent = messag
 function show(form, html, kind) { form.querySelector('.error').textContent = ''; form.querySelector('#result').innerHTML = `<div class="result">${html}</div>`; sound(revealSound); form.querySelector('#result').scrollIntoView({ behavior: 'smooth', block: 'nearest' }); log('reading_complete', { kind }); }
 function orbit(number, kicker, cls = '') { return `<div class="result-orbit"><div><div class="result-kicker">${kicker}</div><div class="big-number ${cls}">${number}</div></div></div>`; }
 
+const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 function onYear(e) {
   e.preventDefault(); unlockAudio(); const value = e.currentTarget.birth.value;
   if (!validDate(value)) return fail(e.currentTarget, 'Elige una fecha de nacimiento válida.');
   const [, m, d] = value.split('-').map(Number); const yr = Number(e.currentTarget.yr ? e.currentTarget.yr.value : 2027) || 2027; const number = reduce(d + m + String(yr).split('').reduce((a, c) => a + Number(c), 0), false); const [title, rawText] = yearMeanings[number]; const text = rawText.replace('__Y__', yr);
-  show(e.currentTarget, `${orbit(number, 'Tu año ' + yr)}<h3>${title}</h3><p>${text}</p><p><strong>Clave del año:</strong> avanza con intención y revisa tu rumbo al cambiar de estación.</p>`, 'year');
+  const meses = MESES.map((n, i) => `<strong>${n}:</strong> ${MES[reduce(number + i + 1, false)]}`).join('<br>');
+  show(e.currentTarget, `${orbit(number, 'Tu año ' + yr)}<h3>${title}</h3><p>${text}</p><p><strong>Clave del año:</strong> la energía de fondo es la de una ${PIN[number]}</p><h3>Mes a mes</h3><p>Cada mes tiene su propio número (tu año más el mes) y un tema que lo colorea:</p><p>${meses}</p>`, 'year');
 }
+function ageNow(y, m, d) { const t = new Date(); let a = t.getFullYear() - y; if (t.getMonth() + 1 < m || (t.getMonth() + 1 === m && t.getDate() < d)) a--; return a; }
 function onLife(e) {
   e.preventDefault(); unlockAudio(); const value = e.currentTarget.birth.value;
   if (!validDate(value)) return fail(e.currentTarget, 'Elige una fecha de nacimiento válida.');
-  const number = reduce(digits(value)); const m = meanings[number] || meanings[reduce(number, false)];
-  show(e.currentTarget, `${orbit(number, 'Número de vida')}<h3>${m.title}</h3><p>${m.text}</p>`, 'life');
+  const [y, mo, d] = value.split('-').map(Number);
+  const number = reduce(reduce(y) + reduce(mo) + reduce(d)); const m = meanings[number] || meanings[reduce(number, false)]; const R = RICH[number] || RICH[reduce(number, false)];
+  const r = x => reduce(x, false); const M = r(mo), D = r(d), Y = r(y), lp = r(number);
+  const pin = [r(M + D), r(D + Y), 0, r(M + Y)]; pin[2] = r(pin[0] + pin[1]);
+  const cha = [Math.abs(M - D), Math.abs(D - Y), 0, Math.abs(M - Y)]; cha[2] = Math.abs(cha[0] - cha[1]);
+  const e1 = 36 - lp, ages = [[0, e1], [e1 + 1, e1 + 9], [e1 + 10, e1 + 18], [e1 + 19, null]];
+  const age = ageNow(y, mo, d); const cur = ages.findIndex(([a, b]) => age >= a && (b === null || age <= b));
+  const rango = ([a, b]) => b === null ? `desde los ${a} años` : `de los ${a} a los ${b} años`;
+  const pinHtml = pin.map((n, i) => `<strong>Etapa ${i + 1} (${rango(ages[i])})${i === cur ? ' · actual' : ''}:</strong> número ${n}, ${PIN[n]}`).join('<br>');
+  const chaHtml = cha.map((n, i) => `<strong>Reto ${i + 1}:</strong> ${CHAL[n]}`).join('<br>');
+  const dayNum = reduce(d);
+  show(e.currentTarget, `${orbit(number, 'Número de vida')}<h3>${m.title}</h3><p>${m.text}</p>`
+    + `<p><strong>Tus fortalezas:</strong> ${R.fort}</p><p><strong>Tu reto:</strong> ${R.reto}</p>`
+    + `<p><strong>En el amor:</strong> ${R.amor}</p><p><strong>En el trabajo:</strong> ${R.trabajo}</p><p><strong>Consejo:</strong> ${R.consejo}</p>`
+    + `<h3>Tu número de nacimiento: ${dayNum}</h3><p>El día en que naciste suma un talento natural: ${(RICH[dayNum] || RICH[r(dayNum)]).fort.charAt(0).toLowerCase() + (RICH[dayNum] || RICH[r(dayNum)]).fort.slice(1)}</p>`
+    + `<h3>Las cuatro etapas de tu vida</h3><p>${pinHtml}</p><h3>Los cuatro retos</h3><p>${chaHtml}</p>`, 'life');
 }
 function seeded(seed) { let x = seed | 0; return () => { x = Math.imul(x ^ x >>> 16, 2246822507); x = Math.imul(x ^ x >>> 13, 3266489909); return ((x ^= x >>> 16) >>> 0) / 4294967296; }; }
 function onLucky(e) {
   e.preventDefault(); unlockAudio(); const sign = e.currentTarget.sign.value;
   if (!sign) return fail(e.currentTarget, 'Elige un signo para abrir la lectura de hoy.');
   const now = new Date(); const stamp = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate(); const rand = seeded(stamp + zodiac.indexOf(sign) * 7919); const nums = new Set(); while (nums.size < 5) nums.add(1 + Math.floor(rand() * 49));
-  const tone = reduce(stamp + zodiac.indexOf(sign) + 1, false); const focus = ['iniciativa','encuentros','creatividad','orden','aventura','armonía','intuición','prosperidad','renovación'][tone - 1];
-  show(e.currentTarget, `${orbit(sign.slice(0,1), sign)}<div class="lucky-row">${[...nums].sort((a,b)=>a-b).map(n => `<span class="lucky">${n}</span>`).join('')}</div><h3>Tu clave de hoy: ${focus}</h3><p>Usa estas cifras como pequeños recordatorios para observar coincidencias, elegir con alegría o dar intención a un momento cotidiano.</p>`, 'lucky');
+  const tone = reduce(stamp + zodiac.indexOf(sign) + 1, false); const focus = FOCO_DIA[tone - 1];
+  show(e.currentTarget, `${orbit(sign.slice(0,1), sign)}<div class="lucky-row">${[...nums].sort((a,b)=>a-b).map(n => `<span class="lucky">${n}</span>`).join('')}</div><h3>Tu clave de hoy: ${focus}</h3><p>${FOCO_TXT[tone - 1]}</p><p>Las cifras son un juego simbólico: sirven para dar intención al día, no predicen resultados ni lotería.</p>`, 'lucky');
+}
+function nameNums(name) {
+  const c = cleanName(name), v = c.replace(/[^AEIOU]/g, ''), k = c.replace(/[AEIOU]/g, '');
+  const expr = reduce(nameValue(name)), soul = v ? reduce(nameValue(v)) : 0, pers = k ? reduce(nameValue(k)) : 0;
+  return { expr, soul, pers };
 }
 function onMatch(e) {
   e.preventDefault(); unlockAudio(); const a = e.currentTarget.name1.value.trim(), b = e.currentTarget.name2.value.trim();
   if (cleanName(a).length < 2 || cleanName(b).length < 2) return fail(e.currentTarget, 'Escribe dos nombres de al menos dos letras.');
-  const na = reduce(nameValue(a)), nb = reduce(nameValue(b)); const ba = reduce(na, false), bb = reduce(nb, false); const distance = Math.min(Math.abs(ba - bb), 9 - Math.abs(ba - bb)); const hash = (nameValue(a) * 7 + nameValue(b) * 11) % 8; const percent = Math.max(52, Math.min(97, 93 - distance * 9 + hash));
-  let title = 'Una conexión que se cultiva', text = 'Sus vibraciones son diferentes y complementarias. La curiosidad, los acuerdos claros y el respeto por los ritmos individuales pueden convertir esa diferencia en aprendizaje compartido.';
-  if (percent >= 85) { title = 'Armonía magnética'; text = 'Sus nombres comparten un pulso muy afín: hay facilidad para comprender motivaciones y crear una dirección común. Conservar espacios propios mantiene viva esta sintonía.'; }
-  else if (percent >= 70) { title = 'Afinidad en movimiento'; text = 'Existe una base cálida y estimulante. Cuando comunican lo que necesitan sin suponer, sus cualidades distintas se apoyan y la conexión gana profundidad.'; }
-  show(e.currentTarget, `${orbit(`${percent}%`, 'Compatibilidad', 'percent')}<h3>${title}</h3><p><strong>${esc(a)}</strong> vibra en ${na} y <strong>${esc(b)}</strong> en ${nb}.</p><p>${text}</p>`, 'match');
+  const A = nameNums(a), B = nameNums(b), r = x => reduce(x, false);
+  const ex = afinidad(r(A.expr), r(B.expr)), so = (A.soul && B.soul) ? afinidad(r(A.soul), r(B.soul)) : ex;
+  const percent = Math.round((ex.n + so.n) / 2);
+  let title = 'Una conexión que se cultiva';
+  if (percent >= 85) title = 'Armonía magnética'; else if (percent >= 75) title = 'Afinidad en movimiento';
+  const na = r(A.expr), nb = r(B.expr);
+  show(e.currentTarget, `${orbit(`${percent}%`, 'Compatibilidad', 'percent')}<h3>${title}</h3>`
+    + `<p><strong>${esc(a)}</strong> vibra en ${A.expr} (${KEY[na]}) y <strong>${esc(b)}</strong> en ${B.expr} (${KEY[nb]}).</p>`
+    + `<p><strong>En la forma de actuar:</strong> ${ex.txt}</p>`
+    + (A.soul && B.soul ? `<p><strong>En lo íntimo</strong> (números ${A.soul} y ${B.soul}): ${so.txt}</p>` : '')
+    + `<p><strong>Para cuidar la relación:</strong> ${na === nb ? 'Para ambos: ' + RICH[na].consejo.charAt(0).toLowerCase() + RICH[na].consejo.slice(1) : esc(a) + ': ' + RICH[na].consejo.charAt(0).toLowerCase() + RICH[na].consejo.slice(1) + ' ' + esc(b) + ': ' + RICH[nb].consejo.charAt(0).toLowerCase() + RICH[nb].consejo.slice(1)}</p>`
+    + `<p>El porcentaje sale de comparar el número de cada nombre y el de sus vocales; es una guía simbólica, no una sentencia.</p>`, 'match');
 }
 function onName(e) {
   e.preventDefault(); unlockAudio(); const name = e.currentTarget.fullName.value.trim();
   if (cleanName(name).length < 3) return fail(e.currentTarget, 'Escribe un nombre completo de al menos tres letras.');
-  const number = reduce(nameValue(name)); const m = meanings[number] || meanings[reduce(number, false)];
-  show(e.currentTarget, `${orbit(number, 'Vibración del nombre')}<h3>${m.title}</h3><p><strong>${esc(name)}</strong>, tu nombre expresa ${m.text.charAt(0).toLowerCase() + m.text.slice(1)}</p><p>Esta lectura habla de tu forma de presentarte y crear; puedes integrarla a tu manera, sin etiquetas rígidas.</p>`, 'name');
+  const N = nameNums(name); const number = N.expr; const m = meanings[number] || meanings[reduce(number, false)]; const r = x => reduce(x, false);
+  const master = [11, 22, 33].includes(number) ? `<p>Tu número es maestro (${number}): se vive como ${r(number)} en lo cotidiano y como ${number} cuando te animas a su vocación más alta.</p>` : '';
+  show(e.currentTarget, `${orbit(number, 'Vibración del nombre')}<h3>${m.title}</h3><p><strong>${esc(name)}</strong>: ${m.text}</p>${master}`
+    + (N.soul ? `<p><strong>Tu deseo interior (vocales, número ${N.soul}):</strong> ${SOUL[r(N.soul)]}</p>` : '')
+    + (N.pers ? `<p><strong>Tu imagen exterior (consonantes, número ${N.pers}):</strong> ${PERS[r(N.pers)]}</p>` : '')
+    + `<p>Esta lectura habla de tu forma de presentarte y crear; puedes integrarla a tu manera, sin etiquetas rígidas.</p>`, 'name');
 }
 
 render();

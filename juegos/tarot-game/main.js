@@ -1,6 +1,6 @@
 function PMS(r){try{var t=window.top;if(t!==window&&t.PortalMusic&&t.PortalMusic.sfx)return t.PortalMusic.sfx(new URL(r,location.href).href);}catch(e){}return new Audio(r);}
-import { additionalCards } from './generated-cards.js?v=2';
-import { enrich } from './tarot-extra.js?v=3';
+import { additionalCards } from './generated-cards.js?v=4';
+import { enrich } from './tarot-extra.js?v=4';
 
 const DESIGN_WIDTH = 1920;
 const DESIGN_HEIGHT = 1080;
@@ -47,7 +47,7 @@ const arcana = [
   {
     name: 'La Estrella',
     image: 'assets/tarot-the-star.webp',
-    meaning: 'La Estrella anuncia esperanza, inspiración y una recuperación profunda de la confianza. Después de una etapa exigente, vuelve a aparecer una dirección que se siente auténtica. No promete resultados instantáneos: te recuerda que la fe se vuelve poderosa cuando la acompañas con gestos pequeños, paciencia y una disposición sincera a recibir ayuda.',
+    meaning: 'La Estrella anuncia esperanza, inspiración y una recuperación profunda de la confianza. Después de una etapa exigente, vuelve a aparecer una dirección que se siente auténtica. No promete resultados instantáneos: te recuerda que la fe se vuelve poderosa cuando la acompañas con gestos pequeños, paciencia y una disposición sincera a recibir ayuda. Waite la lee como pérdida, robo, privación o abandono; otra lectura habla de esperanza y buenas perspectivas.',
     history: 'La Estrella representa la calma que llega después de la tormenta: una figura vierte agua bajo un cielo abierto, recordando que la confianza también puede ser una forma de orientación. En la tradición del Tarot, su desnudez simboliza verdad y vulnerabilidad, mientras las aguas que alimenta hablan de sanar lo interior y lo exterior.',
     meanings: {
       daily: 'Tu día trae una señal de alivio, renovación y claridad emocional. Puede surgir una conversación amable, una idea inspiradora o una sensación de volver a respirar con más espacio. No dejes que la ilusión se quede en pensamiento: elige un gesto concreto para cuidar aquello que te devuelve esperanza y permite que tu sensibilidad te muestre por dónde empezar.',
@@ -61,7 +61,7 @@ const arcana = [
   {
     name: 'La Luna',
     image: 'assets/tarot-the-moon.webp',
-    meaning: 'La Luna habla de intuición, sueños, emociones profundas y caminos que todavía no muestran todos sus detalles. Lo invisible también comunica, pero no todo presentimiento es una certeza. Esta carta te invita a atravesar la incertidumbre con sensibilidad, comprobar los hechos y dar tiempo a la verdad para que aparezca sin forzarla.',
+    meaning: 'La Luna habla de intuición, sueños, emociones profundas y caminos que todavía no muestran todos sus detalles. Lo invisible también comunica, pero no todo presentimiento es una certeza. Esta carta te invita a atravesar la incertidumbre con sensibilidad, comprobar los hechos y dar tiempo a la verdad para que aparezca sin forzarla. Waite la asocia con enemigos ocultos, peligro, calumnia, oscuridad, terror, engaño, fuerzas ocultas y error.',
     history: 'La Luna abre un paisaje de intuición, reflejos y caminos ambiguos. Su luz no elimina las sombras: enseña a caminar con sensibilidad hasta reconocer la verdad. Las criaturas que responden a su llamada y el sendero que se pierde en la distancia recuerdan que el subconsciente puede señalar algo importante, aunque todavía necesite interpretación y cuidado.',
     meanings: {
       daily: 'Tu sensibilidad estará especialmente despierta y podrías percibir matices que normalmente pasan desapercibidos. Observa tus emociones con respeto, pero no conviertas cada presentimiento en una conclusión definitiva. Antes de reaccionar, respira, pregunta y espera una señal más clara; lo que hoy parece confuso puede revelarse distinto cuando descanses o lo mires desde otra perspectiva.',
@@ -89,7 +89,7 @@ const arcana = [
   {
     name: 'El Ermitaño',
     image: 'assets/tarot-the-hermit.webp',
-    meaning: 'El Ermitaño invita al silencio fértil, la introspección y la búsqueda de una verdad propia. La respuesta no llegará por acumular más opiniones, sino por separar el ruido de lo esencial. Su soledad no es aislamiento ni castigo: es un espacio consciente para madurar una decisión, recuperar perspectiva y caminar con una luz interior que no depende de la aprobación externa.',
+    meaning: 'El Ermitaño invita al silencio fértil, la introspección y la búsqueda de una verdad propia. La respuesta no llegará por acumular más opiniones, sino por separar el ruido de lo esencial. Su soledad no es aislamiento ni castigo: es un espacio consciente para madurar una decisión, recuperar perspectiva y caminar con una luz interior que no depende de la aprobación externa. Waite la lee como prudencia y circunspección, y advierte también de traición, disimulo y corrupción.',
     history: 'El Ermitaño avanza con una lámpara en la noche. Su sabiduría no nace de aislarse, sino de tomarse el tiempo necesario para escuchar una verdad propia. La lámpara ilumina solo el siguiente tramo del camino: una imagen de paciencia, experiencia y discernimiento que recuerda que no hace falta conocer todo el futuro para dar el próximo paso con dignidad.',
     meanings: {
       daily: 'Tu día pide bajar el ruido y recuperar un ritmo más íntimo. Una pausa breve, sin pantallas ni opiniones ajenas, puede devolverte la perspectiva que necesitas para distinguir deseo de presión. No confundas lentitud con fracaso: hoy una observación honesta, una lectura tranquila o una conversación con alguien sabio puede valer más que diez respuestas impulsivas.',

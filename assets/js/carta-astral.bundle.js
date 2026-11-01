@@ -1089,6 +1089,39 @@ window.CartaExtra.caracterLilly = function (C, ch, pt) {
   if (keys.length) via = 'en tu casa 1'; else { keys = [TRAD[asc]]; via = 'regente de tu ascendente'; }
   return { keys: keys, via: via };
 };
+
+/* Indicadores por casa según William Lilly, Christian Astrology, Libro III (riqueza, matrimonio, enemigos, familia). */
+window.CartaExtra.TRAD = ['Mars', 'Venus', 'Mercury', 'Moon', 'Sun', 'Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'Saturn', 'Jupiter'];
+window.CartaExtra.MATERIA = {
+  Saturn: 'la tierra, la agricultura, la minería, los edificios y las herencias',
+  Jupiter: 'cargos de prestigio, la ley, la justicia, la religión y las recomendaciones de personas importantes',
+  Mars: 'oficios con hierro o fuego, la milicia, la competencia y los litigios',
+  Sun: 'cargos de autoridad, honores, pensiones y el empleo público',
+  Venus: 'las amistades, las mujeres, el arte, la música, las joyas y el placer',
+  Mercury: 'los contratos, el comercio, la palabra escrita y hablada, y las ciencias',
+  Moon: 'el agua, el mar, los viajes, los mensajeros y el público en general'
+};
+window.CartaExtra.fuerza = function (C, ch, point, p) {
+  var D = window.CartaExtra.DIG[p.key], si = C.signOf(p.lon), sc = 0, why = [];
+  var d = window.CartaExtra.dignidad(p.key, si);
+  if (d && (d.st === 'dom' || d.st === 'ex')) { sc += 2; why.push(d.label); }
+  if (d && (d.st === 'det' || d.st === 'fall')) { sc -= 2; why.push(d.label); }
+  if (p.house && [1, 4, 7, 10].indexOf(p.house) > -1) { sc += 1; why.push('en casa angular'); }
+  if (p.house && [3, 6, 9, 12].indexOf(p.house) > -1) { sc -= 1; why.push('en casa cadente'); }
+  if (p.retro) { sc -= 1; why.push('retrógrado'); }
+  var sun = point(ch, 'Sun');
+  if (p.key !== 'Sun' && sun) { var df = Math.abs(((p.lon - sun.lon + 540) % 360) - 180); df = 180 - df; if (df < 8.5) { sc -= 1; why.push('combusto (muy cerca del Sol)'); } }
+  return { sc: sc, label: sc >= 2 ? 'fuerte' : sc <= -1 ? 'débil' : 'moderado', why: why };
+};
+window.CartaExtra.casaLilly = function (C, ch, point, house) {
+  if (!ch.houses) return null;
+  var out = [], seen = {}, E = window.CartaExtra;
+  var lordKey = E.TRAD[C.signOf(ch.houses.cusps[house])], lord = point(ch, lordKey);
+  function push(p, role) { if (!p || seen[p.key] || !E.DIG[p.key]) return; seen[p.key] = 1; var f = E.fuerza(C, ch, point, p); out.push({ key: p.key, role: role, sign: C.signOf(p.lon), house: p.house, f: f }); }
+  push(lord, 'regente de la casa ' + house);
+  ch.points.forEach(function (p) { if (p.house === house) push(p, 'dentro de la casa ' + house); });
+  return out;
+};
 window.CartaExtra.dignidad = function (key, si) {
   var D = window.CartaExtra.DIG[key]; if (!D) return null;
   var st = D.dom.indexOf(si) > -1 ? 'dom' : D.ex.indexOf(si) > -1 ? 'ex' : D.det.indexOf(si) > -1 ? 'det' : D.fall.indexOf(si) > -1 ? 'fall' : null;
@@ -1170,6 +1203,23 @@ window.CartaExtra.dignidad = function (key, si) {
         var cl = CartaExtra.caracterLilly(C, ch, point);
         if (cl) cl.keys.forEach(function (k) { var D = CartaExtra.DIG[k], d = CartaExtra.dignidad(k, C.signOf(point(ch, k).lon)), P = T.PLANETS[k]; var strong = d && (d.st === 'dom' || d.st === 'ex'), weak = d && (d.st === 'det' || d.st === 'fall'); h.push('<div class="ca-item"><div class="ca-item-t"><span class="ca-g">' + pg(k) + '</span> Planeta que marca tu carácter: ' + P.n + '</div><p>' + (k === cl.keys[0] ? 'Para Lilly, el planeta que está en el ascendente (o, si no hay ninguno, el regente del ascendente) es el principal indicador de las costumbres. ' : '') + 'En tu carta, ' + P.n + ' (' + cl.via + '). ' + (strong ? 'Está fuerte, así que se muestra en su mejor versión: ' + D.well + '.' : weak ? 'Está débil, así que puede mostrar su lado difícil: ' + D.ill + '.' : 'Según lo bien o mal situado que esté, se muestra como alguien ' + D.well + ', o en su versión difícil, ' + D.ill + '.') + '</p></div>'); });
         h.push('</div>');
+      }
+      if (ch.houses) {
+        var TOP = [
+          [2, 'Dinero y recursos', 'Para Lilly, el dinero se lee sobre todo por el regente de la casa 2 y los planetas que estén en ella (él también mira el Punto de Fortuna, que aquí no calculamos). Lo que más cuenta es lo fuertes que estén.', function (k) { return 'Su vía de ingresos natural: ' + CartaExtra.MATERIA[k] + '.'; }],
+          [7, 'Pareja y relaciones', 'Lilly lee a la pareja por el regente de la casa 7 y los planetas que haya en ella (también mira a Venus y la Luna, que aquí no incluimos). Describe cómo es quien llega a tu vida.', function (k) { var D = CartaExtra.DIG[k]; return 'Con esta energía, tu pareja tiende a ser alguien ' + D.well + '; si el planeta está débil, puede mostrar su lado difícil (' + D.ill + ').'; }],
+          [12, 'Obstáculos y rivales ocultos', 'La casa 12 es, para Lilly, la de los enemigos privados y los obstáculos que no se ven. Se lee por su regente y los planetas que estén en ella. Es una lectura de tendencias, no de destino.', function (k) { return (k === 'Jupiter' || k === 'Venus') ? 'Es un planeta benéfico: la tradición dice que tus rivales ocultos pueden hacerte poco daño.' : (k === 'Saturn' || k === 'Mars') ? 'Es un planeta exigente: la tradición pide cuidar la discreción y no dejar flancos abiertos con quienes no son de confianza.' : 'Es un planeta neutro: el efecto depende de lo fuerte que esté.'; }]
+        ];
+        var any = false, hh = [];
+        TOP.forEach(function (tp) {
+          var L = CartaExtra.casaLilly(C, ch, point, tp[0]); if (!L || !L.length) return; any = true;
+          var sum = 0; L.forEach(function (x) { sum += x.f.sc; });
+          hh.push('<div class="ca-item"><div class="ca-item-t">' + tp[1] + ' (casa ' + tp[0] + ')</div><p>' + tp[2] + '</p>');
+          L.forEach(function (x) { var P = T.PLANETS[x.key]; hh.push('<p><span class="ca-g">' + pg(x.key) + '</span> <strong>' + P.n + '</strong> (' + x.role + ') está en ' + T.SIGNS[x.sign].n + (x.house ? ', casa ' + x.house : '') + ': ' + x.f.label + (x.f.why.length ? ' (' + x.f.why.join(', ') + ')' : '') + '. ' + tp[3](x.key) + '</p>'); });
+          if (tp[0] === 2) hh.push('<p>' + (sum >= 2 ? 'En conjunto, tus indicadores están bien sostenidos: la tradición lo lee como facilidad para construir un patrimonio.' : sum <= -1 ? 'En conjunto, tus indicadores piden más esfuerzo y orden: la tradición lo lee como un camino donde el dinero se gana con trabajo propio y cuidado.' : 'En conjunto, tus indicadores son mixtos: hay años de facilidad y años en que conviene ahorrar y planificar.') + '</p>');
+          hh.push('</div>');
+        });
+        if (any) h.push('<h3 class="ca-h">Tus casas clave, según Lilly</h3><div class="ca-list">' + hh.join('') + '</div>');
       }
       var dgs = []; ch.points.forEach(function (p) { var d = CartaExtra.dignidad(p.key, C.signOf(p.lon)); if (d) dgs.push([p, d]); });
       if (dgs.length) {

@@ -1,5 +1,5 @@
 {
- "siguiente_seccion": 0,
+ "siguiente_seccion": 1,
  "secciones": [
   {
    "seccion": "🔮 Tarot",
@@ -18,7 +18,9 @@
      "nombre": "Tarot del amor"
     }
    ],
-   "usadas": []
+   "usadas": [
+    0
+   ]
   },
   {
    "seccion": "♈ Horóscopo",
@@ -240,5 +242,12 @@
    "usadas": []
   }
  ],
- "publicados": []
+ "publicados": [
+  {
+   "fecha": "2026-11-02",
+   "tipo": "herramienta",
+   "slug": "tarot-del-dia-carta-diaria",
+   "titulo": "Tarot del día: cómo sacar tu carta diaria y leer su mensaje"
+  }
+ ]
 }

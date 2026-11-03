@@ -32,6 +32,18 @@ export const CHEIRO_MOUNTS = [
   ['Luna', 'borde de la mano, frente al monte de Venus', 'refinamiento, imaginación, ideales y gusto por la poesía y los paisajes.']
 ];
 export const CHEIRO_NAILS = 'Cheiro: las uñas largas se asocian con calma, idealismo, sensibilidad artística y una tendencia a evitar lo desagradable; las uñas cortas, con espíritu crítico, lógica, humor agudo y gusto por el debate; las uñas más anchas que largas, con carácter combativo y tendencia a meterse en asuntos ajenos; las uñas mordidas, con preocupación o nerviosismo.';
+
+// Benham, The Laws of Scientific Hand-Reading (Parte II): cómo leer el carácter de una línea y qué destaca cada línea principal.
+const BENHAM_LINE_FOCUS = { heart_line: 'los afectos y la calidez con la que te vinculas', head_line: 'la mente, la concentración y el autocontrol', life_line: 'la vitalidad y la energía física', fate_line: 'el rumbo material y el esfuerzo que pones en tus metas' };
+const BENHAM_LINE_READING = 'Benham propone leer primero el carácter de cada línea: cuanto más pareja, clara y profunda, y cuanto menos cortada, cruzada o con islas, mejor se expresa lo que representa. Una línea ancha y poco profunda se lee como una energía dispersa que cuesta convertir en resultados. Si una línea es notablemente más profunda que las demás, lo que representa es tu punto más fuerte; si es la más débil, es tu punto a cuidar. Según Benham, las líneas verticales favorecen el flujo de energía y las horizontales que las cruzan lo interrumpen; una línea irregular se lee de principio a fin, porque los tramos finos y los profundos corresponden a etapas de distinto esfuerzo. Aclara que las líneas cambian con el tiempo y con la experiencia, por lo que son un mapa de tendencias y no una sentencia.';
+function strongestWeakest(analysis) {
+  const items = (analysis.lines || []).filter(item => item.detected && item.confidence >= .4);
+  if (items.length < 3) return null;
+  const score = item => item.confidence + (item.depth === 'deep_apparent' ? .2 : item.depth === 'light_apparent' ? -.1 : 0);
+  const sorted = [...items].sort((a, b) => score(b) - score(a));
+  if (score(sorted[0]) - score(sorted[sorted.length - 1]) < .12) return null;
+  return { strong: sorted[0].feature, weak: sorted[sorted.length - 1].feature };
+}
 const clamp = (n, min=0, max=1) => Math.max(min, Math.min(max, n));
 const line = (analysis, feature) => analysis.lines.find(item => item.feature === feature);
 
@@ -39,13 +51,13 @@ const LINE_MEANINGS = {
   heart_line: {
     title: 'Mundo emocional y vínculos',
     explanation: 'En la tradición quiromántica, la línea del corazón se relaciona con la manera simbólica en que una persona vive el afecto, expresa sus emociones y construye vínculos. No dice si alguien ama “bien” o “mal”: se observa como una invitación a pensar si suele mostrar lo que siente, protegerse o buscar relaciones profundas.',
-    details: 'Para Cheiro, la línea del corazón debe ser clara y bien marcada. Si nace bajo Júpiter (el índice), habla de un afecto idealista y leal; si nace bajo Saturno (el dedo medio), de un afecto más apasionado y menos demostrativo; si nace entre ambos, de una naturaleza más tranquila y serena en el amor. Una línea pálida y sin ramas se asocia con un afecto contenido, y una línea con muchas rayitas, con inconstancia en los vínculos. Una línea curva suele asociarse con expresividad. Son matices simbólicos, no un juicio sobre cómo amas.',
+    details: 'Para Cheiro, la línea del corazón debe ser clara y bien marcada. Si nace bajo Júpiter (el índice), habla de un afecto idealista y leal; si nace bajo Saturno (el dedo medio), de un afecto más apasionado y menos demostrativo; si nace entre ambos, de una naturaleza más tranquila y serena en el amor. Una línea pálida y sin ramas se asocia con un afecto contenido, y una línea con muchas rayitas, con inconstancia en los vínculos. Una línea curva suele asociarse con expresividad. Benham observa que en la mayoría de las manos la línea del corazón empieza profunda y termina más ancha y superficial, porque en los primeros veinte años el corazón actúa con más fuerza y con el tiempo se tiende a querer con más cautela. Son matices simbólicos, no un juicio sobre cómo amas.',
     reflection: 'Puede servir como reflexión sobre cómo das cariño, cómo recibes afecto y qué necesitas para sentir confianza en una relación.'
   },
   head_line: {
     title: 'Pensamiento, decisiones e imaginación',
     explanation: 'La línea de la cabeza representa tradicionalmente el estilo de pensamiento: cómo se organizan las ideas, cómo se toman decisiones y qué lugar tienen el análisis, la creatividad y la intuición. No mide inteligencia, memoria, estudios ni capacidad profesional.',
-    details: 'Según Cheiro, una línea de la cabeza recta, clara y pareja habla de sentido práctico y de apego a lo concreto; con una ligera inclinación en la segunda mitad, de equilibrio entre lo práctico y lo imaginativo; con inclinación en toda su extensión, de inclinación al trabajo imaginativo; y muy inclinada, de idealismo y espíritu romántico. Una línea muy larga y recta se asocia con un intelecto fuerte. Cheiro insiste en que pesa más o menos según el tipo de mano. Son matices simbólicos, no diagnósticos de personalidad.',
+    details: 'Según Cheiro, una línea de la cabeza recta, clara y pareja habla de sentido práctico y de apego a lo concreto; con una ligera inclinación en la segunda mitad, de equilibrio entre lo práctico y lo imaginativo; con inclinación en toda su extensión, de inclinación al trabajo imaginativo; y muy inclinada, de idealismo y espíritu romántico. Una línea muy larga y recta se asocia con un intelecto fuerte. Cheiro insiste en que pesa más o menos según el tipo de mano. Benham la relaciona con la cantidad de mentalidad, la concentración y el autocontrol. Son matices simbólicos, no diagnósticos de personalidad.',
     reflection: 'Puede invitarte a observar si decides con lógica, intuición o una combinación de ambas, y cómo equilibras pensar mucho con pasar a la acción.'
   },
   life_line: {
@@ -57,7 +69,7 @@ const LINE_MEANINGS = {
   fate_line: {
     title: 'Dirección, metas y cambios de rumbo',
     explanation: 'La línea del destino, también llamada de Saturno en algunas escuelas, se relaciona simbólicamente con el sentido de dirección, los objetivos y la manera en que una persona siente que avanza por su vida. Tradicionalmente se vincula con trabajo, responsabilidades e influencias externas, pero no predice una profesión ni garantiza éxito.',
-    details: 'Cheiro advierte que su importancia depende del tipo de mano: es menos significativa en manos elementales o espatuladas que en manos cuadradas, filosóficas, cónicas o psíquicas, y aun así una línea corta y clara en una mano cuadrada pesa más que una larga en una cónica. Cuando parece visible, puede leerse como una sensación de propósito o de orientación hacia ciertas metas. Cuando no se distingue, la tradición suele hablar de un camino más flexible, construido mediante varias decisiones y oportunidades, no de falta de destino. Una trayectoria irregular se interpreta como posibles cambios de etapa o de prioridades.',
+    details: 'Benham añade que lo que se llama “suerte” en esta línea suele ser trabajo, salud, perseverancia y buen ojo para las oportunidades, no azar. Cheiro advierte que su importancia depende del tipo de mano: es menos significativa en manos elementales o espatuladas que en manos cuadradas, filosóficas, cónicas o psíquicas, y aun así una línea corta y clara en una mano cuadrada pesa más que una larga en una cónica. Cuando parece visible, puede leerse como una sensación de propósito o de orientación hacia ciertas metas. Cuando no se distingue, la tradición suele hablar de un camino más flexible, construido mediante varias decisiones y oportunidades, no de falta de destino. Una trayectoria irregular se interpreta como posibles cambios de etapa o de prioridades.',
     reflection: 'Puede invitarte a revisar qué metas son realmente tuyas, qué decisiones dependen de ti y dónde estás abierto a cambiar de rumbo.'
   }
 };
@@ -236,6 +248,7 @@ export function buildReport(hands, comparison, interpretation, dominance, mode) 
     { id:'types', title:'Los siete tipos de mano (Cheiro)', text:CHEIRO_TYPES.map(t => `${t[0]}: ${t[1]} ${t[2]}`).join(' ') + ' Es una clasificación de Cheiro, distinta de los cuatro elementos de arriba; en la foto no se miden las puntas de los dedos, así que puedes comparar con tu mano.' },
     { id:'mounts', title:'Los montes de la mano (Cheiro)', text:'Cheiro llama monte a cada abultamiento de la palma y usa los nombres planetarios solo como atajo para describir cualidades. ' + CHEIRO_MOUNTS.map(m => `Monte de ${m[0]} (${m[1]}): ${m[2]}`).join(' ') + ' Cuando varios montes se inclinan unos hacia otros, sus cualidades se mezclan.' },
     { id:'nails', title:'Las uñas (Cheiro)', text:CHEIRO_NAILS },
+    { id:'benham', title:'Tu línea más marcada y cómo se leen las líneas (Benham)', text:Object.entries(hands).map(([hand, analysis]) => { const r = strongestWeakest(analysis); return r ? `Palma ${handLabel(hand)}: la línea más marcada en la foto es la ${{heart_line:'del corazón',head_line:'de la cabeza',life_line:'de la vida',fate_line:'del destino'}[r.strong]}, que se asocia con ${BENHAM_LINE_FOCUS[r.strong]}; la menos marcada es la ${{heart_line:'del corazón',head_line:'de la cabeza',life_line:'de la vida',fate_line:'del destino'}[r.weak]}, asociada con ${BENHAM_LINE_FOCUS[r.weak]}.` : `Palma ${handLabel(hand)}: no hay suficientes líneas claras para comparar su fuerza relativa.`; }).join(' ') + ' ' + BENHAM_LINE_READING },
     { id:'quality', title:'Nivel de calidad del escaneo', text:`Izquierda: ${Math.round(quality.left.score*100)}% · Derecha: ${Math.round(quality.right.score*100)}%` }
   ] };
 }

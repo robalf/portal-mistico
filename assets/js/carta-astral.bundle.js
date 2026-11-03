@@ -1132,6 +1132,77 @@ window.CartaExtra.fortuna = function (C, ch, point) {
   var si = C.signOf(lon), dk = window.CartaExtra.TRAD[si], dp = point(ch, dk);
   return { lon: lon, sign: si, house: hs, day: day, dk: dk, dp: dp, f: dp ? window.CartaExtra.fuerza(C, ch, point, dp) : null };
 };
+
+/* Tránsitos lentos por casa según Robert Hand, Planets in Transit (1976). Textos propios en español, resumidos de los capítulos de cada planeta. */
+window.CartaExtra.HAND_INTRO = {
+  Jupiter: 'Para Hand, Júpiter es el planeta del crecimiento y la expansión: la vida fluye con más facilidad en el área que transita. Su consejo es no pasarte de la raya, porque Júpiter agranda todo, también los excesos, y conviene tener cuidado con lo que deseas porque es probable que lo obtengas.',
+  Saturn: 'Para Hand, Saturno señala el área de tu vida que se está examinando y poniendo a prueba. Aunque se vive como una fuerza externa, él lo ve como el resultado de cómo tú mismo estructuras tu mundo: lo que Saturno quita suele ser lo que ya no necesitas, y lo que consolida es lo que sí te sostiene.',
+  Uranus: 'Para Hand, Urano trae lo inesperado: cambios súbitos que desafían las estructuras rígidas. No es malo en sentido tradicional, salvo en la medida en que te resistes a lo nuevo; pide flexibilidad en el área que transita.',
+  Neptune: 'Para Hand, Neptuno disuelve lo que Saturno construye: la sensación de realidad, el ego y las certezas. Puede traer confusión y desilusión, pero también idealismo e inspiración; pide cuidar la claridad y no creer lo que solo es un deseo.',
+  Pluto: 'Para Hand, Plutón transforma: derriba lo que ya no se puede arreglar y construye algo nuevo en su lugar. No habla de muerte literal sino de la “muerte” de lo que deja de ser. Pide aceptar el cambio en lugar de resistirlo, para que no se acumule hasta hacerse explosivo.'
+};
+window.CartaExtra.HAND_HOUSE = {
+  Jupiter: ['Comienza un ciclo grande de crecimiento: te sientes más seguro de ti y de la impresión que causas. Es buen momento para aprender y descubrir qué puedes lograr, sin exagerar tu importancia.',
+    'Crece lo que valoras, sea dinero o ideas. Conviene entender cómo usas tus recursos y no gastar de más.',
+    'Aumentan los contactos en tu entorno cercano y surgen oportunidades de estudio, comunicación y viajes cortos que amplían tu mirada.',
+    'Buscas paz interior y seguridad. Es un buen momento para mejorar tu hogar, comprar vivienda o invertir en bienes raíces.',
+    'Crece tu expresión creativa y te muestras sin miedo ni egoísmo; mejora tu relación con los demás y las historias de amor que empiezan ahora pueden ser auténticas.',
+    'Buen momento para trabajar y cumplir deberes que te hacen crecer. La salud suele acompañar, aunque conviene no excederte.',
+    'Favorece las sociedades y el matrimonio. Encuentras personas que te ayudan, y tiendes a cooperar en lugar de ir solo.',
+    'Es probable que te beneficies de los recursos de otros: préstamos, sociedades o ayuda. Otras personas se muestran más dispuestas a apoyarte.',
+    'Una posición muy buena de Júpiter: se expande tu visión del mundo con viajes, estudios, enseñanza y lecturas sobre filosofía, religión o metafísica.',
+    'Tu atención se vuelve hacia la carrera, la posición social y la reputación, y un esfuerzo razonable da avances. Cuida no volverte arrogante ni chocar con tus superiores.',
+    'Tus esperanzas e ideales pesan más. Los amigos te apoyan y te conviene sumarte a grupos y hacer nuevas amistades valiosas.',
+    'Una transición favorable aunque discreta: aprendes sobre ti y sobre la dimensión espiritual con menos miedo, y sientes más empatía por el sufrimiento ajeno.'],
+  Saturn: ['Empieza un ciclo de crecimiento interior: se despejan etapas que ya no tienen sentido y las responsabilidades pesan, aunque también pueden ser grandes los logros. No conviene empezar proyectos muy largos, pero tampoco usarlo de excusa para quedarte quieto.',
+    'Toca averiguar qué es realmente importante para ti, en lo material y en lo moral. Los viejos textos hablan de pérdidas de dinero, y puede ocurrir, pero lo central es ajustar tus valores.',
+    'Cierra una etapa de preparación interior. El asunto es cómo piensas a diario: tus hábitos mentales, tu manera de hablar y de escuchar.',
+    'Un tránsito muy importante sobre el hogar y la vida íntima. Lo que venías aguantando sin resolver se hace crítico, y puede haber una reorganización de la casa o de los vínculos familiares.',
+    'Aprendes a expresarte de la mejor manera, pero con trabajo y orden. Todo parece tener una lección; no es un periodo de diversión ligera.',
+    'Es una etapa crítica de preparación, como un debut: mucho trabajo y responsabilidad. Si lo manejas bien, el reconocimiento llega cuando Saturno cruza a la casa 7.',
+    'Es la culminación de un ciclo de unos catorce años. Las relaciones cercanas te exigen y te ponen a prueba, y requieren mucho esfuerzo.',
+    'Se ponen en foco las finanzas y los bienes compartidos. Hay que integrar los valores de otros sin perder tu individualidad.',
+    'Se acerca un punto alto de tu vida. Tu visión del mundo se estabiliza y entiendes las reglas del juego; ahora toca jugar con más destreza.',
+    'Es la cosecha de lo que preparaste durante unos veinte años. Si te preparaste bien, los resultados son excelentes; lo que quedó flojo muestra dificultades. Hay más responsabilidades y posibilidad de liderar.',
+    'Toca integrarte a un grupo y brillar menos como individuo. Es la continuación de la etapa alta de tu vida si respondes a los desafíos.',
+    'Se despeja el terreno: conviene terminar lo pendiente. No es buen momento para empezar proyectos nuevos, y algo importante puede dar paso a otra etapa.'],
+  Uranus: ['Durante unos siete años redefines tu relación con el mundo. Se rompen patrones antiguos y puedes actuar de forma inesperada, lo que desconcierta a los demás.',
+    'Hay grandes cambios económicos: conviene tener finanzas que resistan sorpresas. Por dentro cambian tus valores, así que pide flexibilidad con el dinero y las posesiones.',
+    'Cambia lo que daba por seguro: el trato diario con vecinos, familiares y amigos, tus hábitos y tu forma de pensar y comunicarte. Es emocionante si te interesa aprender.',
+    'El cambio llega a lo más íntimo: el hogar y la familia. Hay cambios repentinos, hasta de residencia, y a la vez una nueva sensación de libertad frente al pasado.',
+    'Una etapa emocionante: buscas nuevas formas de expresarte y de divertirte, y nuevas experiencias que amplían tu conciencia. Las relaciones pueden ser poco convencionales.',
+    'Cambia tu actitud hacia el trabajo: puedes cambiar de empleo o buscar más libertad, y rebelarte contra obligaciones que sientes opresivas.',
+    'Puede ser muy difícil si una relación cercana no funciona: a menudo coincide con el fin de una pareja o sociedad. Si la relación es buena, trae renovación.',
+    'Notas fuerzas profundas que preparan un cambio, que llega por hechos repentinos e intensos. Un orden viejo da paso a otro nuevo y cierra una etapa.',
+    'Se amplía mucho tu mirada con nuevas ideas, siempre que mantengas la mente abierta. Si te aferras a una sola manera de ver el mundo, te puede incomodar.',
+    'Puede haber un cambio fuerte en tu profesión o choques con la autoridad. Si algo de tu vida pública se ha estancado, cambiará, y sientes ganas de liberarte.',
+    'Una revolución en tus esperanzas y expectativas: ves que son posibles otros estilos de vida. Te atraen amistades nuevas que desafían tu forma de pensar.',
+    'Efectos sutiles pero importantes: sorpresas que vienen de factores que no ves, de compulsiones inconscientes o de secretos que salen a la luz. Es sobre todo un trabajo con el inconsciente.'],
+  Neptune: ['Durante años cambia tu manera de relacionarte con los demás y te muestras de formas muy distintas; los demás no te ven con claridad. Es esencial conocerte bien en este periodo.',
+    'Cambia tu actitud hacia lo que posees y tus valores. Cuanto más te apegas a lo que tienes, más probable es que se vuelva confuso; el cambio llega de forma sutil.',
+    'Afecta tu comunicación diaria. Sé muy claro porque habrá malentendidos, sobre todo con vecinos y familiares, y ten cuidado en cualquier negociación.',
+    'Tu hogar y tu vida personal cambian de forma sutil y extraña, reflejando cambios psicológicos internos. Puedes atraer temas espirituales y soñar con el hogar ideal.',
+    'Buscas relaciones muy románticas y una unión más espiritual que física. Cuida no confundir lo que deseas con lo que realmente es la otra persona.',
+    'Afecta la salud y el trabajo. Conviene cuidar la salud, sobre todo con alcohol y sustancias, aunque los problemas serios suelen requerir otros tránsitos difíciles a la vez.',
+    'Afecta todas las relaciones uno a uno: riesgo de malentendidos, resentimientos que no se dicen y falta de claridad con parejas, socios y asesores.',
+    'Tu atención se vuelve hacia lo oculto y tu subconsciente. Es un buen momento para empezar una terapia si lo ves útil, mientras un orden antiguo da paso a otro nuevo.',
+    'Despierta tu interés por lo espiritual y la conciencia superior, pero también puede confundir tu visión del mundo. Conviene mantener los pies en la tierra.',
+    'Puede ser un periodo confuso y desorientador sobre hacia dónde vas. Es difícil si tu trabajo es lo que justifica tu existencia, y enseña si logras superar el miedo.',
+    'Tus ideales ganan peso y te atraen amigos que los comparten. Cuida no ver a las personas como quisieras que fueran, para evitar decepciones.',
+    'Años de reflexión y de preguntas profundas: tu vida se mide en términos espirituales y ya no basta el éxito externo.'],
+  Pluto: ['Remodelas poco a poco tu personalidad y entras en contacto con las fuerzas que te formaron. Ganas control sobre tus impulsos inconscientes y sobre cómo te proyectas.',
+    'Tus valores y recursos se transforman por completo. A menudo empieza con una fase de menos recursos, y la base material cambia, por lo que conviene prever reparaciones o cambios de ingresos.',
+    'Lo cotidiano se carga de peso: vecinos, familiares y rutinas. Se examinan situaciones que creías permanentes y pueden llegar a un punto crítico.',
+    'El cambio se vuelve más profundo y personal. Resurgen temas de la infancia, el hogar y la familia, y ya no te conformas con lo de siempre.',
+    'Cambian tu forma de disfrutar y tu relación con los hijos, si los tienes: entran en una nueva fase en la que todo es más profundo.',
+    'Conviene cuidar mucho la salud: tiendes a forzarte y a ignorar al cuerpo, y algo que venías postergando puede llegar a un punto crítico. También puede indicar una gran renovación física.',
+    'Tus relaciones y asociaciones se transforman profundamente, o un encuentro con otra persona cambia tu vida. Puede haber una crisis que obliga a redefinir la relación.',
+    'Plutón está en su elemento: cobran más peso los temas de transformación profunda. Puede haber pérdidas de personas cercanas que te influyen mucho, aunque tu propia vida no está en peligro.',
+    'Tu visión del mundo cambia a menudo por crisis que muestran lo limitado de tus ideas. No hay que temerle: en el peor caso es una experiencia que madura, y en el mejor te transforma en una mejor persona.',
+    'Un momento muy importante: quieres dejar tu huella y ahora es posible, si has descubierto quién eres. Si no, es la oportunidad de averiguarlo.',
+    'Cambian tus metas a largo plazo, tus ideales y tus amistades. Dejas lo que ya no te interesa y buscas otro tipo de vínculo.',
+    'Limpia lo oculto y enterrado de tu psique y te obliga a enfrentarlo. Prepara una reconstrucción de ti mismo.']
+};
 window.CartaExtra.dignidad = function (key, si) {
   var D = window.CartaExtra.DIG[key]; if (!D) return null;
   var st = D.dom.indexOf(si) > -1 ? 'dom' : D.ex.indexOf(si) > -1 ? 'ex' : D.det.indexOf(si) > -1 ? 'det' : D.fall.indexOf(si) > -1 ? 'fall' : null;
@@ -1481,6 +1552,14 @@ window.CartaExtra.dignidad = function (key, si) {
           h.push('<div class="ca-item ca-' + tone[0] + '"><div class="ca-item-t"><span class="ca-g">' + pg(x.a) + '</span> ' + T.PLANETS[x.a].n + ' ' + T.ASPECTS[x.type].n.toLowerCase() + ' tu <span class="ca-g">' + pg(x.b) + '</span> ' + T.PLANETS[x.b].n + ' <span class="ca-tag">' + tone[1] + '</span></div><p>' + txt + '</p></div>');
         });
         h.push('</div>');
+      }
+      if (natal.houses) {
+        var SLOW = ['Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto'], hs = [];
+        SLOW.forEach(function (k) {
+          var tp2 = point(tr, k); if (!tp2) return; var hn = C.houseOf(tp2.lon, natal.houses.cusps);
+          hs.push('<div class="ca-item"><div class="ca-item-t"><span class="ca-g">' + pg(k) + '</span> ' + T.PLANETS[k].n + ' transita tu casa ' + hn + ' (' + T.HOUSES[hn - 1] + ')</div><p>' + CartaExtra.HAND_HOUSE[k][hn - 1] + '</p></div>');
+        });
+        h.push('<h3 class="ca-h">Tus grandes tránsitos del momento</h3><p class="ca-note">Los planetas lentos marcan los temas de fondo de esta etapa de tu vida y duran meses o años. Textos basados en Robert Hand, <em>Planets in Transit</em> (1976).</p><div class="ca-list">' + hs.join('') + '</div><details class="ca-more"><summary>Cómo leer cada planeta lento (Hand)</summary>' + SLOW.map(function (k) { return '<p><strong>' + T.PLANETS[k].n + ':</strong> ' + CartaExtra.HAND_INTRO[k] + '</p>'; }).join('') + '</details>');
       }
       var retros = tr.points.filter(function (p) { return p.retro; }).map(function (p) { return T.PLANETS[p.key].n; });
       h.push('<p class="ca-note">' + (retros.length ? 'Retrógrados este día: ' + retros.join(', ') + '.' : 'Ningún planeta está retrógrado este día.') + ' Para la fase lunar y el ritual del día, visita la <a href="brujula.html">Brújula Lunar</a>.</p>' + again);

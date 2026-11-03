@@ -18,25 +18,25 @@ const LINE_MEANINGS = {
   heart_line: {
     title: 'Mundo emocional y vínculos',
     explanation: 'En la tradición quiromántica, la línea del corazón se relaciona con la manera simbólica en que una persona vive el afecto, expresa sus emociones y construye vínculos. No dice si alguien ama “bien” o “mal”: se observa como una invitación a pensar si suele mostrar lo que siente, protegerse o buscar relaciones profundas.',
-    details: 'Una línea curva suele asociarse con expresividad y espontaneidad afectiva. Una trayectoria continua se interpreta como una forma relativamente estable de expresar los sentimientos. Su terminación y posibles bifurcaciones se leen como matices: apertura a distintas perspectivas, equilibrio entre idealismo y realismo o necesidad de comunicar mejor lo que se siente.',
+    details: 'Para Cheiro, la línea del corazón debe ser clara y bien marcada. Si nace bajo Júpiter (el índice), habla de un afecto idealista y leal; si nace bajo Saturno (el dedo medio), de un afecto más apasionado y menos demostrativo; si nace entre ambos, de una naturaleza más tranquila y serena en el amor. Una línea pálida y sin ramas se asocia con un afecto contenido, y una línea con muchas rayitas, con inconstancia en los vínculos. Una línea curva suele asociarse con expresividad. Son matices simbólicos, no un juicio sobre cómo amas.',
     reflection: 'Puede servir como reflexión sobre cómo das cariño, cómo recibes afecto y qué necesitas para sentir confianza en una relación.'
   },
   head_line: {
     title: 'Pensamiento, decisiones e imaginación',
     explanation: 'La línea de la cabeza representa tradicionalmente el estilo de pensamiento: cómo se organizan las ideas, cómo se toman decisiones y qué lugar tienen el análisis, la creatividad y la intuición. No mide inteligencia, memoria, estudios ni capacidad profesional.',
-    details: 'Una línea larga se asocia con atención sostenida y gusto por examinar los detalles. Una línea ligeramente inclinada suele vincularse con imaginación, intuición y pensamiento flexible. Si parece recta, algunas escuelas hablan de una mirada práctica; si desciende, de una tendencia más creativa o contemplativa. Son matices simbólicos, no diagnósticos de personalidad.',
+    details: 'Según Cheiro, una línea de la cabeza recta, clara y pareja habla de sentido práctico y de apego a lo concreto; con una ligera inclinación en la segunda mitad, de equilibrio entre lo práctico y lo imaginativo; con inclinación en toda su extensión, de inclinación al trabajo imaginativo; y muy inclinada, de idealismo y espíritu romántico. Una línea muy larga y recta se asocia con un intelecto fuerte. Cheiro insiste en que pesa más o menos según el tipo de mano. Son matices simbólicos, no diagnósticos de personalidad.',
     reflection: 'Puede invitarte a observar si decides con lógica, intuición o una combinación de ambas, y cómo equilibras pensar mucho con pasar a la acción.'
   },
   life_line: {
     title: 'Vitalidad, ritmo y manera de vivir',
     explanation: 'La línea de la vida se interpreta tradicionalmente como un símbolo de vitalidad, energía, ritmo personal y relación con las experiencias. No indica cuánto va a vivir una persona, no predice la muerte y no diagnostica salud.',
-    details: 'Un arco amplio suele asociarse con entusiasmo, actividad y apertura a explorar. Una línea continua se lee como una sensación simbólica de constancia. La profundidad aparente puede describirse como intensidad dentro de la imagen, pero no como fuerza física real. Los cortes, cambios o diferencias entre fotografías pueden deberse a luz, postura, piel y calidad de la captura.',
+    details: 'Según Cheiro, la línea de la vida debe ser larga, delgada, profunda y sin cortes; una línea que se abre hacia la palma, dando espacio al monte de Venus, se lee como vitalidad, mientras que una línea pegada al pulgar se lee como un cuerpo menos robusto. Una línea con aspecto de cadena se asocia con altibajos de energía. Aquí solo se toma como un símbolo de ritmo y vitalidad: Cheiro la usaba también para hablar de la duración de la vida, y eso no lo hacemos. Un arco amplio suele asociarse con entusiasmo y apertura a explorar. La profundidad aparente puede describirse como intensidad dentro de la imagen, pero no como fuerza física real. Los cortes, cambios o diferencias entre fotografías pueden deberse a luz, postura, piel y calidad de la captura.',
     reflection: 'Puede ayudarte a preguntarte qué actividades te recargan, qué ritmo de vida te conviene y dónde necesitas reservar energía para ti.'
   },
   fate_line: {
     title: 'Dirección, metas y cambios de rumbo',
     explanation: 'La línea del destino, también llamada de Saturno en algunas escuelas, se relaciona simbólicamente con el sentido de dirección, los objetivos y la manera en que una persona siente que avanza por su vida. Tradicionalmente se vincula con trabajo, responsabilidades e influencias externas, pero no predice una profesión ni garantiza éxito.',
-    details: 'Cuando parece visible, puede leerse como una sensación de propósito o de orientación hacia ciertas metas. Cuando no se distingue, la tradición suele hablar de un camino más flexible, construido mediante varias decisiones y oportunidades, no de falta de destino. Una trayectoria irregular se interpreta como posibles cambios de etapa o de prioridades.',
+    details: 'Cheiro advierte que su importancia depende del tipo de mano: es menos significativa en manos elementales o espatuladas que en manos cuadradas, filosóficas, cónicas o psíquicas, y aun así una línea corta y clara en una mano cuadrada pesa más que una larga en una cónica. Cuando parece visible, puede leerse como una sensación de propósito o de orientación hacia ciertas metas. Cuando no se distingue, la tradición suele hablar de un camino más flexible, construido mediante varias decisiones y oportunidades, no de falta de destino. Una trayectoria irregular se interpreta como posibles cambios de etapa o de prioridades.',
     reflection: 'Puede invitarte a revisar qué metas son realmente tuyas, qué decisiones dependen de ti y dónde estás abierto a cambiar de rumbo.'
   }
 };
@@ -48,20 +48,24 @@ const ELEMENT_MEANINGS = {
   Agua: { title:'Mano de Agua', text:'Palma alargada y dedos largos. Se asocia con la sensibilidad, la intuición y la imaginación: percibe matices emocionales y conecta con lo creativo.' }
 };
 const INDEX_RING_MEANINGS = {
-  'índice más largo': 'En la tradición, un índice (dedo de Júpiter) más largo que el anular se relaciona con confianza, liderazgo y deseo de dirigir el propio camino.',
-  'anular más largo': 'Un anular (dedo de Apolo) más largo que el índice se asocia con creatividad, gusto por la expresión y disposición a arriesgarse por lo que se ama.',
-  'índice y anular parecidos': 'Cuando índice y anular miden casi lo mismo, la tradición habla de equilibrio entre la ambición personal y la expresión creativa.'
+  'índice más largo': 'Cheiro asocia un índice (dedo de Júpiter) largo con orgullo, deseo de dirigir y de que las cosas se hagan a tu manera. Si es muy largo, puede mostrarse como tendencia a imponer tu criterio.',
+  'anular más largo': 'Cheiro asocia un anular (dedo del Sol) casi tan largo como el índice con ambición de honor y de reconocimiento a través del arte o la creatividad, y con gusto por el riesgo. Si es muy largo, dice que la persona mira la vida un poco como una apuesta.',
+  'índice y anular parecidos': 'Cuando índice y anular miden casi lo mismo, se lee como equilibrio entre la ambición de dirigir (Júpiter) y el deseo de brillar o crear (Sol). Es una lectura de escuelas modernas, no de Cheiro.'
 };
 const THUMB_MEANINGS = {
-  'muy abierto': 'Un pulgar muy separado de la mano se lee como espíritu independiente, generosidad y facilidad para adaptarse.',
-  'abierto con naturalidad': 'Un pulgar con una apertura natural se asocia con equilibrio entre independencia y prudencia.',
-  'cercano a la mano': 'Un pulgar cerca de la mano se interpreta como reserva, prudencia y tendencia a cuidar lo propio antes de abrirse.'
+  'muy abierto': 'Según Cheiro, un pulgar que se separa mucho de la mano muestra un espíritu muy independiente que no tolera ser controlado; la parte a cuidar es no volverte tajante con los demás.',
+  'abierto con naturalidad': 'Cheiro considera el pulgar con una inclinación natural hacia los dedos, ni pegado ni en ángulo recto, como el punto medio ideal: independencia suficiente para tener carácter y prudencia para cuidar tus asuntos, con fuerza de voluntad y decisión.',
+  'cercano a la mano': 'Según Cheiro, un pulgar muy pegado a los dedos se asocia con una naturaleza cautelosa y reservada, de poco hablar y que cuesta de leer: alguien que no suele mostrar lo que piensa ni lo que va a hacer.'
+};
+const FINGER_LENGTH_MEANINGS = {
+  largos: 'Cheiro asocia los dedos largos con amor por el detalle: personas exactas, que notan las pequeñas atenciones y a veces se preocupan por cosas menores.',
+  cortos: 'Cheiro asocia los dedos cortos con rapidez e impulso: se ve el conjunto más que el detalle, se decide pronto, se habla con franqueza y a veces se saca una conclusión demasiado rápido.'
 };
 
 export function shapeReading(analysis) {
   const m = analysis?.shape?.measures;
   if (!m) return null;
-  return { element:m.element, title:ELEMENT_MEANINGS[m.element].title, shapeText:ELEMENT_MEANINGS[m.element].text, palm:m.palmShape, fingers:m.fingerLength, indexVsRing:m.indexVsRing, indexText:INDEX_RING_MEANINGS[m.indexVsRing], thumb:m.thumbOpening, thumbAngle:m.thumbAngle, thumbText:THUMB_MEANINGS[m.thumbOpening] };
+  return { element:m.element, title:ELEMENT_MEANINGS[m.element].title, shapeText:ELEMENT_MEANINGS[m.element].text, palm:m.palmShape, fingers:m.fingerLength, indexVsRing:m.indexVsRing, indexText:INDEX_RING_MEANINGS[m.indexVsRing], thumb:m.thumbOpening, thumbAngle:m.thumbAngle, thumbText:THUMB_MEANINGS[m.thumbOpening], fingerText:FINGER_LENGTH_MEANINGS[m.fingerLength] };
 }
 
 const handLabel = hand => hand === 'left' ? 'izquierda' : 'derecha';
@@ -192,7 +196,7 @@ export function buildReport(hands, comparison, interpretation, dominance, mode) 
   }).join(' ');
   const shapes = Object.entries(hands).map(([hand, analysis]) => [hand, shapeReading(analysis)]);
   const shapeText = shapes.map(([hand, r]) => r ? `Palma ${handLabel(hand)}: ${r.title} (palma ${r.palm}, dedos ${r.fingers}). ${r.shapeText}` : `Palma ${handLabel(hand)}: no se localizaron los puntos de la mano, así que la forma no se pudo medir.`).join(' ');
-  const fingerText = shapes.map(([hand, r]) => r ? `Palma ${handLabel(hand)}: ${r.indexVsRing}; pulgar ${r.thumb} (${r.thumbAngle}°). ${r.indexText} ${r.thumbText}` : `Palma ${handLabel(hand)}: sin medidas de dedos en esta foto.`).join(' ');
+  const fingerText = shapes.map(([hand, r]) => r ? `Palma ${handLabel(hand)}: ${r.indexVsRing}; pulgar ${r.thumb} (${r.thumbAngle}°). ${r.fingerText || ''} ${r.indexText} ${r.thumbText}` : `Palma ${handLabel(hand)}: sin medidas de dedos en esta foto.`).join(' ');
   const elements = shapes.map(([, r]) => r?.element).filter(Boolean);
   const dominanceText = dominance === 'both'
     ? 'Elegiste ambidiestra: las dos manos se leen como igual de importantes.'
@@ -207,7 +211,7 @@ export function buildReport(hands, comparison, interpretation, dominance, mode) 
     { id:'fate', title:'Línea del destino / Saturno', text:perHand('fate_line', 'presencia incierta; la tradición lo lee como un camino flexible') },
     { id:'fingers', title:'Dedos y pulgar', text:fingerText },
     { id:'comparison', title:'Comparación izquierda/derecha', text:`${dominanceText}${elementCompare} ${comparison.interpretation}`.trim() },
-    { id:'secondary', title:'Líneas secundarias', text:'Las líneas del Sol, Mercurio, el cinturón de Venus y los brazaletes no se interpretan: una foto normal no permite distinguirlas con seguridad.' },
+    { id:'secondary', title:'Qué más mirar en tu mano (según Cheiro)', text:'La foto no permite distinguir estos rasgos, pero tú puedes mirarlos en tu mano. Espacio entre la línea de la vida y la de la cabeza: si están muy pegadas, Cheiro lo lee como cautela y sensibilidad al juicio de los demás; si hay un espacio medio, como energía, libertad de acción y ganas de avanzar; si el espacio es muy ancho, como exceso de confianza e impulsividad. Línea del Sol (bajo el anular): se asocia con brillo, reconocimiento y gusto por el arte. Línea de Mercurio o de la salud (bajo el meñique): se asocia con comunicación, negocios y cuidado del cuerpo. Cinturón de Venus (arco sobre la línea del corazón): se asocia con una gran sensibilidad. Cheiro también describe islas, cruces, estrellas y cuadrados como marcas con significado; aquí no se interpretan, porque una foto normal no los distingue con seguridad.' },
     { id:'quality', title:'Nivel de calidad del escaneo', text:`Izquierda: ${Math.round(quality.left.score*100)}% · Derecha: ${Math.round(quality.right.score*100)}%` }
   ] };
 }

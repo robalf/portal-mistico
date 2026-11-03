@@ -11,6 +11,27 @@ export const KNOWLEDGE_BASE = [
   { rule_id:'PALM_FORM_001', tradition:'Quiromancia occidental', category:'Forma de la mano', feature:'indeterminada', condition:'element=indeterminado', location:'palma y dedos', associated_feature:'hand_shape', traditional_meaning:'no se puede clasificar de forma fiable con esta captura', alternative_meaning:'tomar una foto más clara y frontal', source:'Política de prudencia de Quiromancia', source_quality:'internal-safety', confidence_of_rule:.95, notes:'No completar rasgos no observables.', contraindications:[], conflicting_rules:[] }
 ];
 
+
+// Guía de Cheiro (Language of the Hand): rasgos que la foto no mide, para que el usuario los reconozca en su propia mano.
+export const CHEIRO_TYPES = [
+  ['Elemental', 'palma gruesa y grande con dedos cortos y torpes y pocas líneas.', 'Cheiro lo considera el tipo más sencillo: una naturaleza muy ligada al cuerpo y a lo instintivo, con poca inclinación al pensamiento abstracto.'],
+  ['Cuadrada', 'palma cuadrada en la muñeca y en la base de los dedos, y puntas de dedos cuadradas.', 'Orden, puntualidad y método. Respeta la ley y la costumbre, prefiere la razón al impulso, es perseverante y práctica, y se destaca más por el trabajo constante que por la inspiración.'],
+  ['Espatulada', 'puntas anchas, en forma de espátula, y palma ancha en la muñeca o en la base de los dedos.', 'Amor por la acción, la energía y la independencia. Es la mano de los exploradores, los inventores y los deportistas; inquieta, entusiasta y con necesidad de movimiento.'],
+  ['Filosófica', 'mano larga y angulosa, dedos huesudos con nudos marcados y uñas largas.', 'Amor por el saber y el misterio. Piensa, estudia al ser humano y busca la verdad más que la riqueza; le gusta ser distinto y tener su propio camino.'],
+  ['Cónica', 'mano mediana, palma algo estrecha hacia los dedos, dedos llenos en la base y de punta ligeramente cónica.', 'Impulso e instinto. Es artística, rápida de pensamiento y buena conversadora, pero se cansa pronto y le cuesta terminar lo que empieza.'],
+  ['Psíquica', 'mano larga y estrecha, dedos muy largos, finos y puntiagudos; es el tipo más raro.', 'Sensibilidad, idealismo y vida interior. Cheiro la considera la más bella y a la vez la más vulnerable, poco práctica para las exigencias materiales.'],
+  ['Mixta', 'no encaja en ninguno de los anteriores: dedos de distintas formas en una misma mano.', 'Versatilidad e ideas variadas. Se adapta a personas y circunstancias, es ingeniosa pero cambiante en la aplicación de sus talentos.']
+];
+export const CHEIRO_MOUNTS = [
+  ['Venus', 'base del pulgar', 'afecto, simpatía, amor por la belleza, el color y la música, y vitalidad. Si es muy abultado, pasión intensa.'],
+  ['Júpiter', 'base del índice', 'ambición, orgullo, entusiasmo y deseo de liderar.'],
+  ['Saturno', 'base del dedo medio', 'amor por la soledad y la quietud, prudencia, seriedad en el trabajo y gusto por lo sobrio.'],
+  ['Sol (Apolo)', 'base del anular', 'aprecio por la belleza, el arte y la literatura, e imaginación nativa.'],
+  ['Mercurio', 'base del meñique', 'ingenio, rapidez de pensamiento y de palabra, y gusto por el cambio, el viaje y el comercio.'],
+  ['Marte', 'dos zonas: bajo Júpiter por dentro de la línea de la vida, y entre Mercurio y la Luna', 'la primera, valor activo y espíritu combativo; la segunda, valor pasivo, autocontrol y resistencia.'],
+  ['Luna', 'borde de la mano, frente al monte de Venus', 'refinamiento, imaginación, ideales y gusto por la poesía y los paisajes.']
+];
+export const CHEIRO_NAILS = 'Cheiro: las uñas largas se asocian con calma, idealismo, sensibilidad artística y una tendencia a evitar lo desagradable; las uñas cortas, con espíritu crítico, lógica, humor agudo y gusto por el debate; las uñas más anchas que largas, con carácter combativo y tendencia a meterse en asuntos ajenos; las uñas mordidas, con preocupación o nerviosismo.';
 const clamp = (n, min=0, max=1) => Math.max(min, Math.min(max, n));
 const line = (analysis, feature) => analysis.lines.find(item => item.feature === feature);
 
@@ -212,6 +233,9 @@ export function buildReport(hands, comparison, interpretation, dominance, mode) 
     { id:'fingers', title:'Dedos y pulgar', text:fingerText },
     { id:'comparison', title:'Comparación izquierda/derecha', text:`${dominanceText}${elementCompare} ${comparison.interpretation}`.trim() },
     { id:'secondary', title:'Qué más mirar en tu mano (según Cheiro)', text:'La foto no permite distinguir estos rasgos, pero tú puedes mirarlos en tu mano. Espacio entre la línea de la vida y la de la cabeza: si están muy pegadas, Cheiro lo lee como cautela y sensibilidad al juicio de los demás; si hay un espacio medio, como energía, libertad de acción y ganas de avanzar; si el espacio es muy ancho, como exceso de confianza e impulsividad. Línea del Sol (bajo el anular): se asocia con brillo, reconocimiento y gusto por el arte. Línea de Mercurio o de la salud (bajo el meñique): se asocia con comunicación, negocios y cuidado del cuerpo. Cinturón de Venus (arco sobre la línea del corazón): se asocia con una gran sensibilidad. Cheiro también describe islas, cruces, estrellas y cuadrados como marcas con significado; aquí no se interpretan, porque una foto normal no los distingue con seguridad.' },
+    { id:'types', title:'Los siete tipos de mano (Cheiro)', text:CHEIRO_TYPES.map(t => `${t[0]}: ${t[1]} ${t[2]}`).join(' ') + ' Es una clasificación de Cheiro, distinta de los cuatro elementos de arriba; en la foto no se miden las puntas de los dedos, así que puedes comparar con tu mano.' },
+    { id:'mounts', title:'Los montes de la mano (Cheiro)', text:'Cheiro llama monte a cada abultamiento de la palma y usa los nombres planetarios solo como atajo para describir cualidades. ' + CHEIRO_MOUNTS.map(m => `Monte de ${m[0]} (${m[1]}): ${m[2]}`).join(' ') + ' Cuando varios montes se inclinan unos hacia otros, sus cualidades se mezclan.' },
+    { id:'nails', title:'Las uñas (Cheiro)', text:CHEIRO_NAILS },
     { id:'quality', title:'Nivel de calidad del escaneo', text:`Izquierda: ${Math.round(quality.left.score*100)}% · Derecha: ${Math.round(quality.right.score*100)}%` }
   ] };
 }

@@ -383,11 +383,48 @@ function bindSelectionScrolling() {
   });
 }
 
+
+/* Una tirada al día por tipo: queda guardada hasta medianoche. */
+function pmDay() { const d = new Date(); return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`; }
+function pmLoad(id) { try { const r = JSON.parse(localStorage.getItem('pm-daily-tarot-' + id) || 'null'); return r && r.day === pmDay() ? r : null; } catch { return null; } }
+function pmSave(id, cardsDone) { try { localStorage.setItem('pm-daily-tarot-' + id, JSON.stringify({ day: pmDay(), cards: cardsDone.map(c => ({ name: c.name, reversed: !!c.reversed })) })); } catch {} }
+function pmLeft() { const n = new Date(), m = new Date(n.getFullYear(), n.getMonth(), n.getDate() + 1), t = Math.ceil((m - n) / 60000); return `${Math.floor(t / 60)} h ${t % 60} min`; }
+function lockedToday() { return !!pmLoad(currentType.id); }
+function restoreToday() {
+  const saved = pmLoad(currentType.id);
+  if (!saved) return false;
+  const restored = saved.cards.map(c => { const a = arcana.find(x => x.name === c.name); return a ? { ...a, reversed: c.reversed } : null; }).filter(Boolean);
+  if (restored.length !== currentType.count) return false;
+  chosen = restored;
+  cards.forEach(c => { c.classList.add('used'); c.classList.remove('active'); });
+  chosen.forEach((card, i) => {
+    const target = document.querySelector(`[data-slot="${i}"]`);
+    if (!target) return;
+    const el = createCard(card, 'placed-card');
+    el.querySelector('.card-inner').classList.add('flipped');
+    target.classList.add('filled');
+    target.appendChild(el);
+  });
+  document.querySelectorAll('.slot').forEach(s => s.classList.remove('current'));
+  document.querySelector('#prompt').innerHTML = `Tu ${currentType.name.toLowerCase()} de hoy ya habló <strong>✦</strong> Nueva tirada en ${pmLeft()}`;
+  document.querySelector('#counter').textContent = `TIRADA DE HOY · VUELVE MAÑANA`;
+  document.querySelector('#details-button').classList.add('show');
+  return true;
+}
+function markDoneTypes() {
+  document.querySelectorAll('.type-option').forEach(b => {
+    const sm = b.querySelector('small'); if (!sm) return;
+    sm.textContent = sm.textContent.replace(/ · .*$/, '');
+    if (pmLoad(b.dataset.type)) sm.textContent += ' · ✓ hecha hoy, vuelve mañana';
+  });
+}
+
 function selectReadingType(id) {
   currentType = readingTypes[id] || readingTypes.daily;
   positions = currentType.positions;
   renderSpread();
   resetBoard();
+  restoreToday();
   setScreen('table');
   requestAnimationFrame(() => deck?.focus({ preventScroll: true }));
 }
@@ -397,6 +434,7 @@ function showTypeSelection(reset = false) {
   if (reset) resetBoard();
   const selection = document.querySelector('#selection-screen');
   if (selection) selection.scrollTop = 0;
+  markDoneTypes();
   setScreen('selection');
   requestAnimationFrame(() => document.querySelector('.type-option')?.focus({ preventScroll: true }));
 }
@@ -473,6 +511,7 @@ function updateActive(index) {
 
 async function chooseCard(index) {
   if (busy || chosen.length >= currentType.count || cards[index]?.classList.contains('used')) return;
+  if (lockedToday()) return;
   busy = true;
   unlockAudio();
   play(selectSound);
@@ -525,7 +564,8 @@ async function chooseCard(index) {
     busy = false;
     updateActive((index + 23) % 78);
   } else {
-    document.querySelector('#prompt').innerHTML = `Tu ${currentType.name.toLowerCase()} está completa <strong>✦</strong>`;
+    pmSave(currentType.id, chosen);
+    document.querySelector('#prompt').innerHTML = `Tu ${currentType.name.toLowerCase()} está completa <strong>✦</strong> Podrás hacer otra mañana`;
     document.querySelector('#details-button').classList.add('show');
     document.querySelector('#counter').textContent = `${78 - chosen.length} CARTAS · LECTURA COMPLETA`;
     busy = false;
@@ -689,6 +729,7 @@ function resetBoard() {
 }
 
 function restart() {
+  if (lockedToday()) return;
   resetBoard();
 }
 

@@ -373,6 +373,23 @@ window.PM_ANGELES = [
   }
   function scrollTo(el) { setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60); }
 
+  /* Una consulta al día por oráculo: el resultado se guarda hasta medianoche. */
+  function pmDay() { var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+  function pmLoad(k) { try { var r = JSON.parse(localStorage.getItem('pm-daily-' + k) || 'null'); return r && r.day === pmDay() ? r : null; } catch (e) { return null; } }
+  function pmSave(k, html, txt, url) { try { localStorage.setItem('pm-daily-' + k, JSON.stringify({ day: pmDay(), html: html, txt: txt, url: url })); } catch (e) {} }
+  function pmLeft() { var n = new Date(), m = new Date(n.getFullYear(), n.getMonth(), n.getDate() + 1), t = Math.ceil((m - n) / 60000); return Math.floor(t / 60) + ' h ' + (t % 60) + ' min'; }
+  function pmLock(againId) {
+    var a = $(againId); if (!a) return;
+    var p = document.createElement('p'); p.className = 'ca-note'; p.style.textAlign = 'center';
+    p.innerHTML = '✦ Tu consulta de hoy ya está hecha: el oráculo habló y repetirla le quita fuerza. Podrás consultar de nuevo en <strong>' + pmLeft() + '</strong>.';
+    a.parentNode.replaceChild(p, a);
+  }
+  function pmRestore(out, sv, againId, hide) {
+    out.innerHTML = sv.html; out.hidden = false; pmLock(againId);
+    var sh = $('caShare'); if (sh) sh.addEventListener('click', function () { share(sv.txt, sv.url, this); });
+    hide.forEach(function (e) { if (e) e.style.display = 'none'; });
+  }
+
   /* ====================== TAROT SÍ O NO ====================== */
   if (tool === 'tarot-sn') {
     var CARDS = window.PM_TAROT_SN, spread = $('snSpread'), out = $('caResult'), q = $('snQ');
@@ -404,14 +421,16 @@ window.PM_ANGELES = [
               '<div class="ca-actions"><button type="button" class="ca-btn2" id="snAgain">🔄 Hacer otra pregunta</button><button type="button" class="ca-btn2" id="caShare">📤 Compartir</button></div>' +
               '<p class="ca-more">¿Quieres una lectura más profunda? <a href="tarot.html">Haz una tirada completa de tarot →</a></p></div>';
             out.hidden = false; scrollTo(out);
-            $('snAgain').addEventListener('click', function () { q.value = ''; deal(); scrollTo(main); });
-            $('caShare').addEventListener('click', function () { share('El tarot me respondió ' + A[0] + ' con ' + c[0] + (rev ? ' (invertida)' : '') + '. Pregunta tú también gratis:', SITE + 'tarot-si-o-no.html', this); });
+            var shTxt = 'El tarot me respondió ' + A[0] + ' con ' + c[0] + (rev ? ' (invertida)' : '') + '. Pregunta tú también gratis:';
+            pmLock('snAgain'); pmSave('sn', out.innerHTML, shTxt, SITE + 'tarot-si-o-no.html'); q.parentNode.style.display = 'none';
+            $('caShare').addEventListener('click', function () { share(shTxt, SITE + 'tarot-si-o-no.html', this); });
             track('tarot_si_no');
           }, 450);
         });
       });
     }
-    deal();
+    var svSN = pmLoad('sn');
+    if (svSN) { spread.innerHTML = ''; pmRestore(out, svSN, 'snAgain', [q.parentNode, document.querySelector('.sn-hint')]); } else deal();
   }
 
   /* ====================== RUNAS ====================== */
@@ -447,12 +466,14 @@ window.PM_ANGELES = [
       }
       h += '<div class="ca-actions"><button type="button" class="ca-btn2" id="rnAgain">🔄 Volver a tirar</button><button type="button" class="ca-btn2" id="caShare">📤 Compartir</button></div>';
       out2.innerHTML = h; out2.hidden = false; scrollTo(out2);
-      $('rnAgain').addEventListener('click', function () { cast(n); });
-      $('caShare').addEventListener('click', function () { share('Mis runas: ' + pick.map(function (p) { return p.r[0] + (p.rev ? ' (invertida)' : ''); }).join(', ') + '. Haz tu tirada de runas gratis:', SITE + 'runas.html', this); });
+      var rnTxt = 'Mis runas: ' + pick.map(function (p) { return p.r[0] + (p.rev ? ' (invertida)' : ''); }).join(', ') + '. Haz tu tirada de runas gratis:';
+      pmLock('rnAgain'); pmSave('runas', out2.innerHTML, rnTxt, SITE + 'runas.html'); $('rn1').parentNode.style.display = 'none';
+      $('caShare').addEventListener('click', function () { share(rnTxt, SITE + 'runas.html', this); });
       track('runas_tirada');
     }
-    $('rn1').addEventListener('click', function () { cast(1); });
-    $('rn3').addEventListener('click', function () { cast(3); });
+    var svRn = pmLoad('runas');
+    if (svRn) pmRestore(out2, svRn, 'rnAgain', [$('rn1').parentNode, document.querySelector('.rn-box .sn-hint')]);
+    else { $('rn1').addEventListener('click', function () { cast(1); }); $('rn3').addEventListener('click', function () { cast(3); }); }
   }
 
   /* ====================== I CHING ====================== */
@@ -512,13 +533,14 @@ window.PM_ANGELES = [
       } else h += '<p class="ca-note" style="text-align:center">Ninguna línea cambia: la situación es estable y el consejo se aplica tal cual.</p>';
       h += '<div class="ca-actions"><button type="button" class="ca-btn2" id="icAgain">🔄 Nueva consulta</button><button type="button" class="ca-btn2" id="caShare">📤 Compartir</button></div>';
       out3.innerHTML = h; out3.hidden = false; scrollTo(out3);
-      $('icAgain').addEventListener('click', function () { lines = []; $('icCoins').innerHTML = ''; out3.hidden = true; renderBoard(); $('icQ').value = ''; scrollTo(main); });
-      $('caShare').addEventListener('click', function () { share('El I Ching me dio el hexagrama ' + H.n + ': ' + N[0] + '. Consulta el tuyo gratis:', SITE + 'i-ching.html', this); });
+      var icTxt = 'El I Ching me dio el hexagrama ' + H.n + ': ' + N[0] + '. Consulta el tuyo gratis:';
+      pmLock('icAgain'); pmSave('iching', out3.innerHTML, icTxt, SITE + 'i-ching.html');
+      $('caShare').addEventListener('click', function () { share(icTxt, SITE + 'i-ching.html', this); });
       track('iching_consulta');
     }
-    $('icToss').addEventListener('click', toss);
-    $('icAll').addEventListener('click', function () { while (lines.length < 6) toss(); });
-    renderBoard();
+    var svIc = pmLoad('iching');
+    if (svIc) pmRestore(out3, svIc, 'icAgain', [$('icQ').parentNode, document.querySelector('.ic-stage'), $('icToss'), $('icAll')]);
+    else { $('icToss').addEventListener('click', toss); $('icAll').addEventListener('click', function () { while (lines.length < 6) toss(); }); renderBoard(); }
   }
   /* ====================== ÁNGEL DE LA GUARDA ====================== */
   if (tool === 'angel') {

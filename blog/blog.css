@@ -11,6 +11,7 @@ body{
     radial-gradient(ellipse 40% 20% at 82% 6%, rgba(120,120,170,0.10), transparent 65%),
     radial-gradient(ellipse 35% 20% at 15% 70%, rgba(199,162,75,0.05), transparent 65%),
     linear-gradient(180deg, #030308 0%, #06070F 50%, #030308 100%);
+  background-color: #030308;
   background-attachment: fixed;
   color: var(--ink);
   font-family: 'Work Sans', sans-serif;

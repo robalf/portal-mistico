@@ -424,6 +424,16 @@
     }, Promise.resolve());
   }
 
+  /* Marcos de herramientas: en iPhone un marco recién creado muestra unos instantes blanco antes de
+     pintar su contenido. Lo mantenemos invisible (sobre el fondo oscuro de la página) hasta que carga. */
+  function veilFrame(fr) {
+    if (fr.__pmVeil) return; fr.__pmVeil = true;
+    var show = function () { fr.style.opacity = '1'; };
+    fr.style.opacity = '0'; fr.style.transition = 'opacity .35s ease';
+    fr.addEventListener('load', function () { setTimeout(show, 60); });
+    setTimeout(show, 6000);
+  }
+
   var navToken = 0;
   function navigate(href, push) {
     var my = ++navToken;
@@ -501,6 +511,7 @@
       for (var j = 0; j < doc.body.attributes.length; j++) body.setAttribute(doc.body.attributes[j].name, doc.body.attributes[j].value);
       body.innerHTML = '';
       Array.prototype.slice.call(doc.body.childNodes).forEach(function (n) { body.appendChild(document.importNode(n, true)); });
+      Array.prototype.forEach.call(body.querySelectorAll('iframe'), veilFrame);
 
       var target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
       if (target) target.scrollIntoView(); else window.scrollTo(0, 0);

@@ -461,14 +461,52 @@
           document.head.appendChild(n);
         }));
       });
-      return Promise.all(pre).then(function () { if (my !== navToken) return; return swapIn(doc); });
+      return Promise.all(pre).then(function () { if (my !== navToken) return; return stageThenSwap(doc); });
     }).catch(function () {
       location.href = href;
     }).then(function () {
       document.documentElement.style.cursor = '';
     });
 
-    function swapIn(doc) {
+    /* La página nueva se monta oculta debajo de la actual; solo cuando su herramienta (marco) ya cargó
+       y pintó, se cambia de golpe. Así no se ve ni blanco ni negro entre una herramienta y otra. */
+    function stageThenSwap(doc) {
+      if (!doc.body.querySelector('iframe')) return swapIn(doc, null);
+      var stage = document.createElement('div');
+      stage.id = 'pm-stage';
+      stage.setAttribute('aria-hidden', 'true');
+      stage.style.cssText = 'position:fixed;left:0;top:0;width:100vw;height:100vh;overflow:hidden;visibility:hidden;pointer-events:none;z-index:-1';
+      Array.prototype.slice.call(doc.body.childNodes).forEach(function (n) { stage.appendChild(document.importNode(n, true)); });
+      // La URL todavía es la de la página anterior: fijamos las rutas relativas de la página nueva.
+      Array.prototype.forEach.call(stage.querySelectorAll('[src]'), function (el) {
+        try { el.setAttribute('src', new URL(el.getAttribute('src'), href).href); } catch (e) {}
+      });
+      Array.prototype.forEach.call(stage.querySelectorAll('[srcset]'), function (el) {
+        el.setAttribute('srcset', el.getAttribute('srcset').split(',').map(function (part) {
+          var bits = part.trim().split(/\s+/); try { bits[0] = new URL(bits[0], href).href; } catch (e) {} return bits.join(' ');
+        }).join(', '));
+      });
+      var frames = Array.prototype.slice.call(stage.querySelectorAll('iframe'));
+      frames.forEach(function (f) { f.style.width = '100vw'; f.style.height = '100vh'; f.__pmVeil = true; });
+      return new Promise(function (res) {
+        var left = frames.length, done = false;
+        function go() {
+          if (done) return; done = true;
+          if (my !== navToken) { stage.remove(); res(); return; }
+          requestAnimationFrame(function () { requestAnimationFrame(function () {
+            setTimeout(function () {
+              if (my !== navToken) { stage.remove(); res(); return; }
+              res(swapIn(doc, stage));
+            }, 60);
+          }); });
+        }
+        frames.forEach(function (f) { f.addEventListener('load', function () { if (--left <= 0) go(); }); });
+        setTimeout(go, 3500);
+        document.body.appendChild(stage);
+      });
+    }
+
+    function swapIn(doc, stage) {
       teardownPage();
       swapped = true;
       if (push) history.pushState({ pm: 1 }, '', href);
@@ -509,9 +547,18 @@
       var body = document.body;
       for (var i = body.attributes.length - 1; i >= 0; i--) body.removeAttribute(body.attributes[i].name);
       for (var j = 0; j < doc.body.attributes.length; j++) body.setAttribute(doc.body.attributes[j].name, doc.body.attributes[j].value);
-      body.innerHTML = '';
-      Array.prototype.slice.call(doc.body.childNodes).forEach(function (n) { body.appendChild(document.importNode(n, true)); });
-      Array.prototype.forEach.call(body.querySelectorAll('iframe'), veilFrame);
+      if (stage && stage.parentNode === body) {
+        Array.prototype.slice.call(body.childNodes).forEach(function (n) { if (n !== stage) body.removeChild(n); });
+        stage.removeAttribute('style'); stage.removeAttribute('aria-hidden'); stage.style.display = 'contents';
+        Array.prototype.forEach.call(stage.querySelectorAll('iframe'), function (f) {
+          f.style.width = ''; f.style.height = '';
+          if (!f.contentDocument || f.contentDocument.readyState !== 'complete') { f.__pmVeil = false; veilFrame(f); }
+        });
+      } else {
+        body.innerHTML = '';
+        Array.prototype.slice.call(doc.body.childNodes).forEach(function (n) { body.appendChild(document.importNode(n, true)); });
+        Array.prototype.forEach.call(body.querySelectorAll('iframe'), veilFrame);
+      }
 
       var target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
       if (target) target.scrollIntoView(); else window.scrollTo(0, 0);

@@ -452,13 +452,22 @@
       var pre = [];
       Array.prototype.forEach.call(doc.head.querySelectorAll('link[rel~="stylesheet"]'), function (l) {
         var u; try { u = new URL(l.getAttribute('href'), href).href; } catch (e) { return; }
-        if (have[u] || new URL(u).origin !== location.origin) return;
+        if (have[u]) return; // también las de fuera (Google Fonts): si se añaden sin cargar, Safari deja la página en blanco un instante
         have[u] = true;
         pre.push(new Promise(function (res) {
           var n = document.createElement('link'); n.rel = 'stylesheet'; n.href = u; n.media = 'print'; n.setAttribute('data-pm-pre', '1');
           var done = false; function fin() { if (!done) { done = true; res(); } }
           n.onload = fin; n.onerror = fin; setTimeout(fin, 3500);
           document.head.appendChild(n);
+        }));
+      });
+      // Precargar también las primeras imágenes de la página nueva, para que aparezca ya completa.
+      Array.prototype.slice.call(doc.body.querySelectorAll('img[src]'), 0, 8).forEach(function (im) {
+        if (im.getAttribute('loading') === 'lazy') return;
+        var u; try { u = new URL(im.getAttribute('src'), href).href; } catch (e) { return; }
+        pre.push(new Promise(function (res) {
+          var i = new Image(), done = false; function fin() { if (!done) { done = true; res(); } }
+          i.onload = fin; i.onerror = fin; setTimeout(fin, 1500); i.src = u;
         }));
       });
       return Promise.all(pre).then(function () { if (my !== navToken) return; return stageThenSwap(doc); });

@@ -369,11 +369,7 @@
     var u = internalURL(a.getAttribute('href'));
     if (!u) return;
     if (u.pathname === location.pathname && u.search === location.search && u.hash) return; // ancla en la misma página
-    if (!prefOn()) {
-      // Música apagada por el usuario: navegación normal (pero hacia la versión de este dominio)
-      if (inFrame) { e.preventDefault(); location.href = u.href; }
-      return;
-    }
+    // Con música encendida o apagada se navega igual, sin recargar: así no hay destello blanco entre herramientas.
     e.preventDefault();
     navigate(u.href, true);
   }
@@ -524,8 +520,7 @@
   origWinAdd('popstate', function () {
     var now = location.pathname + location.search;
     if (now === shownPath) return; // solo cambió el #ancla
-    if (swapped || prefOn()) navigate(location.href, false);
-    else location.reload();
+    navigate(location.href, false);
   });
 
   window.PortalMusic = { audio: audio, proxy: makeProxy(), play: play, pause: pause, sfx: sfx, go: function (href) { var u = internalURL(href); if (u) navigate(u.href, true); else location.href = href; } };

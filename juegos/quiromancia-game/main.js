@@ -327,6 +327,7 @@ home();
 (function(){
   window.history.pushState({app:true},'',location.href);
   window.addEventListener('popstate',function(){
+    if(state.screen==='home'){window.history.back();return;}
     window.history.pushState({app:true},'',location.href);
     home();
   });

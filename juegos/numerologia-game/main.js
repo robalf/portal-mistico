@@ -185,8 +185,9 @@ log('app_ready', { sectionCount: tools.length });
 (function(){
   window.history.pushState({app:true},'',location.href);
   window.addEventListener('popstate',function(){
+    if(view==='home'){window.history.back();return;}
     window.history.pushState({app:true},'',location.href);
-    home();
+    view='home';render();
   });
 })();
 

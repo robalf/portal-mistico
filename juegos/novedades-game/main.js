@@ -31,7 +31,7 @@ function shell(content, home=false, hideMute=false){
   // "atrás" del navegador o del celular siempre tenga un paso interno que consumir antes de salir de la app.
   // Se aplica en el siguiente "tick" (no de forma síncrona) porque algunas versiones de Safari en iPhone
   // ignoran un pushState llamado de forma síncrona dentro del propio evento "atrás" (popstate).
-  setTimeout(()=>{try{window.history.pushState({app:true},'',location.href)}catch(e){}},0);
+  if(!home)setTimeout(()=>{try{window.history.pushState({app:true},'',location.href)}catch(e){}},0);
   app.innerHTML=`<div class="app"><header class="topbar">${home?'<span class="spacer"></span>':'<button class="back" aria-label="Volver">‹</button>'}<div class="brand"></div>${hideMute?'<span class="spacer"></span>':'<button class="icon-btn" id="mute" aria-label="Sonido">'+(audio.muted?'♩':'♫')+'</button>'}</header><main class="viewport">${content}</main><div class="toast"></div></div>`;
   if(!hideMute) $('#mute').onclick=()=>{audio.muted=!audio.muted; localStorage.setItem('auroraMuted',audio.muted?'1':'0'); if(audio.muted)audio.music.pause();else {unlockAudio();audio.music.play().catch(()=>{});} $('#mute').textContent=audio.muted?'♩':'♫'};
   if(!home) $('.back').onclick=()=>{sound(); renderHome()};
@@ -1039,6 +1039,7 @@ renderHome();
 // Evita que el gesto/botón "atrás" del navegador saque de la app: primero regresa a la pantalla principal de la app.
 // shell() ya reserva un paso de historial en cada cambio de pantalla, así que esto siempre tiene algo que capturar.
 window.addEventListener('popstate',function(){
+  if(state.screen==='home'){window.history.back();return;}
   renderHome();
 });
 

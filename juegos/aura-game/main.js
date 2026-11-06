@@ -279,7 +279,8 @@ window.addEventListener('pagehide',stopCamera);loadHistory();render();
 (function(){
   window.history.pushState({app:true},'',location.href);
   window.addEventListener('popstate',function(){
+    if(state.screen==='welcome'){window.history.back();return;}
     window.history.pushState({app:true},'',location.href);
-    if(state.screen!=='welcome'){stopCamera?.();state.screen='welcome';render();}
+    stopCamera?.();state.screen='welcome';render();
   });
 })();

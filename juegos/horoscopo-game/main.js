@@ -210,13 +210,7 @@ renderSigns(); renderTabs(); renderReading();
 window.ProgressLogger?.logProgress('app_ready',{defaultSign:state.sign.name});
 
 // Evita que el gesto/botón "atrás" del navegador saque de la app: primero regresa a la pantalla principal de la app.
-(function(){
-  window.history.pushState({app:true},'',location.href);
-  window.addEventListener('popstate',function(){
-    window.history.pushState({app:true},'',location.href);
-    renderSigns(); renderTabs(); renderReading();
-  });
-})();
+// (Sin pantallas internas: el botón atrás sale de la herramienta directamente.)
 
 /* PM-DEEPLINK */
 (function(){var id=decodeURIComponent((location.hash||'').slice(1));if(!id||!/^[\w-]+$/.test(id))return;var n=0;(function go(){var b=document.querySelector('.tab[data-category="%s"]'.replace('%s',id));if(b){b.click();setTimeout(function(){try{if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();window.scrollTo(0,0);if(window.parent!==window)window.parent.scrollTo(0,0);}catch(e){}},350);return;}if(++n<50)setTimeout(go,100);})();})();

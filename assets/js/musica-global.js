@@ -479,35 +479,9 @@
 
     /* La página nueva se monta oculta debajo de la actual; solo cuando su herramienta (marco) ya cargó
        y pintó, se cambia de golpe. Así no se ve ni blanco ni negro entre una herramienta y otra. */
+    /* Todas las páginas cambian igual: la página nueva se monta oculta debajo de la actual y se muestra de golpe
+       cuando ya está lista (su herramienta cargada o, si no tiene, la página completa precargada). */
     function stageThenSwap(doc) {
-      if (!doc.body.querySelector('iframe')) {
-        // Páginas sin herramienta en marco (blog, oráculo, signos…): las cargamos antes en un marco oculto y sin
-        // scripts, para que estilos, letras e imágenes ya estén listos; luego se cambia de golpe.
-        return new Promise(function (res) {
-          var pf = document.createElement('iframe'), done = false;
-          pf.setAttribute('sandbox', 'allow-same-origin');
-          pf.setAttribute('aria-hidden', 'true'); pf.tabIndex = -1;
-          pf.style.cssText = 'position:fixed;left:0;top:0;width:100vw;height:100vh;border:0;visibility:hidden;pointer-events:none;z-index:-1';
-          function fin() {
-            if (done) return; done = true;
-            requestAnimationFrame(function () { requestAnimationFrame(function () {
-              setTimeout(function () {
-                pf.remove();
-                if (my !== navToken) { res(); return; }
-                res(swapIn(doc, null));
-              }, 40);
-            }); });
-          }
-          pf.addEventListener('load', function () {
-            var fd = null; try { fd = pf.contentDocument && pf.contentDocument.fonts; } catch (e) {}
-            if (fd && fd.ready) fd.ready.then(fin, fin); else fin();
-            setTimeout(fin, 1200);
-          });
-          setTimeout(fin, 3000);
-          pf.src = href;
-          document.body.appendChild(pf);
-        });
-      }
       var stage = document.createElement('div');
       stage.id = 'pm-stage';
       stage.setAttribute('aria-hidden', 'true');
@@ -524,6 +498,18 @@
       });
       var frames = Array.prototype.slice.call(stage.querySelectorAll('iframe'));
       frames.forEach(function (f) { f.style.width = '100vw'; f.style.height = '100vh'; f.__pmVeil = true; });
+      var pf = null;
+      if (!frames.length) {
+        // Sin herramienta en marco: precargamos la página entera en un marco oculto y sin scripts
+        // (estilos, letras e imágenes quedan listos) y esperamos a ese marco.
+        pf = document.createElement('iframe');
+        pf.setAttribute('sandbox', 'allow-same-origin');
+        pf.setAttribute('aria-hidden', 'true'); pf.tabIndex = -1;
+        pf.style.cssText = 'width:100vw;height:100vh;border:0;display:block';
+        pf.src = href;
+        frames = [pf];
+        stage.appendChild(pf);
+      }
       return new Promise(function (res) {
         var left = frames.length, done = false;
         function go() {
@@ -532,11 +518,17 @@
           requestAnimationFrame(function () { requestAnimationFrame(function () {
             setTimeout(function () {
               if (my !== navToken) { stage.remove(); res(); return; }
+              if (pf) pf.remove();
               res(swapIn(doc, stage));
             }, 60);
           }); });
         }
-        frames.forEach(function (f) { f.addEventListener('load', function () { if (--left <= 0) go(); }); });
+        function one() {
+          if (--left > 0) return;
+          var fd = null; try { fd = pf && pf.contentDocument && pf.contentDocument.fonts; } catch (e) {}
+          if (fd && fd.ready) { fd.ready.then(go, go); setTimeout(go, 1200); } else go();
+        }
+        frames.forEach(function (f) { f.addEventListener('load', one); });
         setTimeout(go, 3500);
         document.body.appendChild(stage);
       });

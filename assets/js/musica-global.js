@@ -440,6 +440,7 @@
   var navToken = 0;
   function navigate(href, push) {
     var my = ++navToken;
+    var cssText = {};
     document.documentElement.style.cursor = 'progress';
     fetch(href, { credentials: 'same-origin' }).then(function (r) {
       var ct = r.headers.get('content-type') || '';
@@ -451,12 +452,24 @@
       // Precargar (sin aplicar) las hojas de estilo propias de la página nueva, para que al cambiar
       // el contenido ya estén listas y no se vea la página sin estilo ni un destello blanco.
       var have = {};
-      Array.prototype.forEach.call(document.head.querySelectorAll('link[rel~="stylesheet"]'), function (l) { have[l.href] = true; });
+      // (las hojas propias se vuelven a insertar escritas en cada cambio, así que no se cuentan como ya cargadas)
+      Array.prototype.forEach.call(document.head.querySelectorAll('link[rel~="stylesheet"]'), function (l) { if (new URL(l.href).origin !== location.origin) have[l.href] = true; });
       var pre = [];
       Array.prototype.forEach.call(doc.head.querySelectorAll('link[rel~="stylesheet"]'), function (l) {
         var u; try { u = new URL(l.getAttribute('href'), href).href; } catch (e) { return; }
-        if (have[u]) return; // también las de fuera (Google Fonts): si se añaden sin cargar, Safari deja la página en blanco un instante
+        if (have[u]) return;
         have[u] = true;
+        if (new URL(u).origin === location.origin) {
+          // Hojas propias: las descargamos como texto y al cambiar de página se insertan ya escritas
+          // (Safari en iPhone mostraba la página un instante sin diseño mientras aplicaba el archivo).
+          pre.push(fetch(u, { credentials: 'same-origin' }).then(function (r) { return r.ok ? r.text() : null; }).then(function (t) {
+            if (t != null) cssText[u] = t.replace(/url\(\s*(['"]?)([^'")]+)\1\s*\)/g, function (m0, q, p) {
+              if (/^(data:|https?:|\/\/|#)/i.test(p)) return m0;
+              try { return 'url(' + q + new URL(p, u).href + q + ')'; } catch (e) { return m0; }
+            });
+          }).catch(function () {}));
+          return;
+        }
         pre.push(new Promise(function (res) {
           var n = document.createElement('link'); n.rel = 'stylesheet'; n.href = u; n.media = 'print'; n.setAttribute('data-pm-pre', '1');
           var done = false; function fin() { if (!done) { done = true; res(); } }
@@ -564,6 +577,11 @@
           if (document.querySelector('head script[src="' + el.getAttribute('src') + '"]')) return;
         }
         if (el.tagName === 'LINK' && /(^|\s)stylesheet(\s|$)/i.test(el.getAttribute('rel') || '')) {
+          var abs = null; try { abs = new URL(el.getAttribute('href'), location.href).href; } catch (e) {}
+          if (abs && cssText[abs] != null) {
+            var st = document.createElement('style'); st.setAttribute('data-pm-css', abs); st.textContent = cssText[abs];
+            headFrag.appendChild(st); return;
+          }
           var kept = false;
           Array.prototype.forEach.call(document.head.querySelectorAll('link[rel~="stylesheet"]'), function (k) { if (k.href === el.href) kept = true; });
           if (kept) return;

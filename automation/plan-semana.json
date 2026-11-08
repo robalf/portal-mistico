@@ -1,21 +1,21 @@
 {
- "semana": "2026-11-02",
+ "semana": "2026-11-09",
  "herramienta": {
-  "url": "juegos/tarot-del-dia.html",
-  "nombre": "Tarot del día",
-  "slug": "tarot-del-dia-carta-diaria",
-  "titulo": "Tarot del día: cómo sacar tu carta diaria y leer su mensaje",
-  "angulo": "Ritual breve de una carta al día: cómo formular la intención, interpretar arcano mayor/menor, cartas invertidas y llevar un diario. Sin repetir tirada de tres cartas ni tarot del amor."
+  "url": "juegos/horoscopo-semanal.html",
+  "nombre": "Horóscopo semanal",
+  "slug": "horoscopo-semanal-como-leerlo",
+  "titulo": "Horóscopo semanal: cómo leerlo y planificar tu semana",
+  "angulo": "Guía práctica para usar el horóscopo de la semana: qué mira (Luna, Sol y planetas rápidos), cómo leer tu signo solar junto al ascendente, rutina de domingo para fijar 3 intenciones y revisarlas el viernes. Diferente del horóscopo de noviembre y de los horóscopos anuales ya publicados. Enlazar a signo-lunar/carta astral y calendario lunar de noviembre.",
+  "indice_herramienta_en_seccion": 2
  },
  "viral": {
-  "tema": "Lluvia de estrellas Leónidas 2026 (noche del 17 al 18 de noviembre): significado simbólico y cómo usar la noche",
-  "slug": "leonidas-2026-lluvia-de-estrellas",
-  "titulo": "Leónidas 2026: lluvia de estrellas y su significado simbólico",
-  "notas": "Datos verificados: pico noche 17-18 nov 2026; 10-15 meteoros/hora; Luna cerca del cuarto creciente (EarthSky: cuarto creciente 17 nov 11:48 UTC; RMG y Almanac: creciente gibosa), se pone hacia medianoche; radiante en Leo; cometa 55P/Tempel-Tuttle; sin tormenta esperada. Presentar como adelanto del evento. Usar fase lunar de datos-astro.js para la parte simbólica; decir 'cerca del cuarto creciente'.",
+  "tema": "Táuridas del Norte 2026 (pico 11-12 de noviembre) con Luna nueva del 9 de noviembre: significado simbólico de Tauro, las Pléyades y los bólidos, y cómo usar la noche",
+  "slug": "tauridas-2026-lluvia-de-estrellas",
+  "titulo": "Táuridas 2026: estrellas fugaces con Luna nueva y su simbolismo",
+  "notas": "Datos verificados (EarthSky y Star Walk): pico Táuridas del Norte 11-12 nov 2026 (EarthSky: 18 UTC del 12 nov); unos 5 meteoros/hora en cielo oscuro; radiante en Tauro cerca de las Pléyades/Aldebarán, mejor hacia medianoche; Luna nueva el 9 nov 2026 (7:02 UTC), sin interferencia lunar; las Táuridas dan bólidos lentos y brillantes ocasionales (EarthSky: ~1% de los meteoros, hasta 7% en años excepcionales; próximo enjambre notable 2032); Táuridas del Sur piquearon ~4-5 nov; origen cometa 2P/Encke (Sur) y asteroide 2004 TG10 (Norte, incierto). Presentar como evento de la semana, tono simbólico, no prometer fireballs. Enlazar al artículo de Leónidas (17-18 nov) y calendario lunar de noviembre; mencionar Luna nueva con datos-astro.js.",
   "fuentes": [
-   "https://earthsky.org/astronomy-essentials/everything-you-need-to-know-leonid-meteor-shower/",
-   "https://www.rmg.co.uk/stories/space-astronomy/leonid-meteor-shower-when-and-where-see-it-uk",
-   "https://www.almanac.com/content/meteor-shower-calendar"
+   "https://earthsky.org/astronomy-essentials/taurid-meteors-all-you-need-to-know/",
+   "https://starwalk.space/en/news/southern-and-northern-taurid-meteor-showers"
   ]
  }
 }

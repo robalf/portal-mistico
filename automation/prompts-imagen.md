@@ -1,16 +1,16 @@
-# Prompts de imagen de la semana (2026-11-02)
+# Prompts de imagen de la semana (2026-11-09)
 
 Formato 16:9, sin texto ni letras dentro de la imagen.
 
-## Lunes: Tarot del día
-Archivo: `imagenes-pendientes/tarot-del-dia-carta-diaria.png`
+## Lunes: Horóscopo semanal
+Archivo: `imagenes-pendientes/horoscopo-semanal-como-leerlo.png`
 
-Prompt: Ilustración mística en formato 16:9, estilo soñador y etéreo con luz suave: una única carta de tarot sin ningún símbolo escrito, flotando sobre una mesa de madera oscura al amanecer, rodeada de velas pequeñas, una taza humeante y una pluma. Una mano delicada la voltea con calma. Paleta de dorados cálidos, violetas y rosados suaves, bruma luminosa, partículas de luz. Sin texto, sin letras, sin números.
+Prompt: Ilustración mística en formato 16:9, estilo soñador y etéreo con luz suave: una liebre blanca de pie sobre una colina cubierta de flores silvestres, observando un gran círculo celeste translúcido con doce constelaciones luminosas dispuestas como un reloj en el cielo del atardecer. Un camino de luz dorada une la colina con el círculo, mariposas nocturnas y motas de luz flotando. Paleta de lavanda, rosa suave, turquesa y oro cálido, bruma luminosa. Sin texto, sin letras, sin números, sin símbolos escritos.
 
-## Miércoles: Leónidas 2026
-Archivo: `imagenes-pendientes/leonidas-2026-lluvia-de-estrellas.png`
+## Miércoles: Táuridas 2026
+Archivo: `imagenes-pendientes/tauridas-2026-lluvia-de-estrellas.png`
 
-Prompt: Ilustración mística en formato 16:9, estilo soñador y etéreo con luz suave: un zorro plateado sentado sobre una colina mirando un cielo nocturno índigo lleno de estrellas fugaces que caen en arcos dorados, con la silueta sutil de un león formado por constelaciones en lo alto. Bosque lejano en niebla, luciérnagas, luna creciente pálida. Paleta de azul profundo, violeta y oro suave. Sin texto, sin letras, sin números.
+Prompt: Ilustración mística en formato 16:9, estilo soñador y etéreo con luz suave: un búho nival posado en una rama antigua frente a un cielo nocturno profundo sin luna, con un cúmulo de estrellas azuladas parecido a las Pléyades y una silueta sutil de toro formada por constelaciones. Estrellas fugaces lentas y brillantes cruzan el cielo en arcos ámbar y cobre; abajo, un lago en calma refleja la escena. Paleta de azul medianoche, cobre, ámbar y violeta suave. Sin texto, sin letras, sin números.
 
 ## Cómo subirlas
 github.com/robalf/portal-mistico → carpeta `imagenes-pendientes` → Add file → Upload files → nombre exacto → Commit changes.

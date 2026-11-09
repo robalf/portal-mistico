@@ -1,5 +1,5 @@
 {
- "siguiente_seccion": 1,
+ "siguiente_seccion": 2,
  "secciones": [
   {
    "seccion": "🔮 Tarot",
@@ -43,7 +43,9 @@
      "nombre": "Horóscopo mensual"
     }
    ],
-   "usadas": []
+   "usadas": [
+    2
+   ]
   },
   {
    "seccion": "🌌 Carta Astral",
@@ -254,6 +256,12 @@
    "tipo": "viral",
    "slug": "leonidas-2026-lluvia-de-estrellas",
    "titulo": "Leónidas 2026: lluvia de estrellas y su significado simbólico"
+  },
+  {
+   "fecha": "2026-11-09",
+   "tipo": "herramienta",
+   "slug": "horoscopo-semanal-como-leerlo",
+   "titulo": "Horóscopo semanal: cómo leerlo y planificar tu semana"
   }
  ],
  "viral_categorias": [

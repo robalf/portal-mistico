@@ -12,7 +12,12 @@ Roberto NO revisa los artículos antes de publicar: la calidad depende de estas 
 - `automation/prompts-imagen.md`: los prompts de imagen de la semana, para Roberto.
 - Páginas útiles para enlazar: herramientas `../juegos/*.html`, signos `../zodiaco/<signo>.html` (aries, tauro, geminis, cancer, leo, virgo, libra, escorpio, sagitario, capricornio, acuario, piscis), glosario `../glosario/`, recursos `../recursos/index.html`, metodología `../metodologia.html`. Mira `blog/index.html` para no repetir temas.
 
-## Rotación (artículo de herramienta, lunes)
+## Cadencia (desde 2026-11-10, decisión de Roberto)
+- Artículo de herramienta: SOLO un lunes sí y un lunes no (cada 14 días). Regla: busca en `publicados` la última entrada tipo "herramienta" no omitida; si han pasado menos de 14 días hasta el lunes de hoy, NO publiques herramienta (no es un fallo, no notifiques). Último publicado: 2026-11-09 → siguientes: 2026-11-23, 2026-12-07, y así cada 14 días.
+- Artículo viral: TODOS los miércoles, sin cambios.
+- Domingo: planifica herramienta (tema + prompt de imagen) solo si el lunes siguiente toca; el viral se planifica siempre.
+
+## Rotación (artículo de herramienta, cada 14 días)
 1. Lee `estado.json`. Toma `secciones[siguiente_seccion]`. Elige 1 herramienta cuyo índice NO esté en `usadas` (si todas están usadas, vacía `usadas` y empieza otra vuelta).
 2. Escribe el artículo sobre esa herramienta (qué es, cómo se usa, cómo interpretar el resultado, ejemplos, preguntas frecuentes), con enlace destacado a la herramienta.
 3. Añade el índice a `usadas`, avanza `siguiente_seccion` (módulo 10) y registra en `publicados` {fecha, tipo, slug, titulo}.
@@ -35,6 +40,14 @@ Roberto NO revisa los artículos antes de publicar: la calidad depende de estas 
 - PROHIBIDO: noticias de salud, medicina, dinero/inversiones, política, crímenes, personas privadas, tragedias, cualquier cosa no verificable. Nada de nombres de personas reales en predicciones. No copiar frases de las fuentes (parafrasear), máximo una cita corta entre comillas.
 - Si no hay un tema seguro y verificable, NO publicar nada esa semana y anotarlo en `publicados` como {fecha, tipo:"viral", omitido:true, motivo}.
 - Mínimo 800 palabras, ángulo propio: qué significa simbólicamente, cómo usar la fecha, enlace a la herramienta relacionada.
+
+## Que no suene a IA (aplica a TODOS los artículos)
+- Quita muletillas: "en el vasto universo", "sin duda", "en conclusión", "es importante destacar", "un viaje de", "descubre el poder de", "desbloquea". Evita listas de 3 adjetivos y párrafos que terminan siempre con moraleja.
+- Varía la estructura: no uses siempre intro + 5 h2 + FAQ. Alterna formatos (pregunta directa, caso práctico, mito vs realidad, paso a paso). Largos de párrafo y de frase irregulares; alguna frase corta.
+- Voz de Roberto: primera persona cuando haya algo real que contar (cómo lo usa, qué ha visto, una duda honesta). Opiniones con matiz y alguna limitación ("esto no funciona si…"). Nunca inventar experiencias; si no hay, se omite.
+- Aporta algo que solo el portal tiene: un ejemplo calculado con la herramienta, una captura/resultado real, una tabla propia, una fecha verificada. Datos concretos antes que generalidades.
+- Imagen distinta cada vez (regla de variedad) y enlaces internos útiles, no de relleno.
+- Antes de publicar, relee el borrador y reescribe a mano los dos primeros párrafos y el cierre; son lo que más delata.
 
 ## Antes de publicar (siempre)
 1. `python3 automation/aplicar_imagen.py` (por si Roberto subió imágenes).

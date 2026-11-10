@@ -171,14 +171,25 @@
 .pm-tool-sibs a.on{background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;border-color:transparent;font-weight:600}
 </style>
 <meta name="color-scheme" content="dark"><style id="pm-flash">html,body{background:#0A0B18}iframe{background:#0A0B18!important}</style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pm-native.css?v=2">
 </head>
 <body>
 
 <a href="horoscopo.html" class="back-btn">← Volver a Horóscopo</a>
 
-<div class="game-frame-wrap">
-  <iframe src="horoscopo-game/index.html#hoy" allow="autoplay; fullscreen; gamepad" loading="eager"></iframe>
-</div>
+<section class="pm-calc" id="calculadora" aria-label="☀ Horóscopo de hoy">
+  <div class="pc-wrap">
+    <div class="pc-hero">
+      <div class="pc-eyebrow">☀ Horóscopo de hoy</div>
+      <p class="pc-title" role="heading" aria-level="2">Elige tu signo</p>
+      <p class="pc-sub">Toca tu signo y lee tu horóscopo de hoy, calculado con la posición real de la Luna y los planetas.</p>
+    </div>
+    <div class="hs-root"></div>
+  </div>
+</section>
+<div id="hs-all"></div>
+<script type="module">import { mount } from './horoscopo-native.js?v=1'; mount('hoy');</script>
 
 <section class="pm-tool-sibs"><h2>Horóscopos por periodo</h2><div><a href="horoscopo.html">Todo Horóscopo</a><a href="horoscopo-de-hoy.html" class="on" aria-current="page">☀ Hoy</a><a href="horoscopo-de-manana.html">☾ Mañana</a><a href="horoscopo-semanal.html">✦ Semanal</a><a href="horoscopo-mensual.html">◐ Mensual</a></div></section>
 <style id="pm-signs-css">.pm-signs{max-width:760px;margin:22px auto 8px;padding:0 16px;font-family:'Work Sans',Arial,sans-serif}.pm-signs h2{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-size:1.2rem;color:#C7A24B;text-align:center;margin:0 0 12px}.pm-signs div{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}@media(min-width:600px){.pm-signs div{grid-template-columns:repeat(4,1fr)}}.pm-signs a{display:block;text-align:center;padding:11px 6px;border:1px solid rgba(199,162,75,0.35);border-radius:10px;background:rgba(10,11,24,0.55);color:#EEF0FA;text-decoration:none;font-size:0.92rem}.pm-signs a:hover{border-color:rgba(199,162,75,0.7);color:#C7A24B}</style><section class="pm-signs" aria-label="Signos del zodiaco"><h2>Lee más sobre tu signo</h2><div><a href="../zodiaco/aries.html">♈ Aries</a><a href="../zodiaco/tauro.html">♉ Tauro</a><a href="../zodiaco/geminis.html">♊ Géminis</a><a href="../zodiaco/cancer.html">♋ Cáncer</a><a href="../zodiaco/leo.html">♌ Leo</a><a href="../zodiaco/virgo.html">♍ Virgo</a><a href="../zodiaco/libra.html">♎ Libra</a><a href="../zodiaco/escorpio.html">♏ Escorpio</a><a href="../zodiaco/sagitario.html">♐ Sagitario</a><a href="../zodiaco/capricornio.html">♑ Capricornio</a><a href="../zodiaco/acuario.html">♒ Acuario</a><a href="../zodiaco/piscis.html">♓ Piscis</a></div></section>

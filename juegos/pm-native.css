@@ -74,3 +74,29 @@ table.pm-aff-t th,table.pm-aff-t td{border:1px solid rgba(244,239,227,.15);paddi
 .pm-calc .sg-toast.show{opacity:1}
 @media(min-width:650px){.pm-calc .sg-zodiacs{grid-template-columns:repeat(4,1fr)}}
 .pm-guide-list h3{color:#EEF0FA;margin:16px 0 4px;font-size:1rem}
+
+/* Horóscopo nativo */
+.pm-calc .sg-zodiac.on{border-color:#e8c875;background:rgba(80,50,130,.7)}
+.pm-calc .hs-signs{grid-template-columns:repeat(4,1fr)}
+.pm-calc .hs-signs .sg-zodiac{min-height:70px}
+.pm-calc .hs-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 4px}
+.pm-calc .hs-tab{border:1px solid rgba(232,200,117,.3);background:rgba(12,9,32,.7);color:#d9d0ef;border-radius:999px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer}
+.pm-calc .hs-tab.on{background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;font-weight:700;border-color:transparent}
+.pm-calc .hs-out{margin-top:18px;border:1px solid rgba(232,200,117,.28);border-radius:22px;background:rgba(18,14,43,.82);padding:20px 18px}
+.pm-calc .hs-sign{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.pm-calc .hs-sign h3{font-family:Cinzel,serif;font-size:22px;color:#fff2c8;margin:0;font-weight:600}
+.pm-calc .hs-sign small{font-size:10px;letter-spacing:.14em;color:#c9b8ff}
+.pm-calc .hs-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;border-top:1px solid rgba(232,200,117,.28);padding-top:14px;margin-bottom:6px}
+.pm-calc .hs-head h3{font-family:Cinzel,serif;font-size:17px;color:#e8c875;margin:0;font-weight:600}
+.pm-calc .hs-head span{font-size:10px;letter-spacing:.14em;color:#c9b8ff}
+.pm-calc .hs-p{font-size:14px;line-height:1.7;color:#e1daf2;margin:10px 0}
+.pm-calc .hs-insights{display:grid;gap:8px;margin-top:14px}
+.pm-calc .hs-insights div{border:1px solid rgba(232,200,117,.2);border-radius:12px;padding:10px 12px;background:rgba(6,4,21,.5)}
+.pm-calc .hs-insights b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#e8c875;margin-bottom:3px}
+.pm-calc .hs-insights span{font-size:13px;color:#d1c9e6}
+.pm-calc .hs-actions{margin-top:14px;text-align:center}
+.pm-calc .hs-orig{font-size:10px;letter-spacing:.16em;color:#8e86a6;margin:12px 0 0}
+#hs-all{max-width:760px;margin:0 auto;padding:6px 22px 4px;font-family:'Work Sans',Arial,sans-serif;color:#C9CCE6;line-height:1.7}
+#hs-all h2{font-family:'Fraunces',Georgia,serif;font-weight:600;color:#C7A24B;font-size:1.3rem;margin:26px 0 10px}
+#hs-all h3{color:#EEF0FA;font-size:1.02rem;margin:18px 0 4px}
+#hs-all p{margin-bottom:10px;font-size:.96rem}

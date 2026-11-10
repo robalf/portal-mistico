@@ -171,14 +171,23 @@
 .pm-tool-sibs a.on{background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;border-color:transparent;font-weight:600}
 </style>
 <meta name="color-scheme" content="dark"><style id="pm-flash">html,body{background:#0A0B18}iframe{background:#0A0B18!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap"><link rel="stylesheet" href="brujula-game/scoped.css?v=1">
 </head>
 <body>
 
 <a href="brujula.html" class="back-btn">← Volver a Brújula Lunar</a>
 
-<div class="game-frame-wrap">
-  <iframe src="brujula-game/index.html#ritual" allow="autoplay; fullscreen; gamepad" loading="eager"></iframe>
+<div class="game-frame-wrap pm-game pm-nat" id="pm-app"><canvas id="cielo" aria-hidden="true"></canvas>
+<button id="boton-musica" class="boton-musica" type="button" aria-label="Activar música" aria-pressed="false">♪</button>
+<div id="app" class="contenedor" aria-live="polite"></div>
+<div id="modal" class="modal-fondo" hidden>
+<section class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+<button id="cerrar-modal" class="cerrar-modal" type="button" aria-label="Cerrar">×</button>
+<div id="modal-contenido"></div>
+</section>
 </div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div></div>
+<script>window.__PM_START='ritual';</script>
 
 <section class="pm-tool-sibs"><h2>Herramientas de la Brújula Lunar</h2><div><a href="brujula.html">Todo Brújula Lunar</a><a href="fase-lunar-hoy.html">🌙 Luna de hoy</a><a href="ritual-del-dia.html" class="on" aria-current="page">🕯️ Ritual del día</a><a href="planetas-retrogrados-hoy.html">☿ Retrógrados</a><a href="calendario-lunar.html">📅 Calendario lunar</a></div></section>
 <section class="pm-tool-reads"><h2>Aprende más</h2><ul><li><a href="../blog/dia-de-muertos-samhain-ritual-2026.html">Día de Muertos y Samhain →</a></li><li><a href="rituales-y-hechizos.html">✧ Rituales y hechizos →</a></li><li><a href="../blog/portal-11-11-ritual.html">Portal 11/11: ritual →</a></li><li><a href="fase-lunar-hoy.html">🌙 Fase lunar de hoy →</a></li><li><a href="../glosario/luna-nueva.html">📖 Luna nueva: qué es →</a></li><li><a href="../glosario/luna-llena.html">📖 Luna llena: qué es →</a></li></ul></section>
@@ -219,74 +228,7 @@
 </footer>
 
 <script>document.addEventListener('click',function(e){var b=e.target.closest('.pm-burger');if(b){var n=b.closest('.pm-nav');var o=n.classList.toggle('pm-open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰';}});</script>
-<script>
-/* Desplazamiento: la rueda del mouse mueve primero la app y solo al final baja la página */
-(function(){
-  var fr=document.querySelector('iframe'); if(!fr) return;
-  function hook(){
-    var w,d; try{ w=fr.contentWindow; d=w.document; }catch(e){ return; }
-    if(!d || w.__pmWheel) return; w.__pmWheel=true;
-    var cache=null, cacheT=0;
-    function canScroll(el){ var cs=w.getComputedStyle(el); return /(auto|scroll)/.test(cs.overflowY) && el.scrollHeight>el.clientHeight+2; }
-    function mainScroller(){
-      var now=Date.now(); if(cache && now-cacheT<800 && cache.isConnected) return cache;
-      var best=null, area=0, all=d.querySelectorAll('*');
-      for(var i=0;i<all.length;i++){ var el=all[i]; if(el.clientHeight<120) continue; if(canScroll(el)){ var a=el.clientWidth*el.clientHeight; if(a>area){ area=a; best=el; } } }
-      var se=d.scrollingElement; if(!best && se && se.scrollHeight>se.clientHeight+2) best=se;
-      cache=best; cacheT=now; return best;
-    }
-    w.addEventListener('wheel',function(e){
-      var el=e.target;
-      while(el && el.nodeType===1 && el!==d.documentElement && el!==d.body){ if(canScroll(el)) return; el=el.parentElement; }
-      var sc=mainScroller(); if(!sc) return;
-      var dy=e.deltaY*(e.deltaMode===1?16:1);
-      var atEnd = dy>0 ? (sc.scrollTop+sc.clientHeight>=sc.scrollHeight-2) : (sc.scrollTop<=0);
-      if(atEnd) return;
-      sc.scrollTop+=dy; e.preventDefault();
-    },{passive:false});
-  }
-  fr.addEventListener('load',hook); hook();
-})();
-</script>
-<script>
-/* Altura automática: el marco crece para mostrar toda la app, así nada queda tapado por la barra de abajo */
-(function(){
-  var wrap=document.querySelector('.game-frame-wrap'), fr=wrap&&wrap.querySelector('iframe'); if(!fr) return;
-  var t=null;
-  function overflow(d){
-    var w=d.defaultView, extra=0, all=d.querySelectorAll('*');
-    for(var i=0;i<all.length;i++){ var el=all[i]; if(el.clientHeight<200) continue;
-      var oy=w.getComputedStyle(el).overflowY; if(oy==='auto'||oy==='scroll'){ var r=el.getBoundingClientRect(); var ratio=el.clientHeight?r.height/el.clientHeight:1; extra=Math.max(extra,(el.scrollHeight-el.clientHeight)*ratio); } }
-    var se=d.scrollingElement; if(se) extra=Math.max(extra,se.scrollHeight-se.clientHeight);
-    return extra;
-  }
-  function fit(reset){
-    var d; try{ d=fr.contentDocument; }catch(e){ return; } if(!d||!d.body) return;
-    var base=window.innerHeight;
-    if(reset) wrap.style.height=base+'px';
-    if(wrap.getAttribute('data-fixed')==='1'){ wrap.style.height=base+'px'; return; }
-    var n=0, prevH=null, prevEx=null;
-    (function step(){
-      var ex=overflow(d), h=wrap.getBoundingClientRect().height;
-      /* Si al agrandar el marco la app también crece (usa la altura de la ventana), se deshace y se detiene: evita que la app se agrande sin fin */
-      if(prevEx!==null && ex>2 && ex>prevEx*0.6){ wrap.style.height=prevH+'px'; return; }
-      if(ex>2 && n<6 && h+ex<base*6){ prevH=h; prevEx=ex; wrap.style.height=(h+ex+4)+'px'; n++; requestAnimationFrame(function(){ requestAnimationFrame(step); }); }
-    })();
-  }
-  function contentH(d){ var h=d.querySelector('h1,h2,h3,.eyebrow'); return (h?h.textContent.trim().slice(0,60):'')+'|'+d.querySelectorAll('button').length; }
-  function soon(){ clearTimeout(t); t=setTimeout(function(){fit(false);},250); }
-  var inited=null;
-  function init(){
-    var dd; try{ dd=fr.contentDocument; }catch(e){ return; } if(!dd||!dd.body||inited===dd) return; inited=dd;
-    fit(true); setTimeout(function(){fit(false);},800); setTimeout(function(){fit(false);},2000);
-    try{ var d=fr.contentDocument; new MutationObserver(soon).observe(d.body,{childList:true,subtree:true}); d.addEventListener('click',function(){ var before=contentH(d); setTimeout(function(){ var after=contentH(d); if(after!==before){ fit(true); setTimeout(function(){fit(false);},300); if(window.scrollY>0) window.scrollTo({top:0,behavior:'smooth'}); } else { fit(false); } },400); },true); }catch(e){}
-  }
-  fr.addEventListener('load',init); init(); setTimeout(init,1500);
-  var lastW=window.innerWidth;
-  /* Solo se reajusta si cambia el ANCHO: en el celular, al hacer scroll la barra del navegador cambia el alto y no debe mover la página */
-  window.addEventListener('resize',function(){ if(window.innerWidth===lastW) return; lastW=window.innerWidth; fit(true); });
-})();
-</script>
 <script>(function(){document.querySelectorAll('.pm-share').forEach(function(w){var u=w.getAttribute('data-url'),t=w.getAttribute('data-title');var n=w.querySelector('.pm-native');if(navigator.share&&n){n.style.display='inline-flex';n.addEventListener('click',function(){navigator.share({title:t,url:u}).catch(function(){});});}var c=w.querySelector('.pm-copy');if(c)c.addEventListener('click',function(){var done=function(){c.textContent='✓ ¡Enlace copiado!';setTimeout(function(){c.textContent='🔗 Copiar enlace';},2000);};if(navigator.clipboard){navigator.clipboard.writeText(u).then(done,function(){prompt('Copia este enlace:',u);});}else{prompt('Copia este enlace:',u);}});});})();</script>
+<script type="module" src="brujula-game/main-inline.js?v=1"></script>
 </body>
 </html>

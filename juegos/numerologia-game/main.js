@@ -97,7 +97,7 @@ function render() {
 }
 function panel(intro, fields, cta, id) { return `<div class="panel"><p class="intro">${intro}</p><form id="${id}">${fields}<button class="primary" type="submit">✦ &nbsp; ${cta}</button><div class="error" aria-live="polite"></div><div id="result" aria-live="polite"></div></form></div>`; }
 function bind() {
-  mount.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => { unlockAudio(); sound(tapSound); view = b.dataset.view; render(); log('open_reading', { view }); }));
+  mount.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => { unlockAudio(); sound(tapSound); if (b.dataset.view === 'life') { try { window.top.location.href = '/juegos/calcular-numero-de-vida.html'; return; } catch (e) {} } view = b.dataset.view; render(); log('open_reading', { view }); }));
   mount.querySelector('#mute')?.addEventListener('click', e => { unlockAudio(); muted = !muted; localStorage.setItem('numerologia-muted', String(muted)); if (muted) music.pause(); else music.play().catch(() => {}); e.currentTarget.textContent = muted ? '♩' : '♫'; e.currentTarget.setAttribute('aria-label', muted ? 'Activar sonido' : 'Silenciar sonido'); });
   mount.querySelector('#yearForm')?.addEventListener('submit', onYear);
   mount.querySelector('#lifeForm')?.addEventListener('submit', onLife);

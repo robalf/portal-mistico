@@ -171,14 +171,24 @@
 .pm-tool-sibs a.on{background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;border-color:transparent;font-weight:600}
 </style>
 <meta name="color-scheme" content="dark"><style id="pm-flash">html,body{background:#0A0B18}iframe{background:#0A0B18!important}</style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pm-native.css?v=1">
 </head>
 <body>
 
 <a href="signos.html" class="back-btn">← Volver a Signos</a>
 
-<div class="game-frame-wrap">
-  <iframe src="signos-game/index.html#conquer" allow="autoplay; fullscreen; gamepad" loading="eager"></iframe>
-</div>
+<section class="pm-calc" id="calculadora" aria-label="Cómo conquistarle">
+  <div class="pc-wrap">
+    <div class="pc-hero">
+      <div class="pc-eyebrow">✦ Cómo conquistarle</div>
+      <p class="pc-title" role="heading" aria-level="2">Elige tu signo</p>
+      <p class="pc-sub">¿Qué constelación acompañaba el cielo cuando naciste? Toca tu signo y lee tu respuesta.</p>
+    </div>
+    <div class="sg-root"></div>
+  </div>
+</section>
+<script type="module">import { mount } from './signos-native.js?v=1'; mount('conquer');</script>
 
 <section class="pm-tool-sibs"><h2>Herramientas del Oráculo de los Signos</h2><div><a href="signos.html">Todo Signos</a><a href="como-conquistar-a-cada-signo.html" class="on" aria-current="page">💘 Cómo conquistarle</a><a href="compatibilidad-amorosa-de-cada-signo.html">∞ Compatibilidad</a><a href="como-besa-cada-signo.html">💋 Cómo besa</a><a href="que-regalarle-a-cada-signo.html">🎁 Qué regalarle</a><a href="por-que-enamorarte-de-cada-signo.html">❈ Por qué enamorarte</a><a href="celos-e-infidelidad-segun-tu-signo.html">◉ Celos e infidelidad</a><a href="como-afronta-una-ruptura-cada-signo.html">☾ Ruptura</a><a href="horoscopo-chino.html">☯ Horóscopo chino</a></div></section>
 <style id="pm-signs-css">.pm-signs{max-width:760px;margin:22px auto 8px;padding:0 16px;font-family:'Work Sans',Arial,sans-serif}.pm-signs h2{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-size:1.2rem;color:#C7A24B;text-align:center;margin:0 0 12px}.pm-signs div{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}@media(min-width:600px){.pm-signs div{grid-template-columns:repeat(4,1fr)}}.pm-signs a{display:block;text-align:center;padding:11px 6px;border:1px solid rgba(199,162,75,0.35);border-radius:10px;background:rgba(10,11,24,0.55);color:#EEF0FA;text-decoration:none;font-size:0.92rem}.pm-signs a:hover{border-color:rgba(199,162,75,0.7);color:#C7A24B}</style><section class="pm-signs" aria-label="Signos del zodiaco"><h2>Lee más sobre tu signo</h2><div><a href="../zodiaco/aries.html">♈ Aries</a><a href="../zodiaco/tauro.html">♉ Tauro</a><a href="../zodiaco/geminis.html">♊ Géminis</a><a href="../zodiaco/cancer.html">♋ Cáncer</a><a href="../zodiaco/leo.html">♌ Leo</a><a href="../zodiaco/virgo.html">♍ Virgo</a><a href="../zodiaco/libra.html">♎ Libra</a><a href="../zodiaco/escorpio.html">♏ Escorpio</a><a href="../zodiaco/sagitario.html">♐ Sagitario</a><a href="../zodiaco/capricornio.html">♑ Capricornio</a><a href="../zodiaco/acuario.html">♒ Acuario</a><a href="../zodiaco/piscis.html">♓ Piscis</a></div></section>
@@ -197,7 +207,7 @@
   <div class="kicker">Portal Místico · <a href="signos.html" style="color:inherit">Signos</a></div>
   <h1>Cómo conquistar a cada signo del zodiaco</h1>
   <p>Elige el signo de la persona que te gusta y descubre qué le atrae, qué gestos le llegan y qué conviene evitar. Cada signo tiene una “llave” distinta para abrir su corazón.</p>
-  <p style="font-size:0.85rem;opacity:0.8">Por <a href="../sobre-nosotros.html#autor" style="color:#C7A24B">Roberto Rodriguez</a> · Actualizado el <time datetime="2026-10-26">26 de octubre de 2026</time></p>
+  <p style="font-size:0.85rem;opacity:0.8">Por <a href="../sobre-nosotros.html#autor" style="color:#C7A24B">Roberto Rodriguez</a> · Actualizado el <time datetime="2026-11-10">10 de noviembre de 2026</time></p>
 <h2>¿Por qué cada signo se conquista de forma distinta?</h2>
 <p>En astrología, cada signo expresa una forma de amar según su elemento. Los signos de <strong>fuego</strong> (Aries, Leo y Sagitario) se enamoran de la energía y la aventura; los de <strong>tierra</strong> (Tauro, Virgo y Capricornio), de la constancia y los hechos; los de <strong>aire</strong> (Géminis, Libra y Acuario), de una buena conversación; y los de <strong>agua</strong> (Cáncer, Escorpio y Piscis), de la conexión emocional.</p>
 <h2>Consejos que funcionan con cualquier signo</h2>
@@ -211,7 +221,7 @@
 <h2>Errores frecuentes al intentar conquistar a alguien</h2>
 <ul><li><strong>Tratar al signo como un guion cerrado.</strong> Una ficha es una tendencia, no una garantía. Úsala para observar mejor, no para actuar por fórmula.</li><li><strong>Ir demasiado deprisa con los signos de agua y tierra.</strong> Suelen necesitar más tiempo para abrirse; presionar produce el efecto contrario.</li><li><strong>Aburrir a los signos de aire y fuego.</strong> Si la relación se vuelve previsible desde el principio, pierden interés rápido.</li><li><strong>Olvidar la compatibilidad.</strong> Antes de invertir energía, mira cómo encajan vuestros signos en la <a href="compatibilidad-amorosa-de-cada-signo.html">compatibilidad amorosa</a>.</li></ul>
 <!--/pm-extra-->
-<h2>Preguntas frecuentes</h2>
+<h2>Cómo conquistar a cada signo: lectura de los 12 signos</h2><p>Aquí tienes la lectura simbólica completa de los doce signos del zodiaco. Son interpretaciones de la tradición astrológica, con tono de entretenimiento y reflexión, que no determinan cómo es una persona.</p><h3>♈ Aries (21 mar · 19 abr)</h3><p>Sé espontáneo, claro y valiente. Propón una aventura y deja que también tome la iniciativa: le atrae quien enciende su entusiasmo sin intentar domesticarlo.</p><h3>♉ Tauro (20 abr · 20 may)</h3><p>No tengas prisa. Cumple tu palabra, crea momentos cómodos y conquista sus sentidos con buena comida, música suave y una atención que se sostenga en el tiempo.</p><h3>♊ Géminis (21 may · 20 jun)</h3><p>Sorprende a su mente. Comparte historias, humor y planes distintos; deja una pregunta interesante en el aire y evita convertir el vínculo en una rutina predecible.</p><h3>♋ Cáncer (21 jun · 22 jul)</h3><p>Escucha de verdad, recuerda los detalles y sé cuidadoso con su mundo íntimo. La confianza crece cuando siente que contigo puede bajar la armadura.</p><h3>♌ Leo (23 jul · 22 ago)</h3><p>Admira su luz sin adular por costumbre. Sé generoso, creativo y seguro de la tuya; le enamora formar una pareja donde ambos puedan celebrar al otro.</p><h3>♍ Virgo (23 ago · 22 sep)</h3><p>Sé puntual con el afecto: cumple, observa y ayuda sin invadir. Le cautiva la inteligencia humilde y quien aprecia sus cuidados pequeños, pero constantes.</p><h3>♎ Libra (23 sep · 22 oct)</h3><p>Cuida las formas y el fondo. Una cita bella, una conversación considerada y decisiones compartidas le muestran que el romance puede ser elegante sin ser superficial.</p><h3>♏ Escorpio (23 oct · 21 nov)</h3><p>No fuerces sus secretos. Sostén la mirada, sé coherente y muestra profundidad propia; le atrae quien puede compartir intensidad sin convertirla en un juego de poder.</p><h3>♐ Sagitario (22 nov · 21 dic)</h3><p>Invítale a descubrir algo y ríe sin impostura. Respeta su independencia, comparte una visión amplia de la vida y evita poner etiquetas antes de crear confianza.</p><h3>♑ Capricornio (22 dic · 19 ene)</h3><p>Muestra madurez, sentido del humor y dirección propia. Respeta su tiempo; cada promesa cumplida vale más que cien declaraciones precipitadas.</p><h3>♒ Acuario (20 ene · 18 feb)</h3><p>Sé auténtico y un poco inesperado. Conecta primero con sus ideas, respeta su mundo social y no intentes poseer aquello que precisamente admiras por libre.</p><h3>♓ Piscis (19 feb · 20 mar)</h3><p>Comparte música, sueños y gestos de compasión. Sé claro sin ser brusco y demuestra que la sensibilidad puede caminar junto a una presencia estable.</p><h2>Preguntas frecuentes</h2>
 <h3>¿Qué signo es más fácil de conquistar?</h3><p>Ninguno es “fácil”: depende de la química entre las dos personas. Los signos de fuego suelen mostrar su interés más rápido y los de tierra se toman más tiempo.</p><h3>¿Y si no sé su signo?</h3><p>Pregúntale su fecha de cumpleaños de forma natural: es una de las conversaciones favoritas cuando hay interés.</p><h3>¿Sirve para hombres y mujeres?</h3><p>Sí. Las lecturas hablan de la energía del signo y valen para cualquier persona.</p>
   <p class="note">Las lecturas de Portal Místico son de carácter simbólico y con fines de entretenimiento. No sustituyen el consejo de un profesional.</p>
 </main>

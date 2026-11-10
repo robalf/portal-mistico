@@ -171,14 +171,74 @@
 .pm-tool-sibs a.on{background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;border-color:transparent;font-weight:600}
 </style>
 <meta name="color-scheme" content="dark"><style id="pm-flash">html,body{background:#0A0B18}iframe{background:#0A0B18!important}</style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style id="pm-calc-css">
+.pm-calc{background:radial-gradient(ellipse at 50% -18%,#24204d 0%,#111126 37%,#0A0B18 76%);padding:72px 16px 38px;font-family:Manrope,'Work Sans',system-ui,sans-serif;color:#f4efff}
+.pm-calc .pc-wrap{max-width:560px;margin:0 auto}
+.pm-calc .pc-hero{text-align:center;margin-bottom:20px}
+.pm-calc .pc-eyebrow{color:#c9b8ff;font-size:11px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:8px}
+.pm-calc .pc-title{font-family:Cinzel,serif;font-weight:600;font-size:clamp(24px,7vw,36px);letter-spacing:.05em;line-height:1.2;background:linear-gradient(90deg,#fff2b8,#d2b25f,#fff6d7);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0}
+.pm-calc .pc-sub{font-size:13px;line-height:1.6;color:#b7afd0;margin:10px auto 0;max-width:460px}
+.pm-calc .pc-panel{border:1px solid rgba(232,200,117,.28);border-radius:22px;background:rgba(18,14,43,.82);padding:21px 18px;box-shadow:0 18px 45px rgba(0,0,0,.3)}
+.pm-calc .pc-intro{font-size:13px;line-height:1.65;color:#b7afd0;margin:0 0 20px;text-align:center}
+.pm-calc label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#e8c875;margin:0 0 8px 3px}
+.pm-calc input{width:100%;height:54px;border-radius:14px;border:1px solid rgba(201,184,255,.24);background:rgba(6,4,21,.68);color:#f4efff;padding:0 15px;outline:none;font:inherit;font-size:16px;color-scheme:dark;margin-bottom:16px}
+.pm-calc input:focus{border-color:#e8c875;box-shadow:0 0 0 3px rgba(232,200,117,.1)}
+.pm-calc .pc-btn{width:100%;min-height:54px;border:1px solid #f6db8f;border-radius:15px;background:linear-gradient(135deg,#c69a3c,#f0d98a 52%,#b6872f);color:#21172c;font:inherit;font-weight:800;letter-spacing:.04em;cursor:pointer}
+.pm-calc .pc-btn:hover{filter:brightness(1.07)}
+.pm-calc .pc-err{min-height:18px;margin:10px 2px 0;color:#f2a9cc;font-size:12px;text-align:center}
+.pm-calc .pc-result{margin-top:6px}
+.pm-calc .pc-res{margin-top:12px;border-top:1px solid rgba(232,200,117,.28);padding-top:20px;text-align:center}
+.pm-calc .pc-orbit{width:118px;height:118px;margin:0 auto 13px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(121,81,204,.42),rgba(14,10,39,.2));border:1px solid rgba(232,200,117,.35)}
+.pm-calc .pc-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:#c9b8ff}
+.pm-calc .pc-num{font-family:Cinzel,serif;font-size:51px;line-height:1;color:#fff0b0;text-shadow:0 0 18px rgba(232,200,117,.42)}
+.pm-calc .pc-res h3{font-family:Cinzel,serif;font-size:19px;margin:8px 0;color:#fff2c8;font-weight:600}
+.pm-calc .pc-res p{font-size:13px;line-height:1.68;color:#d1c9e6;margin:8px 0}
+.pm-guide{max-width:760px;margin:0 auto;padding:6px 22px 8px;font-family:'Work Sans',Arial,sans-serif;color:#C9CCE6;line-height:1.7}
+.pm-guide h2{font-family:'Fraunces',Georgia,serif;font-weight:600;color:#C7A24B;font-size:1.3rem;margin:26px 0 10px}
+.pm-guide h3{color:#EEF0FA;font-size:1.02rem;margin:18px 0 4px}
+.pm-guide p{margin-bottom:10px;font-size:.96rem}
+
+.pm-calc select{width:100%;height:54px;border-radius:14px;border:1px solid rgba(201,184,255,.24);background:rgba(6,4,21,.68);color:#f4efff;padding:0 15px;outline:none;font:inherit;font-size:16px;color-scheme:dark;margin-bottom:16px}
+.pm-calc select:focus{border-color:#e8c875;box-shadow:0 0 0 3px rgba(232,200,117,.1)}
+.pm-calc .pc-pct{font-size:38px}
+.pm-calc .pc-grid{display:grid;gap:12px;margin:6px 0 4px}
+.pm-calc a.pc-card{display:flex;align-items:center;gap:14px;text-decoration:none;border:1px solid rgba(232,200,117,.28);border-radius:18px;background:linear-gradient(135deg,rgba(28,21,63,.92),rgba(13,10,35,.83));padding:16px;color:inherit}
+.pm-calc a.pc-card:hover{border-color:rgba(232,200,117,.55);transform:translateY(-2px)}
+.pm-calc .pc-sigil{flex:0 0 50px;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(232,200,117,.35);color:#fff0b0;font-family:Cinzel,serif;font-size:21px;background:radial-gradient(circle,rgba(121,81,204,.4),rgba(14,10,39,.2))}
+.pm-calc .pc-card h3{font-family:Cinzel,serif;font-size:14px;color:#f9f2dd;margin:0 0 4px;font-weight:600}
+.pm-calc .pc-card p{font-size:12px;line-height:1.45;color:#b7afd0;margin:0}
+.pm-calc .pc-arrow{margin-left:auto;color:#e8c875;font-size:22px}
+.pm-calc .pc-emblem{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 0 22px rgba(232,200,117,.3));margin-bottom:6px}
+
+.pm-calc .lucky-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:16px 0}.pm-calc .lucky{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#efda96,#b8842d);color:#24162e;font-family:Cinzel,serif;font-weight:700;box-shadow:0 4px 16px rgba(232,200,117,.25)}
+table.pm-aff-t th,table.pm-aff-t td{border:1px solid rgba(244,239,227,.15);padding:6px 8px;text-align:center}table.pm-aff-t th{color:#C7A24B}
+@media(min-width:650px){.pm-calc .pc-grid{grid-template-columns:1fr 1fr}}
+</style>
 </head>
 <body>
 
 <a href="numerologia.html" class="back-btn">← Volver a Numerología</a>
 
-<div class="game-frame-wrap">
-  <iframe src="numerologia-game/index.html#year" allow="autoplay; fullscreen; gamepad" loading="eager"></iframe>
-</div>
+<section class="pm-calc" id="calculadora" aria-label="Revela tu año personal">
+  <div class="pc-wrap">
+    <div class="pc-hero">
+      <div class="pc-eyebrow">✦ Numerología del año</div>
+      <p class="pc-title" role="heading" aria-level="2">Revela tu año personal</p>
+      <p class="pc-sub">Elige tu fecha de nacimiento y el año que quieres consultar para ver su energía, mes a mes.</p>
+    </div>
+    <div class="pc-panel">
+      <p class="pc-intro">Suma tu día y mes de nacimiento a la vibración universal del año que elijas.</p>
+      <form class="pc-form" novalidate>
+        <label for="birth">Fecha de nacimiento</label><input id="birth" name="birth" type="date" autocomplete="bday" required><label for="yr">Año a consultar</label><select id="yr" name="yr"><option value="2026">2026</option><option value="2027" selected>2027</option><option value="2028">2028</option></select>
+        <button class="pc-btn" type="submit">✦ &nbsp; Revelar mi año</button>
+        <div class="pc-err" aria-live="polite"></div>
+        <div class="pc-result" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+<script type="module">import { mount } from './numerologia-native.js?v=1'; mount('year');</script>
 
 <section class="pm-tool-sibs"><h2>Herramientas de Numerología</h2><div><a href="numerologia.html">Todo Numerología</a><a href="numeros-de-la-suerte-hoy.html">☽ Números de la suerte</a><a href="calcular-numero-de-vida.html">∞ Número de vida</a><a href="ano-personal-2027.html" class="on" aria-current="page">✦ Año personal</a><a href="compatibilidad-de-nombres.html">♡ Compatibilidad de nombres</a><a href="personalidad-segun-tu-nombre.html">⌁ Personalidad del nombre</a></div></section>
 <section class="pm-tool-reads"><h2>Aprende más</h2><ul><li><a href="../blog/horoscopo-2027-signos.html">Horóscopo 2027 →</a></li><li><a href="../blog/numerologia-fecha-nacimiento.html">Tu fecha de nacimiento en numerología →</a></li><li><a href="calcular-numero-de-vida.html">∞ Calcular número de vida →</a></li><li><a href="../glosario/numero-maestro.html">📖 Número maestro: qué es →</a></li></ul></section>
@@ -196,7 +256,7 @@
   <div class="kicker">Portal Místico · <a href="numerologia.html" style="color:inherit">Numerología</a></div>
   <h1>Tu año personal 2027 en numerología</h1>
   <p>Escribe tu fecha de nacimiento y descubre tu <strong>año personal 2027</strong>: la energía que, según la numerología, marcará tu año del 1 al 9.</p>
-  <p style="font-size:0.85rem;opacity:0.8">Por <a href="../sobre-nosotros.html#autor" style="color:#C7A24B">Roberto Rodriguez</a> · Actualizado el <time datetime="2026-10-26">26 de octubre de 2026</time></p>
+  <p style="font-size:0.85rem;opacity:0.8">Por <a href="../sobre-nosotros.html#autor" style="color:#C7A24B">Roberto Rodriguez</a> · Actualizado el <time datetime="2026-11-10">10 de noviembre de 2026</time></p>
 <h2>¿Cómo se calcula el año personal?</h2>
 <p>Se suman el <strong>día</strong> y el <strong>mes</strong> de tu nacimiento con el año que quieres consultar, y se reduce a un dígito. Por ejemplo, alguien nacido un 14 de mayo: 1+4+0+5+2+0+2+7 = 21 → 2+1 = <strong>año personal 3</strong>, un año de creatividad y vida social.</p>
 <h2>El ciclo de nueve años</h2>
@@ -208,7 +268,7 @@
 <h2>Cómo aprovechar tu año</h2>
 <p>Cada año personal es una fase de un ciclo de nueve años: el 1 es la siembra y el 9 la cosecha y el cierre. Conocer tu fase ayuda a no luchar contra el ritmo: si estás en un año 7, quizá no sea el momento de lanzarte a mil proyectos, sino de formarte y descansar; si estás en un 5, conviene aceptar los cambios con flexibilidad.</p><p>Complementa la lectura con el <a href="../blog/horoscopo-2027-signos.html">horóscopo 2027 para los 12 signos</a> y con tu <a href="calcular-numero-de-vida.html">número de vida</a>. Las predicciones son simbólicas y de entretenimiento.</p>
 <!--/pm-extra-->
-<h2>Preguntas frecuentes</h2>
+<h2>Qué significa cada mes de tu año personal</h2><p>Cada mes tiene su propio número: se obtiene sumando tu año personal y el número del mes, y reduciendo el resultado a un dígito. Ese número da el tema que, según la tradición, colorea el mes.</p><ul><li><strong>Mes de número 1:</strong> comienzos y decisiones.</li><li><strong>Mes de número 2:</strong> paciencia y vínculos.</li><li><strong>Mes de número 3:</strong> creatividad y vida social.</li><li><strong>Mes de número 4:</strong> orden y trabajo constante.</li><li><strong>Mes de número 5:</strong> cambios y movimiento.</li><li><strong>Mes de número 6:</strong> hogar, familia y compromisos.</li><li><strong>Mes de número 7:</strong> pausa, estudio y reflexión.</li><li><strong>Mes de número 8:</strong> logros, dinero y gestión.</li><li><strong>Mes de número 9:</strong> cierres y soltar.</li></ul><p>Por ejemplo, si tu año personal es 5 y estás en marzo (mes 3), 5 + 3 = 8, y marzo tendría el tono del 8: logros, dinero y gestión. Es una guía simbólica para ordenar tus prioridades, no una predicción. Si quieres conocer también tu esencia, calcula tu <a href="calcular-numero-de-vida.html">número de vida</a>.</p><h2>Preguntas frecuentes</h2>
 <h3>¿Cuándo empieza mi año personal?</h3><p>Muchos numerólogos lo cuentan desde el 1 de enero; otros, desde tu cumpleaños. Esta herramienta usa el año natural.</p><h3>¿Qué es el año universal?</h3><p>La suma de los dígitos del año: 2027 suma 11, un número maestro.</p><h3>¿Puedo calcular otro año?</h3><p>Esta herramienta está preparada para 2027, el año que viene.</p>
   <p class="note">Las lecturas de Portal Místico son de carácter simbólico y con fines de entretenimiento. No sustituyen el consejo de un profesional.</p>
 </main>

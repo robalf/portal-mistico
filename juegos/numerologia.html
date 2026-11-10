@@ -172,14 +172,66 @@
 </style>
 <script type="application/ld+json" id="pm-bc">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://elportalmistico.com/"}, {"@type": "ListItem", "position": 2, "name": "Numerología", "item": "https://elportalmistico.com/juegos/numerologia.html"}]}</script>
 <meta name="color-scheme" content="dark"><style id="pm-flash">html,body{background:#0A0B18}iframe{background:#0A0B18!important}</style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style id="pm-calc-css">
+.pm-calc{background:radial-gradient(ellipse at 50% -18%,#24204d 0%,#111126 37%,#0A0B18 76%);padding:72px 16px 38px;font-family:Manrope,'Work Sans',system-ui,sans-serif;color:#f4efff}
+.pm-calc .pc-wrap{max-width:560px;margin:0 auto}
+.pm-calc .pc-hero{text-align:center;margin-bottom:20px}
+.pm-calc .pc-eyebrow{color:#c9b8ff;font-size:11px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:8px}
+.pm-calc .pc-title{font-family:Cinzel,serif;font-weight:600;font-size:clamp(24px,7vw,36px);letter-spacing:.05em;line-height:1.2;background:linear-gradient(90deg,#fff2b8,#d2b25f,#fff6d7);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0}
+.pm-calc .pc-sub{font-size:13px;line-height:1.6;color:#b7afd0;margin:10px auto 0;max-width:460px}
+.pm-calc .pc-panel{border:1px solid rgba(232,200,117,.28);border-radius:22px;background:rgba(18,14,43,.82);padding:21px 18px;box-shadow:0 18px 45px rgba(0,0,0,.3)}
+.pm-calc .pc-intro{font-size:13px;line-height:1.65;color:#b7afd0;margin:0 0 20px;text-align:center}
+.pm-calc label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#e8c875;margin:0 0 8px 3px}
+.pm-calc input{width:100%;height:54px;border-radius:14px;border:1px solid rgba(201,184,255,.24);background:rgba(6,4,21,.68);color:#f4efff;padding:0 15px;outline:none;font:inherit;font-size:16px;color-scheme:dark;margin-bottom:16px}
+.pm-calc input:focus{border-color:#e8c875;box-shadow:0 0 0 3px rgba(232,200,117,.1)}
+.pm-calc .pc-btn{width:100%;min-height:54px;border:1px solid #f6db8f;border-radius:15px;background:linear-gradient(135deg,#c69a3c,#f0d98a 52%,#b6872f);color:#21172c;font:inherit;font-weight:800;letter-spacing:.04em;cursor:pointer}
+.pm-calc .pc-btn:hover{filter:brightness(1.07)}
+.pm-calc .pc-err{min-height:18px;margin:10px 2px 0;color:#f2a9cc;font-size:12px;text-align:center}
+.pm-calc .pc-result{margin-top:6px}
+.pm-calc .pc-res{margin-top:12px;border-top:1px solid rgba(232,200,117,.28);padding-top:20px;text-align:center}
+.pm-calc .pc-orbit{width:118px;height:118px;margin:0 auto 13px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(121,81,204,.42),rgba(14,10,39,.2));border:1px solid rgba(232,200,117,.35)}
+.pm-calc .pc-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:#c9b8ff}
+.pm-calc .pc-num{font-family:Cinzel,serif;font-size:51px;line-height:1;color:#fff0b0;text-shadow:0 0 18px rgba(232,200,117,.42)}
+.pm-calc .pc-res h3{font-family:Cinzel,serif;font-size:19px;margin:8px 0;color:#fff2c8;font-weight:600}
+.pm-calc .pc-res p{font-size:13px;line-height:1.68;color:#d1c9e6;margin:8px 0}
+.pm-guide{max-width:760px;margin:0 auto;padding:6px 22px 8px;font-family:'Work Sans',Arial,sans-serif;color:#C9CCE6;line-height:1.7}
+.pm-guide h2{font-family:'Fraunces',Georgia,serif;font-weight:600;color:#C7A24B;font-size:1.3rem;margin:26px 0 10px}
+.pm-guide h3{color:#EEF0FA;font-size:1.02rem;margin:18px 0 4px}
+.pm-guide p{margin-bottom:10px;font-size:.96rem}
+
+.pm-calc select{width:100%;height:54px;border-radius:14px;border:1px solid rgba(201,184,255,.24);background:rgba(6,4,21,.68);color:#f4efff;padding:0 15px;outline:none;font:inherit;font-size:16px;color-scheme:dark;margin-bottom:16px}
+.pm-calc select:focus{border-color:#e8c875;box-shadow:0 0 0 3px rgba(232,200,117,.1)}
+.pm-calc .pc-pct{font-size:38px}
+.pm-calc .pc-grid{display:grid;gap:12px;margin:6px 0 4px}
+.pm-calc a.pc-card{display:flex;align-items:center;gap:14px;text-decoration:none;border:1px solid rgba(232,200,117,.28);border-radius:18px;background:linear-gradient(135deg,rgba(28,21,63,.92),rgba(13,10,35,.83));padding:16px;color:inherit}
+.pm-calc a.pc-card:hover{border-color:rgba(232,200,117,.55);transform:translateY(-2px)}
+.pm-calc .pc-sigil{flex:0 0 50px;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(232,200,117,.35);color:#fff0b0;font-family:Cinzel,serif;font-size:21px;background:radial-gradient(circle,rgba(121,81,204,.4),rgba(14,10,39,.2))}
+.pm-calc .pc-card h3{font-family:Cinzel,serif;font-size:14px;color:#f9f2dd;margin:0 0 4px;font-weight:600}
+.pm-calc .pc-card p{font-size:12px;line-height:1.45;color:#b7afd0;margin:0}
+.pm-calc .pc-arrow{margin-left:auto;color:#e8c875;font-size:22px}
+.pm-calc .pc-emblem{width:96px;height:96px;object-fit:contain;filter:drop-shadow(0 0 22px rgba(232,200,117,.3));margin-bottom:6px}
+
+.pm-calc .lucky-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:16px 0}.pm-calc .lucky{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#efda96,#b8842d);color:#24162e;font-family:Cinzel,serif;font-weight:700;box-shadow:0 4px 16px rgba(232,200,117,.25)}
+table.pm-aff-t th,table.pm-aff-t td{border:1px solid rgba(244,239,227,.15);padding:6px 8px;text-align:center}table.pm-aff-t th{color:#C7A24B}
+@media(min-width:650px){.pm-calc .pc-grid{grid-template-columns:1fr 1fr}}
+</style>
 </head>
 <body>
 
 <a href="../index.html" class="back-btn">← Volver al inicio</a>
 
-<div class="game-frame-wrap">
-  <iframe src="numerologia-game/index.html" allow="autoplay; fullscreen; gamepad" loading="eager"></iframe>
-</div>
+<section class="pm-calc" id="calculadora" aria-label="Herramientas de numerología">
+  <div class="pc-wrap">
+    <div class="pc-hero">
+      <img class="pc-emblem" src="numerologia-game/assets/emblema-sol-luna.webp" alt="Emblema de sol y luna de Numerología" width="96" height="96">
+      <div class="pc-eyebrow">Tu mapa interior</div>
+      <p class="pc-title" role="heading" aria-level="2">Numerología</p>
+      <p class="pc-sub">Los números son símbolos para observar tu camino con una mirada nueva. Elige una lectura y descubre el mensaje que hoy quiere acompañarte.</p>
+    </div>
+    <nav class="pc-grid" aria-label="Lecturas disponibles"><a class="pc-card" href="ano-personal-2027.html"><span class="pc-sigil">✦</span><span><h3>Numerología del año</h3><p>Descubre la energía de tu año personal: 2026, 2027 o 2028.</p></span><span class="pc-arrow">›</span></a><a class="pc-card" href="calcular-numero-de-vida.html"><span class="pc-sigil">∞</span><span><h3>Número personal</h3><p>Conoce tu número de vida y los dones de tu esencia.</p></span><span class="pc-arrow">›</span></a><a class="pc-card" href="numeros-de-la-suerte-hoy.html"><span class="pc-sigil">☽</span><span><h3>Números de la suerte</h3><p>Recibe las cifras luminosas de hoy para tu signo.</p></span><span class="pc-arrow">›</span></a><a class="pc-card" href="compatibilidad-de-nombres.html"><span class="pc-sigil">♡</span><span><h3>Compatibilidad de nombres</h3><p>Explora la armonía numerológica entre dos nombres.</p></span><span class="pc-arrow">›</span></a><a class="pc-card" href="personalidad-segun-tu-nombre.html"><span class="pc-sigil">⌁</span><span><h3>Personalidad según el nombre</h3><p>Revela la vibración que expresa tu nombre completo.</p></span><span class="pc-arrow">›</span></a></nav>
+  </div>
+</section>
 
 <section class="pm-tool-sibs"><h2>Herramientas de Numerología</h2><div><a href="numerologia.html" class="on" aria-current="page">Todo Numerología</a><a href="numeros-de-la-suerte-hoy.html">☽ Números de la suerte</a><a href="calcular-numero-de-vida.html">∞ Número de vida</a><a href="ano-personal-2027.html">✦ Año personal</a><a href="compatibilidad-de-nombres.html">♡ Compatibilidad de nombres</a><a href="personalidad-segun-tu-nombre.html">⌁ Personalidad del nombre</a></div></section>
 <section class="pm-tool-reads"><h2>Aprende más en el blog</h2><ul><li><a href="../blog/portal-11-11-ritual.html">Portal 11/11 de 2026 →</a></li><li><a href="../blog/numeros-angelicales-significado.html">Números angelicales →</a></li><li><a href="../blog/numero-camino-de-vida.html">Número de camino de vida →</a></li><li><a href="../blog/numeros-maestros-11-22-33.html">Números maestros 11, 22 y 33 →</a></li><li><a href="../blog/numerologia-del-nombre.html">Numerología del nombre →</a></li><li><a href="../blog/numerologia-fecha-nacimiento.html">Tu fecha de nacimiento en numerología →</a></li><li><a href="../glosario/numero-maestro.html">📖 Número maestro: qué es →</a></li></ul></section>

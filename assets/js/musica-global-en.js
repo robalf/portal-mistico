@@ -217,7 +217,7 @@
     // Fondo oscuro sólido siempre presente (este estilo no se borra al cambiar de página): Safari en iPhone
     // usa este color para lo que aún no ha pintado; si la página solo tiene degradados, lo pinta blanco.
     ':root{color-scheme:dark;background-color:#05060F!important}body{background-color:#05060F!important}' +
-    '#pm-music-btn{position:fixed;right:max(14px,env(safe-area-inset-right));top:max(14px,env(safe-area-inset-top));z-index:9999;' +
+    '#pm-music-btn{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:9999;' +
     'width:44px;height:44px;border-radius:50%;border:1px solid rgba(232,200,120,.55);background:rgba(18,15,40,.82);' +
     'color:#F1D58A;font-size:21px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;' +
     'box-shadow:0 6px 18px rgba(0,0,0,.4);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:0;-webkit-tap-highlight-color:transparent}' +
@@ -297,7 +297,7 @@
     if (!document.getElementById('pm-music-css')) document.head.appendChild(css);
     var navIn = document.querySelector('.pm-nav-in');
     var burger = navIn && navIn.querySelector('.pm-burger');
-    if (navIn) {
+    if (false) {
       btn.__inNav = true;
       if (btn.parentNode !== navIn) { if (burger) navIn.insertBefore(btn, burger); else navIn.appendChild(btn); }
     } else {

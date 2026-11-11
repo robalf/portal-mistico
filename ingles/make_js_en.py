@@ -10,6 +10,7 @@ rep=[("'Pausar música' : 'Activar música'","'Pause music' : 'Play music'"),("'
 for a,b in rep:
     if a not in g: print('NO ENCONTRADO en musica:',a[:60])
     g=g.replace(a,b)
+g=g.replace('top:max(14px,env(safe-area-inset-top));z-index:9999;','bottom:max(18px,env(safe-area-inset-bottom));z-index:9999;',1).replace('    if (navIn) {\n      btn.__inNav = true;','    if (false) {\n      btn.__inNav = true;',1)
 open(R+'/musica-global-en.js','w',encoding='utf8').write(g)
 o=open(R+'/opinion.js',encoding='utf8').read()
 rep=[("/\\/(contacto|privacidad|cookies|terminos|aviso-legal)(\\.html)?$/","/\\/(contact|privacy-policy|cookies|terms-of-use|legal-notice)(\\.html)?$/"),

@@ -12,7 +12,7 @@ Reglas: no tocar direcciones en español; hreflang en pares (es<->en) solo cuand
 | 6 ✓ | Astrología y Brújula Lunar: 6 herramientas astrales + 5 de Brújula (+ textos del juego) | 11 |
 | 7 ✓ | Artículos de astrología, calendarios y fechas | 13 |
 | 8 ✓ | 12 parejas de signos | 12 |
-| 9 | Aura, quiromancia y vidas pasadas: 2 herramientas (+ textos de juegos) + 10 artículos | 12 |
+| 9 ✓ | Aura, quiromancia y vidas pasadas: 2 herramientas (+ textos de juegos) + 10 artículos | 12 |
 | 10 | El Oráculo (novedades, sueños, rituales, runas, I Ching, ángeles) + textos del juego + índice del blog + tienda (shop) + revisión final | 11 |
 
 Cada tanda termina con: validar enlaces, Playwright en móvil (390x844), commit y deploy (git push origin HEAD:main, mezclando la rama ingles en main).

@@ -155,7 +155,7 @@ def build(es_path, m=None, lang_switch=True):
         for a in ('href','src','action','data-url','poster'):
             if e.get(a):
                 if e.name=='link' and e.get('rel') and ('canonical' in e['rel'] or 'alternate' in e['rel']): continue
-                if (e.name=='iframe' and e[a].startswith('tarot-game/')) or (e.name=='script' and e[a].startswith(('novedades-game/main-inline.js','brujula-game/main-inline.js'))): continue
+                if (e.name=='iframe' and e[a].startswith('tarot-game/')) or (e.name=='script' and e[a].startswith(('novedades-game/main-inline.js','brujula-game/main-inline.js','aura-game/','quiromancia-game/'))): continue
                 e[a]=resolve(e[a],es_path)
 
     # scripts propios de cada página
@@ -210,4 +210,5 @@ def build(es_path, m=None, lang_switch=True):
     out=re.sub(r'^<!DOCTYPE[^>]*>','<!DOCTYPE html>',out) if out.startswith('<!DOCTYPE') else '<!DOCTYPE html>\n'+out
     return out, []
 def write_en(es_path,out):
+    out=re.sub(r'(href="|src=")((?:aura|quiromancia)-game/(?:scoped\.css))',r'\1/juegos/\2',out)
     p=os.path.join(ROOT,'en',M[es_path]); os.makedirs(os.path.dirname(p),exist_ok=True); open(p,'w',encoding='utf8').write(out); return p

@@ -10,7 +10,7 @@ Reglas: no tocar direcciones en español; hreflang en pares (es<->en) solo cuand
 | 4 ✓ | Numerología: 6 herramientas (+ textos nativos) + 5 artículos | 11 |
 | 5 ✓ | Horóscopo y signos: 16 herramientas (+ textos nativos de horóscopo y signos) | 16 |
 | 6 ✓ | Astrología y Brújula Lunar: 6 herramientas astrales + 5 de Brújula (+ textos del juego) | 11 |
-| 7 | Artículos de astrología, calendarios y fechas | 13 |
+| 7 ✓ | Artículos de astrología, calendarios y fechas | 13 |
 | 8 | 12 parejas de signos | 12 |
 | 9 | Aura, quiromancia y vidas pasadas: 2 herramientas (+ textos de juegos) + 10 artículos | 12 |
 | 10 | El Oráculo (novedades, sueños, rituales, runas, I Ching, ángeles) + textos del juego + índice del blog + tienda (shop) + revisión final | 11 |

@@ -88,7 +88,7 @@
     function paint(n) { btns.forEach(function (b, k) { b.className = k < n ? 'on' : ''; }); }
     c.appendChild(st);
     var body = el('div'); c.appendChild(body);
-    c.appendChild(el('p', 'fine', 'Es anónimo. Solo vemos la calificación y lo que escribas.'));
+    c.appendChild(el('p', 'fine', 'Es anónimo. Solo vemos la calificación y lo que escribas. Tu comentario podría publicarse en la web, sin tu nombre.'));
     box.appendChild(c);
     box.addEventListener('click', function (e) { if (e.target === box) close(); });
     document.addEventListener('keydown', onKey);

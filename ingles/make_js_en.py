@@ -15,7 +15,7 @@ o=open(R+'/opinion.js',encoding='utf8').read()
 rep=[("/\\/(contacto|privacidad|cookies|terminos|aviso-legal)(\\.html)?$/","/\\/(contact|privacy-policy|cookies|terms-of-use|legal-notice)(\\.html)?$/"),
 ("'Tu opinión'","'Your feedback'"),("'Cerrar'","'Close'"),("'¿Encontraste lo que buscabas?'","'Did you find what you were looking for?'"),
 ("'Tu opinión nos ayuda a mejorar Portal Místico. ¿Cómo calificarías tu visita?'","'Your feedback helps us improve Portal Místico. How would you rate your visit?'"),
-("'Es anónimo. Solo vemos la calificación y lo que escribas.'","'It\\'s anonymous. We only see the rating and whatever you write.'"),
+("'Es anónimo. Solo vemos la calificación y lo que escribas. Tu comentario podría publicarse en la web, sin tu nombre.'","'It\\'s anonymous. We only see the rating and whatever you write. Your comment may be published on the website, without your name.'"),
 ("'¡Gracias! 🌟 Nos alegra que lo hayas encontrado.'","'Thank you! 🌟 We\\'re glad you found it.'"),
 ("'Gracias. ¿Qué podríamos mejorar o qué te faltó?'","'Thanks. What could we improve, or what was missing?'"),
 ("'Lamentamos que no fuera lo que esperabas. ¿Qué buscabas o qué falló?'","'Sorry it wasn\\'t what you expected. What were you looking for, or what went wrong?'"),

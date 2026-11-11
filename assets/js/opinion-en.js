@@ -88,7 +88,7 @@
     function paint(n) { btns.forEach(function (b, k) { b.className = k < n ? 'on' : ''; }); }
     c.appendChild(st);
     var body = el('div'); c.appendChild(body);
-    c.appendChild(el('p', 'fine', 'It\'s anonymous. We only see the rating and whatever you write.'));
+    c.appendChild(el('p', 'fine', 'It\'s anonymous. We only see the rating and whatever you write. Your comment may be published on the website, without your name.'));
     box.appendChild(c);
     box.addEventListener('click', function (e) { if (e.target === box) close(); });
     document.addEventListener('keydown', onKey);

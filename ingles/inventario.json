@@ -1,0 +1,912 @@
+[
+ {
+  "es": "aviso-legal.html",
+  "titulo_es": "Aviso legal — Portal Místico",
+  "palabras": 416,
+  "tipo": "page",
+  "iframe": false
+ },
+ {
+  "es": "blog/almas-gemelas-vidas-pasadas.html",
+  "titulo_es": "Almas gemelas y vidas pasadas",
+  "palabras": 1186,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/arcanos-mayores-tarot.html",
+  "titulo_es": "Arcanos Mayores: significado derecho e invertido",
+  "palabras": 2011,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/calendario-lunar-noviembre-2026.html",
+  "titulo_es": "Calendario lunar noviembre 2026 y rituales",
+  "palabras": 1427,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/calendario-lunar-octubre-2026.html",
+  "titulo_es": "Calendario lunar octubre 2026 y rituales",
+  "palabras": 1698,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/colores-del-aura-significado.html",
+  "titulo_es": "Colores del aura y su significado: guía de 9 colores",
+  "palabras": 1418,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/como-saber-color-de-tu-aura.html",
+  "titulo_es": "Cómo saber el color de tu aura",
+  "palabras": 1229,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-aries-escorpio.html",
+  "titulo_es": "Compatibilidad Aries y Escorpio: amor, retos y consejos",
+  "palabras": 871,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-aries-leo.html",
+  "titulo_es": "Compatibilidad Aries y Leo: amor, retos y consejos",
+  "palabras": 875,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-cancer-capricornio.html",
+  "titulo_es": "Compatibilidad Cáncer y Capricornio: amor, retos y consejos",
+  "palabras": 861,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-cancer-piscis.html",
+  "titulo_es": "Compatibilidad Cáncer y Piscis: amor, retos y consejos",
+  "palabras": 852,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-escorpio-piscis.html",
+  "titulo_es": "Compatibilidad Escorpio y Piscis: amor, retos y consejos",
+  "palabras": 846,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-geminis-libra.html",
+  "titulo_es": "Compatibilidad Géminis y Libra: amor, retos y consejos",
+  "palabras": 867,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-leo-escorpio.html",
+  "titulo_es": "Compatibilidad Leo y Escorpio: amor, retos y consejos",
+  "palabras": 853,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-leo-sagitario.html",
+  "titulo_es": "Compatibilidad Leo y Sagitario: amor, retos y consejos",
+  "palabras": 858,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-libra-acuario.html",
+  "titulo_es": "Compatibilidad Libra y Acuario: amor, retos y consejos",
+  "palabras": 860,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-signos-zodiacales.html",
+  "titulo_es": "Compatibilidad de signos zodiacales",
+  "palabras": 1262,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-tauro-escorpio.html",
+  "titulo_es": "Compatibilidad Tauro y Escorpio: amor, retos y consejos",
+  "palabras": 857,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-tauro-virgo.html",
+  "titulo_es": "Compatibilidad Tauro y Virgo: amor, retos y consejos",
+  "palabras": 863,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/compatibilidad-virgo-capricornio.html",
+  "titulo_es": "Compatibilidad Virgo y Capricornio: amor, retos y consejos",
+  "palabras": 850,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/dia-de-muertos-samhain-ritual-2026.html",
+  "titulo_es": "Día de Muertos y Samhain: ofrenda y ritual",
+  "palabras": 2157,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/elegir-primera-baraja-tarot.html",
+  "titulo_es": "Cómo elegir tu primera baraja de tarot",
+  "palabras": 1274,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/elementos-zodiaco.html",
+  "titulo_es": "Los 4 elementos del zodiaco",
+  "palabras": 1203,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/formas-de-mano-quiromancia.html",
+  "titulo_es": "Formas de la mano en quiromancia: fuego, tierra, aire y agua",
+  "palabras": 2009,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/horoscopo-2026-signos.html",
+  "titulo_es": "Horóscopo 2026 para los 12 signos",
+  "palabras": 1009,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/horoscopo-2027-signos.html",
+  "titulo_es": "Horóscopo 2027 para los 12 signos",
+  "palabras": 1818,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/horoscopo-noviembre-2026-signos.html",
+  "titulo_es": "Horóscopo noviembre 2026 para los 12 signos",
+  "palabras": 2849,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/horoscopo-semanal-como-leerlo.html",
+  "titulo_es": "Horóscopo semanal: cómo leerlo y planificar tu semana",
+  "palabras": 2127,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/index.html",
+  "titulo_es": "Blog esotérico: tarot, signos y numerología",
+  "palabras": 2258,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/leonidas-2026-lluvia-de-estrellas.html",
+  "titulo_es": "Leónidas 2026: lluvia de estrellas y su significado simbólic",
+  "palabras": 1373,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/letra-m-en-la-mano.html",
+  "titulo_es": "Letra M en la mano: significado y cómo saber si la tienes",
+  "palabras": 1988,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/limpiar-proteger-energia-aura.html",
+  "titulo_es": "Cómo limpiar y proteger tu aura",
+  "palabras": 1118,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/linea-del-corazon-quiromancia.html",
+  "titulo_es": "Línea del corazón en la mano: significado y cómo leerla",
+  "palabras": 2130,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/lineas-de-la-mano-quiromancia.html",
+  "titulo_es": "Líneas de la mano: significado de cada una y cómo leerlas",
+  "palabras": 2518,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/mercurio-retrogrado-octubre-2026.html",
+  "titulo_es": "Mercurio retrógrado octubre 2026: fechas",
+  "palabras": 1590,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/numero-camino-de-vida.html",
+  "titulo_es": "Número de camino de vida y su significado",
+  "palabras": 1253,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/numerologia-del-nombre.html",
+  "titulo_es": "Numerología del nombre: qué revela",
+  "palabras": 1237,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/numerologia-fecha-nacimiento.html",
+  "titulo_es": "Numerología de tu fecha de nacimiento",
+  "palabras": 1052,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/numeros-angelicales-significado.html",
+  "titulo_es": "Números angelicales: significado 111-999",
+  "palabras": 1513,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/numeros-maestros-11-22-33.html",
+  "titulo_es": "Números maestros 11, 22 y 33",
+  "palabras": 1322,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/portal-11-11-ritual.html",
+  "titulo_es": "11/11/2026: qué es el portal 11/11, significado y ritual",
+  "palabras": 1244,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/que-es-el-ascendente.html",
+  "titulo_es": "Qué es el ascendente y cómo calcularlo",
+  "palabras": 1199,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/regresion-vidas-pasadas.html",
+  "titulo_es": "Regresión a vidas pasadas: cómo hacerla",
+  "palabras": 1182,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/senales-vida-pasada.html",
+  "titulo_es": "Señales de una vida pasada",
+  "palabras": 1234,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/tarot-del-amor.html",
+  "titulo_es": "Tarot del amor: qué revelan las cartas",
+  "palabras": 1162,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/tarot-del-dia-carta-diaria.html",
+  "titulo_es": "Tarot del día: cómo sacar tu carta diaria y leer su mensaje",
+  "palabras": 2363,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/tirada-tarot-tres-cartas.html",
+  "titulo_es": "Tirada de tarot de 3 cartas: guía",
+  "palabras": 1355,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "contacto.html",
+  "titulo_es": "Contacto y sugerencias",
+  "palabras": 527,
+  "tipo": "page",
+  "iframe": false
+ },
+ {
+  "es": "cookies.html",
+  "titulo_es": "Política de Cookies — Portal Místico",
+  "palabras": 472,
+  "tipo": "page",
+  "iframe": false
+ },
+ {
+  "es": "glosario/arcanos-mayores.html",
+  "titulo_es": "Arcanos mayores: qué es y qué significa",
+  "palabras": 494,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/arcanos-menores.html",
+  "titulo_es": "Arcanos menores: qué es y qué significa",
+  "palabras": 462,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/ascendente.html",
+  "titulo_es": "Ascendente: qué es y qué significa",
+  "palabras": 538,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/aura.html",
+  "titulo_es": "Aura: qué es y qué significa",
+  "palabras": 470,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/carta-astral.html",
+  "titulo_es": "Carta astral: qué es y qué significa",
+  "palabras": 465,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/casas-astrales.html",
+  "titulo_es": "Casas astrales: qué es y qué significa",
+  "palabras": 512,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/index.html",
+  "titulo_es": "Glosario esotérico: términos de astrología, tarot y numerología",
+  "palabras": 606,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/luna-llena.html",
+  "titulo_es": "Luna llena: qué es y qué significa",
+  "palabras": 498,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/luna-nueva.html",
+  "titulo_es": "Luna nueva: qué es y qué significa",
+  "palabras": 493,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/mercurio-retrogrado.html",
+  "titulo_es": "Mercurio retrógrado: qué es y qué significa",
+  "palabras": 503,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/numero-maestro.html",
+  "titulo_es": "Número maestro: qué es y qué significa",
+  "palabras": 480,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/signo-lunar.html",
+  "titulo_es": "Signo lunar: qué es y qué significa",
+  "palabras": 521,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "glosario/sinastria.html",
+  "titulo_es": "Sinastría: qué es y qué significa",
+  "palabras": 468,
+  "tipo": "glosario",
+  "iframe": false
+ },
+ {
+  "es": "index.html",
+  "titulo_es": "Tarot, horóscopo y numerología gratis",
+  "palabras": 1536,
+  "tipo": "page",
+  "iframe": false
+ },
+ {
+  "es": "juegos/angel-de-la-guarda.html",
+  "titulo_es": "¿Cuál es tu ángel de la guarda?",
+  "palabras": 657,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/ano-personal-2027.html",
+  "titulo_es": "Año personal 2027 en numerología",
+  "palabras": 816,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/aura.html",
+  "titulo_es": "Test de aura: el color de tu energía",
+  "palabras": 466,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/brujula.html",
+  "titulo_es": "Fase lunar de hoy y calendario lunar",
+  "palabras": 716,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/calcular-ascendente.html",
+  "titulo_es": "Calcular mi ascendente gratis",
+  "palabras": 740,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/calcular-numero-de-vida.html",
+  "titulo_es": "Calcular número de vida gratis",
+  "palabras": 1704,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/calendario-lunar.html",
+  "titulo_es": "Calendario lunar del mes: fases de la Luna",
+  "palabras": 548,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/carta-astral.html",
+  "titulo_es": "Carta astral gratis con interpretación",
+  "palabras": 989,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/celos-e-infidelidad-segun-tu-signo.html",
+  "titulo_es": "Celos e infidelidad según cada signo",
+  "palabras": 1090,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/como-afronta-una-ruptura-cada-signo.html",
+  "titulo_es": "Cómo afronta una ruptura cada signo",
+  "palabras": 1087,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/como-besa-cada-signo.html",
+  "titulo_es": "Cómo besa cada signo del zodiaco",
+  "palabras": 1023,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/como-conquistar-a-cada-signo.html",
+  "titulo_es": "Cómo conquistar a cada signo del zodiaco",
+  "palabras": 1235,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/compatibilidad-amorosa-de-cada-signo.html",
+  "titulo_es": "Compatibilidad amorosa de los signos",
+  "palabras": 1099,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/compatibilidad-de-nombres.html",
+  "titulo_es": "Compatibilidad de nombres numerológica",
+  "palabras": 766,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/compatibilidad-entre-signos.html",
+  "titulo_es": "Compatibilidad entre dos signos del zodiaco",
+  "palabras": 679,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/compatibilidad-padres-e-hijos-horoscopo-chino.html",
+  "titulo_es": "Padres e hijos en el horóscopo chino",
+  "palabras": 610,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/fase-lunar-hoy.html",
+  "titulo_es": "Fase lunar de hoy y signo de la Luna",
+  "palabras": 588,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/horoscopo-chino.html",
+  "titulo_es": "Horóscopo chino: ¿cuál es mi animal?",
+  "palabras": 1155,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/horoscopo-de-hoy.html",
+  "titulo_es": "Horóscopo de hoy para los 12 signos",
+  "palabras": 654,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/horoscopo-de-manana.html",
+  "titulo_es": "Horóscopo de mañana para los 12 signos",
+  "palabras": 634,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/horoscopo-mensual.html",
+  "titulo_es": "Horóscopo mensual para los 12 signos",
+  "palabras": 607,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/horoscopo-semanal.html",
+  "titulo_es": "Horóscopo semanal para los 12 signos",
+  "palabras": 585,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/horoscopo.html",
+  "titulo_es": "Horóscopo de hoy, mañana, semanal y mensual",
+  "palabras": 671,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/i-ching.html",
+  "titulo_es": "I Ching gratis: oráculo chino online",
+  "palabras": 626,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/mensajes-angelicales.html",
+  "titulo_es": "Mensajes angelicales: tu mensaje de hoy",
+  "palabras": 565,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/novedades.html",
+  "titulo_es": "Interpretar sueños y mensajes angelicales",
+  "palabras": 622,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/numerologia.html",
+  "titulo_es": "Calculadora de numerología gratis",
+  "palabras": 709,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/numeros-de-la-suerte-hoy.html",
+  "titulo_es": "Números de la suerte de hoy para tu signo",
+  "palabras": 818,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/oraculo-de-respuestas.html",
+  "titulo_es": "Oráculo: tarot sí o no, runas e I Ching",
+  "palabras": 708,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/personalidad-segun-tu-nombre.html",
+  "titulo_es": "Personalidad según tu nombre",
+  "palabras": 918,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/planetas-retrogrados-hoy.html",
+  "titulo_es": "¿Está Mercurio retrógrado hoy?",
+  "palabras": 566,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/por-que-enamorarte-de-cada-signo.html",
+  "titulo_es": "Por qué enamorarte de cada signo",
+  "palabras": 1029,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/que-regalarle-a-cada-signo.html",
+  "titulo_es": "Qué regalarle a cada signo del zodiaco",
+  "palabras": 1050,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/quiromancia.html",
+  "titulo_es": "Quiromancia online: lee tu mano",
+  "palabras": 542,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/revolucion-solar.html",
+  "titulo_es": "Revolución solar gratis: tu cumpleaños",
+  "palabras": 697,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/ritual-del-dia.html",
+  "titulo_es": "Ritual del día según la Luna",
+  "palabras": 515,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/rituales-y-hechizos.html",
+  "titulo_es": "Rituales y hechizos sencillos",
+  "palabras": 586,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/runas.html",
+  "titulo_es": "Tirada de runas gratis y significado de las 24 runas",
+  "palabras": 1339,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/significado-de-los-suenos.html",
+  "titulo_es": "Significado de los sueños gratis",
+  "palabras": 662,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/signo-lunar.html",
+  "titulo_es": "Calcular mi signo lunar gratis",
+  "palabras": 732,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/signos.html",
+  "titulo_es": "Oráculo de los signos: amor y zodiaco",
+  "palabras": 678,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/sinastria.html",
+  "titulo_es": "Sinastría de pareja gratis online",
+  "palabras": 749,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/tarot-del-amor-gratis.html",
+  "titulo_es": "Tarot del amor gratis: tirada online",
+  "palabras": 599,
+  "tipo": "tool",
+  "iframe": true
+ },
+ {
+  "es": "juegos/tarot-del-dia.html",
+  "titulo_es": "Tarot del día gratis: tu carta de hoy",
+  "palabras": 606,
+  "tipo": "tool",
+  "iframe": true
+ },
+ {
+  "es": "juegos/tarot-pasado-presente-futuro.html",
+  "titulo_es": "Tarot pasado, presente y futuro gratis",
+  "palabras": 541,
+  "tipo": "tool",
+  "iframe": true
+ },
+ {
+  "es": "juegos/tarot-si-o-no.html",
+  "titulo_es": "Tarot sí o no gratis: respuesta inmediata",
+  "palabras": 646,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/tarot.html",
+  "titulo_es": "Tarot online gratis: las 78 cartas con su interpretación",
+  "palabras": 1370,
+  "tipo": "tool",
+  "iframe": true
+ },
+ {
+  "es": "juegos/test-de-intuicion.html",
+  "titulo_es": "Test de intuición online gratis",
+  "palabras": 594,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/transitos.html",
+  "titulo_es": "Tránsitos de hoy en tu carta astral",
+  "palabras": 698,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "metodologia.html",
+  "titulo_es": "Cómo funcionan nuestras herramientas y fuentes — Portal Místico",
+  "palabras": 1011,
+  "tipo": "page",
+  "iframe": false
+ },
+ {
+  "es": "privacidad.html",
+  "titulo_es": "Política de privacidad — Portal Místico",
+  "palabras": 915,
+  "tipo": "page",
+  "iframe": false
+ },
+ {
+  "es": "recursos/index.html",
+  "titulo_es": "Recursos descargables gratis: calendario lunar, arcanos y signos",
+  "palabras": 919,
+  "tipo": "recursos",
+  "iframe": false
+ },
+ {
+  "es": "sobre-nosotros.html",
+  "titulo_es": "Sobre nosotros — Portal Místico",
+  "palabras": 1017,
+  "tipo": "page",
+  "iframe": false
+ },
+ {
+  "es": "terminos.html",
+  "titulo_es": "Términos de uso — Portal Místico",
+  "palabras": 572,
+  "tipo": "page",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/acuario.html",
+  "titulo_es": "Acuario: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 862,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/aries.html",
+  "titulo_es": "Aries: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 868,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/cancer.html",
+  "titulo_es": "Cáncer: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 842,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/capricornio.html",
+  "titulo_es": "Capricornio: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 828,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/escorpio.html",
+  "titulo_es": "Escorpio: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 855,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/geminis.html",
+  "titulo_es": "Géminis: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 831,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/index.html",
+  "titulo_es": "Signos del zodiaco: personalidad, amor y compatibilidad",
+  "palabras": 715,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/leo.html",
+  "titulo_es": "Leo: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 857,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/libra.html",
+  "titulo_es": "Libra: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 840,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/piscis.html",
+  "titulo_es": "Piscis: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 866,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/sagitario.html",
+  "titulo_es": "Sagitario: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 871,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/tauro.html",
+  "titulo_es": "Tauro: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 856,
+  "tipo": "zodiaco",
+  "iframe": false
+ },
+ {
+  "es": "zodiaco/virgo.html",
+  "titulo_es": "Virgo: personalidad, amor, trabajo y compatibilidad",
+  "palabras": 839,
+  "tipo": "zodiaco",
+  "iframe": false
+ }
+]

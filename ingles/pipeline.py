@@ -155,7 +155,7 @@ def build(es_path, m=None, lang_switch=True):
         for a in ('href','src','action','data-url','poster'):
             if e.get(a):
                 if e.name=='link' and e.get('rel') and ('canonical' in e['rel'] or 'alternate' in e['rel']): continue
-                if e.name=='iframe' and e[a].startswith('tarot-game/'): continue
+                if (e.name=='iframe' and e[a].startswith('tarot-game/')) or (e.name=='script' and e[a].startswith('novedades-game/main-inline.js')): continue
                 e[a]=resolve(e[a],es_path)
 
     # scripts propios de cada página

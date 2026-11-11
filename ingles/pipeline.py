@@ -61,6 +61,9 @@ def walk(soup):
     return out
 def clean(soup):
     for a in soup.find_all('a',class_='pm-lang'): a.decompose()
+    for a in soup.find_all('a',class_='pm-lt'): a.decompose()
+    for l in soup.find_all('link',href=re.compile(r'lang-toggle')): l.decompose()
+    for sc in soup.find_all('script',src=re.compile(r'lang-toggle')): sc.decompose()
     for l in soup.find_all('link',rel='alternate'):
         if l.get('hreflang'): l.decompose()
     return soup
@@ -152,7 +155,7 @@ def build(es_path, m=None, lang_switch=True):
         s.string=txt
     # enlaces y recursos
     for e in soup.find_all(True):
-        for a in ('href','src','action','data-url','poster'):
+        for a in ('href','src','action','data-url','poster','data-src','data-bg','data-poster'):
             if e.get(a):
                 if e.name=='link' and e.get('rel') and ('canonical' in e['rel'] or 'alternate' in e['rel']): continue
                 if (e.name=='iframe' and e[a].startswith('tarot-game/')) or (e.name=='script' and e[a].startswith(('novedades-game/main-inline.js','brujula-game/main-inline.js','aura-game/','quiromancia-game/'))): continue

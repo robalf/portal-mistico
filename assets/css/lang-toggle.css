@@ -1,0 +1,22 @@
+/* Interruptor de idioma ES / EN con bolita deslizante */
+a.pm-lt{padding:0!important;line-height:1!important;position:relative;display:inline-flex;justify-content:flex-start;align-items:center;flex:none;width:56px;height:30px;box-sizing:border-box;margin-left:auto;border-radius:15px;border:1px solid rgba(199,162,75,.5);background:linear-gradient(180deg,rgba(244,239,227,.07),rgba(244,239,227,.02));text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent;font:600 10.5px/1 'Work Sans',Arial,sans-serif;letter-spacing:.09em;color:#AEB3D4;box-shadow:inset 0 1px 3px rgba(0,0,0,.45);transition:border-color .25s,box-shadow .25s}
+.pm-lt:hover,.pm-lt:focus-visible{border-color:rgba(241,213,138,.9);box-shadow:inset 0 1px 3px rgba(0,0,0,.45),0 0 12px rgba(199,162,75,.35);outline:none}
+a.pm-lt>span{position:relative;z-index:2;display:block;flex:0 0 27px;width:27px;margin:0;padding:0 0 0 .09em;box-sizing:border-box;text-align:center;transition:color .3s}
+.pm-lt i{position:absolute;z-index:1;top:2px;left:2px;width:23px;height:24px;border-radius:12px;background:radial-gradient(circle at 35% 30%,#FBEBB5,#E2BD62 55%,#B98F34);box-shadow:0 1px 6px rgba(199,162,75,.55),inset 0 -1px 2px rgba(120,84,10,.45);transition:transform .38s cubic-bezier(.34,1.56,.64,1)}
+.pm-lt-es span:nth-child(1),.pm-lt-en span:nth-child(2){color:#2A1E05}
+.pm-lt-en i{transform:translateX(27px)}
+.pm-lt-go.pm-lt-es i{transform:translateX(27px)}
+.pm-lt-go.pm-lt-es span:nth-child(1){color:#AEB3D4}.pm-lt-go.pm-lt-es span:nth-child(2){color:#2A1E05}
+.pm-lt-go.pm-lt-en i{transform:translateX(0)}
+.pm-lt-go.pm-lt-en span:nth-child(2){color:#AEB3D4}.pm-lt-go.pm-lt-en span:nth-child(1){color:#2A1E05}
+.pm-nav-in .pm-lt~#pm-music-btn{margin-left:0}
+.pm-lt-fixed{position:fixed;top:14px;right:62px;margin:0;z-index:10;background:rgba(5,6,15,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+@media (prefers-reduced-motion:reduce){.pm-lt i{transition:none}}
+@media (max-width:430px){
+  .pm-nav-in:has(.pm-lt){gap:8px}
+  .pm-nav-in:has(.pm-lt) .pm-brand{font-size:16px;min-width:0}
+  .pm-nav-in:has(.pm-lt) .pm-brand img{width:28px;height:28px}
+  #pm-back-btn{margin-right:2px}
+}
+@media (max-width:360px){.pm-nav-in:has(.pm-lt) .pm-brand{font-size:14.5px}}
+@media (max-width:340px){.pm-nav-in:has(.pm-lt) .pm-brand{font-size:0}.pm-nav-in:has(.pm-lt) .pm-brand img{width:32px;height:32px}}

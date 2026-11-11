@@ -197,19 +197,27 @@ def build(es_path, m=None, lang_switch=True):
     for lang,u in (('en',en_url(M[es_path])),('es',es_url(es_path)),('x-default',es_url(es_path))):
         l=soup.new_tag('link',rel='alternate',hreflang=lang,href=u); head.append(l)
     if lang_switch:
-        nav=soup.find(class_='pm-links')
-        if nav:
-            a=soup.new_tag('a',href='/'+es_path if not es_path.endswith('index.html') else '/'+es_path[:-10]); a['class']='pm-lang'; a['hreflang']='es'; a['onclick']='event.stopPropagation()'; a.string='🌐 Español'; nav.append(a)
-        else:
-            bb=soup.find('a',class_='back-btn')
-            if bb:
-                a=soup.new_tag('a',href='/'+es_path); a['class']='pm-lang'; a['hreflang']='es'; a['onclick']='event.stopPropagation()'; a['style']='position:fixed;top:14px;right:64px;z-index:10;background:rgba(5,6,15,0.75);backdrop-filter:blur(6px);border:1px solid rgba(199,162,75,0.35);color:#EEF0FA;text-decoration:none;font-size:0.82rem;padding:7px 14px;border-radius:20px'; a.string='🌐 Español'; bb.insert_after(a)
+        href='/'+es_path if not es_path.endswith('index.html') else '/'+es_path[:-10]
+        brand=soup.select_one('.pm-nav-in .pm-brand')
+        bb=soup.find('a',class_='back-btn')
+        if brand:
+            brand.insert_after(BeautifulSoup(lang_toggle('en',href),'html.parser'))
+        elif bb:
+            bb.insert_after(BeautifulSoup(lang_toggle('en',href,True),'html.parser'))
+        if brand or bb:
+            soup.head.append(BeautifulSoup(TOGGLE_HEAD,'html.parser'))
     h1=soup.find('h1')
     if h1:
         for e in soup.select('[data-title]'): e['data-title']=h1.get_text(' ',strip=True)
     out=str(soup)
     out=re.sub(r'^<!DOCTYPE[^>]*>','<!DOCTYPE html>',out) if out.startswith('<!DOCTYPE') else '<!DOCTYPE html>\n'+out
     return out, []
+
+def lang_toggle(cur,href,fixed=False):
+    tgt='en' if cur=='es' else 'es'
+    lab='Switch to English' if cur=='es' else 'Cambiar a español'
+    return '<a class="pm-lt pm-lt-%s%s" href="%s" hreflang="%s" lang="%s" aria-label="%s" title="%s" onclick="event.stopPropagation()"><span>ES</span><span>EN</span><i aria-hidden="true"></i></a>'%(cur,' pm-lt-fixed' if fixed else '',href,tgt,tgt,lab,lab)
+TOGGLE_HEAD='<link rel="stylesheet" href="/assets/css/lang-toggle.css?v=5"><script src="/assets/js/lang-toggle.js?v=1" defer></script>'
 def write_en(es_path,out):
     out=re.sub(r'(href="|src=")((?:aura|quiromancia)-game/(?:scoped\.css))',r'\1/juegos/\2',out)
     p=os.path.join(ROOT,'en',M[es_path]); os.makedirs(os.path.dirname(p),exist_ok=True); open(p,'w',encoding='utf8').write(out); return p

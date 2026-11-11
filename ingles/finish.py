@@ -16,11 +16,13 @@ def es_link(es):
     tags='<link rel="alternate" hreflang="es" href="%s">\n<link rel="alternate" hreflang="en" href="%s">\n<link rel="alternate" hreflang="x-default" href="%s">\n'%(eu,en,eu)
     h=h.replace('</head>',tags+'</head>',1)
     h=re.sub(r'<a class="pm-lang"[^>]*>[^<]*</a>','',h)
-    sw='<a class="pm-lang" href="/en/%s" hreflang="en" onclick="event.stopPropagation()">🌐 English</a>'%(M[es] if not M[es].endswith('index.html') else M[es][:-10])
-    h2=re.sub(r'(</a>)(</div>\s*</div></nav>)',lambda mo:mo.group(1)+sw+mo.group(2),h,count=1)
+    h=re.sub(r'<a class="pm-lt[^>]*>.*?</a>','',h,flags=re.S)
+    h=re.sub(r'<link rel="stylesheet" href="/assets/css/lang-toggle.css[^>]*><script src="/assets/js/lang-toggle.js[^>]*></script>','',h)
+    href='/en/'+(M[es][:-10] if M[es].endswith('index.html') else M[es])
+    h2=re.sub(r'(<a class="pm-brand"[^>]*>.*?</a>)',lambda mo:mo.group(1)+P.lang_toggle('es',href),h,count=1,flags=re.S) if 'class="pm-nav-in"' in h else h
     if h2==h and 'class="back-btn"' in h:
-        sw2='<a class="pm-lang" href="/en/'+M[es]+'" hreflang="en" onclick="event.stopPropagation()" style="position:fixed;top:14px;right:64px;z-index:10;background:rgba(5,6,15,0.75);backdrop-filter:blur(6px);border:1px solid rgba(199,162,75,0.35);color:#EEF0FA;text-decoration:none;font-size:0.82rem;padding:7px 14px;border-radius:20px">🌐 English</a>'
-        h2=re.sub(r'(<a href="[^"]*" class="back-btn">[^<]*</a>)',lambda mo:mo.group(1)+sw2,h,count=1)
+        h2=re.sub(r'(<a href="[^"]*" class="back-btn">[^<]*</a>)',lambda mo:mo.group(1)+P.lang_toggle('es',href,True),h,count=1)
+    if h2!=h: h2=h2.replace('</head>',P.TOGGLE_HEAD+'\n</head>',1)
     if h2==h and 'pm-links' in h: print('sin selector (patrón no hallado):',es)
     open(p,'w',encoding='utf8').write(h2)
 for es in done: es_link(es)

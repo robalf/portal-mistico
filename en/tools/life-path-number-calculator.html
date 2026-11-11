@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Free Life Path Number Calculator | Portal Místico</title>
+<meta content="Calculate your life path number from your birth date and discover the gifts of your essence, including master numbers 11, 22 and 33." name="description"/>
+<link href="https://elportalmistico.com/en/tools/life-path-number-calculator.html" rel="canonical"/>
+<style>
+  :root{
+    --ink: #EEF0FA;
+    --ink-dim: #9098C4;
+    --void: #030308;
+    --gold: #C7A24B;
+    --line: rgba(244,239,227,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{ scroll-behavior:smooth; }
+  body{
+    background: var(--void);
+    color: var(--ink);
+    font-family: 'Work Sans', Arial, sans-serif;
+  }
+  .game-frame-wrap{
+    width:100%;
+    height: 100vh;
+    display:block;
+  }
+  .game-frame-wrap iframe{
+    width:100%;
+    height: 100%;
+    border:none;
+    display:block;
+    background: var(--void);
+  }
+  .back-btn{
+    position:fixed;
+    top:14px; left:14px;
+    z-index:10;
+    display:flex; align-items:center; gap:6px;
+    background: rgba(5,6,15,0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration:none;
+    font-size:0.82rem;
+    padding: 7px 14px;
+    border-radius: 20px;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .back-btn:hover{ color: var(--gold); border-color: var(--gold); }
+  .ad-slot{
+    max-width: 728px;
+    margin: 0 auto;
+    padding: 18px 16px;
+    text-align:center;
+    color: var(--ink-dim);
+    font-size:0.82rem;
+    border: 1px dashed var(--line);
+    border-radius: 6px;
+    background: var(--void);
+  }
+  .ad-slot-wrap{ padding: 16px; }
+  .game-info{ max-width:760px; margin:0 auto; padding:44px 22px 40px; color:#C9CCE6; line-height:1.7; font-family:'Work Sans',Arial,sans-serif; }
+  .game-info .kicker{ color:var(--gold); font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:8px; }
+  .game-info h1{ font-family:'Fraunces',Georgia,serif; font-weight:600; color:var(--ink); font-size:clamp(1.6rem,6vw,2.3rem); line-height:1.2; margin-bottom:14px; }
+  .game-info h2{ font-family:'Fraunces',Georgia,serif; font-weight:600; color:var(--gold); font-size:1.3rem; margin:30px 0 10px; }
+  .game-info h3{ color:var(--ink); font-size:1rem; margin:16px 0 4px; }
+  .game-info p{ margin-bottom:12px; font-size:0.98rem; }
+  .game-info ul{ padding-left:20px; margin-bottom:12px; }
+  .game-info li{ margin-bottom:8px; font-size:0.96rem; }
+  .game-info strong{ color:var(--ink); }
+  .game-info .note{ border:1px solid rgba(199,162,75,0.35); background:rgba(199,162,75,0.07); border-radius:12px; padding:12px 16px; font-size:0.88rem; margin-top:24px; }
+  .game-info .related a{ color:var(--gold); }
+  .scroll-hint{ text-align:center; padding:14px 0 0; color:var(--ink-dim); font-size:0.82rem; }
+
+  /* PM-INFO-BG */
+  body{ background: #0A0B18 !important; }
+  .more-wrap{ text-align:center; padding: 18px 16px 6px; }
+  .more-btn{ font-family:'Work Sans',Arial,sans-serif; font-size:0.95rem; color:#E9D9A6; background:rgba(199,162,75,0.10); border:1px solid rgba(199,162,75,0.45); border-radius:999px; padding:11px 22px; cursor:pointer; transition:background .2s ease; }
+  .more-btn:hover{ background:rgba(199,162,75,0.2); }
+  .more-arrow{ display:inline-block; margin-left:6px; transition:transform .25s ease; }
+  .more-btn[aria-expanded="true"] .more-arrow{ transform:rotate(180deg); }
+  .game-info.collapsed{ max-height:0; overflow:hidden; padding-top:0; padding-bottom:0; }
+  footer.legal-bar{ background: transparent !important; border-top:1px solid rgba(244,239,227,0.08) !important; }
+  @media (min-width:1000px){ .game-info{ max-width:880px; font-size:1.05rem; } .game-info h1{ font-size:2.6rem; } .game-info h2{ font-size:1.5rem; } }
+</style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2757838411866761"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-R2N03YDQY7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-R2N03YDQY7');
+</script>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/assets/brand/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/assets/brand/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta content="#0A0B18" name="theme-color"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<style id="pm-nav-css">
+.pm-nav{position:sticky;top:0;z-index:60;background:rgba(5,6,15,0.98);border-bottom:1px solid rgba(244,239,227,0.12);font-family:'Work Sans',Arial,sans-serif;}
+.pm-nav.pm-static{position:relative;}
+.pm-nav-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:12px;}
+.pm-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#EEF0FA;font-family:'Fraunces',Georgia,serif;font-size:1.15rem;white-space:nowrap;}
+.pm-brand img{width:44px;height:44px;border-radius:11px;display:block;}
+.pm-brand em{color:#C7A24B;font-style:italic;}
+.pm-links{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end;}
+.pm-links a{color:#C9CCE6;text-decoration:none;font-size:0.86rem;padding:7px 10px;border-radius:18px;white-space:nowrap;}
+.pm-links a:hover,.pm-links a.pm-on{color:#C7A24B;background:rgba(199,162,75,0.12);}
+.pm-burger{display:none;background:none;border:1px solid rgba(244,239,227,0.18);color:#EEF0FA;border-radius:10px;width:42px;height:38px;font-size:1.25rem;cursor:pointer;}
+@media all{
+ .pm-burger{display:block;}
+ .pm-links{display:none;position:absolute;left:0;right:0;top:100%;background:#0A0B18;border-bottom:1px solid rgba(199,162,75,0.3);flex-direction:column;padding:8px 14px 14px;gap:2px;max-height:75vh;overflow-y:auto;}
+ .pm-nav.pm-open .pm-links{display:flex;}
+ .pm-links a{font-size:1rem;padding:12px 12px;border-radius:10px;}
+}
+.pm-nav{display:block!important;overflow:visible!important;margin:0!important;padding:0!important;width:100%!important;max-width:none!important;flex:none!important;align-self:stretch!important;box-sizing:border-box;}
+.pm-nav-in{width:100%;box-sizing:border-box;}
+.pm-nav-in{position:relative;}
+@media (min-width:700px){.pm-links{left:auto!important;right:18px!important;width:290px;border:1px solid rgba(199,162,75,0.3)!important;border-top:0!important;border-radius:0 0 14px 14px;box-shadow:0 18px 40px rgba(0,0,0,0.5);} .pm-brand{font-size:1.3rem;} .pm-brand img{width:52px;height:52px;}}
+.pm-nav .pm-links a{margin:0!important;border:0!important;}
+</style>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1" name="robots"/>
+<meta content="Portal Místico" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="website" property="og:type"/>
+<meta content="Calculate Your Life Path (Personal) Number for Free" property="og:title"/>
+<meta content="Calculate your life path number from your birth date and discover the gifts of your essence, including master numbers 11, 22 and 33." property="og:description"/>
+<meta content="https://elportalmistico.com/en/tools/life-path-number-calculator.html" property="og:url"/>
+<meta content="https://elportalmistico.com/assets/og/numerologia.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Calculate Your Life Path (Personal) Number for Free" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Calculate Your Life Path (Personal) Number for Free" name="twitter:title"/>
+<meta content="Calculate your life path number from your birth date and discover the gifts of your essence, including master numbers 11, 22 and 33." name="twitter:description"/>
+<meta content="https://elportalmistico.com/assets/og/numerologia.jpg" name="twitter:image"/>
+<script id="pm-ld" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "Calculate Your Life Path (Personal) Number for Free", "url": "https://elportalmistico.com/en/tools/life-path-number-calculator.html", "description": "Calculate your life path number from your birth date and discover the gifts of your essence, including master numbers 11, 22 and 33.", "applicationCategory": "LifestyleApplication", "operatingSystem": "Web", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "image": "https://elportalmistico.com/assets/og/numerologia.jpg", "author": {"@type": "Person", "@id": "https://elportalmistico.com/en/about.html#autor", "name": "Roberto Rodriguez"}, "publisher": {"@type": "Organization", "name": "Portal Místico", "url": "https://elportalmistico.com/en/", "logo": {"@type": "ImageObject", "url": "https://elportalmistico.com/assets/brand/logo-512.png"}}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are Life Number and Life Path Number the Same Thing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, they're two names for the same calculation using your full birth date."}}, {"@type": "Question", "name": "What if I get 11, 22, or 33?", "acceptedAnswer": {"@type": "Answer", "text": "These are master numbers: they're read with their own, more intense energy, and also through their reduced number (2, 4, or 6)."}}, {"@type": "Question", "name": "Do I need my birth time?", "acceptedAnswer": {"@type": "Answer", "text": "No. Just the day, month, and year."}}, {"@type": "Question", "name": "How do I calculate my life path number from my birth date?", "acceptedAnswer": {"@type": "Answer", "text": "Reduce each part of the date (day, month, and year) to a single digit, add the three results, and reduce again. The master numbers 11, 22, and 33 are kept as they are. This is a symbolic reading for entertainment."}}, {"@type": "Question", "name": "What does a life path number 11, 22, or 33 mean?", "acceptedAnswer": {"@type": "Answer", "text": "These are master numbers: they're read with a more intense energy than their reduced numbers (2, 4, and 6). Tradition associates them with intuition, building on a grand scale, and a calling to support others."}}, {"@type": "Question", "name": "Does your life path number change over time?", "acceptedAnswer": {"@type": "Answer", "text": "No. It's calculated from your birth date, so it's always the same. What changes, according to numerology, is your personal year, which renews every year."}}, {"@type": "Question", "name": "Are some life path numbers better than others?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every number has its own strengths and challenges. Numerology presents them as life lessons, not as a ranking."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://elportalmistico.com/en/"}, {"@type": "ListItem", "position": 2, "name": "Numerology", "item": "https://elportalmistico.com/en/tools/free-numerology-calculator.html"}, {"@type": "ListItem", "position": 3, "name": "Calculate your life path number", "item": "https://elportalmistico.com/en/tools/life-path-number-calculator.html"}]}]}</script>
+<style id="pm-share-css">
+.pm-share{max-width:760px;margin:26px auto 10px;padding:0 20px;text-align:center;font-family:'Work Sans',Arial,sans-serif;}
+.pm-share-t{color:#C7A24B;font-size:0.8rem;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:12px;}
+.pm-share-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.pm-share a,.pm-share button{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:999px;border:1px solid rgba(199,162,75,0.4);background:rgba(42,37,96,0.45);color:#EEF0FA;text-decoration:none;font-size:0.92rem;cursor:pointer;font-family:inherit;}
+.pm-share a:hover,.pm-share button:hover{background:rgba(199,162,75,0.18);}
+.pm-share .pm-native{display:none;}
+</style>
+<script src="/assets/js/musica-global-en.js?v=1"></script>
+<style id="pm-tool-reads-css">
+.pm-tool-reads{max-width:760px;margin:22px auto 4px;padding:0 16px;font-family:'Work Sans',Arial,sans-serif}
+.pm-tool-reads h2{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-size:1.2rem;color:#C7A24B;text-align:center;margin:0 0 12px}
+.pm-tool-reads ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.pm-tool-reads a{display:block;padding:12px 14px;border:1px solid rgba(199,162,75,0.28);border-radius:10px;background:rgba(10,11,24,0.55);color:#EEF0FA;text-decoration:none;font-size:0.95rem}
+.pm-tool-reads a:hover{border-color:rgba(199,162,75,0.6);color:#C7A24B}
+@media(min-width:700px){.pm-tool-reads ul{grid-template-columns:1fr 1fr}}
+</style>
+<style id="pm-tool-sibs-css">
+.pm-tool-sibs{max-width:760px;margin:18px auto 6px;padding:0 16px;font-family:'Work Sans',Arial,sans-serif}
+.pm-tool-sibs h2{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-size:1.2rem;color:#C7A24B;text-align:center;margin:0 0 12px}
+.pm-tool-sibs div{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.pm-tool-sibs a{display:inline-block;padding:9px 14px;border:1px solid rgba(199,162,75,0.35);border-radius:999px;background:rgba(10,11,24,0.55);color:#EEF0FA;text-decoration:none;font-size:0.9rem}
+.pm-tool-sibs a:hover{border-color:#C7A24B;color:#C7A24B}
+.pm-tool-sibs a.on{background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;border-color:transparent;font-weight:600}
+</style>
+<meta content="dark" name="color-scheme"/><style id="pm-flash">html,body{background:#0A0B18}iframe{background:#0A0B18!important}</style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&amp;family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<style id="pm-calc-css">
+.pm-calc{background:radial-gradient(ellipse at 50% -18%,#24204d 0%,#111126 37%,#0A0B18 76%);padding:72px 16px 38px;font-family:Manrope,'Work Sans',system-ui,sans-serif;color:#f4efff}
+.pm-calc .pc-wrap{max-width:560px;margin:0 auto}
+.pm-calc .pc-hero{text-align:center;margin-bottom:20px}
+.pm-calc .pc-eyebrow{color:#c9b8ff;font-size:11px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:8px}
+.pm-calc .pc-title{font-family:Cinzel,serif;font-weight:600;font-size:clamp(24px,7vw,36px);letter-spacing:.05em;line-height:1.2;background:linear-gradient(90deg,#fff2b8,#d2b25f,#fff6d7);-webkit-background-clip:text;background-clip:text;color:transparent;margin:0}
+.pm-calc .pc-sub{font-size:13px;line-height:1.6;color:#b7afd0;margin:10px auto 0;max-width:460px}
+.pm-calc .pc-panel{border:1px solid rgba(232,200,117,.28);border-radius:22px;background:rgba(18,14,43,.82);padding:21px 18px;box-shadow:0 18px 45px rgba(0,0,0,.3)}
+.pm-calc .pc-intro{font-size:13px;line-height:1.65;color:#b7afd0;margin:0 0 20px;text-align:center}
+.pm-calc label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#e8c875;margin:0 0 8px 3px}
+.pm-calc input{width:100%;height:54px;border-radius:14px;border:1px solid rgba(201,184,255,.24);background:rgba(6,4,21,.68);color:#f4efff;padding:0 15px;outline:none;font:inherit;font-size:16px;color-scheme:dark;margin-bottom:16px}
+.pm-calc input:focus{border-color:#e8c875;box-shadow:0 0 0 3px rgba(232,200,117,.1)}
+.pm-calc .pc-btn{width:100%;min-height:54px;border:1px solid #f6db8f;border-radius:15px;background:linear-gradient(135deg,#c69a3c,#f0d98a 52%,#b6872f);color:#21172c;font:inherit;font-weight:800;letter-spacing:.04em;cursor:pointer}
+.pm-calc .pc-btn:hover{filter:brightness(1.07)}
+.pm-calc .pc-err{min-height:18px;margin:10px 2px 0;color:#f2a9cc;font-size:12px;text-align:center}
+.pm-calc .pc-result{margin-top:6px}
+.pm-calc .pc-res{margin-top:12px;border-top:1px solid rgba(232,200,117,.28);padding-top:20px;text-align:center}
+.pm-calc .pc-orbit{width:118px;height:118px;margin:0 auto 13px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(121,81,204,.42),rgba(14,10,39,.2));border:1px solid rgba(232,200,117,.35)}
+.pm-calc .pc-kicker{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:#c9b8ff}
+.pm-calc .pc-num{font-family:Cinzel,serif;font-size:51px;line-height:1;color:#fff0b0;text-shadow:0 0 18px rgba(232,200,117,.42)}
+.pm-calc .pc-res h3{font-family:Cinzel,serif;font-size:19px;margin:8px 0;color:#fff2c8;font-weight:600}
+.pm-calc .pc-res p{font-size:13px;line-height:1.68;color:#d1c9e6;margin:8px 0}
+.pm-guide{max-width:760px;margin:0 auto;padding:6px 22px 8px;font-family:'Work Sans',Arial,sans-serif;color:#C9CCE6;line-height:1.7}
+.pm-guide h2{font-family:'Fraunces',Georgia,serif;font-weight:600;color:#C7A24B;font-size:1.3rem;margin:26px 0 10px}
+.pm-guide h3{color:#EEF0FA;font-size:1.02rem;margin:18px 0 4px}
+.pm-guide p{margin-bottom:10px;font-size:.96rem}
+</style>
+
+
+
+<link href="https://elportalmistico.com/en/tools/life-path-number-calculator.html" hreflang="en" rel="alternate"/><link href="https://elportalmistico.com/juegos/calcular-numero-de-vida.html" hreflang="es" rel="alternate"/><link href="https://elportalmistico.com/juegos/calcular-numero-de-vida.html" hreflang="x-default" rel="alternate"/></head>
+<body>
+<a class="back-btn" href="/en/tools/free-numerology-calculator.html">← Back to Numerology</a><a class="pm-lang" href="/juegos/calcular-numero-de-vida.html" hreflang="es" onclick="event.stopPropagation()" style="position:fixed;top:14px;right:64px;z-index:10;background:rgba(5,6,15,0.75);backdrop-filter:blur(6px);border:1px solid rgba(199,162,75,0.35);color:#EEF0FA;text-decoration:none;font-size:0.82rem;padding:7px 14px;border-radius:20px">🌐 Español</a>
+<section aria-label="Life Path Number Calculator" class="pm-calc" id="calculadora">
+<div class="pc-wrap">
+<div class="pc-hero">
+<div class="pc-eyebrow">∞ Personal Number</div>
+<p aria-level="2" class="pc-title" role="heading">Discover your life path number</p>
+<p class="pc-sub">Enter your birth date and instantly get your number, your strengths, your challenges and the four pinnacles of your life.</p>
+</div>
+<div class="pc-panel">
+<p class="pc-intro">Your full birth date holds a base vibration: a symbolic way to recognize your talents and lessons.</p>
+<form id="lifeForm" novalidate="">
+<label for="birth">Birth date</label>
+<input autocomplete="bday" id="birth" name="birth" required="" type="date"/>
+<button class="pc-btn" type="submit">✦ Discover my number</button>
+<div aria-live="polite" class="pc-err" id="lifeErr"></div>
+<div aria-live="polite" class="pc-result" id="lifeResult"></div>
+</form>
+</div>
+</div>
+</section>
+<script type="module">
+import { RICH, PIN, CHAL } from './numerologia-game/numerologia-extra.js?v=1';
+const meanings = {1:{title:"The Spark of Initiation",text:"Your energy opens paths. You have independence, creativity, and the courage to turn an intuition into a concrete beginning. Your best compass is to act with confidence without isolating yourself."},2:{title:"The Sensitive Bridge",text:"You perceive nuances that other people overlook. Cooperation, tact, and listening are your strengths; when you protect your boundaries, your sensitivity becomes a powerful guide."},3:{title:"The Luminous Voice",text:"Expression, humor, and imagination add color to your path. Your presence inspires when you share what you feel with simplicity and give your ideas a steady form."},4:{title:"The Builder Root",text:"You have a talent for organizing, sustaining, and creating lasting foundations. Patience favors you; leaving a little room for the unexpected turns discipline into freedom."},5:{title:"The Wind of Change",text:"Curiosity and adaptability fuel your growth. You learn by living, moving, and experimenting; choosing one clear intention helps keep your energy from scattering."},6:{title:"The Harmonizing Heart",text:"Care, beauty, and responsibility form your natural language. You create a refuge for those you love, and you flourish even more when you include yourself in the attention you offer."},7:{title:"The Deep Gaze",text:"You seek to understand the invisible behind the everyday. Intuition, analysis, and an inner life are your gifts; sharing your discoveries lets wisdom connect as well."},8:{title:"The Conscious Power",text:"You have practical vision and the ability to make things real. You lead best when success and purpose walk together, using your firmness to build shared abundance."},9:{title:"The Generous Soul",text:"Compassion, breadth of heart, and a calling to serve mark your vibration. You know how to close cycles with learning; caring for your energy makes your giving calmer and more fruitful."},11:{title:"The Inspiring Antenna",text:"Your intuition is intense and picks up on possibilities before they are obvious. You are here to inspire from a place of authenticity; rest and a gentle routine help ground your vision."},22:{title:"The Great Builder",text:"You combine a broad vision with the ability to make it real. Your projects can benefit many people when you move forward in stages and trust your team as well."},33:{title:"The Master Heart",text:"Your vibration brings together empathy, creativity, and a calling to support others. Your influence grows when you teach by example and remember that serving does not mean demanding perfection of yourself."}};
+function reduce(v, masters = true){ let n = Math.abs(Number(v)) || 0; while (n > 9 && !(masters && [11,22,33].includes(n))) n = String(n).split('').reduce((a,d)=>a+Number(d),0); return n; }
+function validDate(v){ const d = new Date(v+'T12:00:00'); return v && !Number.isNaN(d.valueOf()) && d <= new Date(); }
+function ageNow(y,m,d){ const t=new Date(); let a=t.getFullYear()-y; if (t.getMonth()+1<m || (t.getMonth()+1===m && t.getDate()<d)) a--; return a; }
+const form = document.getElementById('lifeForm'), err = document.getElementById('lifeErr'), out = document.getElementById('lifeResult');
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  const value = form.birth.value;
+  if (!validDate(value)) { err.textContent = 'Choose a valid date of birth.'; out.innerHTML = ''; return; }
+  err.textContent = '';
+  const [y, mo, d] = value.split('-').map(Number);
+  const number = reduce(reduce(y) + reduce(mo) + reduce(d));
+  const m = meanings[number] || meanings[reduce(number,false)]; const R = RICH[number] || RICH[reduce(number,false)];
+  const r = x => reduce(x,false); const M = r(mo), D = r(d), Y = r(y), lp = r(number);
+  const pin = [r(M+D), r(D+Y), 0, r(M+Y)]; pin[2] = r(pin[0]+pin[1]);
+  const cha = [Math.abs(M-D), Math.abs(D-Y), 0, Math.abs(M-Y)]; cha[2] = Math.abs(cha[0]-cha[1]);
+  const e1 = 36 - lp, ages = [[0,e1],[e1+1,e1+9],[e1+10,e1+18],[e1+19,null]];
+  const age = ageNow(y,mo,d); const cur = ages.findIndex(([a,b]) => age >= a && (b === null || age <= b));
+  const rango = ([a,b]) => b === null ? 'from age '+a+'' : 'ages '+a+' to '+b+'';
+  const pinHtml = pin.map((n,i)=>'<strong>Stage '+(i+1)+' ('+rango(ages[i])+')'+(i===cur?' · current':'')+':</strong> number '+n+', '+PIN[n]).join('<br>');
+  const chaHtml = cha.map((n,i)=>'<strong>Challenge '+(i+1)+':</strong> '+CHAL[n]).join('<br>');
+  const dayNum = reduce(d); const RD = RICH[dayNum] || RICH[r(dayNum)];
+  out.innerHTML = '<div class="pc-res"><div class="pc-orbit"><div><div class="pc-kicker">Life path number</div><div class="pc-num">'+number+'</div></div></div>'
+    + '<h3>'+m.title+'</h3><p>'+m.text+'</p>'
+    + '<p><strong>Your strengths:</strong> '+R.fort+'</p><p><strong>Your challenge:</strong> '+R.reto+'</p>'
+    + '<p><strong>In love:</strong> '+R.amor+'</p><p><strong>At work:</strong> '+R.trabajo+'</p><p><strong>Advice:</strong> '+R.consejo+'</p>'
+    + '<h3>Your birth day number: '+dayNum+'</h3><p>The day you were born adds a natural talent: '+RD.fort.charAt(0).toLowerCase()+RD.fort.slice(1)+'</p>'
+    + '<h3>The four stages of your life</h3><p>'+pinHtml+'</p><h3>The four challenges</h3><p>'+chaHtml+'</p></div>';
+  out.scrollIntoView({behavior:'smooth', block:'nearest'});
+  if (window.gtag) gtag('event','reading_complete',{kind:'life_native'});
+});
+</script>
+<section class="pm-tool-sibs"><h2>Numerology Tools</h2><div><a href="/en/tools/free-numerology-calculator.html">All Numerology</a><a href="/en/tools/lucky-numbers-today.html">☽ Lucky Numbers</a><a aria-current="page" class="on" href="/en/tools/life-path-number-calculator.html">∞ Life Path Number</a><a href="/en/tools/personal-year-number-2027.html">✦ Personal Year</a><a href="/en/tools/name-compatibility-numerology.html">♡ Name Compatibility</a><a href="/en/tools/name-numerology-personality.html">⌁ Name Personality</a></div></section>
+<section class="pm-tool-reads"><h2>Learn more</h2><ul><li><a href="/en/blog/life-path-number-meaning.html">Life Path Number →</a></li><li><a href="/en/blog/master-numbers-11-22-33.html">Master Numbers 11, 22 and 33 →</a></li><li><a href="/en/tools/personal-year-number-2027.html">✦ Your 2027 Personal Year →</a></li><li><a href="/en/glossary/master-number.html">📖 Master Number: What It Is →</a></li></ul></section>
+<div class="pm-share" data-title="Calculate your life path number" data-url="/en/tools/life-path-number-calculator.html">
+<div class="pm-share-t">✦ Share this tool ✦</div>
+<div class="pm-share-row">
+<button class="pm-native" type="button">📤 Share</button>
+<a href="https://wa.me/?text=Calcular%20n%C3%BAmero%20de%20vida%20%28n%C3%BAmero%20personal%29%20gratis%20https%3A%2F%2Felportalmistico.com%2Fjuegos%2Fcalcular-numero-de-vida.html" rel="noopener" target="_blank">💬 WhatsApp</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Felportalmistico.com%2Fjuegos%2Fcalcular-numero-de-vida.html" rel="noopener" target="_blank">📘 Facebook</a>
+<a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Felportalmistico.com%2Fjuegos%2Fcalcular-numero-de-vida.html&amp;media=https%3A%2F%2Felportalmistico.com%2Fassets%2Fog%2Fnumerologia.jpg&amp;description=Calcular%20n%C3%BAmero%20de%20vida%20%28n%C3%BAmero%20personal%29%20gratis" rel="noopener" target="_blank">📌 Pinterest</a>
+<button class="pm-copy" type="button">🔗 Copy link</button>
+</div>
+</div>
+<main class="game-info" id="gameInfo">
+<div class="kicker">Portal Místico · <a href="/en/tools/free-numerology-calculator.html" style="color:inherit">Numerology</a></div>
+<h1>Calculate your life path number</h1>
+<p>Enter your birth date and discover your <strong>life path number</strong>, or personal number: the base vibration of your date, which in numerology speaks of your talents and what you came here to learn.</p>
+<p style="font-size:0.85rem;opacity:0.8">By <a href="/en/about.html#autor" style="color:#C7A24B">Roberto Rodriguez</a> · Updated <time datetime="2026-11-10">November 10, 2026</time></p>
+<h2>How is the life path number calculated?</h2>
+<p>You add up all the digits of your birth date and reduce them to a single digit, except for the <strong>master numbers 11, 22 and 33</strong>, which are kept. For example, 05/14/1987 → 0+5+1+4+1+9+8+7 = 35 → 3+5 = <strong>8</strong>.</p>
+<h2>What does each number mean?</h2>
+<p>From 1 to 9, each number describes an energy: 1 is leadership, 2 cooperation, 3 creativity, 4 steadiness, 5 freedom, 6 caring, 7 inner seeking, 8 achievement and 9 compassion. We explain it in depth in our article on the <a href="/en/blog/life-path-number-meaning.html">life path number</a>.</p>
+<!--pm-extra--><h2>Step by step: how it's calculated</h2>
+<p>The life path number is found by adding all the digits of your birth date until you reduce them to a single digit. Example: born July 14, 1990 → 1 + 4 + 7 + 1 + 9 + 9 + 0 = 31 → 3 + 1 = <strong>4</strong>. The tool does it automatically, including the exception for <strong>master numbers</strong> (11, 22 and 33), which are not reduced because they are considered special vibrations.</p>
+<h2>How to interpret your number</h2>
+<p>Each number describes a life task: 1 is independence and leadership; 2, cooperation and sensitivity; 3, expression and creativity; 4, building and discipline; 5, freedom and change; 6, caring and responsibility; 7, inner seeking; 8, power and management; 9, service and compassion. Your number is not a sentence, but an invitation to develop certain qualities.</p><p>Read more in depth about the <a href="/en/blog/life-path-number-meaning.html">life path number</a>, the <a href="/en/blog/birth-date-numerology.html">numerology of your birth date</a> and the <a href="/en/blog/master-numbers-11-22-33.html">master numbers 11, 22 and 33</a>.</p>
+<h2>Meaning of each life path number</h2><p>Here is the symbolic reading of the twelve possible numbers: 1 through 9, plus the three master numbers. Find yours with the calculator and compare it here at your own pace.</p><h3>Number 1: The Initiating Spark</h3><p>Your energy opens paths. There is independence, creativity and the courage to turn an intuition into a concrete beginning. Your best compass is acting with confidence without isolating yourself. <strong>Strengths:</strong> Initiative, independence and the courage to open new paths. <strong>Challenge:</strong> Learning to collaborate and not to impose yourself or isolate.</p><h3>Number 2: The Sensitive Bridge</h3><p>You pick up on nuances other people miss. Cooperation, tact and listening are your strengths; when you protect your boundaries, your sensitivity becomes a powerful guide. <strong>Strengths:</strong> Sensitivity, diplomacy and a talent for cooperating and mediating. <strong>Challenge:</strong> Avoiding dependence on others' approval and learning to say no.</p><h3>Number 3: The Luminous Voice</h3><p>Expression, humor, and imagination add color to your path. Your presence inspires others when you share what you feel with simplicity and give your ideas steady form. <strong>Strengths:</strong> Creativity, humor, and an easy way of communicating. <strong>Challenge:</strong> Scattered energy and a tendency to avoid deep or uncomfortable topics.</p><h3>Number 4: The Builder's Root</h3><p>You have a talent for organizing, supporting, and creating lasting foundations. Patience works in your favor; leaving a little room for the unexpected turns discipline into freedom. <strong>Strengths:</strong> Discipline, reliability, and the ability to build solid foundations. <strong>Challenge:</strong> Rigidity, too much control, or fear of change.</p><h3>Number 5: The Wind of Change</h3><p>Curiosity and adaptability fuel your growth. You learn by living, moving, and experimenting; choosing one clear intention helps keep your energy from scattering. <strong>Strengths:</strong> Adaptability, curiosity, and a love of freedom. <strong>Challenge:</strong> Impatience, inconsistency, and too much stimulation.</p><h3>Number 6: The Harmonizing Heart</h3><p>Care, beauty, and responsibility are your natural language. You create a refuge for the people you love, and you flourish even more when you include yourself in the attention you offer. <strong>Strengths:</strong> Responsibility, caring, and a sense of aesthetics. <strong>Challenge:</strong> Overprotecting, controlling out of love, or carrying everything yourself.</p><h3>Number 7: The Deep Gaze</h3><p>You seek to understand the unseen behind everyday life. Intuition, analysis, and a rich inner life are your gifts; sharing your discoveries lets wisdom connect with others, too. <strong>Strengths:</strong> Analysis, intuition, and a search for meaning. <strong>Challenge:</strong> Isolation, distrust, or too much inner criticism.</p><h3>Number 8: Conscious Power</h3><p>You have practical vision and the ability to make things happen. You lead best when success and purpose go hand in hand, using your strength to build shared abundance. <strong>Strengths:</strong> Practical vision, leadership, and the ability to manifest. <strong>Challenge:</strong> Balancing power, money, and emotional life, and avoiding too much control.</p><h3>Number 9: The Generous Soul</h3><p>Compassion, breadth of vision, and a calling to serve define your vibration. You know how to close cycles with lessons learned; looking after your energy makes your giving calmer and more fruitful. <strong>Strengths:</strong> Compassion, a wide perspective, and a calling to serve. <strong>Challenge:</strong> Giving without limits or clinging to the past.</p><h3>Number 11 (master number): The Inspiring Antenna</h3><p>Your intuition is intense and picks up possibilities before they become obvious. You are here to inspire through authenticity; rest and a gentle routine help ground your vision. <strong>Strengths:</strong> Heightened intuition, inspiration, and spiritual sensitivity. <strong>Challenge:</strong> Nervousness, hypersensitivity, and doubts about your worth.</p><h3>Number 22 (master number): The Master Builder</h3><p>You combine a broad vision with the ability to make it real. Your projects can benefit many people when you move forward in stages and trust your team, too. <strong>Strengths:</strong> Broad vision and the ability to turn big ideas into reality. <strong>Challenge:</strong> Feeling that the goal weighs too heavily or procrastinating out of perfectionism.</p><h3>Number 33 (master number): The Master Heart</h3><p>Your vibration brings together empathy, creativity, and a calling to support others. Your influence grows when you teach by example and remember that serving doesn't mean demanding perfection of yourself. <strong>Strengths:</strong> Empathy and a calling to teach and care with love. <strong>Challenge:</strong> Carrying other people's pain or demanding perfection of yourself.</p>
+<h2>A Complete Calculation Example</h2>
+<p>Let's take the date November 29, 1985. First, reduce each part separately: the day, 2 + 9 = 11 (a master number, so it stays); the month, 11 (also a master number); and the year, 1 + 9 + 8 + 5 = 23, which reduces to 2 + 3 = 5. Then add them up: 11 + 11 + 5 = 27, which reduces to 2 + 7 = <strong>9</strong>. This method, which reduces each part before adding, is the most common in Pythagorean numerology because it lets you spot master numbers. Some authors add all the digits at once; the result is usually the same, but not always, so it's worth being clear about which method you use.</p>
+<h2>Common Mistakes When Calculating Your Life Path Number</h2>
+<p>The first is reducing too soon and losing a master number: if an intermediate sum gives 11, 22, or 33, keep it. The second is getting the year wrong: use all four digits. The third is dramatizing the result: no number is “better” than another. And the fourth is forgetting that this is a symbolic reading for entertainment, and it doesn't replace any professional advice.</p>
+<h2>Other Numbers That Complete Your Profile</h2>
+<p>Your life path is the most important number, but it isn't the only one. Your <strong>expression number</strong> comes from your full name and speaks to how you show up in the world; your <strong>soul urge number</strong>, from the vowels, to what you desire deep inside; and your <strong>personal year</strong>, from the energy of the current year. Try the <a href="/en/tools/name-numerology-personality.html">personality by name</a> tool and your <a href="/en/tools/personal-year-number-2027.html">2027 personal year</a>.</p>
+<!--/pm-extra-->
+<h2>Frequently asked questions</h2>
+<h3>Are Life Number and Life Path Number the Same Thing?</h3><p>Yes, they're two names for the same calculation using your full birth date.</p><h3>What if I get 11, 22, or 33?</h3><p>These are master numbers: they're read with their own, more intense energy, and also through their reduced number (2, 4, or 6).</p><h3>Do I need my birth time?</h3><p>No. Just the day, month, and year.</p>
+<h3>How do I calculate my life path number from my birth date?</h3><p>Reduce each part of the date (day, month, and year) to a single digit, add the three results, and reduce again. The master numbers 11, 22, and 33 are kept as they are. This is a symbolic reading for entertainment.</p><h3>What does a life path number 11, 22, or 33 mean?</h3><p>These are master numbers: they're read with a more intense energy than their reduced numbers (2, 4, and 6). Tradition associates them with intuition, building on a grand scale, and a calling to support others.</p><h3>Does your life path number change over time?</h3><p>No. It's calculated from your birth date, so it's always the same. What changes, according to numerology, is your personal year, which renews every year.</p><h3>Are some life path numbers better than others?</h3><p>No. Every number has its own strengths and challenges. Numerology presents them as life lessons, not as a ranking.</p><p class="note">Portal Místico readings are symbolic and for entertainment purposes only. They are not a substitute for professional advice.</p>
+</main>
+<footer class="legal-bar" style="display:block;background:#0A0B18;border-top:1px solid rgba(244,239,227,0.12);padding:28px 24px 22px;text-align:center;font-family:'Work Sans',sans-serif;">
+<p style="max-width:620px;margin:0 auto 18px;color:#9098C4;font-size:0.78rem;line-height:1.6;opacity:0.9;">As an Amazon Associate, we earn from qualifying purchases.</p>
+<div style="font-size:0.95rem;margin:0 auto 16px;"><a href="/en/legal-notice.html" style="color:#C7A24B;text-decoration:none;margin:0;">Legal notice</a><span style="display:inline-block;margin:0 10px;color:#9098C4;opacity:0.7;">·</span><a href="/en/cookies.html" style="color:#C7A24B;text-decoration:none;margin:0;">Cookie Policy</a><span style="display:inline-block;margin:0 10px;color:#9098C4;opacity:0.7;">·</span><a href="/en/about.html" style="color:#C7A24B;text-decoration:none;margin:0;">About us</a></div>
+<div style="color:#9098C4;font-size:0.78rem;opacity:0.85;">© 2026 Portal Místico · All rights reserved<span style="margin:0 6px;">·</span><a href="/en/privacy-policy.html" style="color:#9098C4;text-decoration:underline;margin:0;">Privacy</a><span style="margin:0 6px;">·</span><a href="/en/terms-of-use.html" style="color:#9098C4;text-decoration:underline;margin:0;">Terms</a><span style="margin:0 6px;">·</span><a href="/en/contact.html" style="color:#9098C4;text-decoration:underline;margin:0;">Contact</a><span style="margin:0 6px;">·</span><a href="/sitemap.xml" style="color:#9098C4;text-decoration:underline;margin:0;">Sitemap</a></div>
+</footer>
+<script>document.addEventListener('click',function(e){var b=e.target.closest('.pm-burger');if(b){var n=b.closest('.pm-nav');var o=n.classList.toggle('pm-open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'☰';}});</script>
+<script>
+/* Desplazamiento: la rueda del mouse mueve primero la app y solo al final baja la página */
+(function(){
+  var fr=document.querySelector('iframe'); if(!fr) return;
+  function hook(){
+    var w,d; try{ w=fr.contentWindow; d=w.document; }catch(e){ return; }
+    if(!d || w.__pmWheel) return; w.__pmWheel=true;
+    var cache=null, cacheT=0;
+    function canScroll(el){ var cs=w.getComputedStyle(el); return /(auto|scroll)/.test(cs.overflowY) && el.scrollHeight>el.clientHeight+2; }
+    function mainScroller(){
+      var now=Date.now(); if(cache && now-cacheT<800 && cache.isConnected) return cache;
+      var best=null, area=0, all=d.querySelectorAll('*');
+      for(var i=0;i<all.length;i++){ var el=all[i]; if(el.clientHeight<120) continue; if(canScroll(el)){ var a=el.clientWidth*el.clientHeight; if(a>area){ area=a; best=el; } } }
+      var se=d.scrollingElement; if(!best && se && se.scrollHeight>se.clientHeight+2) best=se;
+      cache=best; cacheT=now; return best;
+    }
+    w.addEventListener('wheel',function(e){
+      var el=e.target;
+      while(el && el.nodeType===1 && el!==d.documentElement && el!==d.body){ if(canScroll(el)) return; el=el.parentElement; }
+      var sc=mainScroller(); if(!sc) return;
+      var dy=e.deltaY*(e.deltaMode===1?16:1);
+      var atEnd = dy>0 ? (sc.scrollTop+sc.clientHeight>=sc.scrollHeight-2) : (sc.scrollTop<=0);
+      if(atEnd) return;
+      sc.scrollTop+=dy; e.preventDefault();
+    },{passive:false});
+  }
+  fr.addEventListener('load',hook); hook();
+})();
+</script>
+<script>
+/* Altura automática: el marco crece para mostrar toda la app, así nada queda tapado por la barra de abajo */
+(function(){
+  var wrap=document.querySelector('.game-frame-wrap'), fr=wrap&&wrap.querySelector('iframe'); if(!fr) return;
+  var t=null;
+  function overflow(d){
+    var w=d.defaultView, extra=0, all=d.querySelectorAll('*');
+    for(var i=0;i<all.length;i++){ var el=all[i]; if(el.clientHeight<200) continue;
+      var oy=w.getComputedStyle(el).overflowY; if(oy==='auto'||oy==='scroll'){ var r=el.getBoundingClientRect(); var ratio=el.clientHeight?r.height/el.clientHeight:1; extra=Math.max(extra,(el.scrollHeight-el.clientHeight)*ratio); } }
+    var se=d.scrollingElement; if(se) extra=Math.max(extra,se.scrollHeight-se.clientHeight);
+    return extra;
+  }
+  function fit(reset){
+    var d; try{ d=fr.contentDocument; }catch(e){ return; } if(!d||!d.body) return;
+    var base=window.innerHeight;
+    if(reset) wrap.style.height=base+'px';
+    if(wrap.getAttribute('data-fixed')==='1'){ wrap.style.height=base+'px'; return; }
+    var n=0, prevH=null, prevEx=null;
+    (function step(){
+      var ex=overflow(d), h=wrap.getBoundingClientRect().height;
+      /* Si al agrandar el marco la app también crece (usa la altura de la ventana), se deshace y se detiene: evita que la app se agrande sin fin */
+      if(prevEx!==null && ex>2 && ex>prevEx*0.6){ wrap.style.height=prevH+'px'; return; }
+      if(ex>2 && n<6 && h+ex<base*6){ prevH=h; prevEx=ex; wrap.style.height=(h+ex+4)+'px'; n++; requestAnimationFrame(function(){ requestAnimationFrame(step); }); }
+    })();
+  }
+  function contentH(d){ var h=d.querySelector('h1,h2,h3,.eyebrow'); return (h?h.textContent.trim().slice(0,60):'')+'|'+d.querySelectorAll('button').length; }
+  function soon(){ clearTimeout(t); t=setTimeout(function(){fit(false);},250); }
+  var inited=null;
+  function init(){
+    var dd; try{ dd=fr.contentDocument; }catch(e){ return; } if(!dd||!dd.body||inited===dd) return; inited=dd;
+    fit(true); setTimeout(function(){fit(false);},800); setTimeout(function(){fit(false);},2000);
+    try{ var d=fr.contentDocument; new MutationObserver(soon).observe(d.body,{childList:true,subtree:true}); d.addEventListener('click',function(){ var before=contentH(d); setTimeout(function(){ var after=contentH(d); if(after!==before){ fit(true); setTimeout(function(){fit(false);},300); if(window.scrollY>0) window.scrollTo({top:0,behavior:'smooth'}); } else { fit(false); } },400); },true); }catch(e){}
+  }
+  fr.addEventListener('load',init); init(); setTimeout(init,1500);
+  var lastW=window.innerWidth;
+  /* Solo se reajusta si cambia el ANCHO: en el celular, al hacer scroll la barra del navegador cambia el alto y no debe mover la página */
+  window.addEventListener('resize',function(){ if(window.innerWidth===lastW) return; lastW=window.innerWidth; fit(true); });
+})();
+</script>
+<script>(function(){document.querySelectorAll('.pm-share').forEach(function(w){var u=w.getAttribute('data-url'),t=w.getAttribute('data-title');var n=w.querySelector('.pm-native');if(navigator.share&&n){n.style.display='inline-flex';n.addEventListener('click',function(){navigator.share({title:t,url:u}).catch(function(){});});}var c=w.querySelector('.pm-copy');if(c)c.addEventListener('click',function(){var done=function(){c.textContent='✓ Link copied!';setTimeout(function(){c.textContent='🔗 Copy link';},2000);};if(navigator.clipboard){navigator.clipboard.writeText(u).then(done,function(){prompt('Copy this link:',u);});}else{prompt('Copy this link:',u);}});});})();</script>
+</body>
+</html>

@@ -110,6 +110,11 @@ def resolve(href, es_path, to_en=True):
         if built(tgt): return '/en/'+M[tgt]+q+frag
         return '/'+tgt+q+frag     # aún sin versión en inglés: apunta a la española
     return '/'+tgt+q+frag
+_JSTC=[None]
+def _JST():
+    if _JSTC[0] is None:
+        import jsx; _JSTC[0]=jsx.loadT()
+    return _JSTC[0]
 def build(es_path, m=None, lang_switch=True):
     m=m if m is not None else mem()
     html=open(os.path.join(ROOT,es_path),encoding='utf8').read()
@@ -171,6 +176,10 @@ def build(es_path, m=None, lang_switch=True):
             sc.string=t
         for a,b in tools_en.SCRIPT_MAP.items():
             if a in t: t=t.replace(a,b); sc.string=t
+        if not sc.get('src') and 'ld+json' not in str(sc.get('type') or '') and t:
+            import jsx
+            t2=jsx.translate(t,_JST())
+            if t2!=t: t=t2; sc.string=t
         if 'Nuevo comentario' in t:
             t=t.replace("Nuevo comentario en Portal Místico","New comment (English site) on Portal Místico").replace("¡Gracias por tu comentario!","Thanks for your comment!").replace("No se pudo enviar. Inténtalo de nuevo en un momento.","Could not send it. Please try again in a moment.")
             sc.string=t

@@ -680,11 +680,11 @@ function dreamSynthesis(symbols){
   const tagged=symbols.map(s=>({...s,bucket:classifyDreamBucket(s)}));
   const seen=[],chosen=[];
   for(const s of tagged){if(!seen.includes(s.bucket)){seen.push(s.bucket);chosen.push(s)}if(chosen.length===3)break}
-  const namesFor=b=>tagged.filter(s=>s.bucket===b).map(s=>s.title).join(' y ');
+  const namesFor=b=>tagged.filter(s=>s.bucket===b).map(s=>s.title).join(' and ');
   const key=chosen.length>1?[chosen[0].bucket,chosen[1].bucket].sort().join('|'):'';
   const insight=chosen.length>1?(dreamPairInsight[key]||`${dreamBucketClause[chosen[0].bucket]} convive, en el mismo sueño, con ${dreamBucketClause[chosen[1].bucket]}`):dreamBucketClause[chosen[0].bucket];
   const clauses=chosen.map(s=>`${dreamBucketClause[s.bucket]} (a través de ${namesFor(s.bucket)})`);
-  const combined=clauses.length>1?clauses.slice(0,-1).join(', ')+' y '+clauses[clauses.length-1]:clauses[0];
+  const combined=clauses.length>1?clauses.slice(0,-1).join(', ')+' and '+clauses[clauses.length-1]:clauses[0];
   return `<div class="dream-question" style="margin-top:0 0 14px"><b>✦ Lectura del conjunto</b><p>Tu relato combina ${combined}. Leyendo estos símbolos juntos, en lugar de por separado, tu sueño parece estar diciendo que ${insight}.</p></div>`;
 }
 function dreamDepth(symbols){

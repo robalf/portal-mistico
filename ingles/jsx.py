@@ -37,6 +37,7 @@ def build(files,outdir,T=None,post=None):
         miss=[c for a,b,q,c in jsstr.strings(s) if cand(c) and c not in T and inrange(f,s,a)]
         if miss: print('FALTAN',f,len(miss),miss[:2])
         s=translate(s,T,f)
+        s=s.replace("' y '","' and '").replace(", y '",", and '").replace('" y "','" and "')
         if post: s=post(f,s)
         p=os.path.join(ROOT,outdir,dst); os.makedirs(os.path.dirname(p),exist_ok=True); open(p,'w',encoding='utf8').write(s)
 def inline_literals(pages):

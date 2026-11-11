@@ -155,13 +155,14 @@ def build(es_path, m=None, lang_switch=True):
         for a in ('href','src','action','data-url','poster'):
             if e.get(a):
                 if e.name=='link' and e.get('rel') and ('canonical' in e['rel'] or 'alternate' in e['rel']): continue
-                if (e.name=='iframe' and e[a].startswith('tarot-game/')) or (e.name=='script' and e[a].startswith('novedades-game/main-inline.js')): continue
+                if (e.name=='iframe' and e[a].startswith('tarot-game/')) or (e.name=='script' and e[a].startswith(('novedades-game/main-inline.js','brujula-game/main-inline.js'))): continue
                 e[a]=resolve(e[a],es_path)
 
     # scripts propios de cada página
     import tools_en
     for sc in soup.find_all('script'):
         t=sc.string or ''
+        if sc.get('src') and 'carta-astral.bundle.js' in sc['src']: sc['src']='/assets/js/carta-astral-en.bundle.js?v=1'
         if sc.get('src') and 'musica-global.js' in sc['src']: sc['src']='/assets/js/musica-global-en.js?v=1'
         if 'var T=[[' in t:
             mo=re.search(r'var T=(\[\[.*?\]\]);',t,re.S)

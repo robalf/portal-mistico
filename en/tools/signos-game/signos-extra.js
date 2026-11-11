@@ -63,7 +63,7 @@ export function pareja(i, j){
   const P = [];
   P.push(CLAVE[Math.min(i, j) + '-' + Math.max(i, j)]);
   P.push(asp.t.replace('{a}', a).replace('{b}', b));
-  P.push(T_ELEM[ke] + ' (' + a + ' is ' + ELEM[ei] + ' y ' + b + ' ' + ELEM[ej] + '.)');
+  P.push(T_ELEM[ke] + ' (' + a + ' is ' + ELEM[ei] + ' and ' + b + ' ' + ELEM[ej] + '.)');
   P.push(T_MOD[key(mi, mj)] + ' (' + a + ': ' + MOD[mi] + '; ' + b + ': ' + MOD[mj] + '.)');
   P.push(i === j
     ? `In love, ${a} brings ${A.aporta}. Both need ${A.necesita}, and both must watch out for ${A.sombra}.`

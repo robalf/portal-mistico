@@ -170,7 +170,7 @@ function mes(y, mo, s, variant){
     if (r0 && !rc) ex.push(`stays ${f} all month long`);
     else if (r0 && rc) ex.push(`stays ${f} until day ${fmt(dateOf(rc), {day:'numeric'})}`);
     else if (rc) ex.push(`turns ${f} on day ${fmt(dateOf(rc), {day:'numeric'})}`);
-    let t = `${P.n} begins the month in ${SIGNOS[sk]} (your house ${hk})` + (ex.length ? ' y ' + ex.join(' y ') : '');
+    let t = `${P.n} begins the month in ${SIGNOS[sk]} (your house ${hk})` + (ex.length ? ' and ' + ex.join(' and ') : '');
     pl.push(t + '. ' + PCASA[k][hk]);
   }
   const jS = sign(i1,'J'), jH = house(jS, s), saS = sign(i1,'Sa'), saH = house(saS, s);

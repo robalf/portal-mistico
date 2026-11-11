@@ -6,7 +6,7 @@ Reglas: no tocar direcciones en español; hreflang en pares (es<->en) solo cuand
 |---|---|---|
 | 1 | Infraestructura (selector de idioma, hreflang, sitemap en, scripts en inglés), portada, sobre nosotros, contacto, legales (5), metodología, recursos | 9 |
 | 2 | Glosario (índice + 12) + signos del zodiaco (13) | 26 |
-| 3 | Tarot: 5 herramientas + textos del juego de tarot + 5 artículos | 10 |
+| 3 ✓ | Tarot: 5 herramientas + textos del juego de tarot + 5 artículos | 10 |
 | 4 | Numerología: 6 herramientas (+ textos nativos) + 5 artículos | 11 |
 | 5 | Horóscopo y signos: 16 herramientas (+ textos nativos de horóscopo y signos) | 16 |
 | 6 | Astrología y Brújula Lunar: 6 herramientas astrales + 5 de Brújula (+ textos del juego) | 11 |

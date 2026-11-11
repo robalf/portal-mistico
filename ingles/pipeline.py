@@ -150,6 +150,7 @@ def build(es_path, m=None, lang_switch=True):
         for a in ('href','src','action','data-url','poster'):
             if e.get(a):
                 if e.name=='link' and e.get('rel') and ('canonical' in e['rel'] or 'alternate' in e['rel']): continue
+                if e.name=='iframe' and e[a].startswith('tarot-game/'): continue
                 e[a]=resolve(e[a],es_path)
 
     # scripts propios de cada página
@@ -188,6 +189,13 @@ def build(es_path, m=None, lang_switch=True):
         nav=soup.find(class_='pm-links')
         if nav:
             a=soup.new_tag('a',href='/'+es_path if not es_path.endswith('index.html') else '/'+es_path[:-10]); a['class']='pm-lang'; a['hreflang']='es'; a['onclick']='event.stopPropagation()'; a.string='🌐 Español'; nav.append(a)
+        else:
+            bb=soup.find('a',class_='back-btn')
+            if bb:
+                a=soup.new_tag('a',href='/'+es_path); a['class']='pm-lang'; a['hreflang']='es'; a['onclick']='event.stopPropagation()'; a['style']='position:fixed;top:14px;right:64px;z-index:10;background:rgba(5,6,15,0.75);backdrop-filter:blur(6px);border:1px solid rgba(199,162,75,0.35);color:#EEF0FA;text-decoration:none;font-size:0.82rem;padding:7px 14px;border-radius:20px'; a.string='🌐 Español'; bb.insert_after(a)
+    h1=soup.find('h1')
+    if h1:
+        for e in soup.select('[data-title]'): e['data-title']=h1.get_text(' ',strip=True)
     out=str(soup)
     out=re.sub(r'^<!DOCTYPE[^>]*>','<!DOCTYPE html>',out) if out.startswith('<!DOCTYPE') else '<!DOCTYPE html>\n'+out
     return out, []

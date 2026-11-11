@@ -18,6 +18,9 @@ def es_link(es):
     h=re.sub(r'<a class="pm-lang"[^>]*>[^<]*</a>','',h)
     sw='<a class="pm-lang" href="/en/%s" hreflang="en" onclick="event.stopPropagation()">🌐 English</a>'%(M[es] if not M[es].endswith('index.html') else M[es][:-10])
     h2=re.sub(r'(</a>)(</div>\s*</div></nav>)',lambda mo:mo.group(1)+sw+mo.group(2),h,count=1)
+    if h2==h and 'class="back-btn"' in h:
+        sw2='<a class="pm-lang" href="/en/'+M[es]+'" hreflang="en" onclick="event.stopPropagation()" style="position:fixed;top:14px;right:64px;z-index:10;background:rgba(5,6,15,0.75);backdrop-filter:blur(6px);border:1px solid rgba(199,162,75,0.35);color:#EEF0FA;text-decoration:none;font-size:0.82rem;padding:7px 14px;border-radius:20px">🌐 English</a>'
+        h2=re.sub(r'(<a href="[^"]*" class="back-btn">[^<]*</a>)',lambda mo:mo.group(1)+sw2,h,count=1)
     if h2==h and 'pm-links' in h: print('sin selector (patrón no hallado):',es)
     open(p,'w',encoding='utf8').write(h2)
 for es in done: es_link(es)

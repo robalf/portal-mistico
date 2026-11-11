@@ -167,7 +167,7 @@ def build(es_path, m=None, lang_switch=True):
         t=sc.string or ''
         if sc.get('src') and 'carta-astral.bundle.js' in sc['src']: sc['src']='/assets/js/carta-astral-en.bundle.js?v=1'
         if sc.get('src') and 'oraculo.bundle.js' in sc['src']: sc['src']='/assets/js/oraculo-en.bundle.js?v=1'
-        if sc.get('src') and 'musica-global.js' in sc['src']: sc['src']='/assets/js/musica-global-en.js?v=2'
+        if sc.get('src') and 'musica-global.js' in sc['src']: sc['src']='/assets/js/musica-global-en.js?v=1'
         if 'var T=[[' in t:
             mo=re.search(r'var T=(\[\[.*?\]\]);',t,re.S)
             arr=json.loads(mo.group(1)); new=[]

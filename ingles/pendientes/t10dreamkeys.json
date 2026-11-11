@@ -1,0 +1,340 @@
+{
+"themes": [
+{
+"i": 0,
+"keys": [
+"animal",
+"insecto",
+"mosca",
+"abeja",
+"hormiga"
+],
+"title": "Instinct and companionship"
+},
+{
+"i": 1,
+"keys": [
+"miedo",
+"ansiedad",
+"llorar",
+"triste",
+"peligro",
+"pesadilla"
+],
+"title": "An emotion asking to be heard"
+},
+{
+"i": 2,
+"keys": [
+"amor",
+"beso",
+"familia",
+"amigo",
+"amiga",
+"abrazo"
+],
+"title": "Connection and emotional need"
+},
+{
+"i": 3,
+"keys": [
+"ex-boyfriend",
+"ex-girlfriend",
+"ex-partner",
+"expareja",
+"my ex"
+],
+"title": "Ex-partner"
+},
+{
+"i": 4,
+"keys": [
+"perdi",
+"losing my",
+"losing the keys",
+"losing your wallet",
+"losing the purse",
+"i lost my"
+],
+"title": "Losing an object"
+},
+{
+"i": 5,
+"keys": [
+"arriving late",
+"I’m late",
+"I couldn’t get there",
+"I was running late"
+],
+"title": "Being late"
+},
+{
+"i": 6,
+"keys": [
+"screamed and no",
+"my voice wouldn’t come out",
+"screamed without",
+"couldn’t scream"
+],
+"title": "Silent scream"
+},
+{
+"i": 7,
+"keys": [
+"I couldn’t move",
+"I couldn’t move",
+"paralizado",
+"paralizada",
+"paralysis"
+],
+"title": "Not being able to move"
+},
+{
+"i": 8,
+"keys": [
+"invisible",
+"no one could see me",
+"they didn’t notice me",
+"no one listened to me"
+],
+"title": "Being invisible"
+},
+{
+"i": 9,
+"keys": [
+"very small",
+"very small",
+"gigante",
+"huge compared",
+"I made myself small"
+],
+"title": "Changing size"
+},
+{
+"i": 10,
+"keys": [
+"same day again",
+"it kept repeating",
+"day after day, over and over",
+"bucle"
+],
+"title": "Repeating the same day"
+},
+{
+"i": 11,
+"keys": [
+"I was traveling through time",
+"to the past",
+"to the future",
+"as a child again",
+"a child again"
+],
+"title": "Time travel"
+},
+{
+"i": 12,
+"keys": [
+"ahogaba",
+"ahogandome",
+"drowning",
+"I’m drowning",
+"ahogue",
+"I drowned",
+"ahogado",
+"ahogada",
+"ahogarme",
+"ahogarse"
+],
+"title": "Ahogarse"
+},
+{
+"i": 13,
+"keys": [
+"they threw me",
+"I throw myself",
+"threw me",
+"I was pushed",
+"they threw me",
+"they threw me",
+"they threw me",
+"they dragged me"
+],
+"title": "Being thrown or pushed by someone else"
+},
+{
+"i": 14,
+"keys": [
+"haunted house",
+"haunted house",
+"haunted house"
+],
+"title": "Haunted house"
+}
+],
+"dreamColorMeanings": [
+[
+"blanco",
+"purity, clarity, or a clean start"
+],
+[
+"blanca",
+"purity, clarity, or a clean start"
+],
+[
+"negro",
+"the hidden, the mystery, or something you don’t fully understand yet"
+],
+[
+"negra",
+"the hidden, the mystery, or something you don’t fully understand yet"
+],
+[
+"rojo",
+"passion, urgency, or an emotional alert"
+],
+[
+"roja",
+"passion, urgency, or an emotional alert"
+],
+[
+"dorado",
+"something you perceive as valuable or meaningful"
+],
+[
+"dorada",
+"something you perceive as valuable or meaningful"
+],
+[
+"azul",
+"calm and a peaceful emotional tone"
+],
+[
+"azul2",
+""
+],
+[
+"verde",
+"growth or renewal"
+],
+[
+"gris",
+"ambiguity, something that is neither one thing nor the other yet"
+],
+[
+"plateado",
+"intuition and a more spiritual nuance"
+],
+[
+"plateada",
+"intuition and a more spiritual nuance"
+],
+[
+"morado",
+"transformation or a more mystical nuance"
+],
+[
+"morada",
+"transformation or a more mystical nuance"
+]
+],
+"dreamQualityMeanings": [
+[
+"hermoso",
+"you perceived that energy as something positive, not threatening"
+],
+[
+"hermosa",
+"you perceived that energy as something positive, not threatening"
+],
+[
+"bello",
+"you perceived that energy as something positive, not threatening"
+],
+[
+"bella",
+"you perceived that energy as something positive, not threatening"
+],
+[
+"feo",
+"you perceived that energy with rejection or discomfort"
+],
+[
+"fea",
+"you perceived that energy with rejection or discomfort"
+],
+[
+"aterrador",
+"that energy felt overwhelming or out of your control"
+],
+[
+"aterradora",
+"that energy felt overwhelming or out of your control"
+],
+[
+"horrible",
+"that energy felt overwhelming or out of your control"
+],
+[
+"gigante",
+"you felt that energy as bigger or more intense than usual"
+],
+[
+"enorme",
+"you felt that energy as bigger or more intense than usual"
+],
+[
+"pequeño",
+"you felt that energy was more manageable than you expected"
+],
+[
+"pequeña",
+"you felt that energy was more manageable than you expected"
+],
+[
+"diminuto",
+"you felt that energy was more manageable than you expected"
+]
+],
+"dreamAgencyMeanings": [
+[
+"montaba",
+"you weren’t just observing that energy: you were directing it yourself, with active control"
+],
+[
+"monte",
+"you weren’t just observing that energy: you were directing it yourself, with active control"
+],
+[
+"cabalgaba",
+"you weren’t just observing that energy: you were directing it yourself, with active control"
+],
+[
+"conducia",
+"you had direct control over where that energy was going"
+],
+[
+"manejaba",
+"you had direct control over where that energy was going"
+],
+[
+"perseguia",
+"that energy was chasing you, which usually indicates something you feel you’re running from in waking life"
+],
+[
+"atacaba",
+"that energy felt hostile toward you, not neutral"
+],
+[
+"acariciaba",
+"there was closeness and acceptance in the bond with that energy"
+],
+[
+"abrazaba",
+"there was closeness and acceptance in the bond with that energy"
+],
+[
+"sostenia",
+"there was closeness and acceptance in the bond with that energy"
+]
+]
+}

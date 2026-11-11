@@ -262,6 +262,12 @@
    "tipo": "herramienta",
    "slug": "horoscopo-semanal-como-leerlo",
    "titulo": "Horóscopo semanal: cómo leerlo y planificar tu semana"
+  },
+  {
+   "fecha": "2026-11-11",
+   "tipo": "viral",
+   "omitido": true,
+   "motivo": "No se pudieron leer las fuentes (EarthSky y Star Walk bloqueadas en esta ejecución; la búsqueda solo devolvió títulos). Sin verificación de 2 fuentes independientes sobre Táuridas del Norte 2026, no se publica."
   }
  ],
  "viral_categorias": [

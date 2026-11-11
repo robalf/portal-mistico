@@ -64,6 +64,6 @@ M = {
 'juegos/novedades.html':'tools/dream-meanings-and-angel-messages.html','juegos/mensajes-angelicales.html':'tools/angel-messages-today.html',
 'juegos/rituales-y-hechizos.html':'tools/simple-rituals-and-spells.html','juegos/significado-de-los-suenos.html':'tools/dream-meanings.html',
 'juegos/test-de-intuicion.html':'tools/intuition-test.html','juegos/i-ching.html':'tools/free-i-ching-reading.html','juegos/runas.html':'tools/free-rune-reading.html',
-'juegos/oraculo-de-respuestas.html':'tools/oracle-yes-or-no-runes-i-ching.html','juegos/angel-de-la-guarda.html':'tools/find-your-guardian-angel.html',
+'juegos/oraculo-de-respuestas.html':'tools/oracle-yes-or-no-runes-i-ching.html','juegos/angel-de-la-guarda.html':'tools/find-your-guardian-angel.html','tienda/index.html':'shop/index.html',
 }
 TANDAS = {1:['index.html','sobre-nosotros.html','contacto.html','aviso-legal.html','cookies.html','privacidad.html','terminos.html','metodologia.html','recursos/index.html','blog/index.html','glosario/index.html']}

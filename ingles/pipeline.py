@@ -222,5 +222,8 @@ def lang_toggle(cur,href,fixed=False):
     return '<a class="pm-lt pm-lt-%s%s" href="%s" hreflang="%s" lang="%s" aria-label="%s" title="%s" onclick="event.stopPropagation()"><span>ES</span><span>EN</span><i aria-hidden="true"></i></a>'%(cur,' pm-lt-fixed' if fixed else '',href,tgt,tgt,lab,lab)
 TOGGLE_HEAD='<link rel="stylesheet" href="/assets/css/lang-toggle.css?v=5"><script src="/assets/js/lang-toggle.js?v=1" defer></script>'
 def write_en(es_path,out):
+    if es_path=='index.html':
+        for sl_ in json.load(open(os.path.join(os.path.dirname(__file__),'blog_en_cards.json'))): out=out.replace('/assets/blog/opt/%s-960.webp'%sl_,'/assets/blog/opt/%s-en-960.webp'%sl_)
+    if es_path=='index.html': out=re.sub(r'(assets/apps/opt/app-[a-z-]+?)-(960|bg)(?<!-en-960)(?<!-en-bg)\.webp',r'\1-en-\2.webp',out)
     out=re.sub(r'(href="|src=")((?:aura|quiromancia)-game/(?:scoped\.css))',r'\1/juegos/\2',out)
     p=os.path.join(ROOT,'en',M[es_path]); os.makedirs(os.path.dirname(p),exist_ok=True); open(p,'w',encoding='utf8').write(out); return p

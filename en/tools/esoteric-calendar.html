@@ -69,6 +69,7 @@
 .pm-links .pm-sub a{font-size:0.92rem!important;padding:9px 10px!important;color:#C9CCE6}
 .pm-links .pm-sub a.pm-here{color:#C7A24B;background:rgba(199,162,75,0.12)}
 </style>
+
 <title>2026-2027 Esoteric Calendar: Moons, Eclipses and Retrogrades | Portal Místico</title>
 <meta content="Month-by-month calendar through December 2027: new and full moons, supermoons, eclipses, retrogrades, numerology portals, meteor showers and more. Download it to your calendar." name="description"/>
 <link href="https://elportalmistico.com/en/tools/esoteric-calendar.html" rel="canonical"/>
@@ -111,15 +112,19 @@
 .cal-f.c-lluvias.on{border-color:#6EC3F4;background:rgba(110,195,244,.18)}
 .cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
 .cal-dow{text-align:center;font-size:.74rem;color:#9098C4;text-transform:uppercase;letter-spacing:.06em;padding:4px 0}
-.cal-cell{position:relative;min-height:62px;border-radius:10px;border:1px solid rgba(244,239,227,.1);background:rgba(10,11,24,.7);color:#EEF0FA;font:inherit;text-align:left;padding:5px 5px 4px;cursor:default;display:flex;flex-direction:column;justify-content:space-between}
+.cal-cell{position:relative;min-height:84px;border-radius:10px;border:1px solid rgba(244,239,227,.1);background:rgba(10,11,24,.7);color:#EEF0FA;font:inherit;text-align:left;padding:5px 5px 4px;cursor:default;display:flex;flex-direction:column;justify-content:space-between}
 .cal-cell.empty{background:transparent;border-color:transparent}
 .cal-cell.has{cursor:pointer;border-color:rgba(199,162,75,.35)}
 .cal-cell.has:hover{background:rgba(199,162,75,.12)}
 .cal-cell.today{box-shadow:0 0 0 2px #C7A24B inset}
 .cal-cell.sel{background:rgba(199,162,75,.22);border-color:#C7A24B}
 .cal-num{font-size:.8rem;color:#C9CCE6}
-.cal-ic{display:flex;flex-wrap:wrap;gap:2px;font-size:.95rem;line-height:1}
+.cal-ic{display:flex;flex-wrap:wrap;gap:3px 5px;font-size:1.45rem;line-height:1.1;align-items:center}
 .cal-ic i{font-style:normal}
+.cal-ic i.tx{font-size:.95rem;font-weight:700;letter-spacing:-.02em;padding:1px 5px;border-radius:7px;background:rgba(255,255,255,.08)}
+.cal-ic i.tx.c-retro{color:#DDB5F8;background:rgba(197,139,240,.2)}.cal-ic i.tx.c-portales{color:#F0D98A;background:rgba(230,199,102,.2)}.cal-ic i.tx.c-cielo{color:#8BE3C8;background:rgba(111,209,180,.2)}
+.cal-lb{display:none;flex-direction:column;gap:1px;margin-top:3px}
+.cal-lb em{font-style:normal;font-size:.68rem;line-height:1.2;color:#C9CCE6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cal-ic b{font-size:.68rem;color:#9098C4;font-weight:500;align-self:center}
 .c-eclipses.cal-ev,.c-retro.cal-ev,.c-lunas.cal-ev,.c-portales.cal-ev,.c-cielo.cal-ev,.c-lluvias.cal-ev{border-left-width:3px}
 .cal-day{margin:14px 0;padding:16px;border-radius:14px;border:1px solid rgba(199,162,75,.45);background:rgba(42,37,96,.35)}
@@ -127,7 +132,15 @@
 .cal-ev{border:1px solid rgba(244,239,227,.12);border-left:3px solid #C7A24B;border-radius:12px;padding:12px 14px;margin:0 0 10px;background:rgba(10,11,24,.7)}
 .cal-ev.c-lunas{border-left-color:#9FB4E8}.cal-ev.c-eclipses{border-left-color:#F0925A}.cal-ev.c-retro{border-left-color:#C58BF0}.cal-ev.c-portales{border-left-color:#E6C766}.cal-ev.c-cielo{border-left-color:#6FD1B4}.cal-ev.c-lluvias{border-left-color:#6EC3F4}
 .cal-ev-h{display:flex;gap:10px;align-items:center}
-.cal-ev-ic{font-size:1.3rem;flex:none;width:30px;text-align:center}
+.cal-ev-ic{font-size:1.9rem;flex:none;width:44px;text-align:center;line-height:1}
+.cal-ev-ic.tx{font-size:1.05rem;font-weight:700;border-radius:10px;background:rgba(255,255,255,.08);padding:6px 2px}
+.cal-legend{margin:16px 0 6px;padding:14px;border-radius:14px;border:1px solid rgba(244,239,227,.12);background:rgba(10,11,24,.6)}
+.cal-legend h3{font-family:'Fraunces',serif;font-size:1rem;margin:0 0 10px;font-weight:600}
+.cal-lg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px 14px}
+.cal-lgi{display:flex;align-items:center;gap:10px}
+.cal-lgi span{flex:none;min-width:44px;text-align:center;font-size:1.3rem;line-height:1.2}
+.cal-lgi small{font-size:.82rem;color:#C9CCE6;line-height:1.3}
+@media(min-width:700px){.cal-cell{min-height:104px;padding:6px 7px}.cal-lb{display:flex}.cal-ic{font-size:1.5rem}.cal-num{font-size:.9rem}}
 .cal-ev-t strong{display:block;font-size:.98rem;color:#EEF0FA}
 .cal-ev-t small{color:#C7A24B;font-size:.8rem}
 .cal-ev p{margin:8px 0 0;font-size:.9rem;color:#C9CCE6;line-height:1.55}
@@ -144,12 +157,8 @@
 .cal-seo summary{cursor:pointer;font-weight:600;color:#EEF0FA}
 .cal-seo details p{margin:10px 0 0}
 .cal-note{font-size:.82rem;opacity:.85}
-@media(max-width:560px){.cal-page h1{font-size:1.55rem}.cal-cell{min-height:54px;padding:4px 3px}.cal-ic{font-size:.8rem}.cal-num{font-size:.74rem}.cal-nav h2{font-size:1.05rem;min-width:9ch}}
+@media(max-width:560px){.cal-page h1{font-size:1.55rem}.cal-cell{min-height:70px;padding:4px 3px}.cal-ic{font-size:1.15rem;gap:1px 2px}.cal-ic i.tx{font-size:.92rem;padding:0 3px}.cal-num{font-size:.74rem}.cal-grid{gap:3px}.cal-nav h2{font-size:1.05rem;min-width:9ch}}
 </style>
-
-
-
-
 <link href="https://elportalmistico.com/en/tools/esoteric-calendar.html" hreflang="en" rel="alternate"/><link href="https://elportalmistico.com/juegos/calendario-esoterico.html" hreflang="es" rel="alternate"/><link href="https://elportalmistico.com/juegos/calendario-esoterico.html" hreflang="x-default" rel="alternate"/><link href="/assets/css/lang-toggle.css?v=5" rel="stylesheet"/><script defer="" src="/assets/js/lang-toggle.js?v=1"></script></head>
 <body>
 <nav aria-label="Main menu" class="pm-nav"><div class="pm-nav-in">
@@ -169,6 +178,7 @@
 <div aria-label="Filters" class="cal-filters" id="cal-filters" role="group"></div>
 <div aria-label="Month calendar" class="cal-grid" id="cal-grid" role="group"></div>
 <div aria-live="polite" class="cal-day" hidden="" id="cal-day"></div>
+<div class="cal-legend" id="cal-legend"></div>
 <div class="cal-acts"><button class="cal-act main" id="cal-dl" type="button">📅 Add to my calendar (.ics)</button><button class="cal-act" id="cal-copy" type="button">Copy this month’s events</button></div>
 <p class="cal-tz" id="cal-tz"></p>
 <h2 class="cal-list-t" id="cal-list-t"></h2>

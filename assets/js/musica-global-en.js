@@ -218,6 +218,7 @@
     // usa este color para lo que aún no ha pintado; si la página solo tiene degradados, lo pinta blanco.
     ':root{color-scheme:dark;background-color:#05060F!important}body{background-color:#05060F!important}' +
     '#mute,#sound,#sound-toggle,#sound-button,.icon-btn.sound,#boton-musica{display:none!important}' +
+    '#pm-streak{display:none;align-items:center;flex:none;margin-left:auto;margin-right:8px;padding:0 11px;height:34px;border-radius:999px;border:1px solid rgba(232,200,120,.55);background:rgba(18,15,40,.82);color:#F1D58A;font:600 14px/1 Arial,sans-serif;text-decoration:none;white-space:nowrap}#pm-streak.pm-show{display:inline-flex}@media(max-width:720px){#pm-streak.pm-show{display:none}}#pm-streak+#pm-music-btn{margin-left:0}' +
     '#pm-music-btn{position:fixed;right:max(14px,env(safe-area-inset-right));top:max(14px,env(safe-area-inset-top));z-index:9999;' +
     'width:44px;height:44px;border-radius:50%;border:1px solid rgba(232,200,120,.55);background:rgba(18,15,40,.82);' +
     'color:#F1D58A;font-size:21px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;' +
@@ -293,6 +294,46 @@
     if (backBtn.parentNode !== navIn) navIn.insertBefore(backBtn, navIn.firstChild);
   }
 
+  /* ---------- Racha de días: cuenta los días seguidos que abres el portal en este dispositivo ---------- */
+  var streakEl = document.createElement('a');
+  streakEl.id = 'pm-streak';
+  streakEl.href = '/en/tools/my-day.html';
+  streakEl.setAttribute('aria-label', 'Your daily streak: open My Day');
+  function dayKey(d) { return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  var streakData = { n: 1, best: 1 };
+  (function () {
+    try {
+      var now = new Date(), today = dayKey(now), y = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+      var s = JSON.parse(localStorage.getItem('pm-streak') || 'null') || {};
+      if (s.last !== today) {
+        s.n = (s.last === dayKey(y) && s.n) ? s.n + 1 : 1;
+        s.best = Math.max(s.best || 0, s.n);
+        s.last = today;
+        localStorage.setItem('pm-streak', JSON.stringify(s));
+      }
+      streakData = s;
+    } catch (e) {}
+  })();
+  function refreshStreak() {
+    streakEl.textContent = '🔥 ' + streakData.n;
+    streakEl.classList.toggle('pm-show', streakData.n > 1);
+  }
+  refreshStreak();
+
+  /* Enlace "Mi día" dentro del menú de cada página (con la racha si ya tienes 2 días o más) */
+  function mountMyDay(navIn) {
+    if (!navIn) return;
+    var links = navIn.querySelector('.pm-links'); if (!links) return;
+    var a = links.querySelector('.pm-md-link');
+    if (!a) {
+      a = document.createElement('a'); a.className = 'pm-md-link'; a.href = '/en/tools/my-day.html';
+      var ref = links.querySelector('a[href*="esoteric-calendar"]');
+      if (ref && ref.parentNode === links) links.insertBefore(a, ref); else links.insertBefore(a, links.firstChild);
+    }
+    a.textContent = '✨ My Day' + (streakData.n > 1 ? ' · 🔥' + streakData.n : '');
+    if (location.pathname === '/en/tools/my-day.html') a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+  }
+
   function mountUI() {
     mountBack();
     if (!document.getElementById('pm-music-css')) document.head.appendChild(css);
@@ -305,6 +346,9 @@
       btn.__inNav = false;
       if (btn.parentNode !== document.body) document.body.appendChild(btn);
     }
+    mountMyDay(navIn);
+    if (btn.__inNav) { if (streakEl.nextSibling !== btn) btn.parentNode.insertBefore(streakEl, btn); }
+    else if (streakEl.parentNode) streakEl.parentNode.removeChild(streakEl);
     refreshBtn();
   }
 

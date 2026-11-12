@@ -35,7 +35,8 @@ function readingHtml(cat, signIdx, variant){
 export function mount(startId) {
   const root = document.querySelector('.hs-root'); if (!root) return;
   const hub = startId === 'hub';
-  const state = { sign: 7, cat: categories.find(c => c.id === (hub ? 'hoy' : startId)), variant: 0 };
+  const pmSign = d => { try { const v = JSON.parse(localStorage.getItem('pm-sign') || 'null'); if (v && v.i >= 0 && v.i < 12) return v.i; } catch (e) {} return d; };
+  const state = { sign: pmSign(7), cat: categories.find(c => c.id === (hub ? 'hoy' : startId)), variant: 0 };
   root.innerHTML = `<div class="sg-zodiacs hs-signs"></div>${hub ? '<nav class="hs-tabs" aria-label="Horoscope periods"></nav>' : ''}<article class="hs-out" aria-live="polite"></article><div class="hs-actions"></div>`;
   const grid = root.querySelector('.hs-signs'), tabs = root.querySelector('.hs-tabs'), out = root.querySelector('.hs-out'), act = root.querySelector('.hs-actions');
   function drawSigns(){ grid.innerHTML = signs.map((s, i) => `<button type="button" class="sg-zodiac ${i === state.sign ? 'on' : ''}" data-i="${i}" aria-pressed="${i === state.sign}"><span class="sg-sym">${s.glyph}</span><b>${s.name}</b></button>`).join(''); }

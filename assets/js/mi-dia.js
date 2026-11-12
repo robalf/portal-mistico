@@ -38,6 +38,8 @@
     phases: { nueva: 'New Moon', creciente: 'Waxing Crescent', cuartoCreciente: 'First Quarter', gibosaCreciente: 'Waxing Gibbous', llena: 'Full Moon', gibosaMenguante: 'Waning Gibbous', cuartoMenguante: 'Last Quarter', menguante: 'Waning Crescent' },
     tools: [['tarot-daily', 'daily-tarot-card.html', '🔮 Daily tarot card'], ['sn', 'yes-or-no-tarot.html', '🃏 Yes or no tarot'], ['runas', 'free-rune-reading.html', 'ᚠ Rune reading'], ['iching', 'free-i-ching-reading.html', '☯ I Ching']],
     cal: '/en/tools/esoteric-calendar.html', brujula: '/en/tools/moon-phase-today.html', carta: '/en/tools/free-birth-chart.html', ritualPage: '/en/tools/daily-moon-ritual.html',
+    nextH: 'Continue your day', horo: function (n) { return 'Read today’s horoscope for ' + n; }, lucky: 'Your lucky numbers today', trans: 'All my transits', lunar: 'Moon phase today', pending: 'Still open today: ', allDone: 'You finished all your readings today ✓ Come back tomorrow for new ones.', seeTransits: 'See all my transits and the big ones of the year →', ritFull: 'See the full ritual, step by step →', lifeLink: 'Discover your life path number →',
+    p: { horo: 'daily-horoscope.html', lucky: 'lucky-numbers-today.html', trans: 'daily-transits.html', lunar: 'moon-phase-today.html', life: 'life-path-number-calculator.html' },
     lang: 'en', loc: 'en-US'
   } : {
     kicker: '✦ Tu día, cada día ✦', formT: 'Escribe tu fecha de nacimiento una sola vez', name: 'Tu nombre (opcional)', ph: 'Ej.: María', date: 'Fecha de nacimiento',
@@ -62,6 +64,8 @@
     phases: { nueva: 'Luna nueva', creciente: 'Luna creciente', cuartoCreciente: 'Cuarto creciente', gibosaCreciente: 'Gibosa creciente', llena: 'Luna llena', gibosaMenguante: 'Gibosa menguante', cuartoMenguante: 'Cuarto menguante', menguante: 'Luna menguante' },
     tools: [['tarot-daily', 'tarot-del-dia.html', '🔮 Tarot del día'], ['sn', 'tarot-si-o-no.html', '🃏 Tarot sí o no'], ['runas', 'runas.html', 'ᚠ Tirada de runas'], ['iching', 'i-ching.html', '☯ I Ching']],
     cal: '/juegos/calendario-esoterico.html', brujula: '/juegos/fase-lunar-hoy.html', carta: '/juegos/carta-astral.html', ritualPage: '/juegos/ritual-del-dia.html',
+    nextH: 'Sigue con tu día', horo: function (n) { return 'Lee tu horóscopo de hoy: ' + n; }, lucky: 'Tus números de la suerte de hoy', trans: 'Todos mis tránsitos', lunar: 'Fase lunar de hoy', pending: 'Te falta hoy: ', allDone: 'Hoy completaste todas tus lecturas ✓ Vuelve mañana para nuevas.', seeTransits: 'Ver todos mis tránsitos y los grandes del año →', ritFull: 'Ver el ritual completo, paso a paso →', lifeLink: 'Descubre tu número de vida →',
+    p: { horo: 'horoscopo-de-hoy.html', lucky: 'numeros-de-la-suerte-hoy.html', trans: 'transitos.html', lunar: 'fase-lunar-hoy.html', life: 'calcular-numero-de-vida.html' },
     lang: 'es', loc: 'es'
   };
 
@@ -196,6 +200,21 @@
   }
   function dateLabel(d) { return cap(new Intl.DateTimeFormat(S.loc, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(d)); }
 
+  /* Siguiente paso: la lectura que falta hoy y accesos a las páginas completas */
+  function toolsState() {
+    var day = pmDay();
+    return S.tools.map(function (t) { var v = ls('pm-daily-' + t[0]); return { t: t, ok: !!(v && v.day === day) }; });
+  }
+  function nextBlock(r) {
+    var st = toolsState(), pend = st.filter(function (x) { return !x.ok; })[0];
+    var si = C.signOf(r.sun.lon), sn = T.SIGNS[si].n;
+    var b = ['<h3 class="ca-h">' + S.nextH + '</h3>'];
+    if (pend) b.push('<a class="md-feat" href="' + BASE + pend.t[1] + '"><span>' + S.pending + '</span><b>' + esc(pend.t[2]) + ' →</b></a>');
+    else b.push('<p class="md-all">' + S.allDone + '</p>');
+    b.push('<div class="md-links"><a href="' + BASE + S.p.horo + '">' + U.sg(si) + ' ' + esc(S.horo(sn)) + '</a><a href="' + BASE + S.p.lucky + '">🍀 ' + S.lucky + '</a><a href="' + BASE + S.p.trans + '">🪐 ' + S.trans + '</a><a href="' + BASE + S.p.lunar + '">🌙 ' + S.lunar + '</a></div>');
+    return b.join('');
+  }
+
   function html(me, r, events) {
     var h = [], st = streak();
     var sunSign = U.signName(r.sun.lon);
@@ -204,32 +223,35 @@
     h.push('<div class="ca-two"><div class="ca-mini"><span>' + S.energy + '</span><b style="color:#E8794A">' + r.en + '/10</b></div><div class="ca-mini"><span>' + S.love + '</span><b style="color:#E9D27A">' + r.am + '/10</b></div></div>');
     h.push('<p class="md-sum">' + esc(tierText(r)) + '</p><p class="ca-note" style="text-align:center">' + S.idx + '</p>');
 
+    h.push(nextBlock(r));
+
     /* cielo */
     h.push('<h3 class="ca-h">' + S.skyH + '</h3>');
     if (!r.cross.length) h.push('<p>' + S.noAsp + '</p>');
     else {
       h.push('<div class="ca-list">');
-      r.cross.slice(0, 4).forEach(function (x) {
+      r.cross.slice(0, 2).forEach(function (x) {
         var tone = (x.type === 'trine' || x.type === 'sextile') ? ['fluido', S.fav] : (x.type === 'conj' ? ['intenso', S.intense] : ['tenso', S.tense]);
         var txt = cap(T.TR_ENERGY[x.a]) + ' ' + T.TR_TONE[x.type].replace('{n}', T.POSS[x.b]);
         h.push('<div class="ca-item ca-' + tone[0] + '"><div class="ca-item-t"><span class="ca-g">' + U.pg(x.a) + '</span> ' + esc(T.PLANETS[x.a].n) + ' ' + esc(T.ASPECTS[x.type].n.toLowerCase()) + ' ' + S.your + ' <span class="ca-g">' + U.pg(x.b) + '</span> ' + esc(T.PLANETS[x.b].n) + ' <span class="ca-tag">' + tone[1] + '</span></div><p>' + esc(txt) + '</p></div>');
       });
       h.push('</div>');
     }
+    h.push('<p class="ca-note"><a href="' + BASE + S.p.trans + '">' + S.seeTransits + '</a></p>');
     if (!r.houses) h.push('<p class="ca-note">' + S.houses + ' <a href="' + S.carta + '">' + S.houseLink + '</a>.</p>');
 
     /* luna */
     var msg = S.moonIn + U.signName(r.moon.lon) + '.';
     if (r.houses) { var hn = C.houseOf(r.moon.lon, r.natal.houses.cusps); msg += ' ' + S.moonHouse(hn, T.HOUSES[hn - 1]); }
-    h.push('<h3 class="ca-h">' + S.moonH + '</h3><div class="ca-list"><div class="ca-item"><div class="ca-item-t"><span class="md-moon">' + r.mi.icon + '</span> ' + esc(S.phases[r.mi.key]) + ' · ' + r.mi.pct + '% ' + S.illum + '</div><p>' + esc(msg) + '</p></div></div>');
+    h.push('<h3 class="ca-h">' + S.moonH + '</h3><div class="ca-list"><div class="ca-item"><div class="ca-item-t"><span class="md-moon">' + r.mi.icon + '</span> ' + esc(S.phases[r.mi.key]) + ' · ' + r.mi.pct + '% ' + S.illum + '</div><p>' + esc(msg) + '</p><p><a href="' + BASE + S.p.lunar + '">' + S.lunar + ' →</a></p></div></div>');
 
     /* número y color */
     var pl = S.planDay[r.dow];
-    h.push('<h3 class="ca-h">' + S.numH + '</h3><div class="md-two"><div class="md-box"><span>' + S.pday + '</span><b>' + r.pd + '</b><p>' + esc(S.nums[r.pd]) + '</p></div><div class="md-box"><span>' + S.color + '</span><b class="md-col">' + esc(pl[1]) + '</b><p>' + esc(cap(S.dayNames[r.dow])) + ' · ' + S.ruler + ' ' + esc(S.planName[pl[0]]) + '</p></div></div><p class="ca-note">' + S.numNote + '</p>');
+    h.push('<h3 class="ca-h">' + S.numH + '</h3><div class="md-two"><div class="md-box"><span>' + S.pday + '</span><b>' + r.pd + '</b><p>' + esc(S.nums[r.pd]) + '</p></div><div class="md-box"><span>' + S.color + '</span><b class="md-col">' + esc(pl[1]) + '</b><p>' + esc(cap(S.dayNames[r.dow])) + ' · ' + S.ruler + ' ' + esc(S.planName[pl[0]]) + '</p></div></div><p class="ca-note">' + S.numNote + ' <a href="' + BASE + S.p.life + '">' + S.lifeLink + '</a></p>');
 
     /* ritual */
     var rit = ritualOf(r.now, r.mi.key);
-    if (rit) h.push('<h3 class="ca-h">' + S.ritH + '</h3><div class="ca-list"><div class="ca-item"><div class="ca-item-t">🕯️ ' + esc(rit.titulo) + '</div><p><em>' + esc(rit.intencion) + '</em></p><p><strong>' + S.mats + ':</strong> ' + esc(rit.materiales) + '</p><ol class="md-steps">' + rit.pasos.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ol><p><strong>' + S.aff + ':</strong> “' + esc(rit.afirmacion) + '”</p><p><a href="' + S.ritualPage + '">' + S.ritMore + ' →</a></p></div></div>');
+    if (rit) h.push('<h3 class="ca-h">' + S.ritH + '</h3><div class="ca-list"><div class="ca-item"><div class="ca-item-t">🕯️ ' + esc(rit.titulo) + '</div><p><em>' + esc(rit.intencion) + '</em></p><p>“' + esc(rit.afirmacion) + '”</p><p><a href="' + S.ritualPage + '">' + S.ritFull + '</a></p></div></div>');
 
     /* lecturas de hoy */
     var day = pmDay();
@@ -311,6 +333,7 @@
     var r;
     try { r = compute(me); } catch (e) { setup.hidden = false; out.hidden = true; document.getElementById('mdErr').textContent = S.needDate; return; }
     setup.hidden = true; out.hidden = false;
+    ls('pm-sign', { i: C.signOf(r.sun.lon) }); /* los horóscopos del portal abren con tu signo */
     function paint(list) {
       out.innerHTML = html(me, r, pickEvents(list, r.now));
       document.getElementById('mdShare').addEventListener('click', function () { shareCard(me, r, this); });

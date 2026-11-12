@@ -95,7 +95,8 @@ const insightSets = {
   '2030':[['Evolución','Cierras un ciclo largo con claridad.'],['Ciclo fértil','Segundo semestre.'],['Clave anual','Disfruta lo construido, no solo lo persigas.']]
 };
 
-let state = { sign: signs[7], category: categories[0], variant: 0, muted: true };
+function pmSign(d){try{var v=JSON.parse(localStorage.getItem('pm-sign')||'null');if(v&&v.i>=0&&v.i<12)return v.i;}catch(e){}return d;}
+let state = { sign: signs[pmSign(7)], category: categories[0], variant: 0, muted: true };
 const music = (function(){try{var t=window.top;if(t!==window&&t.PortalMusic)return t.PortalMusic.proxy;}catch(e){}return null;})() || new Audio('/assets/audio/musica-portal.mp3');
 music.loop = true; music.volume = 0.16;
 const signSfx = PMS('assets/audio/seleccion-astral.mp3'); signSfx.volume = 0.42;

@@ -176,6 +176,7 @@ nav = '\n'.join(tpl[i_nav:i_art])
 foot = '\n'.join(tpl[i_foot:i_foot_end + 1])
 tail = '\n'.join(tpl[i_burger:])
 html = head + '\n' + meta + '\n' + css + '\n</head>\n' + nav + '\n' + body + share + '\n' + foot + '\n\n' + tail
+html = html.replace('href="blog.css?v=6"','href="../blog/blog.css?v=6"').replace('href="index.html"','href="../blog/index.html"')
 out = os.path.join(R, 'juegos', 'calendario-esoterico.html')
 open(out, 'w', encoding='utf8').write(html)
 print('ok', out, len(html))

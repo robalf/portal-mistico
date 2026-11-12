@@ -120,8 +120,14 @@
       m++; if (m > 11) { m = 0; y++; } if (y > 2027) break;
     }
   }
+  function syncHash() {
+    var h = '#' + state.y + '-' + pad(state.m + 1);
+    if (location.hash !== h) { try { history.replaceState(history.state, '', location.pathname + location.search + h); } catch (x) {} }
+  }
+  function goList() { var t = $('cal-list-t'); if (t && t.scrollIntoView) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   function render() {
     renderChips();
+    syncHash();
     $('cal-title').textContent = L.months[state.m].charAt(0).toUpperCase() + L.months[state.m].slice(1) + ' ' + state.y;
     var idx = (state.y - 2026) * 12 + state.m - 10;
     $('cal-prev').disabled = idx <= 0; $('cal-next').disabled = idx >= 13;
@@ -207,8 +213,17 @@
     $('cal-dl').onclick = download; $('cal-copy').onclick = copyMonth;
     $('cal-tz').textContent = L.tz + (function () { try { return ': ' + Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (x) { return ''; } })();
     var n = new Date(); if (n >= MIN && n.getFullYear() <= MAXY) { state.y = n.getFullYear(); state.m = n.getMonth(); }
-    var h = location.hash.match(/^#(\d{4})-(\d{2})$/); if (h && +h[1] >= 2026 && +h[1] <= 2027) { state.y = +h[1]; state.m = +h[2] - 1; }
-    fetch('/assets/data/calendario-esoterico.json?v=1').then(function (r) { return r.json(); }).then(function (j) { events = prep(j.events); render(); })
+    var fromLink = false;
+    var h = location.hash.match(/^#(\d{4})-(\d{2})$/); if (h && +h[1] >= 2026 && +h[1] <= 2027) { state.y = +h[1]; state.m = +h[2] - 1; fromLink = true; }
+    window.addEventListener('hashchange', function () {
+      var g = location.hash.match(/^#(\d{4})-(\d{2})$/);
+      if (g && +g[1] >= 2026 && +g[1] <= 2027 && (+g[1] !== state.y || +g[2] - 1 !== state.m)) { state.y = +g[1]; state.m = +g[2] - 1; state.sel = null; render(); goList(); }
+    });
+    fetch('/assets/data/calendario-esoterico.json?v=1').then(function (r) { return r.json(); }).then(function (j) {
+      events = prep(j.events); render();
+      // Si se llegó con un enlace a un mes (#2026-12), bajar a la lista de todo lo que pasa ese mes.
+      if (fromLink) setTimeout(goList, 250);
+    })
       .catch(function () { $('cal-list').appendChild(el('p', 'cal-none', L.loadErr)); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();

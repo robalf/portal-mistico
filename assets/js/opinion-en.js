@@ -17,7 +17,7 @@
   var eligible = force || (canStore && ss(K_FIRST) === '1' && !ls(K_DONE));
   if (!eligible) return;
 
-  var active = 0, shown = false, rating = 0, sent = false, box, comment;
+  var active = 0, shown = false, rating = 0, sent = false, box, comment, nameIn;
   var isTouch = !(window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches);
   setInterval(function () { if (document.visibilityState === 'visible') active++; }, 1000);
 
@@ -57,6 +57,7 @@
       '#pm-op .st{display:flex;justify-content:center;gap:6px;margin:6px 0 10px}' +
       '#pm-op .st button{border:0;background:transparent;font-size:38px;line-height:1;color:#3a3d66;cursor:pointer;padding:2px 4px;transition:transform .12s,color .12s}' +
       '#pm-op .st button.on{color:#F1D58A}#pm-op .st button:hover{transform:scale(1.12)}' +
+      '#pm-op input[type=text]{width:100%;box-sizing:border-box;margin-top:8px;border-radius:12px;border:1px solid rgba(199,162,75,.4);background:#080A22;color:#EEF0FA;padding:11px 12px;font:inherit;font-size:.95rem}' +
       '#pm-op textarea{width:100%;box-sizing:border-box;min-height:92px;resize:vertical;border-radius:12px;border:1px solid rgba(199,162,75,.4);background:#080A22;color:#EEF0FA;padding:11px 12px;font:inherit;font-size:.95rem}' +
       '#pm-op .row{display:flex;gap:10px;justify-content:center;margin-top:12px}' +
       '#pm-op .go{border:0;border-radius:999px;padding:11px 22px;background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;font-weight:600;font-size:.95rem;cursor:pointer}' +
@@ -88,7 +89,7 @@
     function paint(n) { btns.forEach(function (b, k) { b.className = k < n ? 'on' : ''; }); }
     c.appendChild(st);
     var body = el('div'); c.appendChild(body);
-    c.appendChild(el('p', 'fine', 'It\'s anonymous. We only see the rating and whatever you write. Your comment may be published on the website, without your name.'));
+    c.appendChild(el('p', 'fine', 'Your name is optional. If you share your name and comment, we may publish them on the website.'));
     box.appendChild(c);
     box.addEventListener('click', function (e) { if (e.target === box) close(); });
     document.addEventListener('keydown', onKey);
@@ -104,6 +105,8 @@
       body.appendChild(el('p', '', n >= 3 ? 'Thanks. What could we improve, or what was missing?' : 'Sorry it wasn\'t what you expected. What were you looking for, or what went wrong?'));
       comment = el('textarea'); comment.setAttribute('aria-label', 'Your comment'); comment.placeholder = 'Write here what you were looking for or what we can improve…'; comment.maxLength = 1500;
       body.appendChild(comment);
+      nameIn = el('input'); nameIn.type = 'text'; nameIn.setAttribute('aria-label', 'Your name'); nameIn.placeholder = 'Your name (optional)'; nameIn.maxLength = 60; nameIn.autocomplete = 'given-name';
+      body.appendChild(nameIn);
       var row = el('div', 'row');
       var go = el('button', 'go', 'Send'); go.type = 'button'; go.onclick = function () { send(); body.innerHTML = ''; body.appendChild(el('p', '', 'Thank you for helping us improve! 💜')); setTimeout(close, 2200); };
       var sk = el('button', 'sk', 'Not now'); sk.type = 'button'; sk.onclick = function () { send(); close(); };
@@ -127,6 +130,7 @@
       _subject: 'English visitor feedback: ' + rating + ' out of 5 stars — Portal Místico',
       _template: 'table', _captcha: 'false', _honey: '',
       calificacion: rating + ' de 5',
+      nombre: (nameIn && nameIn.value.trim()) || '(anonymous)',
       comentario: texto || '(sin comentario)',
       pagina: location.href,
       dispositivo: (isTouch ? 'móvil/tableta' : 'PC') + ' · ' + screen.width + 'x' + screen.height,

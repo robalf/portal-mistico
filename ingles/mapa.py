@@ -38,7 +38,7 @@ M = {
 # T6 astro tools + brujula
 'juegos/carta-astral.html':'tools/free-birth-chart.html','juegos/calcular-ascendente.html':'tools/rising-sign-calculator.html','juegos/signo-lunar.html':'tools/moon-sign-calculator.html',
 'juegos/sinastria.html':'tools/synastry-chart-calculator.html','juegos/revolucion-solar.html':'tools/solar-return-calculator.html','juegos/transitos.html':'tools/daily-transits.html',
-'juegos/brujula.html':'tools/moon-phase-today.html','juegos/calendario-lunar.html':'tools/lunar-calendar.html','juegos/fase-lunar-hoy.html':'tools/current-moon-phase-and-sign.html',
+'juegos/brujula.html':'tools/moon-phase-today.html','juegos/calendario-lunar.html':'tools/lunar-calendar.html','juegos/calendario-esoterico.html':'tools/esoteric-calendar.html','juegos/fase-lunar-hoy.html':'tools/current-moon-phase-and-sign.html',
 'juegos/planetas-retrogrados-hoy.html':'tools/is-mercury-retrograde-today.html','juegos/ritual-del-dia.html':'tools/daily-moon-ritual.html',
 # T7 blog astro
 'blog/calendario-lunar-noviembre-2026.html':'blog/lunar-calendar-november-2026.html','blog/calendario-lunar-octubre-2026.html':'blog/lunar-calendar-october-2026.html',

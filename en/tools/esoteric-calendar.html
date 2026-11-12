@@ -145,7 +145,7 @@
 .cal-ev-t small{color:#C7A24B;font-size:.8rem}
 .cal-ev p{margin:8px 0 0;font-size:.9rem;color:#C9CCE6;line-height:1.55}
 .cal-none{color:#9098C4;font-size:.92rem}
-.cal-acts{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.cal-acts{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}a.cal-act{text-decoration:none;display:inline-flex;align-items:center}
 .cal-act.main{background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;border-color:transparent;font-weight:600}
 .cal-tz{color:#9098C4;font-size:.78rem;margin:2px 0 14px}
 .cal-seo{margin-top:34px}
@@ -179,7 +179,7 @@
 <div aria-label="Month calendar" class="cal-grid" id="cal-grid" role="group"></div>
 <div aria-live="polite" class="cal-day" hidden="" id="cal-day"></div>
 <div class="cal-legend" id="cal-legend"></div>
-<div class="cal-acts"><button class="cal-act main" id="cal-dl" type="button">📅 Add to my calendar (.ics)</button><button class="cal-act" id="cal-copy" type="button">Copy this month’s events</button></div>
+<div class="cal-acts"><button class="cal-act main" id="cal-dl" type="button">📅 Add to my calendar (.ics)</button><button class="cal-act" id="cal-copy" type="button">Copy this month’s events</button><button class="cal-act" id="cal-share" type="button" hidden>📲 Share this month’s image</button><a class="cal-act" id="cal-img" hidden>⬇️ Download image</a></div>
 <p class="cal-tz" id="cal-tz"></p>
 <h2 class="cal-list-t" id="cal-list-t"></h2>
 <div id="cal-list"></div>
@@ -203,7 +203,7 @@
 <details><summary>What events does the esoteric calendar include?</summary><p>New, full and quarter moons, supermoons, solar and lunar eclipses, planetary retrogrades and stations, the Sun and slow planets entering each sign, equinoxes and solstices, numerology portals such as 11/11 or 12/12, meteor showers and traditional festivals.</p></details><details><summary>Where do the dates come from?</summary><p>Moon phases, eclipses, retrogrades and sign changes are calculated with astronomy-engine, an open-source astronomy library. Meteor shower dates are based on the International Meteor Organization (IMO) calendar. Times are shown in your time zone.</p></details><details><summary>How do I add these events to my phone or Google Calendar?</summary><p>Press the “Add to my calendar (.ics)” button. A file with the events you have switched on in the filters is downloaded, and you can open it with Google Calendar, the iPhone calendar or Outlook.</p></details><details><summary>Why can an event’s date be different in my country?</summary><p>Astronomical events happen at a specific instant in universal time (UTC). Depending on your time zone, that instant can fall on the previous or the next day. That is why the calendar times are converted to your zone automatically.</p></details><details><summary>What is a numerology portal?</summary><p>It is the popular name for dates with a repeated number, such as 11/11 or 12/12. It is a tradition of numerology and modern spirituality: they are considered symbolic moments to set intentions. It has no scientific basis.</p></details>
 </section>
 </main>
-<script defer="" src="/assets/js/calendario-esoterico.js?v=2"></script>
+<script defer="" src="/assets/js/calendario-esoterico.js?v=3"></script>
 <div class="pm-share" data-title="2026-2027 Esoteric Calendar" data-url="/en/tools/esoteric-calendar.html">
 <div class="pm-share-t">✦ Share this calendar ✦</div>
 <div class="pm-share-row">

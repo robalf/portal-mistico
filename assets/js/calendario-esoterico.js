@@ -10,7 +10,7 @@
       cats: { lunas: 'Lunas', eclipses: 'Eclipses', retro: 'Retrógrados', portales: 'Portales', cielo: 'Signos y estaciones', lluvias: 'Estrellas fugaces' },
       today: 'Hoy', prev: 'Mes anterior', next: 'Mes siguiente', download: 'Añadir a mi calendario (.ics)', allMonth: 'Eventos del mes', none: 'No hay eventos con estos filtros en este mes.',
       tz: 'Horas en tu zona horaria', loadErr: 'No se pudo cargar el calendario. Recarga la página.', approx: 'Fecha aproximada del pico.', at: 'a las',
-      pastBadge: 'ya pasó', filters: 'Filtros', dayEv: 'Eventos del día', close: 'Cerrar', more: 'más', share: 'Copiar eventos del mes', copied: 'Copiado',
+      pastBadge: 'ya pasó', filters: 'Filtros', dayEv: 'Eventos del día', close: 'Cerrar', more: 'más', share: 'Copiar eventos del mes', copied: 'Copiado', imgTxt: function (m) { return '🌙 Calendario esotérico de ' + m + ': lunas, retrógrados, portales y fechas mágicas del mes. Míralo día por día aquí 👉'; }, shareImg: '📲 Compartir imagen del mes', dlImg: '⬇️ Descargar imagen',
       signs: { aries:'Aries', tauro:'Tauro', geminis:'Géminis', cancer:'Cáncer', leo:'Leo', virgo:'Virgo', libra:'Libra', escorpio:'Escorpio', sagitario:'Sagitario', capricornio:'Capricornio', acuario:'Acuario', piscis:'Piscis' },
       theme: { aries:'iniciativa y valentía', tauro:'estabilidad y placer', geminis:'comunicación y curiosidad', cancer:'hogar y emociones', leo:'creatividad y expresión', virgo:'orden y salud cotidiana', libra:'relaciones y equilibrio', escorpio:'transformación e intensidad', sagitario:'expansión y búsqueda de sentido', capricornio:'metas y estructura', acuario:'ideas y comunidad', piscis:'intuición y sensibilidad' },
       bodies: { mercury:'Mercurio', venus:'Venus', mars:'Marte', jupiter:'Júpiter', saturn:'Saturno', uranus:'Urano', neptune:'Neptuno', pluto:'Plutón', sol:'Sol' },
@@ -39,7 +39,7 @@
       cats: { lunas: 'Moons', eclipses: 'Eclipses', retro: 'Retrogrades', portales: 'Portals', cielo: 'Signs & seasons', lluvias: 'Meteor showers' },
       today: 'Today', prev: 'Previous month', next: 'Next month', download: 'Add to my calendar (.ics)', allMonth: 'Events this month', none: 'No events match these filters this month.',
       tz: 'Times shown in your time zone', loadErr: 'The calendar could not be loaded. Please reload the page.', approx: 'Approximate peak date.', at: 'at',
-      pastBadge: 'past', filters: 'Filters', dayEv: 'Events of the day', close: 'Close', more: 'more', share: 'Copy this month’s events', copied: 'Copied',
+      pastBadge: 'past', filters: 'Filters', dayEv: 'Events of the day', close: 'Close', more: 'more', share: 'Copy this month’s events', copied: 'Copied', imgTxt: function (m) { return '🌙 Esoteric calendar for ' + m + ': moons, retrogrades, portals and magical dates. See it day by day here 👉'; }, shareImg: '📲 Share this month’s image', dlImg: '⬇️ Download image',
       signs: { aries:'Aries', tauro:'Taurus', geminis:'Gemini', cancer:'Cancer', leo:'Leo', virgo:'Virgo', libra:'Libra', escorpio:'Scorpio', sagitario:'Sagittarius', capricornio:'Capricorn', acuario:'Aquarius', piscis:'Pisces' },
       theme: { aries:'initiative and courage', tauro:'stability and pleasure', geminis:'communication and curiosity', cancer:'home and emotions', leo:'creativity and self-expression', virgo:'order and everyday health', libra:'relationships and balance', escorpio:'transformation and intensity', sagitario:'expansion and the search for meaning', capricornio:'goals and structure', acuario:'ideas and community', piscis:'intuition and sensitivity' },
       bodies: { mercury:'Mercury', venus:'Venus', mars:'Mars', jupiter:'Jupiter', saturn:'Saturn', uranus:'Uranus', neptune:'Neptune', pluto:'Pluto', sol:'The Sun' },
@@ -125,9 +125,40 @@
     if (location.hash !== h) { try { history.replaceState(history.state, '', location.pathname + location.search + h); } catch (x) {} }
   }
   function goList() { var t = $('cal-list-t'); if (t && t.scrollIntoView) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  /* Imagen del mes para compartir en redes (vertical para historias/WhatsApp; la de publicación se descarga). */
+  var IMG_FROM = 2026 * 12 + 11, IMG_TO = 2027 * 12 + 11, imgCache = {};
+  function imgKey() { return state.y + '-' + pad(state.m + 1); }
+  function hasImg() { var v = state.y * 12 + state.m; return v >= IMG_FROM && v <= IMG_TO; }
+  function imgUrl(kind) { return '/assets/img/calendario-redes/' + LANG + '-' + imgKey() + '-' + kind + '.jpg'; }
+  function monthLink() { return location.origin + location.pathname + '#' + imgKey(); }
+  function monthName() { return L.months[state.m] + ' ' + state.y; }
+  function fileName(kind) { return (LANG === 'es' ? 'calendario-esoterico-' : 'esoteric-calendar-') + imgKey() + (kind === 'post' ? '-post' : '') + '.jpg'; }
+  function prepImg() {
+    var sh = $('cal-share'), dl = $('cal-img'); if (!sh || !dl) return;
+    var ok = hasImg(); sh.hidden = !ok; dl.hidden = !ok; if (!ok) return;
+    dl.href = imgUrl('post'); dl.setAttribute('download', fileName('post'));
+    var k = imgKey();
+    // Se descarga antes de tocar el botón: Safari solo permite compartir si se hace en el mismo toque.
+    if (!imgCache[k] && window.fetch && navigator.canShare) {
+      imgCache[k] = 'loading';
+      fetch(imgUrl('historia')).then(function (r) { return r.ok ? r.blob() : null; }).then(function (b) {
+        imgCache[k] = b ? new File([b], fileName('historia'), { type: 'image/jpeg' }) : null;
+      }).catch(function () { imgCache[k] = null; });
+    }
+  }
+  function shareImg() {
+    var f = imgCache[imgKey()], text = L.imgTxt(monthName()), url = monthLink();
+    if (f && f !== 'loading' && navigator.canShare && navigator.canShare({ files: [f] })) {
+      navigator.share({ files: [f], text: text + ' ' + url }).catch(function () {});
+      return;
+    }
+    if (navigator.share) { navigator.share({ title: document.title, text: text, url: url }).catch(function () {}); return; }
+    var a = document.createElement('a'); a.href = imgUrl('historia'); a.download = fileName('historia'); document.body.appendChild(a); a.click(); a.remove();
+  }
   function render() {
     renderChips();
     syncHash();
+    prepImg();
     $('cal-title').textContent = L.months[state.m].charAt(0).toUpperCase() + L.months[state.m].slice(1) + ' ' + state.y;
     var idx = (state.y - 2026) * 12 + state.m - 10;
     $('cal-prev').disabled = idx <= 0; $('cal-next').disabled = idx >= 13;
@@ -211,6 +242,7 @@
     $('cal-next').onclick = function () { state.m++; if (state.m > 11) { state.m = 0; state.y++; } state.sel = null; render(); };
     $('cal-today').onclick = function () { var n = new Date(); if (n < MIN) n = MIN; if (n.getFullYear() > MAXY) n = new Date(2027, 11, 1); state.y = n.getFullYear(); state.m = n.getMonth(); state.sel = dkey(new Date()) === dkey(n) ? dkey(n) : null; render(); };
     $('cal-dl').onclick = download; $('cal-copy').onclick = copyMonth;
+    if ($('cal-share')) { $('cal-share').onclick = shareImg; }
     $('cal-tz').textContent = L.tz + (function () { try { return ': ' + Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (x) { return ''; } })();
     var n = new Date(); if (n >= MIN && n.getFullYear() <= MAXY) { state.y = n.getFullYear(); state.m = n.getMonth(); }
     var fromLink = false;

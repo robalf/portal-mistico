@@ -9,8 +9,8 @@ const fonts=`
 @font-face{font-family:Ws;font-weight:500;src:url(${F}/work-sans/files/work-sans-latin-500-normal.woff2)}
 @font-face{font-family:Ws;font-weight:600;src:url(${F}/work-sans/files/work-sans-latin-600-normal.woff2)}
 ${[...Array(11).keys()].map(i=>`@font-face{font-family:Em;src:url(${F}/noto-color-emoji/files/noto-color-emoji-${i}-400-normal.woff2)}`).join('')}`;
-const T={es:{kicker:'Calendario esotérico',tz:'Fechas según la hora del Este de EE. UU.',cta:'Todo el mes, día por día',url:'elportalmistico.com · Calendario',save:'Guárdalo para tenerlo a mano ✦'},
-         en:{kicker:'Esoteric calendar',tz:'Dates in U.S. Eastern Time',cta:'The whole month, day by day',url:'elportalmistico.com/en · Calendar',save:'Save it for later ✦'}};
+const T={es:{kicker:'Calendario esotérico',tz:'Fechas según la hora del Este de EE. UU.',cta:'Todo el mes, día por día',url:'elportalmistico.com/calendario',save:'Guárdalo para tenerlo a mano ✦'},
+         en:{kicker:'Esoteric calendar',tz:'Dates in U.S. Eastern Time',cta:'The whole month, day by day',url:'elportalmistico.com/en/calendar',save:'Save it for later ✦'}};
 function rnd(seed){return()=>{seed=(seed*16807)%2147483647;return seed/2147483647}}
 function stars(w,h,seed){const r=rnd(seed);let s='';for(let i=0;i<130;i++){const x=r()*w,y=r()*h,z=r()*2.2+.4,o=r()*.6+.15;s+=`<i style="left:${x}px;top:${y}px;width:${z}px;height:${z}px;opacity:${o}"></i>`}return s}
 function html(lang,key,W,H){

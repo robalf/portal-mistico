@@ -160,7 +160,7 @@
 .cal-ev-t small{color:#C7A24B;font-size:.8rem}
 .cal-ev p{margin:8px 0 0;font-size:.9rem;color:#C9CCE6;line-height:1.55}
 .cal-none{color:#9098C4;font-size:.92rem}
-.cal-acts{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.cal-acts{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}a.cal-act{text-decoration:none;display:inline-flex;align-items:center}
 .cal-act.main{background:linear-gradient(135deg,#E9D9A6,#C7A24B);color:#1a1406;border-color:transparent;font-weight:600}
 .cal-tz{color:#9098C4;font-size:.78rem;margin:2px 0 14px}
 .cal-seo{margin-top:34px}
@@ -199,7 +199,7 @@
 <div class="cal-grid" id="cal-grid" role="group" aria-label="Calendario del mes"></div>
 <div class="cal-day" id="cal-day" hidden aria-live="polite"></div>
 <div class="cal-legend" id="cal-legend"></div>
-<div class="cal-acts"><button class="cal-act main" id="cal-dl" type="button">📅 Añadir a mi calendario (.ics)</button><button class="cal-act" id="cal-copy" type="button">Copiar eventos del mes</button></div>
+<div class="cal-acts"><button class="cal-act main" id="cal-dl" type="button">📅 Añadir a mi calendario (.ics)</button><button class="cal-act" id="cal-copy" type="button">Copiar eventos del mes</button><button class="cal-act" id="cal-share" type="button" hidden>📲 Compartir imagen del mes</button><a class="cal-act" id="cal-img" hidden>⬇️ Descargar imagen</a></div>
 <p class="cal-tz" id="cal-tz"></p>
 <h2 class="cal-list-t" id="cal-list-t"></h2>
 <div id="cal-list"></div>
@@ -224,7 +224,7 @@
 <details><summary>¿Qué eventos incluye el calendario esotérico?</summary><p>Lunas nuevas, llenas y cuartos, superlunas, eclipses solares y lunares, retrogradaciones y estaciones de los planetas, entrada del Sol y de los planetas lentos en cada signo, equinoccios y solsticios, portales numéricos como el 11/11 o el 12/12, lluvias de estrellas y fiestas tradicionales.</p></details><details><summary>¿De dónde salen las fechas?</summary><p>Las fases de la Luna, los eclipses, las retrogradaciones y los cambios de signo están calculados con astronomy-engine, una librería astronómica de código abierto. Las fechas de las lluvias de estrellas se basan en el calendario de la Organización Internacional de Meteoros (IMO). Las horas se muestran en tu zona horaria.</p></details><details><summary>¿Cómo añado estos eventos a mi móvil o a Google Calendar?</summary><p>Pulsa el botón «Añadir a mi calendario (.ics)». Se descarga un archivo con los eventos que tengas activados en los filtros, que puedes abrir con Google Calendar, el calendario del iPhone u Outlook.</p></details><details><summary>¿Por qué la fecha de un evento puede ser distinta en mi país?</summary><p>Los eventos astronómicos ocurren en un instante concreto del tiempo universal (UTC). Según tu zona horaria, ese instante puede caer en el día anterior o posterior. Por eso las horas del calendario se convierten automáticamente a tu zona.</p></details><details><summary>¿Qué es un portal numérico?</summary><p>Es el nombre popular de las fechas con el mismo número repetido, como 11/11 o 12/12. Es una tradición de la numerología y la espiritualidad moderna: se consideran momentos simbólicos para fijar intenciones. No tiene una base científica.</p></details>
 </section>
 </main>
-<script src="/assets/js/calendario-esoterico.js?v=2" defer></script>
+<script src="/assets/js/calendario-esoterico.js?v=3" defer></script>
 <div class="pm-share" data-url="https://elportalmistico.com/juegos/calendario-esoterico.html" data-title="Calendario esotérico 2026-2027: lunas, eclipses y retrógrados">
   <div class="pm-share-t">✦ Comparte este calendario ✦</div>
   <div class="pm-share-row">

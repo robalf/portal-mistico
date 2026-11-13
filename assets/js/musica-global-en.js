@@ -334,7 +334,27 @@
     if (location.pathname === '/en/tools/my-day.html') a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
   }
 
+  /* Al cambiar de pantalla dentro de una herramienta (p. ej. tocar una tarjeta del Oráculo),
+     la página vuelve al inicio en vez de quedarse a mitad de camino. */
+  var topWatch = null, topKey = null;
+  function screenKey(box) {
+    var h = box.querySelector('.screen-title, .section-head h2, h1, h2');
+    return h ? h.textContent.trim() : '';
+  }
+  function watchScreenTop() {
+    try { if (topWatch) { topWatch.disconnect(); topWatch = null; } } catch (e) {}
+    var box = document.getElementById('game-container');
+    if (!box || !window.MutationObserver) return;
+    topKey = screenKey(box);
+    topWatch = new MutationObserver(function () {
+      var k = screenKey(box);
+      if (k !== topKey) { topKey = k; try { window.scrollTo(0, 0); } catch (e) {} }
+    });
+    topWatch.observe(box, { childList: true, subtree: true });
+  }
+
   function mountUI() {
+    watchScreenTop();
     mountBack();
     if (!document.getElementById('pm-music-css')) document.head.appendChild(css);
     var navIn = document.querySelector('.pm-nav-in');

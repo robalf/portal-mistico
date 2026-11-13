@@ -683,3 +683,23 @@
   function init() { mountUI(); watchIframes(); }
   if (document.readyState === 'loading') origDocAdd('DOMContentLoaded', init); else init();
 })();
+
+/* Aviso de idioma: si el navegador está en inglés, ofrece la versión en inglés (sin redirigir a la fuerza) */
+(function(){
+  try{
+    var l=(navigator.languages&&navigator.languages[0])||navigator.language||'';
+    if(!/^en/i.test(l)||/^\/en(\/|$)/.test(location.pathname)) return;
+    if(localStorage.getItem('pm-lang-hint')) return;
+    var show=function(){
+      if(document.getElementById('pm-lang-hint')) return;
+      var a=document.querySelector('a.pm-lt-es'); var href=a?a.getAttribute('href'):'/en/';
+      var d=document.createElement('div'); d.id='pm-lang-hint';
+      d.style.cssText='position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:99999;max-width:calc(100% - 24px);display:flex;gap:10px;align-items:center;padding:10px 14px;border-radius:999px;background:#14162b;border:1px solid rgba(199,162,75,.6);color:#EEF0FA;font:500 14px/1.3 "Work Sans",Arial,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.45)';
+      d.innerHTML='<span>This site is also available in English.</span><a href="'+href+'" style="color:#1a1406;background:linear-gradient(135deg,#E9D9A6,#C7A24B);padding:6px 12px;border-radius:999px;text-decoration:none;font-weight:600;white-space:nowrap">Read in English</a><button type="button" aria-label="Close" style="background:none;border:0;color:#C9CCE6;font-size:18px;cursor:pointer;padding:0 2px">&times;</button>';
+      d.querySelector('button').onclick=function(){try{localStorage.setItem('pm-lang-hint','1')}catch(e){} d.remove()};
+      d.querySelector('a').onclick=function(){try{localStorage.setItem('pm-lang-hint','1')}catch(e){}};
+      document.body.appendChild(d);
+    };
+    setTimeout(show,1800);
+  }catch(e){}
+})();

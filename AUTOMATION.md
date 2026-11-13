@@ -71,3 +71,8 @@ En github.com/robalf/portal-mistico → carpeta `imagenes-pendientes` → Add fi
 - Cubre hasta el 2 de enero de 2031. Si la fecha actual está a menos de 6 meses del final, regenerar con un rango más amplio (editar `end=` en el script). Fuera del rango el horóscopo vuelve a su texto simbólico antiguo.
 - Los textos están en `juegos/horoscopo-game/cielo-textos.js`; la lógica en `cielo.js`.
 - Horóscopo anual 2027–2030: `juegos/horoscopo-game/anual-data.js` (generado con `automation/anual_gen.py`: Júpiter, Saturno, Urano, Neptuno, Plutón, nodos, retrógrados y eclipses por año), textos en `anual-textos.js`, lógica en `anual.js`. Para añadir otro año, ampliar la tupla de años del script, regenerar y añadir la pestaña del año en `main.js` (categories).
+
+## Cadencia vigente (desde 12-nov-2026)
+- Artículo de herramienta: UNA vez cada 14 días (lunes alterno). Último: lunes 9-nov → siguientes: 23-nov, 7-dic, 21-dic…
+- Artículo viral: cada miércoles.
+- El domingo se planifica siempre el viral; la herramienta solo si ese lunes toca (si no, `"herramienta": null`).

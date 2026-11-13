@@ -54,7 +54,7 @@ export function mount(startId) {
   const all = document.querySelector('#hs-all');
   if (all && !['2027','2028','2029','2030'].includes(state.cat.id)) {
     const cat = state.cat;
-    all.innerHTML = `<h2>${cat.title} para los 12 signos</h2><p>Lectura de ${dateLabel(cat.id).toLowerCase()} basada en la posición real de la Luna, el Sol y los planetas. Son interpretaciones simbólicas y de entretenimiento.</p>` + signs.map((s, i) => { const r = readingFor(cat.id, i, 0); return r ? `<h3>${s.glyph} ${s.name}</h3>${r.parrafos.map(t => `<p>${t}</p>`).join('')}` : ''; }).join('');
+    all.innerHTML = `<h2>${cat.title} para los 12 signos</h2><p>Lectura de ${dateLabel(cat.id).toLowerCase()} con textos propios para cada signo y la fecha. Son interpretaciones simbólicas y de entretenimiento.</p>` + signs.map((s, i) => { const r = readingFor(cat.id, i, 0); return r ? `<h3>${s.glyph} ${s.name}</h3>${r.parrafos.map(t => `<p>${t}</p>`).join('')}` : ''; }).join('');
   }
   // fecha de actualización = hoy
   const tm = document.querySelector('#gameInfo time');

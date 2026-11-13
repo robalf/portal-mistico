@@ -463,6 +463,13 @@
         return new Promise(function (resolve) {
           var s = document.createElement('script');
           for (var i = 0; i < old.attributes.length; i++) s.setAttribute(old.attributes[i].name, old.attributes[i].value);
+          // A module script with the same URL only runs once per tab: change the URL on return visits.
+          if (type === 'module' && src) {
+            window.__pmMods = window.__pmMods || {};
+            var key = src.split('#')[0];
+            if (window.__pmMods[key]) s.setAttribute('src', key + (key.indexOf('?') > -1 ? '&' : '?') + 'pmr=' + (++window.__pmMods[key]));
+            else window.__pmMods[key] = 1;
+          }
           if (src) { s.onload = s.onerror = function () { resolve(); }; }
           else s.textContent = old.textContent;
           old.parentNode.replaceChild(s, old);

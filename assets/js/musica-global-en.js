@@ -330,7 +330,7 @@
       var ref = links.querySelector('a[href*="esoteric-calendar"]');
       if (ref && ref.parentNode === links) links.insertBefore(a, ref); else links.insertBefore(a, links.firstChild);
     }
-    a.textContent = '☀️ My Day' + (streakData.n > 1 ? ' · 🔥' + streakData.n : '');
+    a.textContent = '🌠 My Day' + (streakData.n > 1 ? ' · 🔥' + streakData.n : '');
     if (location.pathname === '/en/tools/my-day.html') a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
   }
 

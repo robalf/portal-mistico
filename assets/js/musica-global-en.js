@@ -336,6 +336,16 @@
 
   /* Al cambiar de pantalla dentro de una herramienta (p. ej. tocar una tarjeta del Oráculo),
      la página vuelve al inicio en vez de quedarse a mitad de camino. */
+  /* Subir al inicio al instante (sin animación), aunque la página tenga scroll-behavior:smooth */
+  function pmTop() {
+    try {
+      var de = document.documentElement, b = document.body, pd = de.style.scrollBehavior, pb = b ? b.style.scrollBehavior : '';
+      de.style.scrollBehavior = 'auto'; if (b) b.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0); de.scrollTop = 0; if (b) b.scrollTop = 0;
+      de.style.scrollBehavior = pd; if (b) b.style.scrollBehavior = pb;
+    } catch (e) { try { window.scrollTo(0, 0); } catch (e2) {} }
+  }
+
   var topWatch = null, topKey = null;
   function screenKey(box) {
     var h = box.querySelector('.screen-title, .section-head h2, h1, h2');
@@ -348,7 +358,7 @@
     topKey = screenKey(box);
     topWatch = new MutationObserver(function () {
       var k = screenKey(box);
-      if (k !== topKey) { topKey = k; try { window.scrollTo(0, 0); } catch (e) {} }
+      if (k !== topKey) { topKey = k; pmTop(); }
     });
     topWatch.observe(box, { childList: true, subtree: true });
   }
@@ -623,6 +633,7 @@
     }
 
     function swapIn(doc, stage) {
+      if (push) pmTop();
       teardownPage();
       swapped = true;
       if (push) history.pushState({ pm: 1 }, '', href);
@@ -682,7 +693,7 @@
       }
 
       var target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
-      if (target) target.scrollIntoView(); else window.scrollTo(0, 0);
+      if (target) target.scrollIntoView(); else pmTop();
 
       return runScripts(document.head).then(function () { return runScripts(document.body); }).then(function () {
         mountUI();

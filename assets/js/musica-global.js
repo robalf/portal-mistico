@@ -330,7 +330,7 @@
       var ref = links.querySelector('a[href*="calendario-esoterico"]');
       if (ref && ref.parentNode === links) links.insertBefore(a, ref); else links.insertBefore(a, links.firstChild);
     }
-    a.textContent = '🌠 Mi día' + (streakData.n > 1 ? ' · 🔥' + streakData.n : '');
+    a.textContent = '🧿 Mi día' + (streakData.n > 1 ? ' · 🔥' + streakData.n : '');
     if (location.pathname === '/juegos/mi-dia.html') a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
   }
 

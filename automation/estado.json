@@ -268,12 +268,22 @@
    "tipo": "viral",
    "omitido": true,
    "motivo": "No se pudieron leer las fuentes (EarthSky y Star Walk bloqueadas en esta ejecución; la búsqueda solo devolvió títulos). Sin verificación de 2 fuentes independientes sobre Táuridas del Norte 2026, no se publica."
+  },
+  {
+   "fecha": "2026-11-18",
+   "tipo": "viral",
+   "slug": "superluna-del-castor-2026",
+   "titulo": "Superluna del Castor 2026: cuándo verla y qué simboliza"
   }
  ],
  "viral_categorias": [
   {
    "semana": "2026-11-02",
    "categoria": "cielo y astronomía"
+  },
+  {
+   "semana": "2026-11-16",
+   "categoria": "Luna"
   }
  ]
 }

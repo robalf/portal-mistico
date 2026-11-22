@@ -1,25 +1,30 @@
 {
- "semana": "2026-11-16",
- "herramienta": null,
- "nota_herramienta": "No toca artículo de herramienta: el último fue el 2026-11-09 (7 días antes del lunes 16-nov, menos de 12). Siguiente: lunes 2026-11-23.",
+ "semana": "2026-11-23",
+ "herramienta": {
+  "url": "juegos/signo-lunar.html",
+  "nombre": "Signo lunar",
+  "slug": "signo-lunar-como-calcularlo",
+  "titulo": "Signo lunar: cómo calcularlo y qué dice de tus emociones",
+  "angulo": "Sección de turno: Carta Astral (siguiente_seccion=2, usadas vacío). Se evita 'calcular ascendente' porque ya existe blog/que-es-el-ascendente.html. Enfoque práctico: qué es el signo lunar (la Luna cambia de signo cada ~2,5 días), por qué hace falta fecha y hora de nacimiento, ejemplo calculado con la herramienta, signo lunar vs signo solar (mito vs realidad), limitaciones honestas y FAQ. Enlazar juegos/signo-lunar.html, juegos/carta-astral.html, blog/que-es-el-ascendente.html, glosario y calendario lunar. Usar datos-astro.js para ejemplos."
+ },
  "viral": {
-  "tema": "Superluna del Castor (Luna llena del 24 de noviembre de 2026, 14:53 UTC) cerca del perigeo y de las Pléyades: qué es una superluna, por qué se llama Luna del Castor, significado simbólico en Géminis y cómo usar la noche (ritual de cierre de ciclo antes de diciembre)",
-  "slug": "superluna-del-castor-2026",
-  "titulo": "Superluna del Castor 2026: cuándo verla y qué simboliza",
-  "notas": "Datos verificados (Star Walk 12-nov-2026; Crónica y Grupo Animal MX): Luna llena martes 24 nov 2026 a las 14:53 UTC (08:53 hora centro de México); es superluna (perigeo ~360.768 km según Star Walk; ~6,5% mayor y ~13,5% más brillante que una llena promedio); nombre 'Luna del Castor' por la tradición norteamericana/Old Farmer's Almanac (castores refugiándose y almacenando para el invierno; también temporada de trampas); la Luna pasa cerca de las Pléyades el 23-24 nov (ocultaciones visibles solo desde algunas regiones, no desde toda Latinoamérica) y Urano a ~5° el 24 nov. Cuarto creciente 17 nov 11:48 UTC. Presentar el simbolismo como tradición, sin prometer nada. La Luna llena en Géminis ya aparece en calendario-lunar-noviembre-2026: enlazarlo, más Leónidas (blog/leonidas-2026-lluvia-de-estrellas.html), Táuridas si se publica y juegos/calendario-lunar.html / fase-lunar-hoy.html de forma destacada. Confirmar fecha/signo con datos-astro.js antes de publicar.",
+  "tema": "Urano en oposición el 25 de noviembre de 2026 (en Tauro, cerca de las Pléyades; el planeta está en su punto más cercano y brillante del año): qué es una oposición, cómo buscarlo con prismáticos (la Luna casi llena dificulta verlo) y su significado simbólico (Urano = cambio, ruptura de rutinas, lo inesperado; Tauro = valores y estabilidad).",
+  "slug": "urano-en-oposicion-2026",
+  "titulo": "Urano en oposición 2026: qué es y qué simboliza en Tauro",
+  "notas": "Verificado en 3 fuentes que leyó un subagente (25-nov-2026): BBC Sky at Night (oposición 25 nov, magnitud +5,6, entre Pléyades e Híades, visible toda la noche), Farmers' Almanac (oposición 25 nov en Tauro; la Luna brillante dificulta verlo, sugiere una noche anterior sin Luna) y When the Curves Line Up. Superluna del 24 nov ya publicada: mencionar y enlazar blog/superluna-del-castor-2026.html. DESCARTADO: agrupación Júpiter-Marte-Regulus 'más cercana hasta 2062' (solo 1 fuente y fecha inconsistente 25/26 nov). Ocultación de M44 por la Luna 28 nov (solo 1 fuente): no afirmar. Presentar simbolismo como tradición astrológica. Confirmar con datos-astro.js si procede. Enlaces: juegos/transitos.html, juegos/planetas-retrogrados-hoy.html, zodiaco/tauro.html.",
   "fuentes": [
-   "https://starwalk.space/es/news/full-moon-november",
-   "https://www.cronica.com.mx/tendencias/2026/10/30/la-superluna-del-castor-cuando-y-como-ver-la-luna-llena-mas-brillante-del-2026/",
-   "https://grupoanimal.mx/tecnologia/calendario-astronomico-noviembre-2026-superluna-castor-leonidas"
+   "https://www.skyatnightmagazine.com/advice/stargazing-november-2026",
+   "https://www.farmersalmanac.com/november-2026-night-sky-guide",
+   "https://whenthecurveslineup.com/2026/11/16/2026-november-25-rare-close-jupiter-mars-regulus-grouping-and-uranus-at-opposition/"
   ],
-  "categoria": "Luna"
+  "categoria": "cielo y astronomía"
  },
  "viral_candidatos": {
-  "Luna": "Superluna del Castor 24 nov (Luna llena en perigeo, muy cubierta en medios en español): sin artículo propio (solo mención en calendario lunar) -> ELEGIDO",
-  "astronomía": "Leónidas pico 17-18 nov: YA PUBLICADO (leonidas-2026-lluvia-de-estrellas); Táuridas 11-12 nov ya pasó",
-  "astrología": "Mercurio en máxima elongación occidental 20 nov y Sol entrando en Sagitario ~22 nov: tema menor, cubierto en horóscopo de noviembre",
-  "numerología": "Portal 11/11 ya pasó y ya publicado; nada nuevo esta semana",
-  "tarot": "Solo tendencia general de TikTok tarot, sin noticia concreta -> descartado",
+  "astronomía": "Urano en oposición 25 nov (3 fuentes) -> ELEGIDO. Agrupación Júpiter-Marte-Regulus: 1 sola fuente, descartada. Ocultación de Beehive por la Luna 28 nov: 1 fuente.",
+  "Luna": "Superluna del Castor 24 nov: YA PUBLICADO (superluna-del-castor-2026)",
+  "astrología": "Sol entra en Sagitario ~22 nov y Luna nueva en Sagitario en diciembre: contenido de calendario, sin tendencia concreta aún",
+  "numerología": "nada actual (11/11 ya publicado)",
+  "tarot": "Solo tendencias genéricas de TikTok; sin noticia concreta",
   "otros (ángeles, sueños, cristales, chino, runas, I Ching, rituales)": "nada actual"
  }
 }

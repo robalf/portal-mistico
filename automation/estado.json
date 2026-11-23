@@ -1,5 +1,5 @@
 {
- "siguiente_seccion": 2,
+ "siguiente_seccion": 3,
  "secciones": [
   {
    "seccion": "🔮 Tarot",
@@ -64,7 +64,9 @@
      "nombre": "Signo lunar"
     }
    ],
-   "usadas": []
+   "usadas": [
+    2
+   ]
   },
   {
    "seccion": "🃏 Oráculo de Respuestas",
@@ -274,6 +276,12 @@
    "tipo": "viral",
    "slug": "superluna-del-castor-2026",
    "titulo": "Superluna del Castor 2026: cuándo verla y qué simboliza"
+  },
+  {
+   "fecha": "2026-11-23",
+   "tipo": "herramienta",
+   "slug": "signo-lunar-como-calcularlo",
+   "titulo": "Signo lunar: cómo calcularlo y qué dice de tus emociones"
   }
  ],
  "viral_categorias": [

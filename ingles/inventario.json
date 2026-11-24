@@ -908,5 +908,20 @@
   "palabras": 839,
   "tipo": "zodiaco",
   "iframe": false
+
+ },
+ {
+  "es": "blog/horoscopo-chino-2027.html",
+  "titulo_es": "Horóscopo chino 2027: Cabra de Fuego",
+  "palabras": 2481,
+  "tipo": "blog",
+  "iframe": false
+ },
+ {
+  "es": "blog/rituales-ano-nuevo-2027.html",
+  "titulo_es": "Rituales de Año Nuevo 2027 por país",
+  "palabras": 2588,
+  "tipo": "blog",
+  "iframe": false
  }
 ]

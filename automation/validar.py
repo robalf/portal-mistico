@@ -8,9 +8,10 @@ for f in files:
     s = f.read_text(encoding='utf8')
     for m in re.finditer(r'(?:href|src)="([^"#?]+)', s):
         u = m.group(1)
-        if re.match(r'(https?:|mailto:|tel:|data:|javascript:|//|/assets|wa\.me)', u): 
-            if u.startswith('/'):
-                if not (ROOT/u.lstrip('/')).exists(): print('ROTO', f.relative_to(ROOT), u); bad += 1
+        if re.match(r'(https?:|mailto:|tel:|data:|javascript:|//|wa\.me)', u):
+            continue
+        if u.startswith('/'):
+            if not (ROOT/u.lstrip('/')).exists(): print('ROTO', f.relative_to(ROOT), u); bad += 1
             continue
         if not (f.parent/u).resolve().exists(): print('ROTO', f.relative_to(ROOT), u); bad += 1
 print('enlaces rotos:', bad); sys.exit(1 if bad else 0)

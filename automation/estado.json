@@ -282,6 +282,12 @@
    "tipo": "herramienta",
    "slug": "signo-lunar-como-calcularlo",
    "titulo": "Signo lunar: cómo calcularlo y qué dice de tus emociones"
+  },
+  {
+   "fecha": "2026-11-25",
+   "tipo": "viral",
+   "slug": "urano-en-oposicion-2026",
+   "titulo": "Urano en oposición 2026: cómo verlo y qué simboliza"
   }
  ],
  "viral_categorias": [
@@ -292,6 +298,10 @@
   {
    "semana": "2026-11-16",
    "categoria": "Luna"
+  },
+  {
+   "semana": "2026-11-23",
+   "categoria": "cielo y astronomía"
   }
  ]
 }

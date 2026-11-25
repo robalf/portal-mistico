@@ -67,3 +67,5 @@ M = {
 'juegos/oraculo-de-respuestas.html':'tools/oracle-yes-or-no-runes-i-ching.html','juegos/angel-de-la-guarda.html':'tools/find-your-guardian-angel.html','tienda/index.html':'shop/index.html',
 }
 TANDAS = {1:['index.html','sobre-nosotros.html','contacto.html','aviso-legal.html','cookies.html','privacidad.html','terminos.html','metodologia.html','recursos/index.html','blog/index.html','glosario/index.html']}
+# Diciembre 2026: calculadoras nuevas
+M.update({'juegos/kin-maya.html':'tools/mayan-kin-calculator.html','juegos/lilith-luna-negra.html':'tools/black-moon-lilith-calculator.html','juegos/nodos-lunares.html':'tools/lunar-nodes-calculator.html','juegos/retorno-de-saturno.html':'tools/saturn-return-calculator.html','juegos/matriz-del-destino.html':'tools/destiny-matrix-calculator.html',})

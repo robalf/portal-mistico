@@ -10,6 +10,8 @@ for f in files:
         u = m.group(1)
         if re.match(r'(https?:|mailto:|tel:|data:|javascript:|//|wa\.me)', u):
             continue
+        if "'+" in u or "+'" in u:  # dirección armada en JavaScript ('...'+variable+'...'), no es un enlace real
+            continue
         if u.startswith('/'):
             if not (ROOT/u.lstrip('/')).exists(): print('ROTO', f.relative_to(ROOT), u); bad += 1
             continue

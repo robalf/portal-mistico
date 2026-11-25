@@ -923,5 +923,40 @@
   "palabras": 2588,
   "tipo": "blog",
   "iframe": false
+ },
+ {
+  "es": "juegos/matriz-del-destino.html",
+  "titulo_es": "Matriz del Destino gratis: calcula la tuya",
+  "palabras": 1318,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/retorno-de-saturno.html",
+  "titulo_es": "Retorno de Saturno: calcula la fecha exacta del tuyo",
+  "palabras": 1272,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/nodos-lunares.html",
+  "titulo_es": "Nodos lunares: calcula tu Nodo Norte y Nodo Sur",
+  "palabras": 1254,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/lilith-luna-negra.html",
+  "titulo_es": "Lilith (Luna Negra): calcula su signo en tu carta",
+  "palabras": 1204,
+  "tipo": "tool",
+  "iframe": false
+ },
+ {
+  "es": "juegos/kin-maya.html",
+  "titulo_es": "Kin maya: calcula tu sello y tono del Tzolkin",
+  "palabras": 1111,
+  "tipo": "tool",
+  "iframe": false
  }
 ]
